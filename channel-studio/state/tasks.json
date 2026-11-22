@@ -116,8 +116,10 @@
    "series": null,
    "created": "2026-11-22 21:31",
    "evidence": [],
-   "log": [],
-   "updated": "2026-11-22 21:31"
+   "log": [
+    "2026-11-22 21:50 note: KHÔNG chạy trước 23/11/2026 21:17 giờ VN (radar trước tra 22/11 21:17; cần cách 24–48 giờ). Lần tự lái hợp lệ đầu tiên: 24/11 09:00 (khoảng 36 giờ). Lệnh: niche_outliers.py --days 7, rồi so lượt xem 3 video BwyM7aGf8p0, R2gNUN0ljTc, 3NE-Cz96W7E với research/2026-11-22-radar/outliers.json."
+   ],
+   "updated": "2026-11-22 21:50"
   },
   {
    "id": "T-008",

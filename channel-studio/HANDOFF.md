@@ -87,6 +87,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 0. **Nếu anh gửi link kênh đối thủ:** làm đủ `request-playbooks.md` mục A trong cùng lượt trả lời.
 0a. **Chờ anh duyệt Phần 1** kịch bản 002 (`videos/002-lady-be-good/script_part1.md`). Hook đã đổi "In November 1958" thành "In 1958" vì nguồn lệch tháng. Duyệt xong: viết Phần 2 (chương 3–4). Video 002 đăng trước Gilgamesh (001 dời sang 25/12 theo kế hoạch 90 ngày; dòng Notion của 001 chưa đổi ngày).
 0b. Lấy lại phụ đề video `QkRRERFPfEM` (lần trước bị lỗi 429).
+0c. **T-007 (radar lần 2): KHÔNG chạy trước 23/11/2026 21:17 giờ VN.** Radar lần 1 tra lúc 22/11 21:17; cần cách 24–48 giờ mới đo được đà tăng. Phiên tự lái 23/11 lúc 09:00 và 17:00 bỏ qua thẻ này. Lần hợp lệ đầu tiên là phiên 24/11 09:00 (khoảng 36 giờ, vẫn kịp hạn 24/11). Làm: `niche_outliers.py --days 7`, rồi so lượt xem 3 video `BwyM7aGf8p0`, `R2gNUN0ljTc`, `3NE-Cz96W7E` với `research/2026-11-22-radar/outliers.json`. Video nào còn tăng thì gắn nhãn "ĐANG LÊN – ĐÃ KIỂM CHỨNG" trong IDEA_BANK.
 1. Chạy `check_apis.py`. Đạt là thấy tên kênh, số sub, và Analytics OK. Nếu lỗi, tra bảng sự cố trong `references/environment-and-apis.md`.
 2. Làm 3 mẫu giọng Gemini cho đoạn S0.4 (`videos/001-gilgamesh-lost-lines/script_part1.md`), gửi anh chọn.
 3. Kiểm S3.5 (Enkidu can ngăn), S4.1 ("để Enkidu đi trước"), S4.6 ("trước khi các vị thần biết chuyện") bằng bản dịch Thompson 1928 (cần mở host archive.org).
