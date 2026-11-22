@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;background:#f3f4f6;font-family:"Segoe UI",Roboto,Arial,sans-serif;color:#111}
+.w{width:980px;padding:26px}
+h1{font-size:22px;margin:0 0 4px}.sub{color:#555;font-size:14px;margin-bottom:16px}
+.step{background:#fff;border:1px solid #ddd;border-radius:12px;padding:16px 18px;margin-bottom:14px}
+.n{display:inline-block;width:24px;height:24px;border-radius:50%;background:#1F4E8C;color:#fff;text-align:center;line-height:24px;font-size:13px;margin-right:8px}
+.t{font-weight:700;font-size:15px}
+.path{margin-top:10px;font-family:Consolas,monospace;font-size:14.5px;background:#eef2ff;border:1px solid #c7d2fe;border-radius:8px;padding:9px 12px}
+.path b{color:#b91c1c}
+.np{margin-top:10px;border:1px solid #bbb;border-radius:8px;overflow:hidden}
+.np .bar{background:#e5e7eb;padding:6px 10px;font-size:13px;color:#333}
+.np pre{margin:0;padding:12px 14px;font-family:Consolas,monospace;font-size:14px;line-height:1.55;background:#fff}
+.k{color:#1F4E8C;font-weight:700}.v{color:#15803d}.c{color:#9ca3af}
+.warn{color:#b91c1c;font-weight:600}
+ul{margin:8px 0 0 18px;padding:0;font-size:14px;line-height:1.5}
+</style></head><body><div class="w">
+<h1>Nhập khóa API vào file nào? (máy tính của anh)</h1>
+<div class="sub">Chỉ có MỘT file: <b>.env</b> nằm trong thư mục OpenMontage. Làm SAU khi Claude Code đã clone repo về máy. Ảnh minh họa, khóa dưới đây là ví dụ giả.</div>
+<div class="step"><span class="n">1</span><span class="t">Vị trí file cần tạo</span>
+<div class="path">C:\Users\Admin\HDRE AI\ClayLapis\OpenMontage\<b>.env</b></div>
+<ul><li>Cùng thư mục với file <code>AGENT_GUIDE.md</code> và <code>README.md</code> của OpenMontage.</li>
+<li>Tên file đúng là <b>.env</b>, không có chữ nào trước dấu chấm, không có đuôi .txt.</li></ul></div>
+<div class="step"><span class="n">2</span><span class="t">Tạo file từ mẫu có sẵn</span>
+<div class="path">Chép:&nbsp; ...\OpenMontage\channel-studio\config\api_keys.env.example<br>Dán vào: ...\OpenMontage\ &nbsp;→&nbsp; đổi tên thành <b>.env</b></div>
+<ul><li>File Explorer: bật <b>View → Show → File name extensions</b> trước, để không bị thành <code>.env.txt</code>.</li>
+<li>Hoặc gõ trong PowerShell: <code>cd "C:\Users\Admin\HDRE AI\ClayLapis\OpenMontage"</code> rồi <code>copy channel-studio\config\api_keys.env.example .env</code></li></ul></div>
+<div class="step"><span class="n">3</span><span class="t">Mở .env bằng Notepad, điền khóa ngay sau dấu =, rồi lưu (Ctrl+S)</span>
+<div class="np"><div class="bar">.env - Notepad</div><pre><span class="c"># (các dòng bắt đầu bằng # là ghi chú, giữ nguyên)</span>
+<span class="k">GEMINI_API_KEY</span>=<span class="v">AIzaSy••••••••••••••••••••••••••••</span>
+<span class="k">OPENAI_API_KEY</span>=<span class="v">sk-proj-••••••••••••••••••••••••</span>
+<span class="k">ELEVENLABS_API_KEY</span>=<span class="v">sk_••••••••••••••••••••••••••••••</span>
+<span class="k">YT_CLIENT_ID</span>=<span class="v">1234567890-xxxx.apps.googleusercontent.com</span>
+<span class="k">YT_CLIENT_SECRET</span>=<span class="v">GOCSPX-••••••••••••••••</span>
+<span class="k">YT_REFRESH_TOKEN</span>=<span class="v">1//0g••••••••••••••••••••••••••••</span>
+<span class="k">GDRIVE_REFRESH_TOKEN</span>=<span class="c">(để trống nếu chưa có)</span></pre></div>
+<ul><li><span class="warn">Đúng:</span> <code>GEMINI_API_KEY=AIzaSy...</code> · <span class="warn">Sai:</span> <code>GEMINI_API_KEY = AIzaSy...</code> (có dấu cách) · <code>GEMINI_API_KEY="AIzaSy..."</code> (có dấu nháy)</li>
+<li>Giá trị YouTube lấy từ Notepad anh đã lưu lúc làm OAuth Playground. Gemini, OpenAI, ElevenLabs lấy ở trang của từng dịch vụ.</li></ul></div>
+<div class="step"><span class="n">4</span><span class="t">Kiểm tra: gõ cho Claude Code trên máy "kiểm tra API"</span>
+<ul><li>Dòng đầu phải ghi: <code>0. Nguồn khóa: file ...\OpenMontage\.env</code></li>
+<li><span class="warn">Không dán khóa vào khung chat.</span> File .env không bao giờ lên GitHub (đã chặn sẵn).</li></ul></div>
+</div></body></html>
