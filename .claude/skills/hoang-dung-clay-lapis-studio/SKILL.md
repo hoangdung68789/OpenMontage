@@ -53,6 +53,7 @@ Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó
 | Nghiên cứu đối thủ và ngách | `references/research-playbook.md` + `scripts/research/` |
 | Tự động hóa, tác vụ hẹn giờ | `references/automation.md` |
 | **Định nghĩa hoàn thành cho từng loại yêu cầu, bảng tự kiểm** | `references/request-playbooks.md` |
+| **Làm cùng Codex hoặc agent khác: chia việc, bảng "Ai đang làm gì"** | `references/multi-agent.md` (Codex đọc lối vào tại `.agents/skills/hoang-dung-clay-lapis-studio/`) |
 | **Phạm vi chủ đề: 5 trụ cột kể chuyện** | `references/content-pillars.md` |
 | **16 repo của anh: repo nào dùng ở bước nào** | `references/toolbox-repos.md` |
 | **Khóa API: file mẫu và hướng dẫn** | `channel-studio/config/api_keys.env.example`, `channel-studio/config/HUONG_DAN_KHOA_API.md` |

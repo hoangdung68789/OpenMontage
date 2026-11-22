@@ -7,6 +7,13 @@
 - **Phân tích kênh nào cũng dùng YouTube Data API trước:** `scripts/research/yt_api_channel.py`. Đã chạy cho @WartimeStories, kết quả ở `channel-studio/research/2026-11-22-wartimestories/Wartime_Stories_api.md`: 158 video dài, trung vị 459K view, 10 video gần nhất trung bình 225K (đang giảm), 21 video viral, dài 38,8 phút.
 - **Anh muốn phân tích lại @WartimeStories cho đúng chuẩn**, theo `references/request-playbooks.md` mục A: báo cáo, kế hoạch 90 ngày, kịch bản video đầu tiên, Notion, git. Báo cáo cũ `BAO_CAO.md` do phiên trên máy anh tạo hiện chỉ nằm trên máy anh (chưa đẩy lên git).
 
+## Ai đang làm gì (Claude, Codex…)
+Quy tắc: `references/multi-agent.md`. Nhận việc thì thêm dòng, làm xong thì xóa dòng. Lưu ngay mỗi lần đổi.
+
+| Agent | Việc | File sẽ sửa | Bắt đầu |
+|---|---|---|---|
+| (trống) | | | |
+
 ## Trạng thái API (22/11/2026)
 - **Gemini:** OK. Network secret, header `x-goog-api-key`. Thấy model `gemini-3.8-flash-tts`.
 - **YouTube OAuth + Data API + Analytics:** **OK** (22/11/2026, đã bật API trong dự án 979474479924). Kênh **ICYFOX** (0 sub, 0 video). Anh đã chốt giữ tên ICYFOX.

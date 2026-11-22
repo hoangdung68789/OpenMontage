@@ -86,7 +86,8 @@ def main():
 
     print("== 1. Sao lưu hồ sơ dự án:", ", ".join(mirror_projects()) or "(không có)")
     print("== 2. Chuẩn bị commit (loại file .env) và quét khóa/token")
-    run(["git", "add", "-f", "channel-studio", SKILL_REL])
+    paths = ["channel-studio", SKILL_REL] + [p for p in [".agents/skills/hoang-dung-clay-lapis-studio"] if Path(p).exists()]
+    run(["git", "add", "-f"] + paths)
     staged = [f for f in run(["git", "diff", "--cached", "--name-only"]).stdout.splitlines() if f]
     envs = [f for f in staged if (Path(f).name == ".env" or Path(f).name.endswith(".env")) and not f.endswith(".example")]
     if envs:
