@@ -140,3 +140,13 @@ def test_qa_check_catches_false_word_count(ws):
     f.write_text(body.replace("khoảng 1.270", "760"), encoding="utf-8")
     r = run(ws, S / "qa_check.py", f, "--mark")
     assert r.returncode == 0 and "QA ĐẠT" in f.read_text(encoding="utf-8").splitlines()[0]
+
+
+def test_skill_frontmatter_fits_claude_ai_limits():
+    """claude.ai từ chối lưu skill nếu description > 1024 ký tự, name > 64, hoặc có dấu < >."""
+    import re
+    for skill in (S.parent / "SKILL.md", S.parents[3] / ".agents" / "skills" / "hoang-dung-clay-lapis-studio" / "SKILL.md"):
+        fm = skill.read_text(encoding="utf-8").split("---")[1]
+        name = re.search(r"(?m)^name:\s*(.+)$", fm).group(1).strip()
+        desc = re.search(r'(?m)^description:\s*"(.*)"\s*$', fm).group(1)
+        assert len(name) <= 64 and len(desc) <= 1024 and "<" not in desc and ">" not in desc, (skill, len(desc))

@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 21:39 (giờ Việt Nam).
+Cập nhật: 2026-11-22 21:44 (giờ Việt Nam).
 
 ## Đang làm (0)
 
@@ -35,6 +35,7 @@ Cập nhật: 2026-11-22 21:39 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-021 Sửa lỗi anh không lưu được skill (description 1.240 > 1.024 ký tự) (2026-11-22 21:44): .claude/skills/hoang-dung-clay-lapis-studio/SKILL.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py
 - T-020 Đồng bộ GitHub + soạn lời nhắn cho phiên trên máy anh cập nhật hệ thống mới (2026-11-22 21:39): channel-studio/guides/PROMPT_CAP_NHAT_MAY_TINH.md
 - T-016 Báo cáo số liệu kênh tự động qua YouTube Analytics API (2026-11-22 21:34): channel-studio/analytics/reports/2026-11-22/report.md, channel-studio/analytics/reports/2026-11-22/data.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/research/yt_analytics_report.py
 - T-017 Chế độ tự lái: autopilot.py, pipeline icyfox-autopilot, qa_check.py, yt_publish.py, autopilot.md (2026-11-22 21:34): .claude/skills/hoang-dung-clay-lapis-studio/references/autopilot.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py, pipeline_defs/icyfox-autopilot.yaml, .claude/skills/hoang-dung-clay-lapis-studio/scripts/qa_check.py, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_publish.py, channel-studio/videos/001-gilgamesh-lost-lines/script_part2.qa.md

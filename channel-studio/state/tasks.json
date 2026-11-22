@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 21,
+ "next": 22,
  "tasks": [
   {
    "id": "T-001",
@@ -544,6 +544,59 @@
     ],
     "remaining": "Chưa kiểm được trên Windows: lệnh hook trong settings.json với đường dẫn có khoảng trắng (bước 4 của lời nhắn kiểm việc này)",
     "check": ""
+   }
+  },
+  {
+   "id": "T-021",
+   "title": "Sửa lỗi anh không lưu được skill (description 1.240 > 1.024 ký tự)",
+   "type": "code",
+   "dod": "quick_validate.py báo valid; file .skill đóng gói bằng package_skill.py; có test chặn tái diễn",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-22 21:44",
+   "evidence": [
+    ".claude/skills/hoang-dung-clay-lapis-studio/SKILL.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py"
+   ],
+   "log": [
+    "2026-11-22 21:44 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-22 21:44",
+   "report": {
+    "summary": "Nguyên nhân anh không lưu được skill: description 1.240 ký tự, vượt giới hạn 1.024 (bản cũ 983 ký tự lưu được). Đã rút còn 837 ký tự, giữ đủ từ khóa kích hoạt, đóng gói lại bằng package_skill.py chính thức",
+    "components": [
+     {
+      "name": "Chẩn đoán",
+      "result": "description 1.240 ký tự > 1.024; name 34 ký tự; không có dấu < >",
+      "verified_by": "chạy quick_validate.py chính thức: 'Description is too long (1240 characters)', so với bản 6650483 (983 ký tự)",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/SKILL.md"
+     },
+     {
+      "name": "Sửa",
+      "result": "description còn 837 ký tự, giữ từ khóa: ICYFOX, Clay & Lapis, series, xu hướng, tự lái, sổ việc, nhật ký...",
+      "verified_by": "quick_validate.py báo 'Skill is valid!' cho cả bản Claude và lối vào Codex",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/SKILL.md"
+     },
+     {
+      "name": "Đóng gói",
+      "result": "file .skill 127.834 byte, đóng bằng package_skill.py (công cụ chính thức, tự kiểm trước khi đóng)",
+      "verified_by": "unzip -l: SKILL.md nằm trong thư mục hoang-dung-clay-lapis-studio/",
+      "evidence": "/home/user/channel-studio/skill-package/hoang-dung-clay-lapis-studio.skill"
+     },
+     {
+      "name": "Chống tái diễn",
+      "result": "thêm bài test_skill_frontmatter_fits_claude_ai_limits (description ≤ 1.024, name ≤ 64, không có < >)",
+      "verified_by": "pytest 8/8 đạt",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py"
+     }
+    ],
+    "remaining": "Anh cần bấm Save skill lại trên file mới; nếu vẫn lỗi, chụp màn hình thông báo lỗi gửi tôi",
+    "check": "python3 /mnt/skills/examples/skill-creator/scripts/quick_validate.py .claude/skills/hoang-dung-clay-lapis-studio && python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
    }
   }
  ]
