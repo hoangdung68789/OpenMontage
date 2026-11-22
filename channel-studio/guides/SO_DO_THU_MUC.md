@@ -1,90 +1,166 @@
-# Sơ đồ thư mục ICYFOX trên máy anh (tra 22/11/2026)
+# Sơ đồ thư mục ICYFOX trên máy anh (bản đầy đủ, tra 22/11/2026 tối)
 
-Đường dẫn gốc: `C:\Users\Admin\HDRE AI\ClayLapis\OpenMontage\`
-Chuẩn đối chiếu: `.claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md`
-Kết quả: **có 22/23 thư mục chuẩn**. Chỉ thiếu `shorts/`, sẽ được tạo khi làm Shorts (thẻ T-005).
+- Đường dẫn gốc: `C:\Users\Admin\HDRE AI\ClayLapis\OpenMontage\`
+- Chuẩn đối chiếu: `.claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md`
+- Kết quả: **có 22/23 thư mục chuẩn**. Thiếu `channel-studio/shorts/`, sẽ tạo ở T-005.
+- **Có 6 vấn đề cần anh biết:** xem mục 6.
 
-## 1. Toàn cảnh
+Ký hiệu: ✅ có · ⏳ chưa có, sẽ tạo ở bước sau · ⚠️ có vấn đề (mục 6) · 🔒 không lên git
 
-```
-OpenMontage/
-├── .env                          ← khóa API (6/7 khóa, thiếu GDRIVE_REFRESH_TOKEN, thẻ T-012). KHÔNG lên git
-├── .claude/
-│   ├── settings.json             ← 3 hook nhắc việc (đầu phiên, mỗi lượt, cuối lượt)
-│   └── skills/hoang-dung-clay-lapis-studio/
-│       ├── SKILL.md              ← bộ luật vận hành kênh
-│       ├── references/           ← quy trình: autopilot, work-contract, read-map, workspace-structure…
-│       └── scripts/              ← tasks.py, autopilot.py, session_start.sh, session_end.py,
-│                                   qa_check.py, yt_publish.py, research/ (radar, báo cáo), hooks/, tests/
-├── projects/                     ← hồ sơ dự án OpenMontage đang dùng (KHÔNG lên git; chép qua lại với channel-studio/projects/)
-│   ├── gilgamesh-pilot/
-│   └── lady-be-good/
-└── channel-studio/               ← mọi tài liệu kênh (lên GitHub cuối mỗi phiên). Chi tiết ở mục 2
-```
+---
 
-## 2. Thư mục `channel-studio/`
+## 1. Ba nơi lưu trên máy anh
 
 ```
-channel-studio/
+C:\Users\Admin\
+├── .claude\scheduled-tasks\              ← tác vụ hẹn giờ của app Claude (ngoài repo)
+│   ├── icyfox-san-xuat-9h-17h\SKILL.md       09:00 + 17:00 mỗi ngày, chế độ tự lái
+│   └── icyfox-bao-cao-tuan-cn-9h\SKILL.md    Chủ nhật 09:00, báo cáo số liệu
+│
+└── HDRE AI\ClayLapis\OpenMontage\        ← repo GitHub hoangdung68789/OpenMontage, nhánh ccr-6640cec8-2anthl
+    ├── .env                         🔒 khóa API: 6/7 khóa (thiếu GDRIVE_REFRESH_TOKEN, thẻ T-012)
+    ├── .claude\                     ← bộ não ICYFOX (mục 2)
+    ├── channel-studio\              ← toàn bộ tài liệu kênh, 32 MB (mục 3)
+    ├── projects\                    🔒 hồ sơ dự án OpenMontage đang dùng (mục 5)
+    ├── pipeline_defs\icyfox-autopilot.yaml   quy trình tự lái dạng OpenMontage
+    └── (phần mềm OpenMontage: tools\, lib\, skills\, schemas\, remotion-composer\,
+         backlot\, ink-theater\, styles\, tests\, docs\, AGENT_GUIDE.md, CLAUDE.md…)
+```
+
+## 2. `.claude\`: skill, hook, lệnh
+
+```
+.claude\
+├── settings.json                 ✅ 3 hook: đầu phiên, mỗi lượt, cuối lượt (đã chạy thật)
+├── .icyfox_session               🔒 dấu phiên của hook
+├── launch.json, commands\        (lệnh chung của OpenMontage)
+└── skills\hoang-dung-clay-lapis-studio\
+    ├── SKILL.md                  bộ luật vận hành kênh
+    ├── references\  (18 file)    quy trình
+    │   ├── work-contract.md      hợp đồng làm việc, quy tắc báo "xong"
+    │   ├── read-map.md           việc nào đọc file nào, dùng công cụ nào
+    │   ├── autopilot.md          chế độ tự lái (anh giao toàn quyền 22/11)
+    │   ├── workspace-structure.md  chuẩn thư mục (file đối chiếu của sơ đồ này)
+    │   ├── analytics-loop.md     từ số liệu ra ý tưởng, chấm điểm
+    │   ├── content-pillars.md    5 trụ cột P1–P5
+    │   ├── production-workflow.md, publish-package.md, series-playbook.md
+    │   ├── research-playbook.md, request-playbooks.md, policy-guardrails.md
+    │   ├── decisions-log.md, multi-agent.md, automation.md
+    │   └── environment-and-apis.md, local-render.md, toolbox-repos.md
+    ├── templates\  (4 file)      mẫu HANDOFF, README video, phần kịch bản, lời mở phiên
+    └── scripts\
+        ├── session_start.sh, session_end.py   mở và đóng phiên (đồng bộ projects, đẩy GitHub)
+        ├── tasks.py              sổ việc + kiểm "xong"
+        ├── autopilot.py          lập chương trình làm việc mỗi phiên
+        ├── qa_check.py           tự kiểm kịch bản (đếm từ, nguồn)
+        ├── yt_publish.py         áp gói đăng, hẹn giờ
+        ├── series.py, check_apis.py, yt_authorize_desktop.py
+        ├── restore_machine.sh, icyfox_common.py
+        ├── hooks\                run.sh, pulse.py
+        ├── research\  (8 file)   niche_outliers.py (radar), yt_analytics_report.py (báo cáo),
+        │                         story_scan.py, niche_scan.py, deep_scan.py, deep_analyze.py,
+        │                         summarize.py, yt_api_channel.py
+        └── tests\test_icyfox_tools.py   8/8 đạt
+```
+
+## 3. `channel-studio\`: tài liệu kênh (lên GitHub)
+
+```
+channel-studio\
 ├── MISSION.md        ✅ mục tiêu vĩnh viễn (chỉ anh sửa)
-├── PLAN.md           ✅ kế hoạch hiện hành, lịch đăng
-├── HANDOFF.md        ✅ trạng thái mới nhất, đọc đầu phiên
-├── TASKS.md          ✅ sổ việc (tự sinh)
+├── PLAN.md           ✅ kế hoạch, lịch đăng (khối releases)
+├── HANDOFF.md        ✅ trạng thái mới nhất
+├── TASKS.md          ✅ sổ việc (tự sinh từ state\tasks.json)
 ├── README.md         ✅ bản đồ ngắn
 │
-├── state/            ✅ tasks.json: dữ liệu sổ việc
-├── logs/             ✅ 2026-11.md: nhật ký hoàn thành từng việc
-├── ideas/            ✅ IDEA_BANK.md: 8 ý tưởng Sẵn sàng
+├── state\tasks.json              ✅ dữ liệu sổ việc
+├── logs\2026-11.md               ✅ nhật ký hoàn thành từng việc
+├── ideas\IDEA_BANK.md            ✅ 8 ý tưởng Sẵn sàng
 │
-├── analytics/        ✅ số liệu kênh
-│   ├── reports/2026-11-22/   report.md + data.json
-│   ├── WINNERS.md            video thắng, quy luật
-│   └── video_map.json        YouTube ID → video
+├── analytics\                    ✅
+│   ├── reports\2026-11-22\       report.md, data.json
+│   ├── WINNERS.md                video thắng, quy luật
+│   └── video_map.json            YouTube ID → video
 │
-├── series/           ✅ SERIES_INDEX.md
-├── channel/          ✅ channel_setup.md, automation_plan.md
-├── config/           ✅ mẫu khóa API + hướng dẫn
-├── guides/           ✅ hướng dẫn cho anh (có file này)
+├── series\SERIES_INDEX.md        ✅ (chưa có series nào) ⚠️ mục 6.3
+├── channel\                      ✅ channel_setup.md, automation_plan.md
+├── config\                       ✅ api_keys.env.example, HUONG_DAN_KHOA_API.md
+├── guides\                       ✅ file này + KHOI_PHUC_MAY_MOI.md, local_setup.md,
+│                                    PROMPT_CAP_NHAT_MAY_TINH.md, hướng dẫn .env và Gemini (html/png)
 │
-├── research/         ✅ nghiên cứu (27 file)
-│   ├── 2026-11-22-radar/            radar xu hướng lần 1
-│   ├── 2026-11-22-ideas/            bằng chứng 7 ý tưởng mới
-│   ├── 2026-11-22-story-niches/     quét 12 nhóm chủ đề
-│   ├── 2026-11-22-wartimestories/   phân tích đối thủ + KẾ HOẠCH 90 NGÀY
-│   ├── deep_scan/, niche_scan/
+├── research\                     ✅
+│   ├── 2026-11-22-radar\              RADAR.md, outliers.json (radar lần 1, 21:17)
+│   ├── 2026-11-22-ideas\              evidence.json (bằng chứng I-004..I-010)
+│   ├── 2026-11-22-story-niches\       story_scan.json, summary.md, Yesterday_api.*
+│   ├── 2026-11-22-wartimestories\     13 mục: BAO_CAO.md, KE_HOACH_90_NGAY.md, api, phụ đề, bình luận
+│   ├── deep_scan\deep.json            ⚠️ mục 6.5 (tên thiếu ngày)
+│   ├── niche_scan\                    channels.json, search.json ⚠️ mục 6.5
 │   └── competitor_thumbnails_grid.jpg
 │
-├── projects/         ✅ bản sao hồ sơ OpenMontage (gilgamesh-pilot, lady-be-good)
+├── projects\                     ✅ bản sao hồ sơ OpenMontage (mục 5) ⚠️ mục 6.1
+│   ├── gilgamesh-pilot\
+│   └── lady-be-good\
 │
-├── videos/           ✅ mỗi video dài một thư mục NNN-slug
-│   ├── 001-gilgamesh-lost-lines/    đăng 25/12 · P5
-│   │   ├── README.md, proposal.md
-│   │   ├── script_part1.md          (chờ duyệt)
-│   │   ├── script_part2.md + .qa.md (ĐÃ DUYỆT)
-│   │   └── package/
-│   └── 002-lady-be-good/            đăng 11/12 · P2+P3
-│       ├── README.md, script_outline.md
-│       ├── script_part1..4.md + .qa.md
-│       ├── script_full_ready.txt    kịch bản đủ 4 phần
-│       └── voice/                   lời đọc (đang làm, T-025)
+├── videos\                       ✅ (mục 4)
+│   ├── 001-gilgamesh-lost-lines\
+│   └── 002-lady-be-good\
 │
-└── shorts/           ⏳ CHƯA CÓ: tạo khi làm 10 Shorts đầu (T-005, hạn 30/11)
+└── shorts\                       ⏳ chưa có: tạo khi làm 10 Shorts đầu (T-005, hạn 30/11)
 ```
 
-## 3. Một thư mục video khi làm xong sẽ có
+## 4. Thư mục video
 
 ```
-videos/NNN-slug/
-├── README.md              trạng thái, trụ cột, link Notion
-├── script_outline.md      dàn ý + hook
-├── script_partN.md        kịch bản từng phần (+ .qa.md tự kiểm)
-├── script_full_ready.txt  đánh dấu đủ các phần
-├── voice/                 ghi chú giọng (file âm thanh không lên git)
-├── shorts/                Shorts cắt từ video này
-├── render/                dự án HyperFrames + RENDERED.txt
-└── package/               title.txt, description.md, tags.txt, thumbnail.png,
-                           subtitles/*.srt, i18n.json, publish_at.txt, UPLOADED.txt
+videos\
+├── 001-gilgamesh-lost-lines\     đăng 25/12 · P5 · project gilgamesh-pilot
+│   ├── README.md, proposal.md    (proposal.md thay cho script_outline.md, autopilot chấp nhận)
+│   ├── script_part1.md           chờ duyệt, chưa có .qa.md ⚠️ mục 6.4
+│   ├── script_part2.md + .qa.md  ĐÃ DUYỆT 22/11
+│   ├── script_part3.md, part4    ⏳ chưa viết (T-009, T-010)
+│   └── package\                  chỉ có .gitkeep (chưa tới bước gói đăng)
+│
+└── 002-lady-be-good\             đăng 11/12 · P2+P3 · project lady-be-good
+    ├── README.md, script_outline.md
+    ├── script_part1..4.md + .qa.md   QA ĐẠT cả 4 phần ⚠️ mục 6.2
+    ├── script_full_ready.txt     đủ 4 phần
+    ├── yt_search_2026-11-22.json
+    ├── voice\                    phiên T-025 đang làm: README.md, narrate.py, check_voice.py,
+    │                             narration_report.py, voice_samples.py, check_voice.jsonl, prompt_S5.5.txt
+    ├── shorts\, render\          ⏳ bước sau
+    └── package\                  ⏳ bước sau
 ```
 
-Ký hiệu: ✅ đã có · ⏳ chưa có, sẽ tạo ở bước sau.
-File MP4 và WAV dài không nằm trên git. Chúng ở `OpenMontage/projects/<id>/` hoặc Google Drive (khi xong T-012).
+Một thư mục video khi làm xong sẽ có:
+```
+README.md · script_outline.md · script_partN.md (+ .qa.md) · script_full_ready.txt
+voice\ · shorts\ · render\ (RENDERED.txt) · package\ (title.txt, description.md, tags.txt,
+thumbnail.png, subtitles\*.srt, i18n.json, publish_at.txt, UPLOADED.txt)
+```
+
+## 5. Hồ sơ dự án OpenMontage: hai bản đồng bộ
+
+```
+OpenMontage\projects\<id>\  🔒 (bản đang làm)  ── session_end.py chép sang ──▶  channel-studio\projects\<id>\  (lên git)
+                                                ◀── session_start.sh chép về ──
+Bỏ qua khi chép: assets\video\, renders\, file > 20 MB.
+
+gilgamesh-pilot\   573 KB   project.json, checkpoint_research/proposal, decision_log, events.jsonl,
+                            artifacts\ (research_brief, proposal_packet, decision_log), assets\audio\samples\
+lady-be-good\      27 MB    project.json, checkpoint_research/proposal/script,
+                            artifacts\ (research_brief, proposal_packet, script.json),
+                            assets\audio\narration\ (8/31 WAV, đang làm) + voice_samples\,
+                            assets\images\, music\, video\ 🔒, renders\ 🔒
+```
+
+## 6. Vấn đề phát hiện (tôi chỉ báo, chưa sửa gì vì phiên T-025 đang chạy)
+
+| # | Mức | Vấn đề | Bằng chứng | Đề xuất (chờ anh chốt) |
+|---|---|---|---|---|
+| 6.1 | **Cao** | **File âm thanh đang lên git, trái luật "WAV dài không lên git".** Đã có 17 file (8 WAV lời đọc + mẫu giọng), khoảng 28 MB. Khi đủ 31 đoạn lời đọc, git sẽ có thêm khoảng 40 MB nữa, và mỗi lần đọc lại một đoạn lại thêm một bản mới. Repo phình to mãi | `git ls-files` trong `channel-studio/projects/lady-be-good/assets/audio/`; `session_end.py` chỉ bỏ qua `video`, `renders` và file > 20 MB | Sau khi T-025 xong: thêm `audio` vào danh sách bỏ qua của `session_end.py` (hoặc thêm dòng `.gitignore`), gỡ file âm thanh khỏi git bằng `git rm --cached`, chép WAV lên Google Drive (T-012). Không viết lại lịch sử git |
+| 6.2 | Thấp | Dòng đầu 4 phần kịch bản 002 vẫn ghi "chờ duyệt", trong khi HANDOFF ghi anh đã duyệt cả kịch bản ngày 22/11 | dòng 1 các file `script_part1..4.md`; HANDOFF dòng 63, 75 | Đổi thành "ĐÃ DUYỆT 22/11/2026" sau khi T-025 xong |
+| 6.3 | Thấp | README video 002 và ý tưởng I-001, I-006 ghi series "Documented", nhưng chưa có series nào được đăng ký | `series/SERIES_INDEX.md`: "(chưa có series)" | Anh chốt "Documented" là series nhiều tập (tạo bằng `series.py`) hay chỉ là nhãn phong cách |
+| 6.4 | Thấp | 001 Phần 1 "chờ duyệt", chưa có báo cáo `.qa.md`; Phần 3–4 chưa viết. Dòng Notion 001 chưa đổi sang ngày 25/12 | dòng 1 `script_part1.md`; HANDOFF dòng 87 | Chạy `qa_check.py` cho Phần 1; AI tự duyệt theo quyền anh giao 22/11 |
+| 6.6 | Trung bình | `PLAN.md` vẫn ghi "thứ Năm gửi anh LÔ DUYỆT TUẦN" và "ghi rõ trong lô duyệt tuần", trái với MISSION và HANDOFF (anh giao toàn quyền 22/11, bỏ lô duyệt tuần). Tự lái đọc PLAN có thể vẫn chờ anh duyệt | `PLAN.md` dòng 10, 49; `MISSION.md` dòng 14 | Sửa 2 dòng PLAN theo MISSION sau khi T-025 xong (phiên kia đang sửa autopilot) |
+| 6.5 | Thấp | `research/deep_scan/`, `niche_scan/` và ảnh `competitor_thumbnails_grid.jpg` không theo quy ước tên `<ngày>-<việc>` | ls `research/` | Gom vào `research/2026-11-22-wartimestories/` hoặc giữ nguyên (không ảnh hưởng chạy) |
+
+Đã kiểm và **không có vấn đề**: `.env`, `.icyfox_session` và `OpenMontage/projects/` được git bỏ qua đúng; không có file nào trên 5 MB trên git; hook chạy; test 8/8; 2 tác vụ hẹn giờ có lời nhắn mới.
