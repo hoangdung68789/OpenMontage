@@ -14,7 +14,8 @@ from datetime import date, datetime, timedelta
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from icyfox_common import CS, data_block, load_json, now_vn, utf8  # noqa: E402
+from icyfox_common import CS, data_block, load_env, load_json, now_vn, utf8  # noqa: E402
+import watchdog  # noqa: E402
 
 PLAN = CS / "PLAN.md"
 # Số ngày tối thiểu trước ngày đăng (NHẬN ĐỊNH, chỉnh trong references/autopilot.md nếu đổi)
@@ -112,7 +113,7 @@ def agenda():
         st, lvl = stage_of(vd)
         need = None
         if lvl < 1.5 and left <= LEAD["outline"]:
-            need = "dàn ý + hook phải được duyệt (đưa vào LÔ DUYỆT TUẦN)"
+            need = "dàn ý + hook: AI tự chốt, ghi HANDOFF"
         elif lvl < 3 and left <= LEAD["script"]:
             need = "viết xong toàn bộ kịch bản và chạy qa_check"
         elif lvl < 4 and left <= LEAD["render"]:
@@ -164,7 +165,13 @@ def agenda():
     if wd == 3:
         items.append((1, "AI", "Hôm nay thứ Năm: AI tự chốt lô tuần sau (chủ đề + dàn ý + hook), ghi HANDOFF; không gửi anh duyệt (anh giao quyền 22/11/2026)"))
     if wd == 5:
-        items.append((1, "Anh", "Hôm nay thứ Bảy: chuẩn bị GÓI TẢI LÊN tuần sau (danh sách file theo thứ tự + link), báo anh 1 tin"))
+        import os
+        load_env()
+        if os.environ.get("YT_AUDIT_APPROVED") == "1":
+            items.append((1, "AI", "Hôm nay thứ Bảy: tự tải video tuần sau bằng `yt_publish.py upload <thư mục video>` (đã qua audit)"))
+        else:
+            items.append((1, "Anh", "Hôm nay thứ Bảy: chuẩn bị GÓI TẢI LÊN tuần sau (danh sách file theo thứ tự + link), báo anh 1 tin. Bỏ bước này khi audit API được duyệt (channel/api-audit/DON_AUDIT.md)"))
+    items += watchdog.scan()  # việc treo, quá hạn, lỗi log tác vụ nền (references/fallbacks.md)
     items.sort(key=lambda x: x[0])
     return {"date": str(t), "phase": phase, "items": items, "releases": rel_lines,
             "waiting": [f"{x['id']}: {x['title']} — {x.get('question', '')}" for x in waiting],

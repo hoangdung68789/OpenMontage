@@ -1,14 +1,13 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 23:20 (giờ Việt Nam).
+Cập nhật: 2026-11-22 23:55 (giờ Việt Nam).
 
-## Đang làm (2)
+## Đang làm (1)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
 | T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
-| T-026 | Đang làm | claude | Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API | publish |  |  | yt_publish.py có lệnh upload (dry-run đạt, test đạt); channel/youtube_api_audit.md điền sẵn mọi trường form Google (có nguồn), kèm trang chính sách riêng tư và điều khoản; PLAN.md dòng 10, 49 theo cách mới |  |
 
 ## Chờ anh quyết (0)
 
@@ -35,6 +34,7 @@ Cập nhật: 2026-11-22 23:20 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-026 Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API (2026-11-22 23:22): channel-studio/PLAN.md
 - T-019 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần (2026-11-22 22:21): channel-studio/videos/002-lady-be-good/script_part1.md, channel-studio/videos/002-lady-be-good/script_part2.md, channel-studio/videos/002-lady-be-good/script_part3.md, channel-studio/videos/002-lady-be-good/script_part4.md, channel-studio/videos/002-lady-be-good/script_full_ready.txt, channel-studio/videos/002-lady-be-good/script_part1.qa.md, channel-studio/videos/002-lady-be-good/script_part2.qa.md, channel-studio/videos/002-lady-be-good/script_part3.qa.md, channel-studio/videos/002-lady-be-good/script_part4.qa.md
 - T-024 Hướng dẫn + script khôi phục toàn bộ dữ liệu ICYFOX khi đổi máy tính (2026-11-22 22:03): channel-studio/guides/KHOI_PHUC_MAY_MOI.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh
 - T-023 Kiểm cấu trúc thư mục ICYFOX trên máy anh so với chuẩn của skill (2026-11-22 21:58): .claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md, channel-studio/videos/001-gilgamesh-lost-lines/README.md, channel-studio/HANDOFF.md

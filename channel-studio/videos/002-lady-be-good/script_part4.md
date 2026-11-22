@@ -1,4 +1,4 @@
-# Kịch bản Lady Be Good, Phần 4/4 (19:21–27:29) · chờ duyệt · QA ĐẠT 2026-11-22
+# Kịch bản Lady Be Good, Phần 4/4 (19:21–27:29) · ĐÃ DUYỆT 22/11/2026 · QA ĐẠT 2026-11-22
 
 Tốc độ đọc khoảng 125 từ/phút. Mốc giờ được tính lại bằng máy từ số từ thật, sẽ căn lại theo giọng đọc thật.
 Lời thoại tự viết. Chỗ nào các nguồn ghi khác nhau thì lời thoại nói rõ là khác nhau, không chọn một con số rồi nói như sự thật.

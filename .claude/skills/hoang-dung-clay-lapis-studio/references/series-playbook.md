@@ -12,7 +12,7 @@ Bộ nhớ series nằm trong git, không nằm trong trí nhớ của AI: `chan
 ## 2. Độ dài và điểm kết thúc
 - Chốt số tập **ngay khi tạo series**: 2–6 tập (`series.py new … --episodes N`). Mỗi tập ghi 1 dòng mạch (`--arc`).
 - Tập N là **TẬP CUỐI**. `series.py` từ chối thêm tập N+1.
-- **Kéo dài** chỉ khi có số liệu (ví dụ: tập 1 có giờ xem 7 ngày gấp 2 lần trung vị kênh) **và** anh đồng ý trong lô duyệt tuần: `series.py extend <id> --to N --reason "số liệu"`. Tối đa 6 tập.
+- **Kéo dài** chỉ khi có số liệu (ví dụ: tập 1 có giờ xem 7 ngày gấp 2 lần trung vị kênh) **và** ghi lý do vào HANDOFF + báo cáo Chủ nhật (AI tự quyết từ 22/11/2026): `series.py extend <id> --to N --reason "số liệu"`. Tối đa 6 tập.
 - **Rút ngắn**: nếu tập 1 sau 7 ngày dưới 0,5 lần trung vị kênh, gộp các tập còn lại vào tập cuối. Ghi vào decisions-log.
 
 ## 3. Quy trình mỗi tập

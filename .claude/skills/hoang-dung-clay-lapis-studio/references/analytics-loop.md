@@ -31,7 +31,7 @@ Mục tiêu (`MISSION.md`): mọi quyết định về chủ đề, tiêu đề,
 2. **Video yếu** → ghi 1 giả thuyết (tiêu đề, thumbnail, hook hay chủ đề) và 1 thử nghiệm cho video kế tiếp. Ghi trong IDEA_BANK, mục "Thử nghiệm".
 3. **Ứng viên radar** → thêm vào IDEA_BANK kèm link, lượt xem, giờ tra, nhãn. Chấm điểm (mục 4). Đạt thì chuyển "Sẵn sàng".
 4. **Series thắng:** tập 1 thắng thì cân nhắc kéo dài (`series-playbook.md` §2). Series yếu thì rút ngắn.
-5. **Kế hoạch:** ý tưởng "Sẵn sàng" có điểm cao nhất thay chủ đề chưa viết có điểm thấp nhất trong PLAN, ghi trong lô duyệt tuần.
+5. **Kế hoạch:** ý tưởng "Sẵn sàng" có điểm cao nhất thay chủ đề chưa viết có điểm thấp nhất trong PLAN, ghi vào HANDOFF và nêu trong báo cáo Chủ nhật (lô duyệt tuần đã bỏ 22/11/2026).
 6. **Trụ cột:** sau 8 video dài, trụ cột dưới 50% trụ cột mạnh nhất thì giảm tần suất (`KE_HOACH_90_NGAY.md` §5).
 
 ## 4. Chấm điểm ý tưởng (0–5 mỗi tiêu chí, nhân lại; ≥ 27 điểm thì "Sẵn sàng")
