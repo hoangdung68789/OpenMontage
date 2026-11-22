@@ -1,5 +1,7 @@
 # Chạy kênh Clay & Lapis bằng Claude Code trên máy tính của anh (không qua cloud)
 
+> **Đổi máy hoặc cài máy mới:** dùng `channel-studio/guides/KHOI_PHUC_MAY_MOI.md` và script `restore_machine.sh`. Script làm tự động phần C dưới đây và kiểm tra luôn.
+
 Tài liệu này có 2 phần: phần A anh tự làm, phần B anh giao cho Claude Code trên máy làm.
 
 ## Khác biệt so với phiên cloud

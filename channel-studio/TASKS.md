@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 21:58 (giờ Việt Nam).
+Cập nhật: 2026-11-22 22:03 (giờ Việt Nam).
 
 ## Đang làm (0)
 
@@ -34,6 +34,7 @@ Cập nhật: 2026-11-22 21:58 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-024 Hướng dẫn + script khôi phục toàn bộ dữ liệu ICYFOX khi đổi máy tính (2026-11-22 22:03): channel-studio/guides/KHOI_PHUC_MAY_MOI.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh
 - T-023 Kiểm cấu trúc thư mục ICYFOX trên máy anh so với chuẩn của skill (2026-11-22 21:58): .claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md, channel-studio/videos/001-gilgamesh-lost-lines/README.md, channel-studio/HANDOFF.md
 - T-022 Bổ sung kho ý tưởng lên >= 4 ý tưởng Sẵn sàng (có bằng chứng, chấm N×P×K) (2026-11-22 21:56): channel-studio/ideas/IDEA_BANK.md, channel-studio/research/2026-11-22-ideas/evidence.json
 - T-018 Đổi lời nhắn 2 tác vụ hẹn giờ trên máy anh sang chế độ tự lái (autopilot.md §8); báo cáo tuần ghi vào analytics/reports/ (2026-11-22 21:49): channel-studio/HANDOFF.md, .claude/settings.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py

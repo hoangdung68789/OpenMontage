@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 24,
+ "next": 25,
  "tasks": [
   {
    "id": "T-001",
@@ -751,6 +751,53 @@
     ],
     "remaining": "shorts/ sẽ có khi làm T-005. Google Drive chưa cấu hình (T-012).",
     "check": ""
+   }
+  },
+  {
+   "id": "T-024",
+   "title": "Hướng dẫn + script khôi phục toàn bộ dữ liệu ICYFOX khi đổi máy tính",
+   "type": "ops",
+   "dod": "File hướng dẫn trong channel-studio/guides/, restore_machine.sh chạy thử đạt trong thư mục trống, lời nhắn cho Claude Code máy mới",
+   "owner": "claude",
+   "status": "done",
+   "prio": 2,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-22 22:02",
+   "evidence": [
+    "channel-studio/guides/KHOI_PHUC_MAY_MOI.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh"
+   ],
+   "log": [
+    "2026-11-22 22:03 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-22 22:03",
+   "report": {
+    "summary": "Hướng dẫn đổi máy gồm 5 mục và script restore_machine.sh. Script chạy thử từ thư mục trống: tự clone, kiểm API, chạy kiểm thử trong 82 giây",
+    "components": [
+     {
+      "name": "Script khôi phục",
+      "result": "clone OpenMontage đúng nhánh + repo công cụ, kiểm Python/Node/ffmpeg, cài thư viện, tạo .env từ mẫu (không đọc khóa), chạy session_start + 8 kiểm thử, in việc còn thiếu",
+      "verified_by": "chạy thật trong thư mục trống trên cloud (--core --no-pip): clone xong, Gemini/ElevenLabs/OpenAI/YouTube/Kênh ICYFOX/Analytics OK, 8 passed, 82 giây; chạy lần 2: nhận ra repo đã có, không clone lại",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh"
+     },
+     {
+      "name": "Hướng dẫn",
+      "result": "bảng 8 loại dữ liệu (4 thứ không nằm trên GitHub: .env, 2 tác vụ hẹn giờ, file lớn, lịch sử chat), 4 việc trước khi bỏ máy cũ, 6 bước anh làm, lời nhắn 9 bước cho Claude Code máy mới, cách lấy lại 6 khóa, dấu hiệu đạt",
+      "verified_by": "đối chiếu tên biến với api_keys.env.example (7 biến), đối chiếu đường dẫn autopilot.md §8 và automation.md",
+      "evidence": "channel-studio/guides/KHOI_PHUC_MAY_MOI.md"
+     },
+     {
+      "name": "Liên kết tài liệu",
+      "result": "thêm dòng trỏ tới hướng dẫn trong local_setup.md, SKILL.md (bản đồ tài nguyên), read-map.md (loại việc 'Đổi máy')",
+      "verified_by": "grep từng file có đúng 1 dòng mới; quick_validate báo Skill is valid",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/SKILL.md, .claude/skills/hoang-dung-clay-lapis-studio/references/read-map.md, channel-studio/guides/local_setup.md"
+     }
+    ],
+    "remaining": "Chưa chạy thử trên Windows thật: winget, Notepad, Git Bash với đường dẫn có khoảng trắng. Phiên máy mới sẽ kiểm ở bước 2–5 của lời nhắn",
+    "check": "bash -n .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh && python3 /mnt/skills/examples/skill-creator/scripts/quick_validate.py .claude/skills/hoang-dung-clay-lapis-studio && python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
    }
   }
  ]

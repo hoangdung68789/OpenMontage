@@ -21,6 +21,7 @@ Trên Windows dùng `python`, trên cloud dùng `python3`.
 | Gói đăng | `publish-package.md` | — | — | `package/` có title.txt, description.md, tags.txt, thumbnail, `subtitles/*.srt`, `i18n.json`, `publish_at.txt` | package |
 | Áp gói lên video anh đã tải, hẹn giờ, phụ đề | `autopilot.md` §3, `publish-package.md` | `SK/scripts/yt_publish.py scan` → `auto` | — | `package/UPLOADED.txt`, `CS/analytics/video_map.json` | publish |
 | Sửa công cụ, viết mã (thường giao Codex) | `multi-agent.md`, file mã liên quan, test có sẵn | pytest, `tasks.py done --check "<lệnh test>"` | agent-skills (debugging, TDD) | Mã + test chạy đạt | code |
+| Đổi máy, cài máy mới, khôi phục | `CS/guides/KHOI_PHUC_MAY_MOI.md`, `CS/guides/local_setup.md` | `SK/scripts/restore_machine.sh` (Git Bash) | — | API OK, 8/8 kiểm thử đạt, 2 tác vụ hẹn giờ tạo lại, hook chạy | ops |
 | Đóng phiên, "lưu" | SKILL.md mục 5 | `SK/scripts/session_end.py -m "…" --trailer "…"` | — | Commit đã đẩy lên nhánh `ccr-6640cec8-2anthl` | ops |
 
 ## 2. Tài nguyên dùng chung
