@@ -14,14 +14,14 @@ PY = sys.executable
 
 
 def run(ws, *args, stdin=""):
-    return subprocess.run([PY, *map(str, args)], cwd=ws, input=stdin, capture_output=True, text=True)
+    return subprocess.run([PY, *map(str, args)], cwd=ws, input=stdin, capture_output=True, text=True, encoding="utf-8")
 
 
 @pytest.fixture()
 def ws(tmp_path):
     (tmp_path / "channel-studio").mkdir()
     (tmp_path / ".claude").mkdir()
-    (tmp_path / "AGENT_GUIDE.md").write_text("x")
+    (tmp_path / "AGENT_GUIDE.md").write_text("x", encoding="utf-8")
     subprocess.run(["git", "init", "-q", "."], cwd=tmp_path)
     return tmp_path
 
@@ -29,10 +29,10 @@ def ws(tmp_path):
 def test_done_requires_evidence_components_and_logs(ws):
     assert run(ws, S / "tasks.py", "add", "Viết phần 1", "--type", "script", "--dod", ">=400 từ, có nguồn", "--start").returncode == 0
     f = ws / "p1.md"
-    f.write_text("ngắn")
+    f.write_text("ngắn", encoding="utf-8")
     r = run(ws, S / "tasks.py", "done", "T-001", "--evidence", "p1.md", "--summary", "Viết phần 1 xong rồi đó")
     assert r.returncode == 2 and "KHÔNG ĐƯỢC BÁO XONG" in r.stdout
-    f.write_text("# P1\n" + "word " * 450 + "\n## Sources\n- https://a.org\n- https://b.org\n")
+    f.write_text("# P1\n" + "word " * 450 + "\n## Sources\n- https://a.org\n- https://b.org\n", encoding="utf-8")
     r = run(ws, S / "tasks.py", "done", "T-001", "--evidence", "p1.md", "--summary", "Viết phần 1, 450 từ, 2 nguồn",
             "--component", "Lời thoại :: ok :: xem :: p1.md")
     assert r.returncode == 2 and "cụ thể" in r.stdout
@@ -47,7 +47,7 @@ def test_done_requires_evidence_components_and_logs(ws):
 
 def test_code_task_needs_passing_check_and_block_needs_two_tries(ws):
     run(ws, S / "tasks.py", "add", "Sửa công cụ", "--type", "code", "--dod", "test đạt")
-    (ws / "x.py").write_text("print(1)")
+    (ws / "x.py").write_text("print(1)", encoding="utf-8")
     args = ["done", "T-001", "--evidence", "x.py", "--summary", "Sửa công cụ và chạy test",
             "--component", "Mã :: sửa 1 hàm, thêm 1 test :: chạy lệnh kiểm bên dưới :: x.py"]
     assert run(ws, S / "tasks.py", *args).returncode == 2
@@ -84,23 +84,23 @@ def test_stop_hook_blocks_open_task_and_false_done_claim(ws):
     assert '"decision": "block"' in r.stdout and "Đang dở" in r.stdout
     assert run(ws, hook, "stop", stdin=json.dumps({"session_id": "s", "stop_hook_active": True})).stdout.strip() == ""
     tr = ws / "t.jsonl"
-    tr.write_text(json.dumps({"type": "assistant", "message": {"content": [{"type": "text", "text": "Đã hoàn thành mọi việc."}]}}))
+    tr.write_text(json.dumps({"type": "assistant", "message": {"content": [{"type": "text", "text": "Đã hoàn thành mọi việc."}]}}), encoding="utf-8")
     run(ws, S / "tasks.py", "drop", "T-001", "--reason", "thử")
     r = run(ws, hook, "stop", stdin=json.dumps({"session_id": "s", "transcript_path": str(tr)}))
     assert "Đã hoàn thành" in r.stdout and '"decision": "block"' in r.stdout
-    tr.write_text(json.dumps({"type": "assistant", "message": {"content": [{"type": "text", "text": "Phần 2 chưa hoàn thành."}]}}))
+    tr.write_text(json.dumps({"type": "assistant", "message": {"content": [{"type": "text", "text": "Phần 2 chưa hoàn thành."}]}}), encoding="utf-8")
     r = run(ws, hook, "stop", stdin=json.dumps({"session_id": "s", "transcript_path": str(tr)}))
     assert "báo" not in r.stdout
 
 
 def test_session_and_prompt_hooks_print_mission_and_agenda(ws):
-    (ws / "channel-studio" / "MISSION.md").write_text("<!-- pulse:start -->\n- MỤC TIÊU: kiếm tiền YouTube\n<!-- pulse:end -->\n")
+    (ws / "channel-studio" / "MISSION.md").write_text("<!-- pulse:start -->\n- MỤC TIÊU: kiếm tiền YouTube\n<!-- pulse:end -->\n", encoding="utf-8")
     (ws / "channel-studio" / "PLAN.md").write_text(
         "<!-- pulse:start -->\n- Nhịp: 1–2 video/ngày\n<!-- pulse:end -->\n<!-- phases\n2000-01-01|2000-01-02|0. Cũ|x\n-->\n"
-        "<!-- releases\n2999-01-01|002|Test\n-->\n")
+        "<!-- releases\n2999-01-01|002|Test\n-->\n", encoding="utf-8")
     out = run(ws, S / "hooks" / "pulse.py", "session", stdin=json.dumps({"session_id": "abc", "source": "compact"})).stdout
     assert "kiếm tiền YouTube" in out and "KẾ HOẠCH ĐÃ HẾT HẠN" in out and "nén" in out
-    assert (ws / ".claude" / ".icyfox_session").read_text() == "abc"
+    assert (ws / ".claude" / ".icyfox_session").read_text(encoding="utf-8") == "abc"
     out = run(ws, S / "hooks" / "pulse.py", "prompt", stdin="{}").stdout
     assert "kiếm tiền YouTube" in out and "HỢP ĐỒNG" in out
 
@@ -120,9 +120,9 @@ def test_analytics_report_finds_winners_from_replay(ws):
            "per_video": life, "per_video_lifetime": life, "traffic": [{"insightTrafficSourceType": "YT_SEARCH", "views": 5, "estimatedMinutesWatched": 9}],
            "country": [], "content_type": [], "revenue": {"error": "401"}, "first7": first7, "retention": ret}
     (ws / "channel-studio" / "analytics").mkdir(parents=True)
-    (ws / "channel-studio" / "analytics" / "video_map.json").write_text(json.dumps({ids[3]: {"pillar": "P3", "series": "documented"}}))
+    (ws / "channel-studio" / "analytics" / "video_map.json").write_text(json.dumps({ids[3]: {"pillar": "P3", "series": "documented"}}), encoding="utf-8")
     data = ws / "d.json"
-    data.write_text(json.dumps({"raw": raw}))
+    data.write_text(json.dumps({"raw": raw}), encoding="utf-8")
     r = run(ws, S / "research" / "yt_analytics_report.py", "--replay", data, "--out", ws / "out")
     assert r.returncode == 0, r.stderr
     rep = (ws / "out" / "report.md").read_text(encoding="utf-8")

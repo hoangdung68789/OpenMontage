@@ -42,10 +42,17 @@
 
 ## Tự động hóa (tạo 22/11/2026 theo yêu cầu anh)
 - Tác vụ hẹn giờ trên máy anh (app Claude desktop, mục Scheduled):
-  - `icyfox-san-xuat-9h-17h`: 09:00 và 17:00 mỗi ngày. Hiện làm tiếp tới cổng duyệt kế tiếp rồi dừng.
-  - `icyfox-bao-cao-tuan-cn-9h`: Chủ nhật 09:00, báo cáo số liệu kênh.
+  - `icyfox-san-xuat-9h-17h`: cron `0 9,17 * * *` (09:00 và 17:00 mỗi ngày). **Chế độ tự lái** từ 22/11/2026 (T-018).
+  - `icyfox-bao-cao-tuan-cn-9h`: cron `0 9 * * 0` (Chủ nhật 09:00). Báo cáo bằng `yt_analytics_report.py` vào `analytics/reports/<ngày>/`, rồi làm tiếp `analytics-loop.md` §3.
 - Chỉ chạy khi app Claude đang mở; app đóng thì chạy khi mở lại. Không tự duyệt, không tải video lên.
-- **Việc cần làm (T-018):** đổi lời nhắn của 2 tác vụ sang chế độ tự lái (`references/autopilot.md` §8), và ghi báo cáo tuần vào `channel-studio/analytics/reports/` bằng `yt_analytics_report.py`. Phiên trên máy anh làm được việc này, vì file tác vụ nằm ở `~/.claude/scheduled-tasks/`. Không tạo thêm tác vụ trên cloud để tránh chạy trùng.
+- T-018 xong 22/11/2026 (phiên trên máy anh): sửa bằng công cụ scheduled-tasks của app, giờ chạy giữ nguyên, không tạo tác vụ mới, không tạo trên cloud. Chưa có lần chạy nào (list_task_runs = 0), nên thư mục chạy thật sẽ kiểm ở lần chạy 23/11 09:00; lời nhắn đã ghi rõ thư mục.
+- Lời nhắn tác vụ sản xuất (nguyên văn autopilot.md §8, thêm 1 dòng cho máy Windows):
+  ```
+  [nguyên văn khối lời nhắn ở references/autopilot.md §8]
+  (Máy anh, Windows: thư mục làm việc C:\Users\Admin\HDRE AI\ClayLapis\OpenMontage, đã có repo, không cần clone. Nếu lỗi encoding thì đặt PYTHONUTF8=1. Trả lời tiếng Việt, gọi "anh", xưng "tôi".)
+  ```
+- Lời nhắn tác vụ báo cáo (tóm tắt 6 bước): mở phiên → `tasks.py add "Báo cáo tuần <ngày>" --type analytics ... --start` → `yt_analytics_report.py --days 28` (report.md + data.json + WINNERS.md; số liệu API không có thì ghi "API không cung cấp") → làm hết `analytics-loop.md` §3 → `tasks.py done` có component → session_end.py → gửi anh ≤ 8 dòng. Chỉ đọc số liệu, không tạo thêm tác vụ.
+- Bản đầy đủ nằm ở `~/.claude/scheduled-tasks/<id>/SKILL.md` trên máy anh.
 
 ## Ai đang làm gì
 Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `tasks.py start <id> --owner <claude|codex>`. Quy tắc: `references/multi-agent.md`.

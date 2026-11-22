@@ -478,15 +478,60 @@
    "type": "ops",
    "dod": "File ~/.claude/scheduled-tasks/icyfox-san-xuat-9h-17h/SKILL.md chứa lời nhắn autopilot; báo cáo CN dùng yt_analytics_report.py; ghi xác nhận vào HANDOFF",
    "owner": "claude-local",
-   "status": "todo",
+   "status": "done",
    "prio": 1,
    "due": "2026-11-24",
    "video": null,
    "series": null,
    "created": "2026-11-22 21:35",
-   "evidence": [],
-   "log": [],
-   "updated": "2026-11-22 21:35"
+   "evidence": [
+    "channel-studio/HANDOFF.md",
+    ".claude/settings.json",
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py"
+   ],
+   "log": [
+    "2026-11-22 21:47 start",
+    "2026-11-22 21:49 done"
+   ],
+   "updated": "2026-11-22 21:49",
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "report": {
+    "summary": "Đổi lời nhắn 2 tác vụ hẹn giờ trên máy anh sang chế độ tự lái (autopilot.md §8) và báo cáo tuần dùng yt_analytics_report.py ghi vào analytics/reports/; giữ nguyên giờ chạy; kiểm 3 hook chạy thật; sửa test lỗi mã hóa GBK trên Windows (2/7 -> 8/8)",
+    "components": [
+     {
+      "name": "Kéo bản mới",
+      "result": "nhánh ở 27d95d6 (mới hơn a0e4add), kéo thêm commit 27d95d6 từ GitHub trong phiên",
+      "verified_by": "git fetch + git log HEAD..origin = rỗng sau khi gộp",
+      "evidence": "channel-studio/HANDOFF.md"
+     },
+     {
+      "name": "Hook",
+      "result": "SessionStart và UserPromptSubmit hiện khối nhắc ngay đầu phiên này; run.sh prompt thoát mã 0",
+      "verified_by": "chạy echo '{}' | bash hooks/run.sh prompt",
+      "evidence": ".claude/settings.json"
+     },
+     {
+      "name": "Test",
+      "result": "8/8 đạt (trước sửa 2/7 vì Windows mã hóa cp936/GBK); thêm encoding utf-8 cho đọc/ghi file và subprocess trong test",
+      "verified_by": "python -m pytest -q -p no:cacheprovider scripts/tests",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py"
+     },
+     {
+      "name": "Tác vụ sản xuất",
+      "result": "lời nhắn nguyên văn autopilot.md §8 + 1 dòng thư mục Windows; cron 0 9,17 * * * giữ nguyên",
+      "verified_by": "đọc lại SKILL.md + list_scheduled_tasks",
+      "evidence": "channel-studio/HANDOFF.md"
+     },
+     {
+      "name": "Tác vụ báo cáo",
+      "result": "dùng yt_analytics_report.py --days 28 ghi analytics/reports/<ngày>/, làm tiếp analytics-loop.md §3, có thẻ tasks.py; cron 0 9 * * 0 giữ nguyên",
+      "verified_by": "đọc lại SKILL.md + list_scheduled_tasks; kiểm --type analytics có trong TYPES",
+      "evidence": "channel-studio/HANDOFF.md"
+     }
+    ],
+    "remaining": "Chưa kiểm được thư mục chạy thật của tác vụ vì chưa có lần chạy nào (list_task_runs = 0); kiểm ở lần chạy 23/11 09:00. Nên bấm Run now 1 lần để duyệt sẵn quyền công cụ.",
+    "check": "python -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
+   }
   },
   {
    "id": "T-019",

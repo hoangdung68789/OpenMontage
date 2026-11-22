@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 21:44 (giờ Việt Nam).
+Cập nhật: 2026-11-22 21:49 (giờ Việt Nam).
 
 ## Đang làm (0)
 
@@ -15,11 +15,10 @@ Cập nhật: 2026-11-22 21:44 (giờ Việt Nam).
 
 (không có)
 
-## Chưa làm (theo ưu tiên) (13)
+## Chưa làm (theo ưu tiên) (12)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
-| T-018 | Chưa làm | claude-local | Đổi lời nhắn 2 tác vụ hẹn giờ trên máy anh sang chế độ tự lái (autopilot.md §8); báo cáo tuần ghi vào analytics/reports/ | ops |  | 2026-11-24 | File ~/.claude/scheduled-tasks/icyfox-san-xuat-9h-17h/SKILL.md chứa lời nhắn autopilot; báo cáo CN dùng yt_analytics_report.py; ghi xác nhận vào HANDOFF |  |
 | T-002 | Chưa làm | codex | Sửa tools/audio/gemini_tts.py dùng API v1beta (model gemini-3.8-flash-tts báo 404) | code |  | 2026-11-25 | Tạo được 1 file giọng 10 giây bằng gemini_tts; test pytest đạt |  |
 | T-004 | Chưa làm | claude | Render thử 3 phút bằng HyperFrames để đo thời gian render trên cloud | render |  | 2026-11-30 | MP4 3 phút + render/RENDERED.txt ghi thời gian render, máy, dung lượng |  |
 | T-005 | Chưa làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
@@ -35,6 +34,7 @@ Cập nhật: 2026-11-22 21:44 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-018 Đổi lời nhắn 2 tác vụ hẹn giờ trên máy anh sang chế độ tự lái (autopilot.md §8); báo cáo tuần ghi vào analytics/reports/ (2026-11-22 21:49): channel-studio/HANDOFF.md, .claude/settings.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py
 - T-021 Sửa lỗi anh không lưu được skill (description 1.240 > 1.024 ký tự) (2026-11-22 21:44): .claude/skills/hoang-dung-clay-lapis-studio/SKILL.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py
 - T-020 Đồng bộ GitHub + soạn lời nhắn cho phiên trên máy anh cập nhật hệ thống mới (2026-11-22 21:39): channel-studio/guides/PROMPT_CAP_NHAT_MAY_TINH.md
 - T-016 Báo cáo số liệu kênh tự động qua YouTube Analytics API (2026-11-22 21:34): channel-studio/analytics/reports/2026-11-22/report.md, channel-studio/analytics/reports/2026-11-22/data.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/research/yt_analytics_report.py
