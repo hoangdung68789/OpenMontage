@@ -7,7 +7,7 @@
 - **YouTube OAuth + Data API + Analytics:** **OK** (22/11/2026, đã bật API trong dự án 979474479924). Kênh đang được cấp quyền tên **ICYFOX** (0 sub, 0 video). **Chờ anh xác nhận:** đổi tên ICYFOX thành Clay & Lapis, hay cấp quyền lại cho một kênh khác.
 - **OpenAI:** OK (Network secret `api.openai.com`, Bearer). Có model giọng và model ảnh.
 - **Drive:** chưa cấu hình. Cần xin quyền riêng (`drive.file`), lưu vào `GDRIVE_REFRESH_TOKEN`. Không gấp.
-- **ElevenLabs:** vẫn lỗi "API key ID used as API key" sau khi lưu lần 2 (22/11/2026). Anh cần tạo khóa mới và chép ngay trong cửa sổ hiện ra lúc tạo (khóa bắt đầu bằng `sk_`), rồi mở lại form.
+- **ElevenLabs:** **OK** (22/11/2026). Gói **free**, đã dùng 0/10.000 ký tự. Gói miễn phí **không được dùng cho video đăng kênh**, chỉ dùng để nghe thử giọng. Muốn dùng giọng ElevenLabs trong video thì anh cần nâng lên gói trả phí.
 
 ## Video đang làm
 | Video | Thư mục | Bước hiện tại | Đang chờ gì |
