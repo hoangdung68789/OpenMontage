@@ -7,7 +7,10 @@
 - **Phân tích kênh nào cũng dùng YouTube Data API trước:** `scripts/research/yt_api_channel.py`. Đã chạy cho @WartimeStories, kết quả ở `channel-studio/research/2026-11-22-wartimestories/Wartime_Stories_api.md`: 158 video dài, trung vị 459K view, 10 video gần nhất trung bình 225K (đang giảm), 21 video viral, dài 38,8 phút.
 - **ĐÃ XONG (22/11, phiên trên máy anh):** phân tích lại @WartimeStories theo playbook mục A.
   - Báo cáo: `research/2026-11-22-wartimestories/BAO_CAO.md`. Bản cũ đổi tên thành `BAO_CAO_v1_cu.md`.
-  - Kế hoạch: `KE_HOACH_90_NGAY.md`. 10 video, đăng thứ Sáu 09:00 giờ Việt Nam, bắt đầu 11/12/2026.
+  - Kế hoạch: `KE_HOACH_90_NGAY.md` **bản 2**. Anh yêu cầu 1–2 video mỗi ngày, 30–60 video mỗi 30 ngày.
+    - Chia thành 8 video dài (thứ Ba, thứ Sáu, 21:00 giờ Việt Nam) + khoảng 38 Shorts mỗi 30 ngày.
+    - Shorts bắt đầu 01/12. Video dài đầu tiên 11/12. Từ 01/01/2027 lên 2 video dài mỗi tuần, nếu qua được cổng kiểm ngày 28/12.
+    - Tuần này (23–30/11) phải làm sẵn 10 Shorts đầu và đo thời gian render.
   - Phụ đề 2 video top: `subs/`.
   - Dàn ý và hook video 002 Lady Be Good: `videos/002-lady-be-good/script_outline.md`, trạng thái `awaiting_human`.
   - Notion: thêm 9 dòng (002–010).
