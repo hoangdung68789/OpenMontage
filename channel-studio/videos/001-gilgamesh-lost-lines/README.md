@@ -2,6 +2,7 @@
 
 - Project ID trong OpenMontage: `gilgamesh-pilot` (thư mục `projects/gilgamesh-pilot/`)
 - Dòng Notion: https://app.notion.com/p/4201dcd77c9581eab300c3945ba6660e
+- Trụ cột: P5 (thế giới cổ đại và thần thoại, bảng màu Clay & Lapis)
 - Concept đã duyệt: A · Công cụ dựng: HyperFrames · Cách dựng: atelier · Phương án: Standard
 - Thời lượng mục tiêu: 35–40 phút · Số từ mục tiêu: khoảng 4.000–4.300
 

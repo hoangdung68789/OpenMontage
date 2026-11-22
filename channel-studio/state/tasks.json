@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 23,
+ "next": 24,
  "tasks": [
   {
    "id": "T-001",
@@ -690,6 +690,66 @@
      }
     ],
     "remaining": "Nguồn chính từng ý tưởng mới ghi [cần kiểm], chưa mở bản gốc (báo cáo USCG/NTSB, hồ sơ Thresher, điều trần Texas Tower 4); kiểm ở bước nghiên cứu của từng video. Thứ tự đưa vào PLAN chờ anh duyệt trong lô thứ Năm (analytics-loop.md §3.5). Điểm N=4 là quy ước tôi đặt, anh có thể đổi.",
+    "check": ""
+   }
+  },
+  {
+   "id": "T-023",
+   "title": "Kiểm cấu trúc thư mục ICYFOX trên máy anh so với chuẩn của skill",
+   "type": "ops",
+   "dod": "Bảng so từng đường dẫn chuẩn (read-map/SKILL) với máy thật: có/thiếu; chỗ thiếu được tạo hoặc ghi lý do; báo cáo lưu trong channel-studio/logs",
+   "owner": "claude",
+   "status": "done",
+   "prio": 2,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-22 21:58",
+   "evidence": [
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md",
+    "channel-studio/videos/001-gilgamesh-lost-lines/README.md",
+    "channel-studio/HANDOFF.md"
+   ],
+   "log": [
+    "2026-11-22 21:58 done"
+   ],
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "updated": "2026-11-22 21:58",
+   "report": {
+    "summary": "So 23 đường dẫn chuẩn trong workspace-structure.md với máy anh: 22/23 có. Thiếu channel-studio/shorts/ (chưa cần: T-005 tạo khi làm Shorts; autopilot/yt_publish dùng glob nên không lỗi). .env có 6/7 khóa, thiếu GDRIVE_REFRESH_TOKEN (đã có thẻ T-012). Bổ sung trụ cột P5 vào README video 001 theo quy ước",
+    "components": [
+     {
+      "name": "Thư mục gốc channel-studio",
+      "result": "22/23 có; thiếu shorts/ (để T-005 tạo, không tạo thư mục rỗng vì git không lưu)",
+      "verified_by": "vòng lặp [ -e ] trên 23 đường dẫn của workspace-structure.md; grep các script dùng CS/shorts đều là glob",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md"
+     },
+     {
+      "name": "Thư mục video",
+      "result": "001 và 002 có README, kịch bản, báo cáo QA; voice/ render/ package/ shorts/ chưa có vì chưa tới bước đó (001 đã có package/); 001 dùng proposal.md thay script_outline.md, autopilot chấp nhận cả hai",
+      "verified_by": "ls từng thư mục; đọc autopilot.py dòng 49",
+      "evidence": "channel-studio/videos/001-gilgamesh-lost-lines/README.md"
+     },
+     {
+      "name": "Hồ sơ dự án OpenMontage",
+      "result": "projects/gilgamesh-pilot và lady-be-good có ở cả channel-studio/projects và OpenMontage/projects (đã khôi phục)",
+      "verified_by": "ls hai nơi",
+      "evidence": "channel-studio/HANDOFF.md"
+     },
+     {
+      "name": "Khóa API",
+      "result": ".env có 6/7 tên khóa của file mẫu; thiếu GDRIVE_REFRESH_TOKEN (thẻ T-012, hạn 05/12)",
+      "verified_by": "so tên khóa .env với api_keys.env.example (không đọc giá trị)",
+      "evidence": "channel-studio/HANDOFF.md"
+     },
+     {
+      "name": "Quy ước README",
+      "result": "README 001 thiếu trụ cột, đã thêm P5",
+      "verified_by": "đọc lại file",
+      "evidence": "channel-studio/videos/001-gilgamesh-lost-lines/README.md"
+     }
+    ],
+    "remaining": "shorts/ sẽ có khi làm T-005. Google Drive chưa cấu hình (T-012).",
     "check": ""
    }
   }
