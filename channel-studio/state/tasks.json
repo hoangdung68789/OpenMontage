@@ -501,8 +501,10 @@
    "series": null,
    "created": "2026-11-22 21:35",
    "evidence": [],
-   "log": [],
-   "updated": "2026-11-22 21:35"
+   "log": [
+    "2026-11-22 21:36 note: QA 22/11/2026: script_part1.md của 002 HỎNG. File ghi 'Số từ: khoảng 1.270, đọc xong 10:40', nhưng lời thoại thật chỉ có 753 từ (qa_check) hay 739 từ (wc -w), tức khoảng 6 phút. Việc phải làm: viết bổ sung khoảng 500 từ hoặc sửa mốc giờ, chạy lại qa_check, rồi mới viết Phần 2. Báo cáo: channel-studio/videos/002-lady-be-good/script_part1.qa.md"
+   ],
+   "updated": "2026-11-22 21:36"
   }
  ]
 }
