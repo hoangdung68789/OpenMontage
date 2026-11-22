@@ -163,7 +163,8 @@ def upload(h, vdir, mp4, dry):
         return None
     # Chặn tải khi chưa qua audit: video tải từ dự án chưa audit bị khóa Riêng tư vĩnh viễn (YouTube Help 7300965)
     if os.environ.get("YT_AUDIT_APPROVED") != "1":
-        sys.exit("Chưa bật YT_AUDIT_APPROVED=1 trong .env (chỉ bật khi Google đã duyệt audit). Tải lúc này video sẽ bị khóa Riêng tư.")
+        sys.exit("Chưa bật YT_AUDIT_APPROVED=1 trong .env. Thử thật ngày 22/11/2026 (T-028, T-030): video tải qua API không bị khóa, "
+                 "hẹn giờ tự chuyển Công khai (guides/TU_DONG_DANG_VIDEO.md §4). Bật cờ theo thẻ T-032.")
     meta = {"snippet": {"title": vdir.name, "categoryId": "27", "defaultLanguage": "en", "defaultAudioLanguage": "en"},
             "status": {"privacyStatus": "private", "selfDeclaredMadeForKids": False}}
     r = requests.post(f"{UPLOAD}/videos", params={"uploadType": "resumable", "part": "snippet,status"},
