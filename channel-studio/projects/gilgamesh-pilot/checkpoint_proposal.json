@@ -1,0 +1,274 @@
+{
+  "version": "1.0",
+  "project_id": "gilgamesh-pilot",
+  "pipeline_type": "animated-explainer",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-11-22T07:59:45.970904+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "A",
+          "title": "The Epic of Gilgamesh, Complete - With the Lines We Only Just Found",
+          "hook": "Humanity's oldest epic is still missing pages. Looted tablets and an AI just gave some back.",
+          "narrative_structure": "journey",
+          "visual_approach": "Custom 'Clay & Lapis' identity: bitumen-black base, terracotta primary, lapis accent, gold highlights; licensed artifact photography, animated Mesopotamia maps, glowing cuneiform line-reveal motif for recovered lines",
+          "target_platform": "youtube",
+          "target_duration_seconds": 2700,
+          "tone": "calm, authoritative, wonder",
+          "grounded_in": [
+            "Fragmentarium 2023",
+            "Tablet V 2014",
+            "Dream Tablet 2021"
+          ],
+          "why_this_works": "Fills the gap left by 1M+ view retellings that predate the 2014-2023 finds"
+        },
+        {
+          "id": "B",
+          "title": "The Complete Epic of Gilgamesh",
+          "hook": "A king who was two-thirds god, a wild man made from clay, and one question: can anyone escape death?",
+          "narrative_structure": "story",
+          "visual_approach": "Same identity, immersive pacing",
+          "target_platform": "youtube",
+          "target_duration_seconds": 2700,
+          "why_this_works": "'ENTIRE/Complete' title pattern had the best median outlier score (1.20) in the niche scan"
+        },
+        {
+          "id": "C",
+          "title": "Everything You Know About Gilgamesh Is Slightly Wrong",
+          "hook": "Not the oldest story. Not simply copied by the Bible. And no, his tomb was never found.",
+          "narrative_structure": "myth_busting",
+          "visual_approach": "Same identity, myth/reality cards",
+          "target_platform": "youtube",
+          "target_duration_seconds": 1800,
+          "why_this_works": "Conspiracy videos at 2.0M and 1.7M views; sourced debunk available"
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "A",
+        "rationale": "Approved by user 2026-11-22: concept A, HyperFrames, Atelier, Standard path"
+      },
+      "production_plan": {
+        "pipeline": "animated-explainer",
+        "playbook": "custom",
+        "render_runtime": "hyperframes",
+        "composition_mode": "atelier",
+        "delivery_promise": {
+          "promise_type": "teacher_explainer",
+          "motion_required": false,
+          "tone_mode": "documentary",
+          "quality_floor": "presentable"
+        },
+        "stages": [
+          {
+            "stage": "script",
+            "tools": [],
+            "approach": "Write in 4 parts for review; English narration + Vietnamese review translation"
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [],
+            "approach": "Atelier scene system per chapter"
+          },
+          {
+            "stage": "assets",
+            "tools": [
+              {
+                "tool_name": "gemini_tts",
+                "role": "narration",
+                "available": false,
+                "estimated_cost_usd": 1.83,
+                "provider": "google",
+                "why_this_provider": "Free/cheap, user has AI Studio key (pending)"
+              },
+              {
+                "tool_name": "pixabay_music",
+                "role": "music bed",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "provider": "pixabay",
+                "why_this_provider": "No key; Content ID behaviour unverified"
+              }
+            ],
+            "approach": "Wikimedia images limited to PD/CC BY/CC BY-SA with attribution; no British Museum NC images"
+          },
+          {
+            "stage": "compose",
+            "tools": [
+              {
+                "tool_name": "video_compose",
+                "role": "render",
+                "available": true,
+                "estimated_cost_usd": 0,
+                "provider": "hyperframes"
+              }
+            ],
+            "approach": "HyperFrames atelier render"
+          }
+        ],
+        "voice_selection": {
+          "provider": "gemini_tts",
+          "voice_id": "TBD after 3 x 60s samples",
+          "rationale": "User key available; low cost",
+          "estimated_cost_usd": 1.83,
+          "delivery_style": "calm documentary narrator",
+          "pacing_policy": "~130 wpm, pauses at chapter turns"
+        },
+        "music_source": {
+          "source_type": "bring_your_own",
+          "provider": "pixabay_music",
+          "mood_direction": "low ambient strings + frame drum",
+          "estimated_cost_usd": 0
+        },
+        "decision_log_ref": "/home/user/OpenMontage/projects/gilgamesh-pilot/decision_log.json"
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 1.83,
+        "line_items": [
+          {
+            "tool": "gemini_tts",
+            "operation": "45 min narration incl. 50% retakes (2027 price worst case)",
+            "quantity": 1,
+            "estimated_usd": 1.83
+          },
+          {
+            "tool": "pixabay_music",
+            "operation": "music bed",
+            "estimated_usd": 0
+          },
+          {
+            "tool": "video_compose",
+            "operation": "HyperFrames render",
+            "estimated_usd": 0
+          }
+        ],
+        "budget_cap_usd": 5,
+        "budget_verdict": "within_budget"
+      },
+      "approval": {
+        "status": "approved",
+        "user_notes": "Concept A, HyperFrames, Atelier, Standard",
+        "approved_budget_usd": 5
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "gilgamesh-pilot",
+      "decisions": [
+        {
+          "decision_id": "d1",
+          "stage": "proposal",
+          "category": "concept_selection",
+          "subject": "Pilot concept",
+          "options_considered": [
+            {
+              "option_id": "A",
+              "label": "The Lost Lines",
+              "score": 0.9,
+              "reason": "Fills post-2014 discoveries gap"
+            },
+            {
+              "option_id": "B",
+              "label": "The Complete Epic",
+              "score": 0.7,
+              "reason": "Crowded retelling format"
+            },
+            {
+              "option_id": "C",
+              "label": "Slightly Wrong",
+              "score": 0.6,
+              "reason": "Shorter, fewer watch hours"
+            }
+          ],
+          "selected": "A",
+          "reason": "User approved 2026-11-22",
+          "user_approved": true
+        },
+        {
+          "decision_id": "d2",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition runtime",
+          "options_considered": [
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames",
+              "score": 0.85,
+              "reason": "Bespoke maps and cuneiform line-reveal motion"
+            },
+            {
+              "option_id": "remotion",
+              "label": "Remotion",
+              "score": 0.5,
+              "reason": "Stock React scenes",
+              "rejected_because": "not installed on this machine; templated scenes raise inauthentic-content risk"
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg",
+              "score": 0.2,
+              "reason": "Ken Burns only",
+              "rejected_because": "insufficient motion"
+            }
+          ],
+          "selected": "hyperframes",
+          "reason": "User approved; no word-level captions needed (SRT tracks)",
+          "user_approved": true
+        },
+        {
+          "decision_id": "d3",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "Authoring mode",
+          "options_considered": [
+            {
+              "option_id": "atelier",
+              "label": "Atelier",
+              "score": 0.85,
+              "reason": "Unique channel identity"
+            },
+            {
+              "option_id": "templated",
+              "label": "Templated",
+              "score": 0.4,
+              "reason": "Generic look",
+              "rejected_because": "inauthentic-content risk"
+            }
+          ],
+          "selected": "atelier",
+          "reason": "User approved",
+          "user_approved": true
+        },
+        {
+          "decision_id": "d4",
+          "stage": "proposal",
+          "category": "voice_selection",
+          "subject": "Narration TTS provider",
+          "options_considered": [
+            {
+              "option_id": "gemini_tts",
+              "label": "Gemini 3.8 Flash TTS",
+              "score": 0.8,
+              "reason": "User key, low cost"
+            },
+            {
+              "option_id": "piper_tts",
+              "label": "Piper",
+              "score": 0.3,
+              "reason": "Lower quality",
+              "rejected_because": "not installed"
+            }
+          ],
+          "selected": "gemini_tts",
+          "reason": "User approved Standard path; key pending",
+          "user_approved": true
+        }
+      ]
+    }
+  }
+}

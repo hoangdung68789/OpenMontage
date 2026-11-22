@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "project_id": "gilgamesh-pilot",
+  "decisions": [
+    {
+      "decision_id": "d1",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Pilot concept",
+      "options_considered": [
+        {
+          "option_id": "A",
+          "label": "The Lost Lines",
+          "score": 0.9,
+          "reason": "Fills post-2014 discoveries gap"
+        },
+        {
+          "option_id": "B",
+          "label": "The Complete Epic",
+          "score": 0.7,
+          "reason": "Crowded retelling format"
+        },
+        {
+          "option_id": "C",
+          "label": "Slightly Wrong",
+          "score": 0.6,
+          "reason": "Shorter, fewer watch hours"
+        }
+      ],
+      "selected": "A",
+      "reason": "User approved 2026-11-22",
+      "user_approved": true
+    },
+    {
+      "decision_id": "d2",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.85,
+          "reason": "Bespoke maps and cuneiform line-reveal motion"
+        },
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 0.5,
+          "reason": "Stock React scenes",
+          "rejected_because": "not installed on this machine; templated scenes raise inauthentic-content risk"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg",
+          "score": 0.2,
+          "reason": "Ken Burns only",
+          "rejected_because": "insufficient motion"
+        }
+      ],
+      "selected": "hyperframes",
+      "reason": "User approved; no word-level captions needed (SRT tracks)",
+      "user_approved": true
+    },
+    {
+      "decision_id": "d3",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Atelier",
+          "score": 0.85,
+          "reason": "Unique channel identity"
+        },
+        {
+          "option_id": "templated",
+          "label": "Templated",
+          "score": 0.4,
+          "reason": "Generic look",
+          "rejected_because": "inauthentic-content risk"
+        }
+      ],
+      "selected": "atelier",
+      "reason": "User approved",
+      "user_approved": true
+    },
+    {
+      "decision_id": "d4",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "gemini_tts",
+          "label": "Gemini 3.8 Flash TTS",
+          "score": 0.8,
+          "reason": "User key, low cost"
+        },
+        {
+          "option_id": "piper_tts",
+          "label": "Piper",
+          "score": 0.3,
+          "reason": "Lower quality",
+          "rejected_because": "not installed"
+        }
+      ],
+      "selected": "gemini_tts",
+      "reason": "User approved Standard path; key pending",
+      "user_approved": true
+    }
+  ]
+}

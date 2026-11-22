@@ -1,0 +1,376 @@
+{
+  "version": "1.0",
+  "project_id": "gilgamesh-pilot",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-11-22T07:53:29.565319+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "The Epic of Gilgamesh \u2014 pilot long-form documentary (40-50 min) for a new English history & mythology channel targeting US viewers",
+      "research_date": "2026-11-22",
+      "research_summary": "Gilgamesh retellings are a proven but crowded format on YouTube (TED-Ed 4.4M, CrashCourse 3.1M, The Histocrat 3.6M for a 132-min video, Deep Dive History 1.28M for 111 min). Almost every existing retelling treats the text as finished. The underserved angle is that the epic is still being recovered: a looted Tablet V fragment added ~20 lines in 2014 (monkeys in the Cedar Forest, Enkidu's remorse), the looted 'Dream Tablet' was returned to Iraq in 2021, and LMU's AI 'Fragmentarium' matched 20 new Gilgamesh fragments adding detail to 100+ lines. A complete retelling that weaves in these recovered lines and the detective story of their recovery gives a differentiated, evergreen pilot with a natural hook. Conspiracy videos (US invasion to find Gilgamesh's tomb, 2.0M and 1.7M views) show demand for myth-busting that a credible channel can answer with sources.",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "The epic of Gilgamesh, the king who tried to conquer death (TED-Ed)",
+            "url": "https://www.youtube.com/watch?v=BV9t3Cp18Rc",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Story of the epic",
+            "what_it_misses": "Short summary; no recent discoveries",
+            "engagement_signal": "4,435,775 views, 5 min"
+          },
+          {
+            "title": "Gilgamesh and the Flood (The Histocrat)",
+            "url": "https://www.youtube.com/watch?v=aBvr7SJ4VE4",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Story of the epic",
+            "what_it_misses": "Long-form proven; focus on flood",
+            "engagement_signal": "3,613,135 views, 132 min"
+          },
+          {
+            "title": "The Epic of Gilgamesh: Crash Course World Mythology #26",
+            "url": "https://www.youtube.com/watch?v=sWppk7-Mti4",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Story of the epic",
+            "what_it_misses": "Classroom summary",
+            "engagement_signal": "3,068,238 views, 14 min"
+          },
+          {
+            "title": "5. THE EPIC OF GILGAMESH - The Entire Story (Deep Dive History)",
+            "url": "https://www.youtube.com/watch?v=BrIoPtoWims",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Story of the epic",
+            "what_it_misses": "Full retelling; no post-2014 fragments",
+            "engagement_signal": "1,281,969 views, 111 min"
+          },
+          {
+            "title": "TITANS OF MESOPOTAMIA: Gilgamesh Against the Gods (Astraway)",
+            "url": "https://www.youtube.com/watch?v=-EU83j_eXac",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Story of the epic",
+            "what_it_misses": "Cinematic, ancient-astronaut adjacent",
+            "engagement_signal": "1,769,409 views, 130 min"
+          },
+          {
+            "title": "The Tomb of Gilgamesh Conspiracy (Wendigang)",
+            "url": "https://www.youtube.com/watch?v=egJbYCvDe6o",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Story of the epic",
+            "what_it_misses": "Conspiracy framing; opportunity for sourced myth-busting",
+            "engagement_signal": "2,026,941 views, 40 min"
+          },
+          {
+            "title": "The Epic of Gilgamesh, Lecture by Andrew George (Harvard HMANE)",
+            "url": "https://www.youtube.com/watch?v=Rd7MrGy_tEg",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Story of the epic",
+            "what_it_misses": "Expert lecture, not narrative production",
+            "engagement_signal": "2,748,383 views, 89 min"
+          }
+        ],
+        "saturated_angles": [
+          "Plain 12-tablet summary",
+          "Gilgamesh vs Noah flood comparison",
+          "Short 5-15 min overviews"
+        ],
+        "underserved_gaps": [
+          "Full retelling that includes lines recovered 2014-2023",
+          "Detective story of how the epic was recovered (1872 -> 2021 -> AI)",
+          "Sourced debunk of the 'tomb found / US invasion' claim"
+        ]
+      },
+      "trending": {
+        "recent_developments": [
+          {
+            "headline": "KASKAL lists 'More Gilgames Fragments' from the Electronic Babylonian Literature lab (contents not verified)",
+            "url": "https://edizionicafoscari.unive.it/media/pdf/article/kaskal/2025/1/art-10.30687-KASKAL-2036-5845-2025-01-002.pdf",
+            "date": "2025-11",
+            "relevance": "Shows recovery is ongoing"
+          },
+          {
+            "headline": "LMU Fragmentarium AI matched 20 Gilgamesh fragments, 100+ lines",
+            "url": "https://news.artnet.com/art-world/ai-cuneiform-translation-epic-of-gilgamesh-2523735",
+            "date": "2023",
+            "relevance": "Hook: AI recovering the oldest epic"
+          },
+          {
+            "headline": "Gilgamesh Dream Tablet returned to Iraq",
+            "url": "https://www.aljazeera.com/news/2021/12/7/iraq-marks-return-of-looted-gilgamesh-tablet-from-the-us",
+            "date": "2021-12",
+            "relevance": "US-linked story for US audience"
+          }
+        ],
+        "active_discussions": [
+          {
+            "platform": "web/social video",
+            "topic_or_url": "https://leadstories.com/hoax-alert/2023/05/fact-check-video-does-not-show-ancient-treasures-looted-from-tomb-of-gilgamesh-fake-mummy-from-2008.html",
+            "sentiment": "Viral fake 'tomb of Gilgamesh' video; confusion and conspiracy interest"
+          }
+        ],
+        "timeliness_window": "evergreen"
+      },
+      "data_points": [
+        {
+          "claim": "LMU's Fragmentarium identified 20 Gilgamesh fragments adding detail to over 100 lines; one tablet dates to 130 BCE, showing the poem was still copied ~2,000 years after its first known appearance",
+          "source_url": "https://news.artnet.com/art-world/ai-cuneiform-translation-epic-of-gilgamesh-2523735",
+          "source_name": "Artnet News (reporting LMU)",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "hook"
+        },
+        {
+          "claim": "A Tablet V fragment bought by the Sulaymaniyah Museum in 2011 added ~20 new lines: a noisy Cedar Forest with monkeys, and Enkidu regretting 'we have reduced the forest [to] a wasteland'",
+          "source_url": "https://www.livescience.com/52372-new-tablet-gilgamesh-epic.html",
+          "source_name": "Live Science; primary: Al-Rawi & George 2014, JCS 66:69-90",
+          "credibility": "secondary_source",
+          "surprise_factor": "surprising",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "The Gilgamesh Dream Tablet, looted from an Iraqi museum in 1991, was bought by Hobby Lobby for $1.67M in 2014, seized in 2019 and returned to Iraq in 2021",
+          "source_url": "https://www.npr.org/2021/09/21/1039380004/gilgamesh-dream-tablet-hobby-lobby-iraq-return",
+          "source_name": "NPR",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "In November 1872 George Smith identified Tablet XI (the flood) from Ashurbanipal's library and presented it on 3 December 1872 to the Society of Biblical Archaeology, with PM Gladstone attending",
+          "source_url": "https://www.britannica.com/EBchecked/topic/549731/George-Smith",
+          "source_name": "Britannica",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "script_anchor"
+        },
+        {
+          "claim": "Most historians think Gilgamesh was a real king of Uruk (c. 2800-2500 BC); the Sumerian King List gives him a 126-year reign; the Tummal Inscription credits him with building Uruk's walls",
+          "source_url": "https://www.worldhistory.org/gilgamesh/",
+          "source_name": "World History Encyclopedia / Wikipedia",
+          "credibility": "secondary_source",
+          "surprise_factor": "notable",
+          "usable_as": "hook"
+        },
+        {
+          "claim": "The earliest Gilgamesh material is a set of separate Sumerian poems (c. 2100 BC, Ur III); the oldest combined Akkadian version dates to the 18th c. BC; the 12-tablet Standard Babylonian version is credited to Sin-leqi-unninni (c. 1300-1000 BC)",
+          "source_url": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh",
+          "source_name": "Wikipedia (Epic of Gilgamesh)",
+          "credibility": "secondary_source",
+          "surprise_factor": "expected",
+          "usable_as": "stat_card"
+        },
+        {
+          "claim": "The 2003 BBC headline 'Gilgamesh tomb believed found' rested on magnetometry; Fassbinder said he did not want to say definitely it was the grave, and no tomb was excavated",
+          "source_url": "https://www.geophysik.uni-muenchen.de/en/research/publications/962",
+          "source_name": "LMU Geophysics publication record (Fassbinder & Becker 2003)",
+          "credibility": "primary_source",
+          "surprise_factor": "counterintuitive",
+          "usable_as": "closing_punch"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "Is Gilgamesh the oldest story ever written?",
+          "Did the Bible copy the flood story from Gilgamesh?",
+          "Was Gilgamesh a real person?",
+          "Was Gilgamesh's tomb found / did the US invade Iraq for it?",
+          "Why are there gaps in the story?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "It is the oldest story ever written",
+            "reality": "It is among the oldest surviving long literary works; separate Sumerian Gilgamesh poems and other texts are older"
+          },
+          {
+            "myth": "Genesis simply copied Gilgamesh",
+            "reality": "Scholars see Mesopotamian influence, but the Tablet XI flood itself was adapted from the older Atrahasis epic; details and motives differ"
+          },
+          {
+            "myth": "Gilgamesh's tomb was found in 2003",
+            "reality": "Only a magnetometry anomaly was reported; nothing was excavated or verified"
+          },
+          {
+            "myth": "The text is complete and settled",
+            "reality": "New fragments keep adding lines (2014, 2023)"
+          }
+        ],
+        "knowledge_level": "General US audience: has heard the name and the flood link; little knowledge of tablets, versions or recent finds",
+        "pain_points": [
+          "Existing long retellings feel like audiobooks",
+          "Confusing gaps and multiple versions"
+        ]
+      },
+      "expert_voices": [
+        {
+          "name": "Andrew George",
+          "title_or_affiliation": "SOAS, University of London",
+          "position": "Leading translator; co-published the Tablet V fragment (2014)",
+          "source_url": "https://www.livescience.com/52372-new-tablet-gilgamesh-epic.html",
+          "contrarian": false
+        },
+        {
+          "name": "Enrique Jimenez",
+          "title_or_affiliation": "LMU Munich, Electronic Babylonian Library",
+          "position": "Without the Fragmentarium, reconstruction would have taken 30-40 years",
+          "source_url": "https://news.artnet.com/art-world/ai-cuneiform-translation-epic-of-gilgamesh-2523735",
+          "contrarian": false
+        },
+        {
+          "name": "Farouk Al-Rawi",
+          "title_or_affiliation": "SOAS",
+          "position": "Identified the Sulaymaniyah Tablet V fragment",
+          "source_url": "https://www.livescience.com/52372-new-tablet-gilgamesh-epic.html",
+          "contrarian": false
+        }
+      ],
+      "angles_discovered": [
+        {
+          "name": "The Oldest Epic Is Still Missing Pages",
+          "hook": "Humanity's oldest great epic is still unfinished - and in the last decade, looted tablets and an AI have handed us lines no one had read for 2,000 years.",
+          "type": "trending",
+          "why_now": "Tablet V lines (2014), Dream Tablet return (2021), Fragmentarium matches (2023), KASKAL 2025 report",
+          "grounded_in": [
+            "Fragmentarium data point",
+            "Tablet V data point",
+            "Dream Tablet data point"
+          ]
+        },
+        {
+          "name": "Gilgamesh: The Complete Epic, Rediscovered Lines Included",
+          "hook": "A king who was two-thirds god, a wild man made from clay, and a quest to cheat death - told in full, with the passages earlier retellings never had.",
+          "type": "evergreen",
+          "why_now": "Long full retellings get 1.3M-3.6M views but predate the 2014-2023 finds",
+          "grounded_in": [
+            "landscape: Deep Dive History 1.28M, Histocrat 3.6M",
+            "Tablet V data point"
+          ]
+        },
+        {
+          "name": "Everything You Heard About Gilgamesh Is Slightly Wrong",
+          "hook": "Not the oldest story, not simply copied by the Bible, and no, his tomb was not found in 2003.",
+          "type": "contrarian",
+          "why_now": "Conspiracy videos with 2.0M and 1.7M views; 2023 fact-check of a viral fake tomb video",
+          "grounded_in": [
+            "2003 tomb data point",
+            "misconceptions"
+          ]
+        },
+        {
+          "name": "The Man Who Read the Flood",
+          "hook": "In 1872 a self-taught engraver read a 2,600-year-old tablet and a Prime Minister came to hear it.",
+          "type": "narrative",
+          "why_now": "Evergreen discovery story; links 1872 to 2021 to AI",
+          "grounded_in": [
+            "George Smith data point"
+          ]
+        }
+      ],
+      "visual_references": [
+        {
+          "description": "Fall of Civilizations - The Sumerians (41M views): real site photography + plain titling",
+          "what_works": "Authenticity, calm pacing"
+        },
+        {
+          "description": "Mythology hits use bold illustrated style (Greek black-figure look) on thumbnails",
+          "what_works": "Strong single-subject read"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://news.artnet.com/art-world/ai-cuneiform-translation-epic-of-gilgamesh-2523735",
+          "title": "AI cuneiform translation - Epic of Gilgamesh (Artnet)",
+          "used_for": "Fragmentarium data",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.lmu.de/en/about-lmu/structure/central-university-administration/communications-and-media-relations/press-room/press-release/playing-with-the-source-of-world-literature.html",
+          "title": "LMU press release: Playing with the source of world literature",
+          "used_for": "Fragmentarium primary",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.livescience.com/52372-new-tablet-gilgamesh-epic.html",
+          "title": "Lost Epic of Gilgamesh verse depicts cacophonous abode of gods",
+          "used_for": "Tablet V",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.npr.org/2021/09/21/1039380004/gilgamesh-dream-tablet-hobby-lobby-iraq-return",
+          "title": "NPR: Gilgamesh Dream Tablet to be returned to Iraq",
+          "used_for": "Dream Tablet",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.aljazeera.com/news/2021/12/7/iraq-marks-return-of-looted-gilgamesh-tablet-from-the-us",
+          "title": "Al Jazeera: Iraq marks return of looted Gilgamesh tablet",
+          "used_for": "Dream Tablet return date",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.britannica.com/EBchecked/topic/549731/George-Smith",
+          "title": "Britannica: George Smith",
+          "used_for": "1872 discovery",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.nationalgeographic.com/history/history-magazine/article/history-gilgamesh-epic-discovery",
+          "title": "National Geographic: Gilgamesh epic discovery",
+          "used_for": "1872 discovery",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.worldhistory.org/gilgamesh/",
+          "title": "World History Encyclopedia: Gilgamesh",
+          "used_for": "Historicity",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh",
+          "title": "Wikipedia: Epic of Gilgamesh",
+          "used_for": "Versions and dating",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.geophysik.uni-muenchen.de/en/research/publications/962",
+          "title": "Magnetometry at Uruk (Iraq): The city of King Gilgamesh",
+          "used_for": "2003 tomb claim",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://leadstories.com/hoax-alert/2023/05/fact-check-video-does-not-show-ancient-treasures-looted-from-tomb-of-gilgamesh-fake-mummy-from-2008.html",
+          "title": "Lead Stories fact check (2023)",
+          "used_for": "Viral fake tomb video",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://history.howstuffworks.com/history-vs-myth/gilgamesh.htm",
+          "title": "Did the Bible borrow the Noah's Ark story?",
+          "used_for": "Flood misconception",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://archive.org/details/thompson-1928-gilgamesh",
+          "title": "R. Campbell Thompson 1928 translation (Internet Archive)",
+          "used_for": "Possible public-domain quotations (copyright status unconfirmed)",
+          "reliability": "anecdotal"
+        }
+      ],
+      "metadata": {
+        "searches_executed": 13,
+        "youtube_landscape_queries": 3,
+        "notes": "Primary 2014 JCS article and LMU EBL pages not opened directly; British Museum images are CC BY-NC-SA (non-commercial) and must not be used on a monetized channel without a licence"
+      }
+    }
+  }
+}
