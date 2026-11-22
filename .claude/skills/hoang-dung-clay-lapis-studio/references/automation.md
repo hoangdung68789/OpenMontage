@@ -1,5 +1,7 @@
 # Tự động hóa và tác vụ hẹn giờ
 
+**Đang chạy (22/11/2026, anh yêu cầu):** 2 tác vụ trên máy local, app Claude desktop: `icyfox-san-xuat-9h-17h` (cron `0 9,17 * * *`) và `icyfox-bao-cao-tuan-cn-9h` (cron `0 9 * * 0`). Lời nhắn đầy đủ: `~/.claude/scheduled-tasks/<taskId>/SKILL.md`. Bảng cloud bên dưới là phương án cũ, chưa tạo.
+
 **Điều kiện để tạo tác vụ hẹn giờ:** anh đã đồng ý (22/11/2026), nhưng **chỉ tạo khi video thử đạt yêu cầu**, nghĩa là đã render xong và đo được thời gian, chi phí. Trước khi tạo, xác nhận lại với anh 1 dòng.
 
 ## Lịch (giờ Việt Nam, `CRON_TZ=Asia/Ho_Chi_Minh`)
