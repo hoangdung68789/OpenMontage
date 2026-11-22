@@ -18,6 +18,13 @@
 - **Biến môi trường:** `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`, sau này thêm `GDRIVE_REFRESH_TOKEN`. **Chỉ có hiệu lực khi phiên khởi động.** Phiên đang chạy không thấy biến vừa thêm.
 - **Công cụ đòi khóa ở biến môi trường** (ví dụ `gemini_tts list_voices` đọc `GEMINI_API_KEY`): chạy với `GEMINI_API_KEY=proxy-injected`. Proxy sẽ ghi đè header bằng khóa thật. Làm tương tự với `ELEVENLABS_API_KEY`.
 
+## Chế độ máy local (Claude Code trên máy của anh)
+- Hướng dẫn cài đặt đầy đủ: `channel-studio/guides/local_setup.md`.
+- Không có proxy, nên khóa phải nằm trong biến môi trường của máy: `GEMINI_API_KEY`, `ELEVENLABS_API_KEY`, `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`. Anh tự đặt bằng `setx` hoặc `~/.zshrc`. Không nhận khóa qua chat.
+- `check_apis.py` tự nhận ra chế độ đang chạy: có biến môi trường thật thì gửi header từ biến, còn không thì để proxy cloud gắn.
+- Windows: chạy script `.sh` bằng Git Bash. Python có thể tên là `python` hoặc `py` thay vì `python3`.
+- Không làm cùng lúc ở cloud và local trên cùng nhánh, để tránh xung đột git.
+
 ## Kiểm tra
 ```bash
 python3 .claude/skills/hoang-dung-clay-lapis-studio/scripts/check_apis.py

@@ -22,6 +22,7 @@ Người dùng là Dũng. Gọi "anh", xưng "tôi", viết tiếng Việt. Anh 
 | Nghiên cứu đối thủ và ngách | `references/research-playbook.md` + `scripts/research/` |
 | Tự động hóa, tác vụ hẹn giờ | `references/automation.md` |
 | **16 repo của anh: repo nào dùng ở bước nào** | `references/toolbox-repos.md` |
+| Chạy trên máy anh thay vì cloud | `channel-studio/guides/local_setup.md` + mục "Chế độ máy local" trong `environment-and-apis.md` |
 | Quyết định đã chốt | `references/decisions-log.md` |
 | Bảng Notion | "Clay & Lapis – Video Pipeline", data source `collection://4201dcd7-7c95-8188-8452-000b17602005` |
 | Mẫu file | `templates/` |

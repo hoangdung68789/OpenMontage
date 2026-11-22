@@ -43,8 +43,10 @@ for r in OpenMontage hyperframes gsap-skills GSAP motion-design-skill three.js r
 done
 
 echo "== 3. Kiểm tra API"
-python3 -c "import requests" 2>/dev/null || pip install -q requests
-python3 "$SKILL_DIR/scripts/check_apis.py" || echo "(kiểm tra API lỗi, xem references/environment-and-apis.md)"
+PY=""; for c in python3 python py; do "$c" -c "import sys" >/dev/null 2>&1 && PY="$c" && break; done   # Windows: python3 có thể chỉ là lối tắt mở Microsoft Store
+[ -n "$PY" ] || { echo "Chưa có Python. Xem channel-studio/guides/local_setup.md"; exit 1; }
+"$PY" -c "import requests" 2>/dev/null || "$PY" -m pip install -q requests
+"$PY" "$SKILL_DIR/scripts/check_apis.py" || echo "(kiểm tra API lỗi, xem references/environment-and-apis.md)"
 
 echo "== 4. HANDOFF.md"
 cat channel-studio/HANDOFF.md 2>/dev/null || echo "(chưa có channel-studio/HANDOFF.md)"

@@ -6,13 +6,32 @@ import os
 
 import requests
 
+PLACEHOLDERS = {"", "proxy-injected", "dummy", "dummy-replaced-by-proxy"}
+
+
+def key_header(var, header):
+    """Cloud: proxy tự gắn khóa (không cần biến). Máy local: lấy khóa từ biến môi trường."""
+    v = os.environ.get(var, "")
+    return {} if v in PLACEHOLDERS else {header: v}
+
+
 def gemini():
-    # Khóa Gemini do proxy tự gắn vào header x-goog-api-key (Network secret), không đọc ở đây.
-    r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", timeout=30)
+    h = key_header("GEMINI_API_KEY", "x-goog-api-key") or key_header("GOOGLE_API_KEY", "x-goog-api-key")
+    r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", headers=h, timeout=30)
     if r.ok:
         names = [m["name"] for m in r.json().get("models", []) if "tts" in m["name"]]
         return f"OK – model giọng đọc thấy được: {', '.join(names) or '(không có model TTS trong danh sách)'}"
     return f"LỖI {r.status_code}: {r.text[:160]}"
+
+def elevenlabs():
+    r = requests.get("https://api.elevenlabs.io/v1/user/subscription",
+                     headers=key_header("ELEVENLABS_API_KEY", "xi-api-key"), timeout=30)
+    if r.ok:
+        d = r.json()
+        note = " (gói miễn phí: KHÔNG dùng cho video đăng kênh)" if d.get("tier") == "free" else ""
+        return f"OK – gói {d.get('tier')}, đã dùng {d.get('character_count')}/{d.get('character_limit')} ký tự{note}"
+    return f"LỖI {r.status_code}: {r.text[:140]}"
+
 
 def google_token(refresh_var="YT_REFRESH_TOKEN"):
     need = ["YT_CLIENT_ID", "YT_CLIENT_SECRET", refresh_var]
@@ -30,6 +49,7 @@ def google_token(refresh_var="YT_REFRESH_TOKEN"):
 
 def main():
     print("1. Gemini API:", gemini())
+    print("1b. ElevenLabs:", elevenlabs())
     tok, msg = google_token()
     print("2. YouTube OAuth:", msg)
     if not tok:
