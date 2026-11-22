@@ -1,0 +1,248 @@
+{
+  "version": "1.0",
+  "project_id": "lady-be-good",
+  "pipeline_type": "animated-explainer",
+  "stage": "script",
+  "status": "completed",
+  "timestamp": "2026-11-22T15:25:05.267438+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "script": {
+      "version": "1.0",
+      "title": "The Bomber the Desert Swallowed: Lady Be Good",
+      "total_duration_seconds": 1649,
+      "sections": [
+        {
+          "id": "S0.1",
+          "label": "Chi\u1ebfc m\u00e1y bay l\u1ebd ra kh\u00f4ng th\u1ec3 \u1edf \u0111\u00f3",
+          "text": "In 1958, oil prospectors flying over the Libyan Desert saw something that had no business being there. [pause] An American bomber. A B-24 Liberator, lying on the open sand, some four hundred and forty miles southeast of Benghazi. [pause] And no one aboard. The name painted on its nose was Lady Be Good. According to the U.S. Army Air Forces, it had disappeared fifteen years earlier, on its very first combat mission: a raid on the harbor of Naples, in April 1943. Every other bomber from that raid came home. This one flew past its own base, deep into the desert, until the fuel ran out and nine young men jumped into the dark. [pause] What happened to them next was written down, in a small diary, by one of the men who walked. [long pause] This is their story, told from the record.",
+          "start_seconds": 0,
+          "end_seconds": 71
+        },
+        {
+          "id": "S1.1",
+          "label": "M\u1ed9t \u0111\u01b0\u1eddng b\u0103ng gi\u1eefa sa m\u1ea1c",
+          "text": "To understand how a bomber ends up four hundred miles inside the Sahara, we have to start at a place called Soluch. [pause] In the spring of 1943, Soluch was a desert airstrip in Libya, about thirty-four miles southeast of the port of Benghazi. From fields like this one, American heavy bombers flew north across the Mediterranean to strike targets in Italy. The aircraft were B-24 Liberators: four engines, and enough range to cross the sea and come back. Soluch was home to the 376th Bomb Group. And in late March, the group received a brand-new aircraft, serial number forty-one, twenty-four three-oh-one. [pause] Its crew would call it Lady Be Good.",
+          "start_seconds": 71,
+          "end_seconds": 128
+        },
+        {
+          "id": "S1.2",
+          "label": "Ch\u00edn ng\u01b0\u1eddi",
+          "text": "The men assigned to fly her were just as new. [pause] The pilot was First Lieutenant William Hatton. His co-pilot, Second Lieutenant Robert Toner. The navigator was Second Lieutenant D.P. Hays, and the bombardier, Second Lieutenant John Woravka. Behind them sat the enlisted men: Technical Sergeant Harold Ripslinger, the flight engineer. Technical Sergeant Robert LaMotte, the radio operator. And three staff sergeants, Guy Shelley, Vernon Moore and Samuel Adams, who manned the guns and helped with the engines and the radio. [pause] Nine men. They had arrived in Libya on the eighteenth of March. They had never flown a combat mission together. [pause] Remember these names. Because the desert would keep some of them for seventeen years, and one of them, it has never given back.",
+          "start_seconds": 128,
+          "end_seconds": 190
+        },
+        {
+          "id": "S1.3",
+          "label": "Phi v\u1ee5 \u0111\u1ea7u ti\u00ean",
+          "text": "Lady Be Good had been with the group for less than two weeks when the orders came. [pause] Tomorrow, the fourth of April, the 376th would send its Liberators against Naples. For the new crew, it would be the first mission. [pause] For the aircraft, it would be the first, the last, and the only one.",
+          "start_seconds": 190,
+          "end_seconds": 217
+        },
+        {
+          "id": "S2.1",
+          "label": "C\u1ea5t c\u00e1nh",
+          "text": "On the afternoon of April the fourth, twenty-five B-24s were assigned to bomb the harbor of Naples. They would go in two waves: twelve aircraft first, then thirteen more. Lady Be Good was in the second wave, and among the last planes off the ground at Soluch, at around a quarter past two. [pause] The plan was simple on paper. Climb out over the Mediterranean, fly north for hours, bomb the harbor in the evening, and come home across the sea in the dark. [pause] The desert, though, had its own plans that afternoon.",
+          "start_seconds": 217,
+          "end_seconds": 263
+        },
+        {
+          "id": "S2.2",
+          "label": "B\u00e3o c\u00e1t",
+          "text": "Strong winds had whipped the sand into the air. Visibility collapsed. [pause] In the second wave, many of the bombers gave up and turned back to Soluch. Lady Be Good was not one of them. [pause] For a crew on its first mission, turning back would have been easy to explain. They didn't. They kept flying north, over open water, toward a target none of them had ever seen.",
+          "start_seconds": 263,
+          "end_seconds": 298
+        },
+        {
+          "id": "S2.3",
+          "label": "H\u1ed3 s\u01a1 kh\u00f4ng th\u1ed1ng nh\u1ea5t",
+          "text": "What happened over Italy is where the record starts to disagree with itself. [pause] One account, published by the U.S. National Archives, says Lady Be Good never caught up with the formation, and turned around just before reaching the target. Another, based on the group's records, says she did join the formation, but that poor visibility hid the target below. [pause] Either way, the result was the same. Lady Be Good did not bomb Naples. And by now, she was flying home on her own, in the dark.",
+          "start_seconds": 298,
+          "end_seconds": 341
+        },
+        {
+          "id": "S2.4",
+          "label": "G\u1ea7n n\u1eeda \u0111\u00eam",
+          "text": "The flight back to Libya was long, and almost all of it over water. No lights below. No horizon. Just the instruments, the engines, and nine men waiting for the coast of Africa to appear. [pause] Then, shortly after midnight, a voice came over the radio. [pause] It was William Hatton. And he had a problem.",
+          "start_seconds": 341,
+          "end_seconds": 368
+        },
+        {
+          "id": "S3.1",
+          "label": "Cu\u1ed9c g\u1ecdi l\u00fac 12 gi\u1edd 12",
+          "text": "At twelve minutes past midnight, according to the group's records, William Hatton called the base. [pause] His automatic direction finder, the instrument that should have pointed the way home, was not working. He needed to know where the base was. [pause] It is worth pausing on how little the crew had to work with. Below them was darkness. If there was cloud, there was no moon to steer by and no coastline to see. A navigator over water at night had his charts, his watch, his compass, and whatever the radio could tell him. [pause] So the radio was everything. And the answer that came back that night would shape every hour that followed.",
+          "start_seconds": 368,
+          "end_seconds": 423
+        },
+        {
+          "id": "S3.2",
+          "label": "330 \u0111\u1ed9",
+          "text": "The official report, written years later by the team sent to recover the crew, reconstructs what happened next. [pause] Lady Be Good was flying a course of one hundred and fifty degrees, heading south-southeast, toward the airfield at Benina, near Benghazi. The crew asked the radio direction-finding station at Benina for a bearing. The station gave them one: three hundred and thirty degrees. [pause] On paper, that number told them exactly what they hoped to hear. It said the bomber was out to the north-northwest of the station, still over the sea, still on the right line, still coming in. [pause] So they kept flying.",
+          "start_seconds": 423,
+          "end_seconds": 475
+        },
+        {
+          "id": "S3.3",
+          "label": "M\u1ed9t con s\u1ed1 c\u00f3 hai ngh\u0129a",
+          "text": "Here is the problem. [pause] A simple loop antenna can tell you the line a signal sits on. It cannot always tell you which end of that line you are on. Three hundred and thirty degrees, and its opposite, one hundred and fifty, are the same line drawn through the station. [pause] The investigators concluded that the navigator had most likely taken what is called a reciprocal reading. The bomber was not north of Benina, out over the sea. It was already south of it, over the land, flying away. [pause] The bearing was right. The direction was backwards. And every minute on that heading carried nine men further from the coast they thought was still ahead of them.",
+          "start_seconds": 475,
+          "end_seconds": 532
+        },
+        {
+          "id": "S3.4",
+          "label": "Bay qua nh\u00e0",
+          "text": "There is one more detail in the record, and it is hard to read. [pause] One account says that as the bomber passed over the area of its base, flares were fired into the sky to catch the crew's attention. No one aboard saw them. [pause] Lady Be Good crossed the coast it had been searching for, passed over the airfield it had been trying to reach, and flew on, south, into the Libyan Desert. [pause] For about two more hours, the four engines kept turning. Behind the crew, the lights of home. Ahead of them, nothing at all.",
+          "start_seconds": 532,
+          "end_seconds": 580
+        },
+        {
+          "id": "S4.1",
+          "label": "H\u1ebft nhi\u00ean li\u1ec7u",
+          "text": "Around two in the morning, the fuel ran low. [pause] The engines did not all stop at once. When searchers later reached the wreck, they found that three of the four propellers had been feathered, turned edge-on to the wind, the way a crew shuts down an engine that has nothing left to burn. [pause] Hatton could not see the ground. As far as he knew, he was somewhere over the Mediterranean, or just off the coast. Landing in the dark was not an option. [pause] So he gave the order every bomber crew trained for and hoped never to hear. Bail out.",
+          "start_seconds": 580,
+          "end_seconds": 630
+        },
+        {
+          "id": "S4.2",
+          "label": "Nh\u1ea3y v\u00e0o b\u00f3ng t\u1ed1i",
+          "text": "Nine men jumped into the night. [pause] They did not land in the sea. They landed on hard, empty ground in the middle of the Libyan Desert. And without them, Lady Be Good flew on. The empty bomber kept going for roughly sixteen more miles, then came down on its own, belly first, on a flat plain of gravel, almost level, as if someone had landed it. [pause] On the ground, in total darkness, the crew began trying to find one another. They fired their pistols. They fired signal flares. One by one, voices answered. [pause] Eight men came together. The ninth, the bombardier, John Woravka, never answered.",
+          "start_seconds": 630,
+          "end_seconds": 682
+        },
+        {
+          "id": "S4.3",
+          "label": "Trang nh\u1eadt k\u00fd \u0111\u1ea7u ti\u00ean",
+          "text": "Robert Toner, the co-pilot, carried a small diary. In it, he wrote down what had happened, in a few plain words. [pause] Got lost returning. Out of gas. Jumped. [pause] And then: can't find John. All others present. [pause] Those were not dramatic words. They were the words of a young officer trying to keep a record, because keeping a record was what he had been trained to do.",
+          "start_seconds": 682,
+          "end_seconds": 716
+        },
+        {
+          "id": "S4.4",
+          "label": "Quy\u1ebft \u0111\u1ecbnh \u0111i b\u1ed9",
+          "text": "When the sun came up, the eight men could finally see where they were. [pause] Sand. Gravel. A flat horizon in every direction. No sea. No coastline. No wreck, because the plane had come down miles away, out of sight. [pause] They still believed the coast could not be far. So they made the decision that would define everything that followed. They would walk, north-west, toward where they thought the Mediterranean had to be. [pause] They had very little food. As for water, the records do not agree. One says half a canteen. Another says a single pint. Another, one canteen to share. [pause] Whichever is true, it was not enough. And they started walking.",
+          "start_seconds": 716,
+          "end_seconds": 772
+        },
+        {
+          "id": "S5.1",
+          "label": "\u0110i v\u1ec1 h\u01b0\u1edbng bi\u1ec3n",
+          "text": "For the first days, the eight men walked north-west across the open desert. [pause] They had very little food, a few silk survival maps, and the nights were brutal. In one entry, Toner noted that the nights were about thirty-five degrees Fahrenheit. Men who had dressed for a flight over the sea were now sleeping on bare ground, close to freezing. [pause] As they walked, they left things behind, on purpose. Pieces of parachute. Boots. Cut lengths of parachute cord. Some of the parachute cloth they cut and laid out on the sand as arrows, weighted down with stones, pointing the way they had gone. [pause] They were leaving a trail for whoever came looking. They had no way of knowing that no one would come for sixteen years.",
+          "start_seconds": 772,
+          "end_seconds": 835
+        },
+        {
+          "id": "S5.2",
+          "label": "V\u00ec sao l\u1ea1i l\u00e0 h\u01b0\u1edbng b\u1eafc",
+          "text": "Why north-west? [pause] Because, as far as the crew knew, the coast was close. They believed they had just come in from the Mediterranean, and that the sea, and the British and American bases along it, were only a short walk behind them. Walk north, and sooner or later you reach the shore. [pause] It was the same mistake as the night before, now made on foot. The bomber had not just crossed the coast. It had flown on for hours, deep into Libya. The wreck would later be found some four hundred and forty miles south-east of Benghazi. [pause] So every mile the men walked was a mile in the right direction, toward a coast that was simply much too far away. Toner kept writing as they went. One short entry says only: still going.",
+          "start_seconds": 835,
+          "end_seconds": 902
+        },
+        {
+          "id": "S5.3",
+          "label": "T\u1edbi bi\u1ec3n c\u00e1t",
+          "text": "Then the ground changed. [pause] After about five days, the flat gravel gave way to dunes. They had walked into the edge of the Calanscio Sand Sea, a vast field of sand ridges where every step sinks and slides back. [pause] Toner's entry for that day, as quoted by Air and Space Forces Magazine, is short: good wind, but continuous blowing of sand. [pause] For men with almost no water, the dunes were not just a slower road. They were a wall. Climbing them cost sweat, and sweat was the one thing they could not afford to lose.",
+          "start_seconds": 902,
+          "end_seconds": 949
+        },
+        {
+          "id": "S5.4",
+          "label": "Ba ng\u01b0\u1eddi \u0111i ti\u1ebfp",
+          "text": "By Friday, the ninth of April, the group could not go on together. [pause] Toner wrote it down in a single line: Shelley, Rip, Moore separate and try to go for help. [pause] Guy Shelley, Harold Ripslinger and Vernon Moore were the three who still had the strength to keep moving. The other five, Hatton, Toner, Hays, LaMotte and Adams, stayed where they were, to wait. [pause] In the same entry, Toner noted something else. They had one parachute left. It was their only shelter from the sun by day and the cold by night. [pause] By then, together, the eight men had covered close to eighty miles on foot. The records put it somewhere between seventy-eight and eighty-five.",
+          "start_seconds": 949,
+          "end_seconds": 1008
+        },
+        {
+          "id": "S5.5",
+          "label": "Nh\u1eefng trang cu\u1ed1i",
+          "text": "The five who stayed behind kept waiting, and Toner kept writing. [pause] The next day, his entry reads: still having prayer meetings for help. [pause] There was no help. No aircraft overhead. No trucks on the horizon. As far as the Army Air Forces knew, Lady Be Good had gone down somewhere in the Mediterranean. [pause] The last entry in the diary is dated Monday, the twelfth of April, eight days after the mission. Toner wrote: no help yet, very cold night. [long pause] After that, the pages are blank.",
+          "start_seconds": 1008,
+          "end_seconds": 1052
+        },
+        {
+          "id": "S5.6",
+          "label": "Cu\u1ed1n s\u1ed5",
+          "text": "It is worth pausing on what that diary is. [pause] It is not a memoir, written years later by a survivor. No one in this story survived. It is a handful of short, dated lines, written in pencil-thin moments of strength, by a co-pilot who did not know how his story would end. Eight days in the desert, in a few pages. [pause] Every quote you have heard in this chapter comes from it, as published by the U.S. National Archives and by Air and Space Forces Magazine. We have not added words to it. [pause] And we only know any of this because, seventeen years later, someone found the diary lying beside the men who wrote in it, and carried it home.",
+          "start_seconds": 1052,
+          "end_seconds": 1113
+        },
+        {
+          "id": "S5.7",
+          "label": "Ba ng\u01b0\u1eddi trong bi\u1ec3n c\u00e1t",
+          "text": "And the three who went on? [pause] Shelley, Ripslinger and Moore kept walking north-west, into the dunes, for days, after the others had stopped. Ripslinger, too, was carrying a small diary. [pause] How far they got, and how long they lasted, is something the desert would keep to itself for a very long time. [pause] Because the next people to see any trace of the Lady Be Good crew would not arrive in days, or weeks. They would arrive in a different decade, in a different world, looking for something else entirely. [pause] They were looking for oil.",
+          "start_seconds": 1113,
+          "end_seconds": 1161
+        },
+        {
+          "id": "S6.1",
+          "label": "Th\u1ea5y t\u1eeb tr\u00ean kh\u00f4ng",
+          "text": "Fifteen years passed. [pause] The war ended. And in the nineteen-fifties, oil companies began to survey its deserts from the air. [pause] In 1958, crews working for those companies spotted something on the sand, far out in the empty south-east: the shape of a large aircraft. [pause] The accounts do not agree on who saw it first. One names a British airline crew in May of that year. Another names a survey plane flying for D'Arcy, a British Petroleum company. The National Archives dates the sighting to November. [pause] What they all agree on is this: the wreck was real, it was American, and no one had reported a bomber missing in that part of the desert.",
+          "start_seconds": 1161,
+          "end_seconds": 1219
+        },
+        {
+          "id": "S6.2",
+          "label": "Chi\u1ebfc m\u00e1y bay v\u1eabn nguy\u00ean",
+          "text": "In February 1959, a small team of D'Arcy geologists drove out across the sand to see the wreck for themselves. [pause] What they found was almost impossible to believe. The B-24 had broken in two, behind the wings, but much of it was intact. The machine guns were still there. The radio, by one account, still worked. There was food and water aboard. Wikipedia's account, drawing on reports from the time, says a thermos of tea was still drinkable. [pause] In the navigator's compartment lay D.P. Hays' log. It recorded the flight out to Naples. For the long flight home, it said nothing. [pause] There was no one aboard, and no remains. Just the plane, sitting where it had slid to a stop on the night of the fourth of April, 1943.",
+          "start_seconds": 1219,
+          "end_seconds": 1284
+        },
+        {
+          "id": "S6.3",
+          "label": "Cu\u1ed9c t\u00ecm ki\u1ebfm n\u0103m 1959",
+          "text": "The news reached Wheelus Air Base, the American base near Tripoli. [pause] In 1959, the U.S. Air Force went looking for the crew. Teams from Wheelus searched the area around the wreck, and the Seventeenth Air Force sent in helicopters and a C-130 transport. In six days, by one count, they covered about four hundred and fifty square miles. [pause] Then, in June, they found the trail. Flying boots, standing in the sand, with the toes pointing north. Strips of parachute, weighted with stones into arrowheads. The markers the men had left for exactly this moment, sixteen years too late. [pause] But the trail ran into the dunes, and in the dunes it disappeared. On the second of September, 1959, the search was called off. The crew had still not been found.",
+          "start_seconds": 1284,
+          "end_seconds": 1349
+        },
+        {
+          "id": "S6.4",
+          "label": "Th\u00e1ng 2 n\u0103m 1960",
+          "text": "In February 1960, it was oil men again who found them. [pause] On the eleventh of February, a British Petroleum survey team came across the remains of five men, lying close together on the gravel. [pause] Hatton. Toner. Hays. LaMotte. Adams. The five who had stayed behind to wait. [pause] Beside them was Robert Toner's diary. [pause] By Wikipedia's figure, they were about eighty-one miles from the wreck of their plane. Every one of those miles, they had walked. [long pause] They had been waiting there for almost seventeen years.",
+          "start_seconds": 1349,
+          "end_seconds": 1393
+        },
+        {
+          "id": "S6.5",
+          "label": "Ba ng\u01b0\u1eddi \u0111i ti\u1ebfp",
+          "text": "And the three who went on? [pause] In May 1960, the Army and the Air Force launched a new search, called Operation Climax, with a C-130 and two small helicopters. [pause] On the twelfth of May, Guy Shelley was found, far beyond the others. On the seventeenth, Harold Ripslinger, further still. [pause] How far exactly, the records do not agree. Air and Space Forces Magazine puts Shelley more than thirty-seven miles beyond the five, and Ripslinger twenty-six miles beyond that. The National Archives gives shorter figures. All of them describe the same thing: two men who kept walking long after their bodies should have stopped. [pause] In August 1960, a BP team found John Woravka, the man who never answered, about twelve miles from the crash. His parachute had not fully opened. [pause] Vernon Moore was never found.",
+          "start_seconds": 1393,
+          "end_seconds": 1461
+        },
+        {
+          "id": "S7.1",
+          "label": "V\u00ec sao",
+          "text": "So what went wrong? [pause] The official verdict, as Air and Space Forces Magazine puts it, was a gross navigational error. [pause] But that phrase hides a chain of smaller things. A crew on its first combat mission. A dark night with no landmarks below. A direction finder that was not working. A radio bearing that could be read two ways, and was read the wrong way. And a coastline that went by underneath them, unseen. [pause] The National Archives points to the same chain: inexperience, darkness, and an aircraft that simply flew too far. [pause] No single mistake killed the crew of the Lady Be Good. A few ordinary ones, lined up, in the dark, did.",
+          "start_seconds": 1461,
+          "end_seconds": 1518
+        },
+        {
+          "id": "S7.2",
+          "label": "Nh\u1eefng g\u00ec c\u00f2n l\u1ea1i",
+          "text": "The story did not end with the search. [pause] Parts of the Lady Be Good were taken from the wreck and fitted to other aircraft. A propeller was set up as a memorial at Wheelus Air Base. A stained-glass window honoring the crew was made for the base chapel, and later moved to the National Museum of the U.S. Air Force. [pause] In 1994, what was left of the plane was moved out of the desert, and today it sits at an air base near Tobruk, on the Libyan coast. [pause] The coast they were trying to reach. The bomber got there, in the end. Fifty-one years late. [pause] And in Lake Linden, Michigan, the small hometown of radio operator Robert LaMotte, another of its propellers stands as a memorial to the men who walked.",
+          "start_seconds": 1518,
+          "end_seconds": 1585
+        },
+        {
+          "id": "S7.3",
+          "label": "K\u1ebft",
+          "text": "Nine men flew out on the fourth of April, 1943. [pause] One came down alone, in the dark. Five stopped together and waited. Two kept walking until they could not. And one, Vernon Moore, is still out there, somewhere in the sand. [pause] The desert gave back almost everything. The plane. The guns. The log. The diary. It even gave back the tea. [pause] But it kept the one thing that would have saved them: the simple knowledge of where they really were. [long pause] If you could ask the crew of the Lady Be Good one question, what would it be? Tell us in the comments. [pause] Next time on ICYFOX, we stay in the skies of the Second World War, with the strange lights that Allied pilots called foo fighters.",
+          "start_seconds": 1585,
+          "end_seconds": 1649
+        }
+      ],
+      "metadata": {
+        "language": "en-US",
+        "words": 3308,
+        "approved_by_user": "2026-11-22",
+        "source_files": [
+          "channel-studio/videos/002-lady-be-good/script_part1.md",
+          "channel-studio/videos/002-lady-be-good/script_part2.md",
+          "channel-studio/videos/002-lady-be-good/script_part3.md",
+          "channel-studio/videos/002-lady-be-good/script_part4.md"
+        ]
+      }
+    }
+  }
+}

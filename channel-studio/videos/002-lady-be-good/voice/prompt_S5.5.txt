@@ -1,0 +1,6 @@
+model: gemini-3.8-flash-tts
+section: S5.5
+
+Read the following as the narrator of a calm, serious true-story documentary for an American audience. Low, steady and restrained, never theatrical. Slow down and soften almost to a whisper on the quoted diary lines. Take a real breath at each '...', and a long silence before the final sentence.
+
+The five who stayed behind kept waiting, and Toner kept writing. ... The next day, his entry reads: still having prayer meetings for help. ... There was no help. No aircraft overhead. No trucks on the horizon. As far as the Army Air Forces knew, Lady Be Good had gone down somewhere in the Mediterranean. ... The last entry in the diary is dated Monday, the twelfth of April, eight days after the mission. Toner wrote: no help yet, very cold night. ... ... After that, the pages are blank.

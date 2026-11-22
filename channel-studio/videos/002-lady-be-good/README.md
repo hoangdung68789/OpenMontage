@@ -10,7 +10,8 @@
 ## Tiến độ
 - [x] Nghiên cứu sơ bộ (nguồn chính đã xác định, xem `script_outline.md`)
 - [x] Dàn ý và hook 60 giây đã duyệt (`script_outline.md`), 22/11
-- [ ] Kịch bản: phần 1–4 viết xong, mỗi phần QA ĐẠT 22/11 (3.308 từ, khoảng 27:29); **chờ anh duyệt cả kịch bản 1 lần** trong lô duyệt thứ Năm (`script_full_ready.txt`)
+- [x] Kịch bản: phần 1–4, mỗi phần QA ĐẠT; **anh đã duyệt 22/11** (checkpoint `script` của project `lady-be-good`)
+- [ ] Mẫu giọng: 3 mẫu S5.5 (Charon, Algenib, Gacrux), **chờ anh chọn** (`voice/README.md`)
 - [ ] Mẫu giọng đã duyệt
 - [ ] Phân cảnh đã duyệt
 - [ ] Tài nguyên đã duyệt, danh sách ghi công đã xong

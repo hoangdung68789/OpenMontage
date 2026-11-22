@@ -72,7 +72,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 ## Video đang làm
 | Video | Thư mục | Bước hiện tại | Đang chờ gì |
 |---|---|---|---|
-| 002 Lady Be Good (đăng dự kiến 11/12) | `channel-studio/videos/002-lady-be-good/` · project `lady-be-good` (research + proposal đã ghi checkpoint) | Dàn ý đã duyệt 22/11. Kịch bản đủ 4 phần, mỗi phần QA ĐẠT (3.308 từ, khoảng 27:29) | Anh duyệt cả kịch bản 1 lần trong lô duyệt thứ Năm; sau đó: mẫu giọng → phân cảnh → tài nguyên → dựng → gói đăng |
+| 002 Lady Be Good (đăng dự kiến 11/12) | `channel-studio/videos/002-lady-be-good/` · project `lady-be-good` (research + proposal đã ghi checkpoint) | Kịch bản 4 phần anh đã duyệt 22/11 (checkpoint `script`). 3 mẫu giọng S5.5 đã gửi | Anh chọn giọng (`videos/002-lady-be-good/voice/README.md`); sau đó: phân cảnh → tài nguyên → dựng → gói đăng |
 | 001 Gilgamesh: The Lost Lines (video thử) | `channel-studio/videos/001-gilgamesh-lost-lines/` · project `gilgamesh-pilot` | Kịch bản: Phần 1 và 2 đã duyệt (1.867 từ, khoảng 15:46). Phần 3 và 4 chưa viết. Bản đồ 16 repo: references/toolbox-repos.md của skill | Tôi: kiểm S3.5, S4.1, S4.6, làm 3 mẫu giọng, viết Phần 3 |
 
 ## Quyết định mới trong phiên trước
@@ -84,7 +84,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 
 ## Việc tiếp theo (theo thứ tự)
 0. **Nếu anh gửi link kênh đối thủ:** làm đủ `request-playbooks.md` mục A trong cùng lượt trả lời.
-0a. **Chờ anh duyệt cả kịch bản 002** (`videos/002-lady-be-good/script_part1..4.md`, đánh dấu `script_full_ready.txt`) trong lô duyệt thứ Năm. Mỗi phần đã QA ĐẠT 22/11. Duyệt xong: làm 3 mẫu giọng (cổng duyệt tiếp theo). Video 002 đăng trước Gilgamesh (001 dời sang 25/12 theo kế hoạch 90 ngày; dòng Notion của 001 chưa đổi ngày).
+0a. **Chờ anh chọn 1 trong 3 mẫu giọng 002** (Charon, Algenib, Gacrux; file ở `projects/lady-be-good/assets/audio/voice_samples/`, ghi chú `videos/002-lady-be-good/voice/README.md`). Kịch bản đã duyệt 22/11. Giọng Gemini đọc chậm hơn dự tính khoảng 30% (video có thể dài khoảng 35 phút). `gemini_tts.py` còn 404 (T-002); gọi thẳng `v1beta generateContent` thì chạy được. Video 002 đăng trước Gilgamesh (001 dời sang 25/12 theo kế hoạch 90 ngày; dòng Notion của 001 chưa đổi ngày).
 0b. Lấy lại phụ đề video `QkRRERFPfEM` (lần trước bị lỗi 429).
 0c. **T-007 (radar lần 2): KHÔNG chạy trước 23/11/2026 21:17 giờ VN.** Radar lần 1 tra lúc 22/11 21:17; cần cách 24–48 giờ mới đo được đà tăng. Phiên tự lái 23/11 lúc 09:00 và 17:00 bỏ qua thẻ này. Lần hợp lệ đầu tiên là phiên 24/11 09:00 (khoảng 36 giờ, vẫn kịp hạn 24/11). Làm: `niche_outliers.py --days 7`, rồi so lượt xem 3 video `BwyM7aGf8p0`, `R2gNUN0ljTc`, `3NE-Cz96W7E` với `research/2026-11-22-radar/outliers.json`. Video nào còn tăng thì gắn nhãn "ĐANG LÊN – ĐÃ KIỂM CHỨNG" trong IDEA_BANK.
 1. Chạy `check_apis.py`. Đạt là thấy tên kênh, số sub, và Analytics OK. Nếu lỗi, tra bảng sự cố trong `references/environment-and-apis.md`.
