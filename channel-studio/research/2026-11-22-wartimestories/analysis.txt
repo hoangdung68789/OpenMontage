@@ -1,0 +1,182 @@
+C:\Users\Admin\AppData\Local\Temp\claude\8114b58947731a8f\5ef1a7b2-c6aa-4015-8ed9-de58d1344309\scratchpad\an.py:12: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+  date=dt.datetime.utcfromtimestamp(ts).date().isoformat() if ts else "?"))
+CHANNEL: Wartime Stories | subs: 856000 | id: UCrJdCKIddUxHExmbMN6gZ9A
+DESC: WARNING �C Many of these stories are NOT suitable for younger audiences.  For all things strange and unusual related to war and the military, Wartime Stories covers the most chilling cases of crimes against humanity, bizarre tales, unsolved mysteries, espionage, deception, creepy encounters of the paranormal, as well as feats of valor and ultimate sacrifice.  [ Wartime Stories is the proud sister channel of Bedtime Stories, hosted by Richard While. ]  
+N videos: 160
+total views: 102161000 median: 453500.0 mean: 638506
+dur min: median 38.7, min 1.2, max 193.9
+oldest: 2020-11-22 newest: 2026-11-21
+per month: [('2020-11', 4), ('2021-11', 13), ('2022-11', 18), ('2023-11', 15), ('2024-11', 21), ('2025-11', 32), ('2025-12', 2), ('2026-02', 4), ('2026-03', 2), ('2026-04', 4), ('2026-05', 4), ('2026-06', 5), ('2026-07', 6), ('2026-08', 5), ('2026-09', 7), ('2026-10', 10), ('2026-11', 8)]
+median last30: 288500.0
+
+ALL (newest first): date | views | min | x(median30) | viral? | title
+2026-11-21 |   192,000 |  52.0 |  0.67 |       | Six Unexplained Experiences in Iraq and Afghanistan
+2026-11-18 |   135,000 | 134.6 |  0.47 |       | A Compilation of Jungle and Remote Creature Stories
+2026-11-14 |   336,000 |  64.2 |  1.16 |       | Encounters with Strange Creatures on Military Bases
+2026-11-12 |   118,000 | 133.1 |  0.41 |       | A Compilation of Unexplained Battlefield Encounters
+2026-11-08 |   276,000 |  63.5 |  0.96 |       | Things Encountered in Japan��s Tunnels, Barracks, Ships and Forests
+2026-11-08 |   112,000 | 132.5 |  0.39 |       | A Compilation of Warnings, Visions and Messages from Beyond
+2026-11-01 |   459,000 |  57.4 |  1.59 |       | First Responders Share Their Most Disturbing Experiences
+2026-11-01 |   159,000 | 178.8 |  0.55 |       | A Compilation of Ouija Board Mishaps and Freaky Encounters
+2026-10-25 |   130,000 | 166.0 |  0.45 |       | A Compilation of Famous Wartime UFO Legends and Mysteries
+2026-10-25 |   324,000 |  54.3 |  1.12 |       | Military Sightings of Bipedal Dog Creatures
+2026-10-22 |   303,000 |  62.2 |  1.05 |       | Skinwalker Encounters by Royal Marines, Tankers, and Soldiers
+2026-10-22 |   188,000 | 143.1 |  0.65 |       | A Compilation of Strange Things at Sea
+2026-10-22 |   268,000 |  56.6 |  0.93 |       | The Unexpected Truth About Sailors and Giant Squids
+2026-10-22 |   287,000 | 137.8 |  0.99 |       | A Compilation of Strange Things in the Desert
+2026-10-22 |   324,000 |  71.2 |  1.12 |       | Coastguardsmen Realized They Weren��t Alone on the Island
+2026-10-22 |   442,000 | 193.9 |  1.53 |       | A Compilation of Deployment Encounters Nobody Can Explain
+2026-10-22 |   288,000 |  67.6 |  1.00 |       | Cadets Share What Freaked Them Out in School
+2026-10-22 |   289,000 | 146.6 |  1.00 |       | A Compilation of Creepy Military Installations
+2026-09-22 |   266,000 | 149.0 |  0.92 |       | A Compilation of Encounters with Giants
+2026-09-22 |   529,000 |  63.8 |  1.83 |       | They Thought it Was Human but it Wasn't
+2026-09-22 |   552,000 |  61.2 |  1.91 |       | Norwegian and Finnish Soldiers Didn��t Know This Lived in the Woods
+2026-09-22 |   529,000 | 185.6 |  1.83 |       | A Compilation of Things Encountered in Forests
+2026-09-22 |   320,000 |  76.0 |  1.11 |       | Bored Soldiers Make Terrible Decisions
+2026-09-22 |   414,000 |  58.2 |  1.44 |       | Okinawa Has a Reputation with Marines for a Reason
+2026-09-22 |   255,000 | 145.5 |  0.88 |       | A Compilation of Soldier Encounters with the Unnatural
+2026-08-22 |   313,000 |  61.6 |  1.08 |       | Give This Base Back to Whatever Ungodly Thing Wants It
+2026-08-22 |   281,000 |  55.1 |  0.97 |       | Things That Made Them Question Their Reality
+2026-08-22 |   371,000 |  47.8 |  1.29 |       | Soldier Knocked Over Cliff by "The Hairy Man"
+2026-08-22 |   569,000 |  50.0 |  1.97 |       | This Marine Corps Base Has a Lot of Problems
+2026-08-22 |   223,000 |  46.5 |  0.77 |       | Ship Stories That Make You Reconsider Joining the Navy
+2026-07-22 |   401,000 | 124.2 |  1.39 |       | A Compilation of Talking Animals and Humanoid Encounters
+2026-07-22 |   536,000 |  59.8 |  1.86 |       | Untold Stories from the War in Afghanistan
+2026-07-22 |   291,000 |  48.1 |  1.01 |       | K-Pop Demon Hunters Might Be Legit
+2026-07-22 |   226,000 |  60.4 |  0.78 |       | George Washington Saw Things You Wouldn't Believe
+2026-07-22 |   280,000 |  39.8 |  0.97 |       | A Few Men Who Saw Jumanji In Real Life
+2026-07-22 |   773,000 | 126.0 |  2.68 |       | A Compilation of Our Creepiest Military Encounters
+2026-06-22 |   233,000 |  39.8 |  0.81 |       | Remnants of WWII Come Out After Dark
+2026-06-22 |   407,000 |  40.6 |  1.41 |       | What They Heard Should Not Be Possible
+2026-06-22 |   304,000 |  57.6 |  1.05 |       | How Did Hundreds of MEF Soldiers Just Disappear?
+2026-06-22 |   274,000 |  35.5 |  0.95 |       | Soldiers in Louisiana Call Her The Box Witch
+2026-06-22 |   582,000 |  38.9 |  2.02 |       | You Don��t Want to Know What Marines Saw in Shopping Malls
+2026-05-22 |   256,000 |  50.9 |  0.89 |       | The Germans Had No Idea What Was Killing Them
+2026-05-22 |   414,000 |  39.2 |  1.44 |       | The U.S./Mexico Border is Messed Up 
+2026-05-22 |   481,000 |  37.3 |  1.67 |       | Combat Engineer Says He is Disobeying Orders to Talk About This
+2026-05-22 |   386,000 |  54.6 |  1.34 |       | A Navy SEAL Saw Something Very Unnatural
+2026-04-22 |   298,000 |  39.4 |  1.03 |       | Museum Artifacts Aren't Supposed to Move
+2026-04-22 |   573,000 |  36.4 |  1.99 |       | This SoCal Marine Corps Base Has Problems
+2026-04-22 |   358,000 |  48.2 |  1.24 |       | Children Without Legs Shouldn't Be on Playgrounds at Night
+2026-04-22 |   759,000 |  40.9 |  2.63 |       | What This Marine Never Told About the West Virginia Woods
+2026-03-22 |   371,000 |  49.0 |  1.29 |       | Shadows That Walk, Soldiers That Vanish, Pictures That Move
+2026-03-22 |   302,000 |  31.3 |  1.05 |       | Bats Don't Have Faces and Steal Children
+2026-02-22 |   295,000 |  44.8 |  1.02 |       | Helicopters and Planes Aren't Supposed to Do This
+2026-02-22 |   582,000 |  38.2 |  2.02 |       | Small Humanoid Creatures Terrorized Soldiers
+2026-02-22 |   320,000 |  60.6 |  1.11 |       | Christmas Decorations Don't Knock Planes Out of the Sky
+2026-02-22 |   396,000 |  36.0 |  1.37 |       | Something is Wrong With These Planes
+2025-12-22 |   328,000 |  36.8 |  1.14 |       | Never Trust a Little Girl in a Dark Forest
+2025-12-22 |   488,000 |  38.2 |  1.69 |       | This Army Base Has Problems
+2025-11-22 |   324,000 |  37.7 |  1.12 |       | Marines Had A Shoot Out with American Gangsters
+2025-11-22 |   865,000 |  45.4 |  3.00 |       | There is Something Wrong with German Forests
+2025-11-22 |   845,000 |  37.9 |  2.93 |       | The Side of the War Nobody Ever Heard About
+2025-11-22 |   323,000 |  49.9 |  1.12 |       | His Crew Went a Bit Overboard in How They Got Rid of Him
+2025-11-22 |   336,000 |  36.0 |  1.16 |       | Never Visit the Chickamauga Battlefield at Night
+2025-11-22 |   628,000 |  55.7 |  2.18 |       | Native Americans Fought Wars Against Cannibalistic Giants...
+2025-11-22 |   571,000 |  37.7 |  1.98 |       | Being Stranded in Between the Lines was a Death Sentence
+2025-11-22 |   221,000 |  37.8 |  0.77 |       | People Do Terrible Things When They're Hungry
+2025-11-22 |   243,000 |  36.0 |  0.84 |       | What Causes Old Battlefields to Do This?
+2025-11-22 |   866,000 |  33.6 |  3.00 |       | Soldiers in Iraq Described Experiences They Couldn��t Explain
+2025-11-22 |   763,000 |  40.4 |  2.64 |       | One More Reason Not to Fall Asleep on Firewatch...
+2025-11-22 |   825,000 |  55.5 |  2.86 |       | The Unbelievable Discoveries Made During Operation Highjump
+2025-11-22 |   503,000 |  48.0 |  1.74 |       | How Did These Men Know What Would Happen in the Future?
+2025-11-22 |   280,000 |  45.3 |  0.97 |       | When Millions of People Thought Aliens Were Invading
+2025-11-22 |   233,000 |  36.2 |  0.81 |       | This is the Reason Soldiers Need Psych Evals
+2025-11-22 | 1,000,000 |  34.7 |  3.47 |       | Soldiers Witnessed Something Paranormal In Ukraine...
+2025-11-22 |   220,000 |  32.9 |  0.76 |       | The Army Trained Him to Do This...
+2025-11-22 |   920,000 |  42.7 |  3.19 |       | The Same Thing That Attacked Gold Miners Was Seen By Soldiers
+2025-11-22 |   338,000 |  41.3 |  1.17 |       | A French Doctor Who Was Worse than Jeffrey Dahmer...
+2025-11-22 | 1,700,000 |  53.0 |  5.89 |       | Things Seen on Pearl Harbor, Hickam, and the Night Marchers...
+2025-11-22 |   556,000 |  42.6 |  1.93 |       | A Soldier in Honduras Says He Was Lured Away from His Post...
+2025-11-22 |   403,000 |  34.5 |  1.40 |       | Paranormal Events Do Influence Military Decisions
+2025-11-22 | 1,200,000 |  45.8 |  4.16 |       | Soldiers Using Experimental Optics Saw Things They Weren't Supposed To...
+2025-11-22 |   478,000 |  47.2 |  1.66 |       | Chilean Military Claims NASA Took Custody of Bizarre Creatures in 2000
+2025-11-22 |   459,000 |  37.1 |  1.59 |       | Hundreds of Japanese Soldiers Attempted to Hide in a Swamp...
+2025-11-22 |   328,000 |  49.0 |  1.14 |       | A Stolen Mexican War Treasure and Strange Deaths
+2025-11-22 |   709,000 |  36.9 |  2.46 |       | Everyone Thought the World Was Ending��
+2025-11-22 | 1,000,000 |  43.9 |  3.47 |       | Unbelievably Terrifying Military Experiences in the Philippines
+2025-11-22 |   774,000 |  57.4 |  2.68 |       | In 1990, Six Soldiers Went AWOL for the Craziest Reason��
+2025-11-22 |   586,000 |  30.8 |  2.03 |       | Something These Men Could Not Explain...
+2025-11-22 |   440,000 |  44.9 |  1.53 |       | A Coast Guardsman Had a Crazy Experience In the Bermuda Triangle...
+2025-11-22 | 1,300,000 |  36.0 |  4.51 |       | Two Veterans Share the Most Terrifying Bigfoot Stories Ever Told
+2024-11-22 |   915,000 |  29.6 |  3.17 |       | Why Would A Lieutenant Remove All of His Own Teeth...
+2024-11-22 |   653,000 |  40.9 |  2.26 |       | Marines Living on Okinawa Realize it Has A Very Dark History��
+2024-11-22 |   711,000 |  28.3 |  2.46 |       | He Never Thought Skinwalkers Were Real...
+2024-11-22 | 1,100,000 |  47.5 |  3.81 |       | If These Soldier��s Stories are True... Burn the Jungles
+2024-11-22 | 1,700,000 |  31.4 |  5.89 |       | USN Petty Officer and Others Report Megalodon Sightings
+2024-11-22 |   612,000 |  39.9 |  2.12 |       | Men Who Everyone Thought Were Dead... Came Back
+2024-11-22 |   518,000 |  35.7 |  1.80 |       | What Killed These Irish and British Men?
+2024-11-22 | 3,300,000 |  45.9 | 11.44 |       | Shocking Stories from Soldiers and Drone Operators
+2024-11-22 | 1,400,000 |  38.4 |  4.85 |       | Soldiers Said They Encountered�� Something
+2024-11-22 |   156,000 |   2.2 |  0.54 |       | Wartime Stories Podcast Trailer!
+2024-11-22 | 1,100,000 |  29.9 |  3.81 |       | They Shouldn't Have Invaded Finland
+2024-11-22 |   900,000 |  36.9 |  3.12 |       | It's Not Easy Being a Military Police Officer
+2024-11-22 |   624,000 |  33.5 |  2.16 |       | The Mystery of This Mutilated Sergeant Has Never Been Solved 
+2024-11-22 | 1,000,000 |  29.4 |  3.47 |       | What is Happening On Nuclear Submarines?
+2024-11-22 |   926,000 |  36.9 |  3.21 |       | Documented Military Reports of Vampires
+2024-11-22 |   983,000 |  35.1 |  3.41 |       | They Actually Banned Ouija Boards Because of This
+2024-11-22 | 1,500,000 |  30.8 |  5.20 |       | Native Legend or Historical Event?
+2024-11-22 | 2,100,000 |  31.6 |  7.28 |       | Terrifying Supernatural Encounters in a War Zone
+2024-11-22 |   723,000 |  27.5 |  2.51 |       | Imagine Seeing An Entire Tank Disappear...
+2024-11-22 | 2,900,000 |  35.9 | 10.05 |       | Marines and Soldiers Stalked by Creatures in the Woods
+2024-11-22 | 1,800,000 |  29.7 |  6.24 |       | Can Anyone Explain What They Saw?
+2023-11-22 | 4,700,000 |  36.1 | 16.29 |       | Animals Aren't Supposed to Talk
+2023-11-22 | 2,100,000 |  47.5 |  7.28 |       | Japanese Soldiers Reported Man-Eating Creatures in the Jungle
+2023-11-22 |   854,000 |  40.5 |  2.96 |       | The Air Force Knows Something...
+2023-11-22 |   901,000 |  38.7 |  3.12 |       | Some of the Ghosts Talked to Them
+2023-11-22 |   918,000 |  34.8 |  3.18 |       | These Soldiers Swear They Saw It... P2
+2023-11-22 | 1,100,000 |  20.3 |  3.81 |       | These Soldiers Swear They Saw It...
+2023-11-22 | 1,000,000 |  33.8 |  3.47 |       | Naval Cadets Travel Back in Time During Land Navigation
+2023-11-22 | 1,300,000 |  35.4 |  4.51 |       | Imagine Seeing This In Your Room...
+2023-11-22 |   743,000 |  22.4 |  2.58 |       | How Did He Travel That Far in 15 Minutes?
+2023-11-22 | 1,000,000 |  36.4 |  3.47 |       | Project Blue Book was Initiated by the US Air Force Less Than a Year Later
+2023-11-22 | 2,300,000 |  28.9 |  7.97 | VIRAL | These Men Had No Trouble Staying Awake on Watch -- They Were Terrified
+2023-11-22 | 1,400,000 |  29.1 |  4.85 |       | Soldiers in Vietnam Reported Seeing Lizards That Walked Like Men
+2023-11-22 |   571,000 |  24.7 |  1.98 |       | Soldier Claimed that German Scientists Implanted A Pysch Patient's Brain into a Wolf...
+2023-11-22 | 1,100,000 |  24.9 |  3.81 |       | Sailors Report Terrifying Things Seen on Ships
+2023-11-22 |   161,000 |  38.9 |  0.56 |       | The Unfortunate Myths of the Most Horrific Naval Disaster in History
+2022-11-22 |   153,000 |  38.6 |  0.53 |       | What Happened to the Men Who Spent 5 Days in Shark-Infested Waters? P2
+2022-11-22 |   228,000 |  24.4 |  0.79 |       | What Happened to the Men Who Spent 5 Days in Shark-Infested Waters? P1
+2022-11-22 |   198,000 |  23.5 |  0.69 |       | My Approach to Researching and Analyzing Unverifiable Stories
+2022-11-22 |    33,000 |   6.7 |  0.11 |       | A Guy in my Platoon Loved to Scream "69"
+2022-11-22 |   539,000 |  23.8 |  1.87 |       | Bank Manager Has a Terrifying Vision Before a UFO Encounter
+2022-11-22 |    54,000 |  26.2 |  0.19 |       | Men Who Made the Ultimate Sacrifice in Vietnam
+2022-11-22 |   448,000 |  26.5 |  1.55 |       | Airman Recounts Horrifying Unexplained Memories...
+2022-11-22 |   671,000 |  24.0 |  2.33 |       | What He Saw in Vietnam Defies Explanation...
+2022-11-22 |   406,000 |  29.4 |  1.41 |       | Strange Things Seen By Military and Others
+2022-11-22 | 1,900,000 |  40.3 |  6.59 |       | A Soldier Saw Something in Honduras...
+2022-11-22 |    90,000 |  15.9 |  0.31 |       | If Tatooine was Really Afghanistan...
+2022-11-22 |   523,000 |  33.1 |  1.81 |       | Bizarre Things Seen Near Military Bases and Homes
+2022-11-22 |   979,000 |  22.1 |  3.39 |       | What Made Them Scream Like That...
+2022-11-22 |   579,000 |  20.1 |  2.01 |       | Encounters With Bigfoot or Something Else On Military Bases
+2022-11-22 |   432,000 |  29.7 |  1.50 |       | Military Police Report Diamond Object Destroying Radio Tower
+2022-11-22 |   551,000 |  37.6 |  1.91 |       | Skilled WWII Pilot Reports Chasing Unidentified Object and Mysteriously Dies
+2022-11-22 |   579,000 |  37.5 |  2.01 |       | A Diamond-Shaped UFO Being Chased by Helicopters Over Fort Campbell, KY
+2022-11-22 |   296,000 |  26.2 |  1.03 |       | Smoke Pit Stories - Episode 1 (Pilot)
+2021-11-22 | 1,100,000 |  33.5 |  3.81 |       | Military Police Threatened by Men Dressed in Black Uniforms...
+2021-11-22 |    81,000 |   4.6 |  0.28 |       | It's No Wonder the Germans Were Terrified by Them | A Tribute to the Marines Corps
+2021-11-22 | 2,000,000 |  33.2 |  6.93 | VIRAL | Army Police Chased By Massive Creature in the 1980s
+2021-11-22 |   377,000 |  46.4 |  1.31 |       | They Put Him in a Body Bag While He Was Alive...
+2021-11-22 |   189,000 |  38.9 |  0.66 |       | Green Berets and Grand Theft Auto...
+2021-11-22 |   187,000 |  35.0 |  0.65 |       | The Vietcong Just Couldn't Kill this Man...
+2021-11-22 |   242,000 |  38.8 |  0.84 |       | War During Winter is a Horrible Thing...
+2021-11-22 |   295,000 |  28.7 |  1.02 |       | When Men Fight Wars with Wolves...
+2021-11-22 |   259,000 |  87.0 |  0.90 |       | A Man Who Just Liked Killing... P2
+2021-11-22 |   360,000 |  35.2 |  1.25 |       | A Man Who Just Liked Killing...
+2021-11-22 |   636,000 |  48.3 |  2.20 |       | A Marine Goes Missing in an Okinawan Brothel...
+2021-11-22 |   314,000 |  55.7 |  1.09 |       | Inhuman Experiments [Potentially Disturbing Audio/Visual Content]
+2021-11-22 |   193,000 |  24.0 |  0.67 |       | How Germany Went from Eugenics to Mass Extermination
+2020-11-22 |    25,000 |   3.2 |  0.09 |       | Veterans of the World | A Tribute to Service
+2020-11-22 |   535,000 |  34.9 |  1.85 |       | A Claustrophobic Nightmare...
+2020-11-22 |   495,000 |  24.8 |  1.72 |       | Two Sailors Mysteriously Vanish from a Blimp While Searching for Submarines
+2020-11-22 |    42,000 |   1.2 |  0.15 |       | Wartime Stories
+
+By duration bucket (median views, n):
+0-10 min: median 42,000 n=5
+10-20 min: median 90,000 n=1
+20-40 min: median 573,000 n=83
+40-60 min: median 459,000 n=45
+60-120 min: median 316,500 n=12
+120-999 min: median 260,500 n=14
+
+PLAYLISTS: ['WWI Strange Stories', 'WWII Strange Stories', 'Demons & Dark Entities', 'Military UFO & UAP Encounters', 'Most Popular', 'Wartime Legends & Folklore', 'Military Cryptids & Creatures', 'Strange Stories from Military Bases', 'Marathons & Compilations', 'The Fog of War', 'Smoke Pit Stories', 'Acts of Valor', 'All Episodes from Oldest to Newest', 'Dark Side of War', 'Military Paranormal Encounters']

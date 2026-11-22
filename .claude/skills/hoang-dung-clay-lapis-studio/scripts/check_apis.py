@@ -109,4 +109,6 @@ def main():
     print("5. YouTube Analytics:", "OK" if r.ok else f"LỖI {r.status_code}: {r.text[:160]}")
 
 if __name__ == "__main__":
+    import sys
+    sys.stdout.reconfigure(encoding="utf-8")  # Windows console mặc định gbk/cp1252 làm vỡ tiếng Việt
     main()

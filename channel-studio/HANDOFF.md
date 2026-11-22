@@ -5,7 +5,15 @@
 ## Thay đổi quan trọng (22/11/2026, cuối ngày)
 - **Phạm vi chủ đề đã mở rộng thành 5 trụ cột kể chuyện** (`references/content-pillars.md`): bí ẩn Trái Đất và đại dương, sinh tồn và thám hiểm, chiến tranh, thảm họa, thế giới cổ đại và thần thoại. Gilgamesh vẫn là video thử thuộc trụ cột P5.
 - **Phân tích kênh nào cũng dùng YouTube Data API trước:** `scripts/research/yt_api_channel.py`. Đã chạy cho @WartimeStories, kết quả ở `channel-studio/research/2026-11-22-wartimestories/Wartime_Stories_api.md`: 158 video dài, trung vị 459K view, 10 video gần nhất trung bình 225K (đang giảm), 21 video viral, dài 38,8 phút.
-- **Anh muốn phân tích lại @WartimeStories cho đúng chuẩn**, theo `references/request-playbooks.md` mục A: báo cáo, kế hoạch 90 ngày, kịch bản video đầu tiên, Notion, git. Báo cáo cũ `BAO_CAO.md` do phiên trên máy anh tạo hiện chỉ nằm trên máy anh (chưa đẩy lên git).
+- **ĐÃ XONG (22/11, phiên trên máy anh):** phân tích lại @WartimeStories theo playbook mục A.
+  - Báo cáo: `research/2026-11-22-wartimestories/BAO_CAO.md`. Bản cũ đổi tên thành `BAO_CAO_v1_cu.md`.
+  - Kế hoạch: `KE_HOACH_90_NGAY.md`. 10 video, đăng thứ Sáu 09:00 giờ Việt Nam, bắt đầu 11/12/2026.
+  - Phụ đề 2 video top: `subs/`.
+  - Dàn ý và hook video 002 Lady Be Good: `videos/002-lady-be-good/script_outline.md`, trạng thái `awaiting_human`.
+  - Notion: thêm 9 dòng (002–010).
+  - Hướng đi: series "Documented", gồm chuyện lạ thời chiến **có hồ sơ thật** (P3 kết hợp P1/P2). Đây là khoảng trống đối thủ để lại.
+- **Mốc YPP:** kênh mới từ 01/02/2027 cần 8.000 giờ xem. [Cần kiểm] ICYFOX có thuộc diện "kênh mới" không.
+- `check_apis.py` đã được sửa để in tiếng Việt trên console Windows (trước đó lỗi `gbk`).
 
 ## Trạng thái API (22/11/2026)
 - **Gemini:** OK. Network secret, header `x-goog-api-key`. Thấy model `gemini-3.8-flash-tts`.
@@ -17,6 +25,7 @@
 ## Video đang làm
 | Video | Thư mục | Bước hiện tại | Đang chờ gì |
 |---|---|---|---|
+| 002 Lady Be Good (đăng dự kiến 11/12) | `channel-studio/videos/002-lady-be-good/` | Dàn ý và hook 60 giây xong | Anh duyệt `script_outline.md` |
 | 001 Gilgamesh: The Lost Lines (video thử) | `channel-studio/videos/001-gilgamesh-lost-lines/` · project `gilgamesh-pilot` | Kịch bản: Phần 1 và 2 đã duyệt (1.867 từ, khoảng 15:46). Phần 3 và 4 chưa viết. Bản đồ 16 repo: references/toolbox-repos.md của skill | Tôi: kiểm S3.5, S4.1, S4.6, làm 3 mẫu giọng, viết Phần 3 |
 
 ## Quyết định mới trong phiên trước
@@ -28,6 +37,8 @@
 
 ## Việc tiếp theo (theo thứ tự)
 0. **Nếu anh gửi link kênh đối thủ:** làm đủ `request-playbooks.md` mục A trong cùng lượt trả lời.
+0a. **Chờ anh duyệt** dàn ý và hook của video 002 Lady Be Good. Duyệt xong: kiểm các mục "Cần kiểm", rồi viết Phần 1. Video 002 đăng trước Gilgamesh (001 dời sang 25/12 theo kế hoạch 90 ngày; dòng Notion của 001 chưa đổi ngày).
+0b. Lấy lại phụ đề video `QkRRERFPfEM` (lần trước bị lỗi 429).
 1. Chạy `check_apis.py`. Đạt là thấy tên kênh, số sub, và Analytics OK. Nếu lỗi, tra bảng sự cố trong `references/environment-and-apis.md`.
 2. Làm 3 mẫu giọng Gemini cho đoạn S0.4 (`videos/001-gilgamesh-lost-lines/script_part1.md`), gửi anh chọn.
 3. Kiểm S3.5 (Enkidu can ngăn), S4.1 ("để Enkidu đi trước"), S4.6 ("trước khi các vị thần biết chuyện") bằng bản dịch Thompson 1928 (cần mở host archive.org).
