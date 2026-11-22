@@ -36,11 +36,12 @@ Tài liệu này có 2 phần: phần A anh tự làm, phần B anh giao cho Cla
      ```
      setx GEMINI_API_KEY "AIza..."
      setx ELEVENLABS_API_KEY "sk_..."
+     setx OPENAI_API_KEY "sk-..."
      setx YT_CLIENT_ID "....apps.googleusercontent.com"
      setx YT_CLIENT_SECRET "GOCSPX-..."
      setx YT_REFRESH_TOKEN "1//0..."
      ```
-   - macOS: thêm các dòng `export GEMINI_API_KEY="AIza..."` (và tương tự cho 4 biến còn lại) vào cuối file `~/.zshrc`.
+   - macOS: thêm các dòng `export GEMINI_API_KEY="AIza..."` (và tương tự cho 5 biến còn lại) vào cuối file `~/.zshrc`.
    - Đặt xong, **đóng hẳn rồi mở lại** Claude Code để nó đọc biến mới.
 
 ## B. Câu lệnh đầu tiên dán cho Claude Code trên máy
@@ -84,6 +85,7 @@ Làm theo thứ tự. Hỏi anh trước khi cài phần mềm hệ thống. Kh�
    - Đủ 16 repo.
    - Gemini OK.
    - ElevenLabs OK (ghi rõ gói gì).
+   - OpenAI OK.
    - Thấy tên kênh.
    - Analytics OK.
 7. **HyperFrames:** chạy `npx hyperframes --help` một lần để tải công cụ. Lần render đầu sẽ tải thêm trình duyệt headless.

@@ -15,12 +15,13 @@
   |---|---|---|
   | generativelanguage.googleapis.com | `x-goog-api-key` (không có tiền tố) | Gemini. Anh nhập trong cài đặt: loại "Bearer", Tên tiêu đề `x-goog-api-key`, Tiền tố để trống. Form `request_credential` **không** lưu được header này |
   | api.elevenlabs.io | `xi-api-key` | Lưu được qua `request_credential`. Khóa phải bắt đầu bằng `sk_`. Ngày 22/11/2026 anh lỡ dán mã ID nên cần lưu lại |
+  | api.openai.com | `Authorization: Bearer` | Lưu qua `request_credential` ngày 22/11/2026, kiểm tra OK. Có model giọng (`gpt-4o-mini-tts`, `tts-1-hd`) và model ảnh (`gpt-image-2`…). Dùng cho `openai_tts`, `openai_image` của OpenMontage |
 - **Biến môi trường:** `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`, sau này thêm `GDRIVE_REFRESH_TOKEN`. **Chỉ có hiệu lực khi phiên khởi động.** Phiên đang chạy không thấy biến vừa thêm.
-- **Công cụ đòi khóa ở biến môi trường** (ví dụ `gemini_tts list_voices` đọc `GEMINI_API_KEY`): chạy với `GEMINI_API_KEY=proxy-injected`. Proxy sẽ ghi đè header bằng khóa thật. Làm tương tự với `ELEVENLABS_API_KEY`.
+- **Công cụ đòi khóa ở biến môi trường** (ví dụ `gemini_tts list_voices` đọc `GEMINI_API_KEY`): chạy với `GEMINI_API_KEY=proxy-injected`. Proxy sẽ ghi đè header bằng khóa thật. Làm tương tự với `ELEVENLABS_API_KEY` và `OPENAI_API_KEY`.
 
 ## Chế độ máy local (Claude Code trên máy của anh)
 - Hướng dẫn cài đặt đầy đủ: `channel-studio/guides/local_setup.md`.
-- Không có proxy, nên khóa phải nằm trong biến môi trường của máy: `GEMINI_API_KEY`, `ELEVENLABS_API_KEY`, `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`. Anh tự đặt bằng `setx` hoặc `~/.zshrc`. Không nhận khóa qua chat.
+- Không có proxy, nên khóa phải nằm trong biến môi trường của máy: `GEMINI_API_KEY`, `ELEVENLABS_API_KEY`, `OPENAI_API_KEY`, `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN`. Anh tự đặt bằng `setx` hoặc `~/.zshrc`. Không nhận khóa qua chat.
 - `check_apis.py` tự nhận ra chế độ đang chạy: có biến môi trường thật thì gửi header từ biến, còn không thì để proxy cloud gắn.
 - Windows: chạy script `.sh` bằng Git Bash. Python có thể tên là `python` hoặc `py` thay vì `python3`.
 - Không làm cùng lúc ở cloud và local trên cùng nhánh, để tránh xung đột git.
@@ -68,4 +69,5 @@ Kết quả đạt:
 | yt-dlp báo "Sign in to confirm you're not a bot" khi lấy số liệu từng video | YouTube chặn IP của máy chủ | Lấy danh sách kênh bằng yt-dlp chế độ flat (vẫn chạy). Số liệu chi tiết dùng YouTube Data API. **Không** vượt kiểm tra bằng cookie |
 | Met Museum API trả 410 | `/v1/search` đã ngừng từ 01/10/2026 | Dùng `/public/collection/v1.1/search` (có offset và limit) |
 | Kho SOAS trả 403 kèm "Just a moment…" | Cloudflare chặn truy cập tự động | Nhờ anh tải PDF bằng trình duyệt rồi gửi lên. Không vượt kiểm tra |
+| 403 "YouTube Data API v3 has not been used in project N before or it is disabled" | Đổi token được, nhưng API chưa bật **trong dự án chứa mã OAuth**. Personal mode tự tạo dự án `personal-mode-app` (số dự án 979474479924), khác với dự án đã bật API trước đó | Bật API bằng link Google trả về: `https://console.developers.google.com/apis/api/<api>.googleapis.com/overview?project=<số dự án>` (youtube, youtubeanalytics, drive) |
 | Host bị chặn ("no rule allows host") | Host chưa được mở | `get_environment`, rồi `update_environment` thêm đúng host đó |

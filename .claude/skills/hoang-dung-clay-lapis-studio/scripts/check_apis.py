@@ -33,6 +33,16 @@ def elevenlabs():
     return f"LỖI {r.status_code}: {r.text[:140]}"
 
 
+def openai_check():
+    r = requests.get("https://api.openai.com/v1/models",
+                     headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"}
+                     if os.environ.get("OPENAI_API_KEY", "") not in PLACEHOLDERS else {}, timeout=30)
+    if r.ok:
+        ids = [m["id"] for m in r.json().get("data", [])]
+        return f"OK – {len(ids)} model (giọng: {sum('tts' in i for i in ids)}, ảnh: {sum('image' in i for i in ids)})"
+    return f"LỖI {r.status_code}: {r.text[:140]}"
+
+
 def google_token(refresh_var="YT_REFRESH_TOKEN"):
     need = ["YT_CLIENT_ID", "YT_CLIENT_SECRET", refresh_var]
     missing = [k for k in need if not os.environ.get(k)]
@@ -50,6 +60,7 @@ def google_token(refresh_var="YT_REFRESH_TOKEN"):
 def main():
     print("1. Gemini API:", gemini())
     print("1b. ElevenLabs:", elevenlabs())
+    print("1c. OpenAI:", openai_check())
     tok, msg = google_token()
     print("2. YouTube OAuth:", msg)
     if not tok:

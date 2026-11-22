@@ -4,7 +4,8 @@
 
 ## Trạng thái API (22/11/2026)
 - **Gemini:** OK. Network secret, header `x-goog-api-key`. Thấy model `gemini-3.8-flash-tts`.
-- **YouTube OAuth:** anh đã thêm `YT_CLIENT_ID`, `YT_CLIENT_SECRET`, `YT_REFRESH_TOKEN` (Personal mode, quyền `youtube.force-ssl` và `yt-analytics.readonly`). **Chưa kiểm tra được**, vì phiên cũ khởi động trước khi có biến. Việc đầu tiên của phiên mới: xác nhận bằng `check_apis.py`.
+- **YouTube OAuth:** đổi token **OK** (22/11/2026). Nhưng YouTube Data API và YouTube Analytics API **chưa bật trong dự án 979474479924** (`personal-mode-app`, dự án chứa mã OAuth). Anh bật bằng 2 link: https://console.developers.google.com/apis/api/youtube.googleapis.com/overview?project=979474479924 và https://console.developers.google.com/apis/api/youtubeanalytics.googleapis.com/overview?project=979474479924, rồi chạy lại `check_apis.py`.
+- **OpenAI:** OK (Network secret `api.openai.com`, Bearer). Có model giọng và model ảnh.
 - **Drive:** chưa cấu hình. Cần xin quyền riêng (`drive.file`), lưu vào `GDRIVE_REFRESH_TOKEN`. Không gấp.
 - **ElevenLabs:** đang lưu sai (anh dán mã ID). Khi anh có khóa `sk_…` thì mở lại form `request_credential` (host `api.elevenlabs.io`, header `xi-api-key`). Gói miễn phí không được dùng thương mại.
 

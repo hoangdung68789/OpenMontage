@@ -41,7 +41,8 @@ Hệ quả cho kênh: **video dài là trục chính** để gom 8.000 giờ xem
 | Ghi công | Trong mô tả video, mục "Image credits": tên file, tác giả, giấy phép, link | |
 | Bản dịch sử thi | Tự viết lại bằng lời của mình. Câu trích ngắn có ghi nguồn. Bản Thompson 1928 *có thể* đã thuộc phạm vi công cộng ở Mỹ [chưa xác nhận pháp lý] | Trích dài từ bản dịch còn bản quyền (George, Kovacs…) |
 | Nhạc | Pixabay Music (không cần khóa). Theo dõi khiếu nại Content ID [chưa xác minh cách hệ thống xử lý] | Nhạc thương mại |
-| Giọng | Gemini TTS. ElevenLabs **gói trả phí** ([ElevenLabs help](https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform)) | ElevenLabs gói miễn phí cho video đăng kênh |
+| Ảnh do AI vẽ (OpenAI `gpt-image`, Gemini) | Chỉ minh họa **không giống thật** (phong cách phù điêu, tranh vẽ), ghi "AI illustration" trong mô tả | Ảnh AI giống thật về sự kiện lịch sử, trừ khi bật khai báo AI |
+| Giọng | Gemini TTS, OpenAI TTS. ElevenLabs **gói trả phí** ([ElevenLabs help](https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform)) | ElevenLabs gói miễn phí cho video đăng kênh |
 
 ## Quy tắc dẫn chứng (theo yêu cầu của anh)
 - Mỗi dữ kiện kèm nguồn: tên trang, link, ngày tra.
