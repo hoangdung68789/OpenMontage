@@ -39,7 +39,8 @@ for r in OpenMontage hyperframes gsap-skills GSAP motion-design-skill three.js r
   for d in "$PARENT"/*/; do
     [ "$(basename "$d" | tr 'A-Z' 'a-z')" = "$(echo "$r" | tr 'A-Z' 'a-z')" ] && found="$d"
   done
-  if [ -n "$found" ]; then echo "  [có]   $r"; else echo "  [thiếu] $r  -> add_repo(owner=\"hoangdung68789\", repo=\"$(echo "$r" | tr 'A-Z' 'a-z')\") nếu cần"; fi
+  lr="$(echo "$r" | tr 'A-Z' 'a-z')"
+  if [ -n "$found" ]; then echo "  [có]   $r"; else echo "  [thiếu] $r  -> cloud: add_repo(owner=\"hoangdung68789\", repo=\"$lr\") | máy local: git clone https://github.com/hoangdung68789/$lr \"$PARENT/$r\""; fi
 done
 
 echo "== 3. Kiểm tra API"

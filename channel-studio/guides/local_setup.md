@@ -4,7 +4,14 @@ Tài liệu này có 2 phần: phần A anh tự làm, phần B anh giao cho Cla
 
 ## Khác biệt so với phiên cloud
 | | Cloud (đang dùng) | Máy của anh (local) |
-|---|---|---|
+|
+> **Thư mục làm việc trên máy anh (chốt ngày 22/11/2026):** `C:\Users\Admin\HDRE AI\ClayLapis`
+> - Đường dẫn có dấu cách ("HDRE AI"). Mọi lệnh có đường dẫn phải để trong ngoặc kép, ví dụ:
+>   - PowerShell: `cd "C:\Users\Admin\HDRE AI\ClayLapis"`
+>   - Git Bash: `cd "/c/Users/Admin/HDRE AI/ClayLapis"`
+> - Các script của skill đã xử lý dấu cách. Nếu một công cụ bên ngoài báo lỗi đường dẫn khó hiểu, đổi tên `HDRE AI` thành `HDRE_AI` là cách sửa nhanh nhất [nhận định].
+
+---|---|---|
 | Máy phải bật | Không | **Có**, trong suốt thời gian làm việc |
 | Khóa và token | Lưu trong cài đặt môi trường, proxy tự gắn | **File `OpenMontage\.env`** trên máy anh (git bỏ qua file này), anh tự điền |
 | Mạng | Chỉ các host đã mở | Không giới hạn |
@@ -30,7 +37,7 @@ Tài liệu này có 2 phần: phần A anh tự làm, phần B anh giao cho Cla
      - macOS: `curl -fsSL https://claude.ai/install.sh | bash`
 
      Sau đó vào thư mục ở bước 3 và gõ `claude`.
-3. **Tạo một thư mục trống** cho kênh: Windows `C:\ClayLapis`, macOS `~/ClayLapis`. Cả 16 repo sẽ nằm cạnh nhau trong thư mục này.
+3. **Tạo một thư mục trống** cho kênh: Windows `C:\Users\Admin\HDRE AI\ClayLapis` (thư mục anh chọn), macOS `~/ClayLapis`. Cả 16 repo sẽ nằm cạnh nhau trong thư mục này.
 4. **Khóa API:** làm **sau** phần B, khi Claude đã clone repo về máy. Cách làm ở `channel-studio/config/HUONG_DAN_KHOA_API.md` mục 2:
    - Chép `channel-studio\config\api_keys.env.example` thành `OpenMontage\.env`.
    - Mở bằng Notepad, dán khóa ngay sau dấu `=`, rồi lưu.
