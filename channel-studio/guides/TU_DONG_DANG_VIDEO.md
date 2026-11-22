@@ -54,4 +54,7 @@ Script: `.claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py`
 - Mới quan sát khoảng 30 giây ở chế độ Công khai.
 - Chưa thử video dài và chưa thử Short thật.
 - Trang trợ giúp 7300965 vẫn mô tả việc khóa, nên Short đầu tiên (01/12) là lần kiểm thật. Nếu bị khóa thì quay về cách anh kéo thả.
-**Việc tiếp theo:** thẻ T-031, thêm lệnh tự tải lên vào `yt_publish.py` và cập nhật quy trình tự lái.
+**Việc tiếp theo:**
+- Lệnh `yt_publish.py upload` đã có từ thẻ T-026 (phiên trên máy anh). Lệnh này bị khóa an toàn cho tới khi có `YT_AUDIT_APPROVED=1`.
+- Thẻ T-032: đặt cờ này trong `OpenMontage/.env` dựa trên kết quả thử ở trên, rồi tải thật Short đầu tiên (hẹn giờ 01/12) và theo dõi 24 giờ.
+- Bị khóa thì quay về cách anh kéo thả.

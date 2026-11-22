@@ -24,7 +24,8 @@ Video tải lên bằng API từ dự án Google chưa qua kiểm duyệt (audit
 
 ## 2. Vòng hằng ngày (phiên tự động)
 1. `session_start.sh` (kéo bản mới nhất, kiểm API, in HANDOFF).
-2. `python3 SK/scripts/autopilot.py`: in việc theo thứ tự ưu tiên (trễ tiến độ so với ngày đăng, Shorts tồn kho, series, radar, báo cáo, lô duyệt, gói tải lên).
+2. `python3 SK/scripts/autopilot.py`: in việc theo thứ tự ưu tiên (mục "Giám sát" do `watchdog.py` dò: việc treo, quá hạn, lỗi log tác vụ nền; rồi trễ tiến độ so với ngày đăng, Shorts tồn kho, series, radar, báo cáo, gói tải lên). Mục "Giám sát" làm trước: tra mã lỗi trong `references/fallbacks.md`, làm phương án thay thế, trong lúc chờ làm việc khác không phụ thuộc.
+   Tác vụ nền chạy lâu ghi log vào `channel-studio/state/jobs/<ngày>-<việc>.log` và có Monitor theo dõi lỗi; lỗi hạn mức ngày thì dừng ngay, không thử lại vô ích.
 3. Làm từ trên xuống. Mỗi việc là một thẻ trong `tasks.py`, theo `work-contract.md`. Làm đến khi hết việc, hoặc gặp một việc ở §4.
 4. `yt_publish.py scan`: có video Riêng tư mới mang tên mã gói thì `yt_publish.py auto`.
 5. `session_end.py`. Gửi anh **1 tin ngắn**: đã làm gì (bảng thành phần), việc anh cần làm (nếu có).

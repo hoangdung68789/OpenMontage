@@ -7,7 +7,8 @@ Hook đọc 2 khối `phases` và `releases` dưới đây để báo giai đo�
 - Nhịp đăng (anh chốt 22/11/2026): 1–2 video mỗi ngày, 30–60 video mỗi 30 ngày, tính cả Shorts. Ổn định: 8 video dài (thứ Ba và thứ Sáu, 21:00 giờ Việt Nam) + khoảng 38 Shorts.
 - Shorts bắt đầu 01/12/2026, mỗi ngày 1 Short. Video dài đầu tiên: 002 Lady Be Good ngày 11/12. 001 Gilgamesh dời sang 25/12.
 - Mốc kiểm: 28/12/2026. Lên 2 video dài mỗi tuần nếu mỗi video làm xong trong tối đa 2 ngày và không bị gắn cờ. 14/02/2027: lập chặng mới từ số liệu.
-- Chế độ tự lái: thứ Năm gửi anh LÔ DUYỆT TUẦN. Thứ Bảy gửi GÓI TẢI LÊN. Anh kéo thả file vào YouTube Studio (để Riêng tư), AI áp gói đăng và hẹn giờ.
+- Chế độ tự lái (anh giao toàn quyền 22/11/2026): AI tự chọn chủ đề, viết, dựng, đóng gói, tự duyệt, áp gói đăng và hẹn giờ. Không còn lô duyệt tuần. Chủ nhật gửi anh báo cáo số liệu và doanh thu.
+- Tải video lên: khi Google duyệt audit API (hồ sơ `channel/api-audit/DON_AUDIT.md`), AI tự tải lên bằng `yt_publish.py upload`. Trước đó, thứ Bảy AI gửi danh sách MP4, anh kéo thả vào YouTube Studio (để Riêng tư), AI làm phần còn lại.
 <!-- pulse:end -->
 
 ## Giai đoạn
@@ -46,7 +47,7 @@ Hook đọc 2 khối `phases` và `releases` dưới đây để báo giai đo�
 -->
 Bằng chứng nhu cầu của từng chủ đề: KE_HOACH_90_NGAY.md mục 2. Chủ đề nào ở đó ghi [cần quét riêng] thì phải quét bằng `niche_outliers.py` hoặc `story_scan.py` trước khi viết dàn ý.
 
-**Thay chủ đề:** autopilot được đổi một chủ đề chưa viết sang ý tưởng "Sẵn sàng" có điểm cao hơn trong `ideas/IDEA_BANK.md`, nhưng phải ghi rõ trong lô duyệt tuần để anh thấy. Không đổi ngày đăng và nhịp đăng nếu anh chưa duyệt.
+**Thay chủ đề:** autopilot được đổi một chủ đề chưa viết sang ý tưởng "Sẵn sàng" có điểm cao hơn trong `ideas/IDEA_BANK.md`, nhưng phải ghi lý do vào nhật ký và nêu trong báo cáo Chủ nhật. Không đổi nhịp đăng anh đã chốt (1–2 video mỗi ngày); ngày đăng từng video được dời khi cần, có ghi lý do.
 
 ## Ngưỡng quyết định
 Theo KE_HOACH_90_NGAY.md mục 5. Ví dụ: CTR dưới 3% sau 48 giờ thì đổi thumbnail hoặc tiêu đề. Sau 8 video dài, trụ cột nào dưới 50% trụ cột mạnh nhất thì dồn lịch sang 2–3 trụ cột mạnh. CTR lấy từ file xuất của YouTube Studio vì API không có (`analytics-loop.md`).

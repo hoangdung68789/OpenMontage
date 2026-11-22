@@ -1,9 +1,9 @@
-# Sơ đồ thư mục ICYFOX trên máy anh (bản đầy đủ, tra 22/11/2026 tối)
+# Sơ đồ thư mục ICYFOX trên máy anh (bản đầy đủ, tra 22/11/2026 tối, cập nhật 23:59)
 
 - Đường dẫn gốc: `C:\Users\Admin\HDRE AI\ClayLapis\OpenMontage\`
 - Chuẩn đối chiếu: `.claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md`
 - Kết quả: **có 22/23 thư mục chuẩn**. Thiếu `channel-studio/shorts/`, sẽ tạo ở T-005.
-- **Có 6 vấn đề cần anh biết:** xem mục 6.
+- **6 vấn đề ở mục 6: đã xử lý xong 5, mục 6.5 giữ nguyên có lý do.** Đã bổ sung giám sát tác vụ (mục 7).
 
 Ký hiệu: ✅ có · ⏳ chưa có, sẽ tạo ở bước sau · ⚠️ có vấn đề (mục 6) · 🔒 không lên git
 
@@ -36,7 +36,7 @@ C:\Users\Admin\
 ├── launch.json, commands\        (lệnh chung của OpenMontage)
 └── skills\hoang-dung-clay-lapis-studio\
     ├── SKILL.md                  bộ luật vận hành kênh
-    ├── references\  (18 file)    quy trình
+    ├── references\  (19 file)    quy trình (mới: fallbacks.md = bảng phương án thay thế F0–F10)
     │   ├── work-contract.md      hợp đồng làm việc, quy tắc báo "xong"
     │   ├── read-map.md           việc nào đọc file nào, dùng công cụ nào
     │   ├── autopilot.md          chế độ tự lái (anh giao toàn quyền 22/11)
@@ -60,7 +60,8 @@ C:\Users\Admin\
         ├── research\  (8 file)   niche_outliers.py (radar), yt_analytics_report.py (báo cáo),
         │                         story_scan.py, niche_scan.py, deep_scan.py, deep_analyze.py,
         │                         summarize.py, yt_api_channel.py
-        └── tests\test_icyfox_tools.py   8/8 đạt
+        ├── watchdog.py           giám sát: thẻ treo, quá hạn, lỗi log tác vụ nền (mới 22/11)
+        └── tests\test_icyfox_tools.py   9/9 đạt
 ```
 
 ## 3. `channel-studio\`: tài liệu kênh (lên GitHub)
@@ -74,6 +75,7 @@ channel-studio\
 ├── README.md         ✅ bản đồ ngắn
 │
 ├── state\tasks.json              ✅ dữ liệu sổ việc
+├── state\jobs\*.log              ✅ log tác vụ nền (watchdog.py soát lỗi), mới 22/11
 ├── logs\2026-11.md               ✅ nhật ký hoàn thành từng việc
 ├── ideas\IDEA_BANK.md            ✅ 8 ý tưởng Sẵn sàng
 │
@@ -121,10 +123,10 @@ videos\
 │
 └── 002-lady-be-good\             đăng 11/12 · P2+P3 · project lady-be-good
     ├── README.md, script_outline.md
-    ├── script_part1..4.md + .qa.md   QA ĐẠT cả 4 phần ⚠️ mục 6.2
+    ├── script_part1..4.md + .qa.md   QA ĐẠT cả 4 phần, ĐÃ DUYỆT 22/11/2026
     ├── script_full_ready.txt     đủ 4 phần
     ├── yt_search_2026-11-22.json
-    ├── voice\                    phiên T-025 đang làm: README.md, narrate.py, check_voice.py,
+    ├── voice\                    T-025: alt_voice.py (model 3.1, công cụ hiện hành), narrate.py (3.8, cũ), check_voice.py,
     │                             narration_report.py, voice_samples.py, check_voice.jsonl, prompt_S5.5.txt
     ├── shorts\, render\          ⏳ bước sau
     └── package\                  ⏳ bước sau
@@ -142,25 +144,38 @@ thumbnail.png, subtitles\*.srt, i18n.json, publish_at.txt, UPLOADED.txt)
 ```
 OpenMontage\projects\<id>\  🔒 (bản đang làm)  ── session_end.py chép sang ──▶  channel-studio\projects\<id>\  (lên git)
                                                 ◀── session_start.sh chép về ──
-Bỏ qua khi chép: assets\video\, renders\, file > 20 MB.
+Bỏ qua khi chép: assets\video\, renders\, file .wav (từ 22/11, file trên máy giữ nguyên), file > 20 MB.
 
 gilgamesh-pilot\   573 KB   project.json, checkpoint_research/proposal, decision_log, events.jsonl,
                             artifacts\ (research_brief, proposal_packet, decision_log), assets\audio\samples\
 lady-be-good\      27 MB    project.json, checkpoint_research/proposal/script,
                             artifacts\ (research_brief, proposal_packet, script.json),
-                            assets\audio\narration\ (8/31 WAV, đang làm) + voice_samples\,
+                            assets\audio\narration_g31\ (10/31 WAV model 3.1, đang làm, WAV 🔒) + narration\ (8 đoạn 3.8, chỉ tham khảo) + voice_samples\,
                             assets\images\, music\, video\ 🔒, renders\ 🔒
 ```
 
-## 6. Vấn đề phát hiện (tôi chỉ báo, chưa sửa gì vì phiên T-025 đang chạy)
+## 6. Vấn đề phát hiện và cách đã xử lý (cập nhật 22/11/2026 23:59)
 
-| # | Mức | Vấn đề | Bằng chứng | Đề xuất (chờ anh chốt) |
+| # | Mức | Vấn đề | Bằng chứng | Đã xử lý |
 |---|---|---|---|---|
-| 6.1 | **Cao** | **File âm thanh đang lên git, trái luật "WAV dài không lên git".** Đã có 17 file (8 WAV lời đọc + mẫu giọng), khoảng 28 MB. Khi đủ 31 đoạn lời đọc, git sẽ có thêm khoảng 40 MB nữa, và mỗi lần đọc lại một đoạn lại thêm một bản mới. Repo phình to mãi | `git ls-files` trong `channel-studio/projects/lady-be-good/assets/audio/`; `session_end.py` chỉ bỏ qua `video`, `renders` và file > 20 MB | Sau khi T-025 xong: thêm `audio` vào danh sách bỏ qua của `session_end.py` (hoặc thêm dòng `.gitignore`), gỡ file âm thanh khỏi git bằng `git rm --cached`, chép WAV lên Google Drive (T-012). Không viết lại lịch sử git |
-| 6.2 | Thấp | Dòng đầu 4 phần kịch bản 002 vẫn ghi "chờ duyệt", trong khi HANDOFF ghi anh đã duyệt cả kịch bản ngày 22/11 | dòng 1 các file `script_part1..4.md`; HANDOFF dòng 63, 75 | Đổi thành "ĐÃ DUYỆT 22/11/2026" sau khi T-025 xong |
-| 6.3 | Thấp | README video 002 và ý tưởng I-001, I-006 ghi series "Documented", nhưng chưa có series nào được đăng ký | `series/SERIES_INDEX.md`: "(chưa có series)" | Anh chốt "Documented" là series nhiều tập (tạo bằng `series.py`) hay chỉ là nhãn phong cách |
-| 6.4 | Thấp | 001 Phần 1 "chờ duyệt", chưa có báo cáo `.qa.md`; Phần 3–4 chưa viết. Dòng Notion 001 chưa đổi sang ngày 25/12 | dòng 1 `script_part1.md`; HANDOFF dòng 87 | Chạy `qa_check.py` cho Phần 1; AI tự duyệt theo quyền anh giao 22/11 |
-| 6.6 | Trung bình | `PLAN.md` vẫn ghi "thứ Năm gửi anh LÔ DUYỆT TUẦN" và "ghi rõ trong lô duyệt tuần", trái với MISSION và HANDOFF (anh giao toàn quyền 22/11, bỏ lô duyệt tuần). Tự lái đọc PLAN có thể vẫn chờ anh duyệt | `PLAN.md` dòng 10, 49; `MISSION.md` dòng 14 | Sửa 2 dòng PLAN theo MISSION sau khi T-025 xong (phiên kia đang sửa autopilot) |
-| 6.5 | Thấp | `research/deep_scan/`, `niche_scan/` và ảnh `competitor_thumbnails_grid.jpg` không theo quy ước tên `<ngày>-<việc>` | ls `research/` | Gom vào `research/2026-11-22-wartimestories/` hoặc giữ nguyên (không ảnh hưởng chạy) |
+| 6.1 | **Cao** | **File âm thanh đang lên git, trái luật "WAV dài không lên git".** Đã có 17 file (8 WAV lời đọc + mẫu giọng), khoảng 28 MB. Khi đủ 31 đoạn lời đọc, git sẽ có thêm khoảng 40 MB nữa, và mỗi lần đọc lại một đoạn lại thêm một bản mới. Repo phình to mãi | `git ls-files` trong `channel-studio/projects/lady-be-good/assets/audio/`; `session_end.py` chỉ bỏ qua `video`, `renders` và file > 20 MB | **ĐÃ XỬ LÝ:** `session_end.py` bỏ .wav khi chép và gỡ .wav khỏi git (`git rm --cached`), file trên máy giữ nguyên; bản .mp3 mẫu vẫn lên. Không viết lại lịch sử. Sao lưu WAV lên Drive ở T-012 |
+| 6.2 | Thấp | Dòng đầu 4 phần kịch bản 002 vẫn ghi "chờ duyệt", trong khi HANDOFF ghi anh đã duyệt cả kịch bản ngày 22/11 | dòng 1 các file `script_part1..4.md`; HANDOFF dòng 63, 75 | **ĐÃ XỬ LÝ:** dòng đầu 4 phần ghi "ĐÃ DUYỆT 22/11/2026" |
+| 6.3 | Thấp | README video 002 và ý tưởng I-001, I-006 ghi series "Documented", nhưng chưa có series nào được đăng ký | `series/SERIES_INDEX.md`: "(chưa có series)" | **ĐÃ XỬ LÝ:** AI chốt "Documented" là nhãn phong cách, không phải series nhiều tập; ghi `decisions-log.md`, README 002, IDEA_BANK |
+| 6.4 | Thấp | 001 Phần 1 "chờ duyệt", chưa có báo cáo `.qa.md`; Phần 3–4 chưa viết. Dòng Notion 001 chưa đổi sang ngày 25/12 | dòng 1 `script_part1.md`; HANDOFF dòng 87 | **ĐÃ XỬ LÝ:** `qa_check.py` Phần 1 → QA ĐẠT (786 từ, nguồn 10/12 đoạn, trùng đối thủ 0%), dòng đầu ghi AI TỰ DUYỆT 22/11/2026. Dòng Notion 001 đã đổi sang 25/12 |
+| 6.6 | Trung bình | `PLAN.md` vẫn ghi "thứ Năm gửi anh LÔ DUYỆT TUẦN" và "ghi rõ trong lô duyệt tuần", trái với MISSION và HANDOFF (anh giao toàn quyền 22/11, bỏ lô duyệt tuần). Tự lái đọc PLAN có thể vẫn chờ anh duyệt | `PLAN.md` dòng 10, 49; `MISSION.md` dòng 14 | **ĐÃ XỬ LÝ:** PLAN dòng 10 đã theo MISSION; bỏ chữ "lô duyệt tuần" còn sót ở autopilot.py, qa_check.py, read-map, analytics-loop, series-playbook |
+| 6.5 | Thấp | `research/deep_scan/`, `niche_scan/` và ảnh `competitor_thumbnails_grid.jpg` không theo quy ước tên `<ngày>-<việc>` | ls `research/` | **GIỮ NGUYÊN:** các script quét đang ghi vào đúng các đường dẫn này; đổi tên làm hỏng script mà không được lợi gì |
 
 Đã kiểm và **không có vấn đề**: `.env`, `.icyfox_session` và `OpenMontage/projects/` được git bỏ qua đúng; không có file nào trên 5 MB trên git; hook chạy; test 8/8; 2 tác vụ hẹn giờ có lời nhắn mới.
+
+## 7. Giám sát tác vụ (anh yêu cầu 22/11/2026: "tự động giám sát tác vụ, bắt lỗi và tìm phương pháp thay thế")
+
+| Thành phần | Ở đâu | Làm gì |
+|---|---|---|
+| Log tác vụ nền | `channel-studio/state/jobs/<ngày>-<việc>.log` | Mọi tác vụ chạy lâu ghi log ở đây |
+| Bộ dò | `.claude/skills/hoang-dung-clay-lapis-studio/scripts/watchdog.py` | Thẻ "đang làm" quá 6 giờ không cập nhật, thẻ quá hạn, thẻ bị chặn, lỗi ở đuôi log (11 mẫu lỗi F0–F10) |
+| Bảng phương án thay thế | `references/fallbacks.md` | Mỗi lỗi: dấu hiệu, cách thay thế, điều không được làm |
+| Gắn vào tự lái | `autopilot.py` + tác vụ hẹn giờ 09:00/17:00 | Kết quả watchdog lên đầu chương trình làm việc; phiên tự lái xử lý mục "Giám sát" trước |
+| Kiểm thử | `scripts/tests/test_icyfox_tools.py` | 9/9 đạt, gồm bài thử thẻ treo, quá hạn, lỗi F1 và F10 |
+
+Lần chạy thật đầu tiên (22/11 23:50–23:59): bắt được lỗi 429 của lời đọc 002 ở S3.3. Gọi thử thấy trả 200, nên xếp là giới hạn theo phút (F10) và chạy tiếp. Lần sau API báo `PerDay` (F1): script tự dừng đúng, không thử lại vô ích; chạy lại sau 15:00 ngày 23/11.
+

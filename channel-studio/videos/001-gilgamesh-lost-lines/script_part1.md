@@ -1,4 +1,4 @@
-# Kịch bản Gilgamesh, Phần 1/4 (0:00–6:29) · chờ duyệt
+# Kịch bản Gilgamesh, Phần 1/4 (0:00–6:29) · AI TỰ DUYỆT 22/11/2026 (anh giao toàn quyền) · QA ĐẠT 2026-11-22
 
 Concept A "The Lost Lines" · 45 phút · tốc độ đọc khoảng 125 từ/phút · ngày 22/11/2026
 

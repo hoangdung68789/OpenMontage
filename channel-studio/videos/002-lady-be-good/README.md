@@ -2,7 +2,7 @@
 
 - Project ID trong OpenMontage: `lady-be-good` (đã tạo 22/11, checkpoint research + proposal)
 - Dòng Notion: "002 · Lady Be Good", trạng thái "Chờ duyệt"
-- Concept: series "Documented", trụ cột P2 + P3 · Công cụ dựng: chốt ở bước đề xuất · Cách dựng: atelier
+- Concept: nhãn phong cách "Documented" (không phải series nhiều tập), trụ cột P2 + P3 · Công cụ dựng: chốt ở bước đề xuất · Cách dựng: atelier
 - Thời lượng mục tiêu: 35 phút · Số từ mục tiêu: khoảng 5.200 (150 từ/phút)
 - Ngày đăng dự kiến: thứ Sáu 11/12/2026, 21:00 giờ Việt Nam (09:00 ET, theo `publish-package.md`)
 - Căn cứ chọn chủ đề: `channel-studio/research/2026-11-22-wartimestories/BAO_CAO.md` và `KE_HOACH_90_NGAY.md`
@@ -11,7 +11,7 @@
 - [x] Nghiên cứu sơ bộ (nguồn chính đã xác định, xem `script_outline.md`)
 - [x] Dàn ý và hook 60 giây đã duyệt (`script_outline.md`), 22/11
 - [x] Kịch bản: phần 1–4, mỗi phần QA ĐẠT; **anh đã duyệt 22/11** (checkpoint `script` của project `lady-be-good`)
-- [x] Giọng: anh chốt **Algenib** (gemini-3.8-flash-tts) 22/11, dùng cho mọi video của kênh
+- [x] Giọng: anh chốt **Algenib** 22/11; model gemini-3.1-flash-tts-preview (đổi từ 3.8 vì hạn mức), dùng cho mọi video của kênh
 - [ ] Lời đọc 31 đoạn đã tạo và kiểm (T-025, `voice/narration_report.md`)
 - [ ] Phân cảnh đã duyệt
 - [ ] Tài nguyên đã duyệt, danh sách ghi công đã xong

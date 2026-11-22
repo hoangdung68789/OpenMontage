@@ -2,7 +2,7 @@
 
     python3 .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_end.py -m "mô tả ngắn"
 
-1) chép projects/<id>/ -> channel-studio/projects/<id>/ (bỏ assets/video, renders, file > 20 MB)
+1) chép projects/<id>/ -> channel-studio/projects/<id>/ (bỏ assets/video, renders, file .wav, file > 20 MB)
 2) quét khóa/token trong các file sắp commit -> có thì dừng
 3) git add -f channel-studio + skill, commit (kèm --trailer nếu phiên yêu cầu dòng ghi công), push (thử lại tối đa 4 lần)
 """
@@ -19,6 +19,7 @@ BRANCH = "ccr-6640cec8-2anthl"
 SKILL_REL = ".claude/skills/hoang-dung-clay-lapis-studio"
 SKIP_DIRS = {"video", "renders", "__pycache__", "node_modules", ".cache"}
 MAX_BYTES = 20 * 1024 * 1024
+SKIP_EXT = (".wav",)  # WAV dài không lên git (workspace-structure.md); bản .mp3 mẫu nghe vẫn lên
 SECRET_PATTERNS = [
     r"AIza[0-9A-Za-z_\-]{30,}",          # khóa Google / Gemini
     r"sk_[0-9a-f]{32,}",                 # khóa ElevenLabs
@@ -39,7 +40,7 @@ def mirror_projects():
     copied = []
     for proj in sorted(p for p in src_root.iterdir() if p.is_dir()):
         for f in proj.rglob("*"):
-            if not f.is_file() or SKIP_DIRS & set(f.relative_to(proj).parts):
+            if not f.is_file() or SKIP_DIRS & set(f.relative_to(proj).parts) or f.suffix.lower() in SKIP_EXT:
                 continue
             if f.stat().st_size > MAX_BYTES:
                 print(f"  bỏ qua file lớn: {f}")
@@ -99,6 +100,10 @@ def main():
              "pipeline_defs/icyfox-autopilot.yaml", ".gitignore"]
     paths = ["channel-studio", SKILL_REL] + [p for p in extra if Path(p).exists()]
     run(["git", "add", "-f"] + paths)
+    wavs = [f for f in run(["git", "ls-files", "channel-studio"]).stdout.splitlines() if f.lower().endswith(SKIP_EXT)]
+    if wavs:  # bỏ khỏi git, file trên máy giữ nguyên
+        run(["git", "rm", "-q", "--cached", "--"] + wavs)
+        print(f"  bỏ {len(wavs)} file .wav khỏi git (giữ trên máy, sao lưu Drive ở thẻ T-012)")
     staged = [f for f in run(["git", "diff", "--cached", "--name-only"]).stdout.splitlines() if f]
     junk = [f for f in staged if "__pycache__" in f or f.endswith((".pyc", ".icyfox_session")) or "/.pytest_cache/" in f]
     if junk:

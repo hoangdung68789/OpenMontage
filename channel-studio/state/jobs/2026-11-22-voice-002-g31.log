@@ -1,0 +1,5 @@
+S3.3 LỖI 429 PerDay {
+  "error": {
+    "code": 429,
+    "message": "You exceeded your current quota, please check your plan and billing details. For more information on this error,
+DỪNG: hết hạn mức ngày (fallbacks.md F1), chạy lại cùng lệnh sau 15:00 giờ VN

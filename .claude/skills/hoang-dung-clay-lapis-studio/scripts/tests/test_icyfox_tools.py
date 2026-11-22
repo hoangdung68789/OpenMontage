@@ -150,3 +150,21 @@ def test_skill_frontmatter_fits_claude_ai_limits():
         name = re.search(r"(?m)^name:\s*(.+)$", fm).group(1).strip()
         desc = re.search(r'(?m)^description:\s*"(.*)"\s*$', fm).group(1)
         assert len(name) <= 64 and len(desc) <= 1024 and "<" not in desc and ">" not in desc, (skill, len(desc))
+
+
+def test_watchdog_flags_stalled_overdue_and_log_errors(ws):
+    (ws / "channel-studio" / "state" / "jobs").mkdir(parents=True)
+    tasks = {"version": 1, "next": 3, "tasks": [
+        {"id": "T-001", "title": "Lời đọc", "status": "doing", "updated": "2020-01-01 09:00", "due": None},
+        {"id": "T-002", "title": "Gói đăng", "status": "todo", "updated": "2099-01-01 09:00", "due": "2020-01-02"},
+        {"id": "T-003", "title": "Đã xong", "status": "done", "updated": "2020-01-01 09:00", "due": "2020-01-02"}]}
+    (ws / "channel-studio" / "state" / "tasks.json").write_text(json.dumps(tasks), encoding="utf-8")
+    (ws / "channel-studio" / "state" / "jobs" / "voice.log").write_text(
+        "S0.1 OK 60.8s\nS2.1 LỖI 429 {'quotaId': 'GenerateRequestsPerDayPerProjectPerModel'}\n", encoding="utf-8")
+    (ws / "channel-studio" / "state" / "jobs" / "clean.log").write_text("S0.1 OK\nS0.2 OK\n", encoding="utf-8")
+    (ws / "channel-studio" / "state" / "jobs" / "rate.log").write_text('S3.3 LỖI 429 {\n    "code": 429,\n', encoding="utf-8")
+    r = run(ws, S / "watchdog.py")
+    assert r.returncode == 1, r.stdout + r.stderr
+    assert "T-001 NGHI TREO" in r.stdout and "T-002 QUÁ HẠN" in r.stdout and "T-003" not in r.stdout
+    assert "voice.log" in r.stdout and "[F1]" in r.stdout and "clean.log" not in r.stdout
+    assert "rate.log: Bị giới hạn tốc độ" in r.stdout and "[F10]" in r.stdout

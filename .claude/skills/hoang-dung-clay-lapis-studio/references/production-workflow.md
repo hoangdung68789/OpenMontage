@@ -44,7 +44,7 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 - Khi đủ các phần: gộp thành `script.json` hợp lệ theo `schemas/artifacts/script.schema.json`, ghi checkpoint `script`.
 
 ## 4. Giọng
-- **Giọng kênh đã chốt (22/11/2026): `gemini-3.8-flash-tts`, giọng Algenib**, cho mọi video dài và Shorts. Không làm mẫu giọng, không hỏi lại. Chỉ làm 3 mẫu khi anh yêu cầu đổi giọng.
+- **Giọng kênh đã chốt (22/11/2026): `gemini-3.8-flash-tts` (thay bằng 3.1-preview cùng ngày, xem dòng dưới), giọng Algenib**, cho mọi video dài và Shorts. Không làm mẫu giọng, không hỏi lại. Chỉ làm 3 mẫu khi anh yêu cầu đổi giọng.
 - Công cụ: `channel-studio/videos/002-lady-be-good/voice/narrate.py <thư_mục_ra> Algenib [mã đoạn…]`. Script đọc `projects/<id>/artifacts/script.json`, ghi mỗi đoạn một file WAV, tự làm tiếp nếu chạy dở. Video khác thì đổi đường dẫn `script.json` trong script.
   - Gọi thẳng API `v1beta` `generateContent`, vì `tools/audio/gemini_tts.py` còn lỗi 404 (thẻ T-002). T-002 xong thì chuyển về công cụ.
   - **Bẫy đã gặp:** chỉ dẫn giọng ghép thẳng vào đầu văn bản sẽ bị đọc to. `systemInstruction` bị model từ chối (lỗi 400). Phải dùng bố cục `# AUDIO PROFILE / ### DIRECTOR'S NOTES / #### TRANSCRIPT`.
@@ -54,6 +54,8 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 - Đọc dài: chia theo đoạn của kịch bản, mỗi lần gọi một đoạn, rồi ghép lại.
 
 - **Hạn mức (đo 22/11/2026):** gói miễn phí chỉ có 10 lượt/ngày cho mỗi model TTS, đặt lại lúc 15:00 giờ VN. Một video 30 đoạn cần 3 ngày. `narrate.py` tự dừng khi hết lượt và tự bỏ qua đoạn đã có, nên chỉ cần chạy lại sau 15:00. Muốn nhanh hơn phải bật thanh toán (việc tài khoản của anh). Shorts dùng chung lượt.
+
+- **Model giọng hiện hành (anh chốt 22/11/2026): `gemini-3.1-flash-tts-preview`, giọng Algenib.** Lệnh: `python channel-studio/videos/002-lady-be-good/voice/alt_voice.py <thư mục ra> gemini:gemini-3.1-flash-tts-preview Algenib [đoạn…]`. Mỗi model Gemini có hạn mức riêng; hết lượt thì `alt_voice.py` tự dừng. Một video chỉ dùng một model. Không dùng ElevenLabs gói free (không thương mại, 10.000 ký tự); OpenAI cần nạp tiền.
 
 ## 5. Phân cảnh (scene_plan, cần duyệt)
 - Mỗi cảnh có: mốc giây (theo độ dài thật của file giọng), loại cảnh, mô tả, nguồn hình kèm giấy phép, chữ trên màn hình.

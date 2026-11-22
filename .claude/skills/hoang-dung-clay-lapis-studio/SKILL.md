@@ -58,7 +58,7 @@ Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó
 | **Nhật ký lịch sử** (báo cáo hoàn thành từng việc) | `channel-studio/logs/<năm-tháng>.md` (chỉ thêm) |
 | **Hợp đồng làm việc + quy tắc hoàn thành** | `references/work-contract.md` |
 | **Loại việc nào đọc file nào, dùng công cụ nào** | `references/read-map.md` |
-| **Chế độ tự lái** (ai làm gì, nhịp tuần, việc quan trọng phải hỏi, lô duyệt tuần) | `references/autopilot.md` + `scripts/autopilot.py` + `pipeline_defs/icyfox-autopilot.yaml` |
+| **Chế độ tự lái** (ai làm gì, nhịp tuần, việc quan trọng phải hỏi, giám sát + phương án thay thế) | `references/autopilot.md` + `scripts/autopilot.py` + `pipeline_defs/icyfox-autopilot.yaml` |
 | **Series nhiều tập** | `references/series-playbook.md` + `scripts/series.py` + `channel-studio/series/` |
 | **Số liệu → ý tưởng → video** | `references/analytics-loop.md` + `scripts/research/yt_analytics_report.py`, `niche_outliers.py` (radar) + `channel-studio/analytics/`, `channel-studio/ideas/IDEA_BANK.md` |
 | **Tự kiểm kịch bản, áp gói đăng** | `scripts/qa_check.py`, `scripts/yt_publish.py` |
@@ -78,6 +78,7 @@ Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó
 | **Render nhanh trên máy anh** | `references/local-render.md` |
 | **Đổi máy tính, khôi phục toàn bộ dữ liệu** | `channel-studio/guides/KHOI_PHUC_MAY_MOI.md` + `scripts/restore_machine.sh` |
 | Chạy trên máy anh thay vì cloud | `channel-studio/guides/local_setup.md` + mục "Chế độ máy local" trong `environment-and-apis.md` |
+| **Giám sát tác vụ, lỗi thường gặp và phương án thay thế** | `references/fallbacks.md` + `scripts/watchdog.py` |
 | Quyết định đã chốt | `references/decisions-log.md` |
 | Bảng Notion | "Clay & Lapis – Video Pipeline", data source `collection://4201dcd7-7c95-8188-8452-000b17602005` |
 | Mẫu file | `templates/` |
@@ -132,11 +133,11 @@ Vì sao: bỏ bước này thì dễ làm lại việc cũ, hoặc hỏi lại n
 | 1 | Nghiên cứu (research) | Không | `research_brief.json` hợp lệ theo schema |
 | 2 | Đề xuất (proposal) | **Có** | 3 concept, so sánh **cả 2 công cụ dựng** (HyperFrames, Remotion), cách dựng (atelier hay cảnh mẫu), chi phí |
 | 3 | Kịch bản, chia phần | **Có, từng phần** | `script_partN.md`: lời tiếng Anh, ghi chú giọng và hình, bản dịch Việt, nguồn |
-| 4 | Giọng đọc | Không (giọng kênh Algenib đã chốt 22/11/2026) | `narrate.py` cả video, kiểm bằng whisper. Chỉ làm 3 mẫu khi anh yêu cầu đổi giọng |
-| 5 | Phân cảnh (scene_plan) | **Có** | Danh sách cảnh có mốc giây, nguồn ảnh đã kiểm giấy phép |
-| 6 | Tài nguyên (assets) | **Có** | Giọng đọc, ảnh, bản đồ, nhạc, kèm danh sách ghi công |
+| 4 | Giọng đọc | Không (Algenib, model `gemini-3.1-flash-tts-preview`, anh chốt 22/11/2026) | `voice/alt_voice.py` cả video, kiểm bằng whisper. Chỉ làm mẫu khi anh yêu cầu đổi giọng |
+| 5 | Phân cảnh (scene_plan) | AI tự duyệt (từ 22/11/2026) | Danh sách cảnh có mốc giây, nguồn ảnh đã kiểm giấy phép |
+| 6 | Tài nguyên (assets) | AI tự duyệt (từ 22/11/2026) | Giọng đọc, ảnh, bản đồ, nhạc, kèm danh sách ghi công |
 | 7 | Dựng và render | Không | MP4 16:9. Kiểm tra bằng `npx hyperframes lint` và `check` |
-| 8 | Gói đăng | **Có** (bước publish) | Tiêu đề, mô tả, thumbnail, 11 file SRT, 3–5 Shorts |
+| 8 | Gói đăng | AI tự duyệt (từ 22/11/2026) | Tiêu đề, mô tả, thumbnail, 11 file SRT, 3–5 Shorts |
 | 9 | Anh tải lên và hẹn giờ | Anh làm | Link video |
 | 10 | Gắn phụ đề và bản dịch | Không | Phụ đề và bản dịch đã lên YouTube |
 | 11 | Báo cáo sau 7 ngày | Không | Notion: giờ xem, sub mới |

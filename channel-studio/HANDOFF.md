@@ -4,6 +4,9 @@
 
 Đọc file này trước khi làm tiếp. Quy trình đầy đủ nằm trong skill `hoang-dung-clay-lapis-studio` (`.claude/skills/hoang-dung-clay-lapis-studio/SKILL.md`). **Đọc mục 0 "Tiêu chuẩn làm việc" trước.** Mở phiên bằng `bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh`.
 
+## MỚI NHẤT
+- **22/11/2026 23:59: thử hẹn giờ công khai qua API ĐẠT** (T-030). Clip tự chuyển Công khai đúng giờ hẹn, đã xóa. Việc tiếp theo là **T-032**: bật `YT_AUDIT_APPROVED=1` trong `.env` trên máy anh rồi tải thật Short đầu tiên. Chi tiết: `guides/TU_DONG_DANG_VIDEO.md` §4b.
+
 ## HỆ THỐNG MỚI (22/11/2026, tối): tự lái, sổ việc có kiểm chứng, chống quên
 - **Mục tiêu vĩnh viễn:** `channel-studio/MISSION.md`. **Kế hoạch:** `channel-studio/PLAN.md` (khối phases và releases).
 - **Hợp đồng làm việc + QUY TẮC HOÀN THÀNH:** `references/work-contract.md`.
@@ -84,7 +87,8 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 
 ## Việc tiếp theo (theo thứ tự)
 0. **Nếu anh gửi link kênh đối thủ:** làm đủ `request-playbooks.md` mục A trong cùng lượt trả lời.
-0a. **002: anh đã chốt giọng Algenib (22/11).** AI đang tạo lời đọc bằng `videos/002-lady-be-good/voice/narrate.py` (T-025), rồi kiểm bằng `check_voice.py` + `narration_report.py`. Lời đọc thật nhanh hơn ước tính 125 từ/phút khoảng 20%, nên video sẽ ngắn hơn 27:29. **Hạn mức Gemini TTS gói miễn phí: 10 lượt/ngày cho mỗi model, đặt lại lúc 15:00 giờ VN** (đo 22/11: quotaId `GenerateRequestsPerDayPerProjectPerModel-FreeTier`). Đã có 8/31 đoạn; còn 23 đoạn (S2.3, S3.2–S7.3) → phiên 17:00 mỗi ngày chạy `narrate.py projects/lady-be-good/assets/audio/narration Algenib` (tự bỏ qua đoạn đã có, tự dừng khi hết lượt): 23/11 10 đoạn, 24/11 10 đoạn, 25/11 3 đoạn. Nếu anh bật thanh toán cho dự án Google AI Studio (ngân sách giọng ~9 USD/tháng đã duyệt) thì làm xong trong 1 lần. Shorts cũng dùng chung 10 lượt/ngày này. `gemini_tts.py` còn 404 (T-002, của Codex). 001 dời sang 25/12; dòng Notion của 001 chưa đổi ngày.
+0a. **002: lời đọc làm lại bằng `gemini-3.1-flash-tts-preview` giọng Algenib (anh chốt 22/11 23:50)** vì 3.8 hết 10 lượt/ngày. Ra `projects/lady-be-good/assets/audio/narration_g31/` bằng `voice/alt_voice.py` (chạy lại là làm tiếp đoạn còn thiếu, tự dừng khi hết lượt). Thư mục `narration/` (8 đoạn bằng 3.8) chỉ để tham khảo, không dùng trong video. Kiểm bằng `check_voice.py` + `narration_report.py`. `gemini_tts.py` còn 404 (T-002, của Codex). 001 dời sang 25/12 (dòng Notion đã đổi 22/11). **Tiến độ 22/11 23:59: 10/31 đoạn (S0.1–S3.2), hết lượt ngày (429 PerDay).** Chạy lại cùng lệnh sau 15:00 giờ VN, ghi log vào `channel-studio/state/jobs/<ngày>-voice-002-g31.log`. Gói miễn phí khoảng 10 đoạn/ngày nên cần thêm khoảng 2 ngày (dự kiến xong 24/11), vẫn kịp lịch đăng 11/12.
+0a2. **Giám sát tác vụ (anh yêu cầu 22/11):** `autopilot.py` đã gồm `watchdog.py` (thẻ treo, quá hạn, lỗi log `state/jobs/`); gặp lỗi tra `references/fallbacks.md` (F0–F10). Sơ đồ thư mục: `guides/SO_DO_THU_MUC.md` (mục 6 đã xử lý, mục 7 giám sát).
 0b. Lấy lại phụ đề video `QkRRERFPfEM` (lần trước bị lỗi 429).
 0c. **T-007 (radar lần 2): KHÔNG chạy trước 23/11/2026 21:17 giờ VN.** Radar lần 1 tra lúc 22/11 21:17; cần cách 24–48 giờ mới đo được đà tăng. Phiên tự lái 23/11 lúc 09:00 và 17:00 bỏ qua thẻ này. Lần hợp lệ đầu tiên là phiên 24/11 09:00 (khoảng 36 giờ, vẫn kịp hạn 24/11). Làm: `niche_outliers.py --days 7`, rồi so lượt xem 3 video `BwyM7aGf8p0`, `R2gNUN0ljTc`, `3NE-Cz96W7E` với `research/2026-11-22-radar/outliers.json`. Video nào còn tăng thì gắn nhãn "ĐANG LÊN – ĐÃ KIỂM CHỨNG" trong IDEA_BANK.
 1. Chạy `check_apis.py`. Đạt là thấy tên kênh, số sub, và Analytics OK. Nếu lỗi, tra bảng sự cố trong `references/environment-and-apis.md`.

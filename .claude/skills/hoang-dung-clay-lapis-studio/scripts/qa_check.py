@@ -9,7 +9,7 @@ Kiểm:
   4. Không trùng lời đối thủ: so cụm 8 từ với mọi phụ đề trong channel-studio/research (chống "reused content").
   5. Số từ ghi trong file ("Số từ: ...") phải khớp số từ lời thoại thật (lệch tối đa 15%), chống báo sai tiến độ.
   6. Cờ chính sách (cần anh xem): mô tả bạo lực chi tiết, tự hại, lời khuyên tài chính/sức khỏe/pháp lý.
-Kết quả: <file>.qa.md cạnh kịch bản. Mã thoát 0 = QA ĐẠT, 2 = HỎNG (AI tự sửa), 3 = CẦN ANH XEM (đưa vào lô duyệt tuần).
+Kết quả: <file>.qa.md cạnh kịch bản. Mã thoát 0 = QA ĐẠT, 2 = HỎNG (AI tự sửa), 3 = CẦN XEM LẠI (AI tự sửa; chỉ hỏi anh khi chạm luật cứng, lô duyệt tuần đã bỏ 22/11/2026).
 --mark: khi đạt, thêm "· QA ĐẠT <ngày>" vào dòng tiêu đề (autopilot đọc dấu này).
 """
 import argparse
@@ -89,7 +89,7 @@ def main():
     verdict = "HỎNG" if fails else "CẦN ANH XEM" if review else "QA ĐẠT"
     out = [f"# QA {f.name} — {today()}: **{verdict}**", ""] + [f"- {x}" for x in info]
     out += ["", "## Lỗi phải sửa"] + ([f"- {x}" for x in fails] or ["- (không có)"])
-    out += ["", "## Cần anh xem (đưa vào lô duyệt tuần)"] + ([f"- {x}" for x in review] or ["- (không có)"])
+    out += ["", "## Cần xem lại (AI tự sửa; chỉ hỏi anh khi chạm luật cứng)"] + ([f"- {x}" for x in review] or ["- (không có)"])
     qf = f.with_suffix(".qa.md")
     qf.write_text("\n".join(out) + "\n", encoding="utf-8")
     print("\n".join(out))
