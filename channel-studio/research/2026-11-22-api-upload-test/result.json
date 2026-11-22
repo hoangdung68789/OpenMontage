@@ -1,0 +1,94 @@
+{
+ "upload": {
+  "at_vn": "2026-11-22 23:50:47",
+  "scopes": "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.force-ssl",
+  "clip_bytes": 15190,
+  "requested_privacy": "unlisted",
+  "init_http": 200,
+  "put_http": 200,
+  "video_id": "hS2xk7efOCA",
+  "returned_privacy": "unlisted",
+  "returned_uploadStatus": "uploaded",
+  "readback": {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "uploaded",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "processing",
+   "title": "ICYFOX API test (will be deleted)"
+  }
+ },
+ "poll": [
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "uploaded",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "processing",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:50:53"
+  },
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "processed",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "succeeded",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:51:24"
+  },
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "processed",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "succeeded",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:51:54"
+  },
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "processed",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "succeeded",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:52:24"
+  }
+ ],
+ "delete": {
+  "http": 204,
+  "error": "",
+  "after": {
+   "found": false
+  },
+  "at_vn": "2026-11-22 23:52:26"
+ },
+ "upload_scheduled": {
+  "at_vn": "2026-11-22 23:55:41",
+  "scopes": "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.force-ssl",
+  "clip_bytes": 15190,
+  "requested_privacy": "private",
+  "requested_publishAt_utc": "2026-11-22T16:58:40Z",
+  "init_http": 200,
+  "put_http": 200,
+  "video_id": "e2qR5c3rtw8",
+  "returned_privacy": "private",
+  "returned_publishAt": "2026-11-22T16:58:40Z",
+  "returned_uploadStatus": "uploaded",
+  "readback": {
+   "found": true,
+   "privacyStatus": "private",
+   "uploadStatus": "uploaded",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "processing",
+   "title": "ICYFOX API test (will be deleted)"
+  }
+ }
+}
