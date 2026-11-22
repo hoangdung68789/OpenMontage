@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 22:52 (giờ Việt Nam).
+Cập nhật: 2026-11-22 22:58 (giờ Việt Nam).
 
 ## Đang làm (1)
 

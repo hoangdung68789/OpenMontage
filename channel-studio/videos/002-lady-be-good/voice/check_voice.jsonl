@@ -1,0 +1,8 @@
+{"file": "S0.1.wav", "id": "S0.1", "match_pct": 96.4, "ref_words": 141, "heard_words": 139, "diffs": ["replace: 'four hundred and forty' -> '440'", "replace: 'be good' -> 'b goode'", "insert: '' -> 'this'"]}
+{"file": "S1.1.wav", "id": "S1.1", "match_pct": 90.3, "ref_words": 116, "heard_words": 110, "diffs": ["replace: 'four hundred' -> '400'", "replace: 'soluch' -> 'solich'", "replace: 'soluch' -> 'solich'", "replace: 'thirty four' -> '34'", "replace: 'soluch' -> 'solich'", "replace: 'forty one twenty four three oh one' -> '41 24 301'"]}
+{"file": "S1.2.wav", "id": "S1.2", "match_pct": 96.0, "ref_words": 125, "heard_words": 125, "diffs": ["replace: 'hays' -> 'hayes'", "replace: 'woravka' -> 'worofka'", "replace: 'lamotte' -> 'lamott'", "replace: 'eighteenth' -> '18th'", "replace: 'seventeen' -> '17'"]}
+{"file": "S1.3.wav", "id": "S1.3", "match_pct": 95.3, "ref_words": 54, "heard_words": 53, "diffs": ["replace: 'be good' -> 'begood'", "replace: 'fourth' -> '4th'"]}
+{"file": "S2.1.wav", "id": "S2.1", "match_pct": 92.5, "ref_words": 94, "heard_words": 92, "diffs": ["replace: 'fourth twenty five' -> '4th 25'", "replace: 'twelve' -> '12'", "replace: 'thirteen' -> '13'", "replace: 'be good' -> 'begood'", "replace: 'soluch' -> 'saluk'"]}
+{"file": "S2.2.wav", "id": "S2.2", "match_pct": 96.2, "ref_words": 67, "heard_words": 66, "diffs": ["replace: 'soluch' -> 'salooch'", "replace: 'be good' -> 'begood'"]}
+{"file": "S2.4.wav", "id": "S2.4", "match_pct": 100.0, "ref_words": 54, "heard_words": 54, "diffs": []}
+{"file": "S3.1.wav", "id": "S3.1", "match_pct": 99.1, "ref_words": 111, "heard_words": 111, "diffs": ["replace: 'twelve' -> '12'"]}
