@@ -22,6 +22,13 @@
 - Tác vụ hẹn giờ trên máy anh (app Claude desktop, mục Scheduled): `icyfox-san-xuat-9h-17h` (09:00 và 17:00 mỗi ngày: làm tiếp tới cổng duyệt kế tiếp rồi dừng) và `icyfox-bao-cao-tuan-cn-9h` (Chủ nhật 09:00: báo cáo số liệu kênh, file ở `channel-studio/reports/weekly/`).
 - Chỉ chạy khi app Claude đang mở; app đóng thì chạy khi mở lại. Không tự duyệt, không tải video lên.
 
+## Ai đang làm gì (Claude, Codex…)
+Quy tắc: `references/multi-agent.md`. Nhận việc thì thêm dòng, làm xong thì xóa dòng. Lưu ngay mỗi lần đổi.
+
+| Agent | Việc | File sẽ sửa | Bắt đầu |
+|---|---|---|---|
+| (trống) | | | |
+
 ## Trạng thái API (22/11/2026)
 - **Gemini:** OK. Network secret, header `x-goog-api-key`. Thấy model `gemini-3.8-flash-tts`.
 - **YouTube OAuth + Data API + Analytics:** **OK** (22/11/2026, đã bật API trong dự án 979474479924). Kênh **ICYFOX** (0 sub, 0 video). Anh đã chốt giữ tên ICYFOX.
