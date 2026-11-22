@@ -1,0 +1,10 @@
+{"ts": "2026-11-22T10:08:22.487843+00:00", "tool": "gemini_tts", "event": "start", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_gemini_charon.wav"}
+{"ts": "2026-11-22T10:08:24.467322+00:00", "tool": "gemini_tts", "event": "finish", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_gemini_charon.wav", "success": false, "cost_usd": 0.0, "duration_s": 1.98}
+{"ts": "2026-11-22T10:08:24.467604+00:00", "tool": "gemini_tts", "event": "start", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_gemini_en-us-riko.wav"}
+{"ts": "2026-11-22T10:08:24.667220+00:00", "tool": "gemini_tts", "event": "finish", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_gemini_en-us-riko.wav", "success": false, "cost_usd": 0.0, "duration_s": 0.2}
+{"ts": "2026-11-22T10:08:24.667498+00:00", "tool": "gemini_tts", "event": "start", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_gemini_en-us-sami.wav"}
+{"ts": "2026-11-22T10:08:24.824749+00:00", "tool": "gemini_tts", "event": "finish", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_gemini_en-us-sami.wav", "success": false, "cost_usd": 0.0, "duration_s": 0.16}
+{"ts": "2026-11-22T10:08:24.825146+00:00", "tool": "openai_tts", "event": "start", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_openai_onyx.mp3"}
+{"ts": "2026-11-22T10:08:29.221675+00:00", "tool": "openai_tts", "event": "finish", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_openai_onyx.mp3", "success": false, "cost_usd": 0.0, "duration_s": 4.4}
+{"ts": "2026-11-22T10:08:29.222057+00:00", "tool": "elevenlabs_tts", "event": "start", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_elevenlabs_brian.mp3"}
+{"ts": "2026-11-22T10:08:32.051857+00:00", "tool": "elevenlabs_tts", "event": "finish", "output_path": "projects/gilgamesh-pilot/assets/audio/samples/S04_elevenlabs_brian.mp3", "success": true, "cost_usd": 0.1509, "duration_s": 2.83}

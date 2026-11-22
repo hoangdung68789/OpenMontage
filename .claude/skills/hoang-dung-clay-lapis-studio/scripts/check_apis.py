@@ -5,6 +5,25 @@ import datetime
 import os
 
 import requests
+from pathlib import Path
+
+
+def load_dotenv_local():
+    """Máy local: đọc OpenMontage/.env (nếu có). Không ghi đè biến môi trường đã đặt sẵn. Không in giá trị."""
+    here = Path(__file__).resolve()
+    candidates = [Path.cwd() / ".env"] + [p / ".env" for p in here.parents if (p / "AGENT_GUIDE.md").exists()]
+    for f in candidates:
+        if f.is_file():
+            for line in f.read_text(encoding="utf-8", errors="ignore").splitlines():
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, v = line.split("=", 1)
+                k, v = k.strip(), v.strip().strip('"').strip("'")
+                if k and v and not os.environ.get(k):
+                    os.environ[k] = v
+            return str(f)
+    return None
 
 PLACEHOLDERS = {"", "proxy-injected", "dummy", "dummy-replaced-by-proxy"}
 
@@ -58,6 +77,8 @@ def google_token(refresh_var="YT_REFRESH_TOKEN"):
     return r.json()["access_token"], "OK"
 
 def main():
+    src = load_dotenv_local()
+    print("0. Nguồn khóa:", f"file {src}" if src else "biến môi trường / proxy cloud")
     print("1. Gemini API:", gemini())
     print("1b. ElevenLabs:", elevenlabs())
     print("1c. OpenAI:", openai_check())

@@ -1,4 +1,6 @@
-# Bộ thiết lập kênh: Clay & Lapis (bản nháp, 22/11/2026)
+# Bộ thiết lập kênh ICYFOX (dự án Clay & Lapis, bản nháp, 22/11/2026)
+
+> **Quyết định 22/11/2026:** kênh YouTube **giữ tên ICYFOX**. "Clay & Lapis" là tên dự án nội bộ và tên bộ nhận diện hình ảnh (bảng màu, phong cách), không phải tên kênh.
 
 Ngách: lịch sử cổ đại và thần thoại, phim tài liệu dài, tiếng Anh, nhắm người xem Mỹ, giọng AI.
 
@@ -27,7 +29,7 @@ Chưa tra nhãn hiệu (trademark). [Chưa xác minh]
 ```
 Ancient history and mythology, told in full.
 
-Clay & Lapis tells the oldest stories humans wrote down, from Gilgamesh and the first cities of Sumer to the myths of Babylon, Egypt and the North, including the passages scholars have only recovered in the last few years.
+ICYFOX tells the oldest stories humans wrote down, from Gilgamesh and the first cities of Sumer to the myths of Babylon, Egypt and the North, including the passages scholars have only recovered in the last few years.
 
 Every video lists its sources in the description. Artifact images come from public-domain and openly licensed collections, credited on screen or in the description.
 

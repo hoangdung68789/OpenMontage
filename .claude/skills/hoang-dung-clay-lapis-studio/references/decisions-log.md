@@ -12,3 +12,5 @@
 | 22/11/2026 | Theo dõi bằng Notion. Đồng ý tạo tác vụ hẹn giờ sau khi video thử đạt | Anh đồng ý |
 | 22/11/2026 | YouTube OAuth dùng Personal mode + OAuth Playground. Quyền Drive xin riêng | Anh không publish được ứng dụng External. Google không cho xin quyền YouTube chung với drive.file |
 | 22/11/2026 | Lưu toàn bộ lên GitHub: repo OpenMontage, nhánh `ccr-6640cec8-2anthl`, thư mục `channel-studio/`. Có skill này | Anh đồng ý |
+| 22/11/2026 | Kênh YouTube **giữ tên ICYFOX**. "Clay & Lapis" là tên dự án và bộ nhận diện | Anh chọn. NHẬN ĐỊNH: tên ICYFOX không gợi ngách lịch sử, nên cần banner, câu định vị và tên danh sách phát để bù |
+| 22/11/2026 | Khóa API trên máy local để trong `OpenMontage/.env` (theo mẫu `channel-studio/config/api_keys.env.example`). Trên cloud dùng Network secrets và biến môi trường | Anh yêu cầu file cấu hình. OpenMontage tự đọc `.env` |

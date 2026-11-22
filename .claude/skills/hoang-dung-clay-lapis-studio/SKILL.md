@@ -1,6 +1,6 @@
 ---
 name: hoang-dung-clay-lapis-studio
-description: "Vận hành trọn quy trình kênh YouTube Clay & Lapis (lịch sử cổ đại và thần thoại, lời thoại tiếng Anh, người xem Mỹ, giọng AI, phụ đề 11 ngôn ngữ). Gồm: mở và đóng phiên đúng cách (đọc HANDOFF, khôi phục hồ sơ dự án, kiểm tra API, lưu GitHub), phân tích đối thủ, chọn chủ đề, viết kịch bản có nguồn theo từng phần, làm mẫu giọng, dựng video bằng OpenMontage + HyperFrames, soạn gói đăng (tiêu đề, mô tả, thumbnail, hashtag, phụ đề), gắn phụ đề và đọc số liệu qua YouTube API, cập nhật bảng Notion. Dùng ngay khi Dũng nhắc đến Clay & Lapis, 'làm tiếp kênh', video lịch sử, thần thoại, Gilgamesh, Lưỡng Hà, phần kịch bản tiếp theo, mẫu giọng, gói đăng, kiểm tra API kênh, báo cáo tuần, quét đối thủ, hoặc khi mở phiên mới cho kênh, kể cả khi không gọi tên skill."
+description: "Vận hành trọn quy trình kênh YouTube ICYFOX, dự án Clay & Lapis (lịch sử cổ đại và thần thoại, lời thoại tiếng Anh, người xem Mỹ, giọng AI, phụ đề 11 ngôn ngữ). Gồm: mở và đóng phiên đúng cách (đọc HANDOFF, khôi phục hồ sơ dự án, kiểm tra API, lưu GitHub), phân tích đối thủ, chọn chủ đề, viết kịch bản có nguồn theo từng phần, làm mẫu giọng, dựng video bằng OpenMontage + HyperFrames, soạn gói đăng (tiêu đề, mô tả, thumbnail, hashtag, phụ đề), gắn phụ đề và đọc số liệu qua YouTube API, cập nhật bảng Notion. Dùng ngay khi Dũng nhắc đến ICYFOX, Clay & Lapis, 'làm tiếp kênh', video lịch sử, thần thoại, Gilgamesh, Lưỡng Hà, phần kịch bản tiếp theo, mẫu giọng, gói đăng, kiểm tra API kênh, báo cáo tuần, quét đối thủ, hoặc khi mở phiên mới cho kênh, kể cả khi không gọi tên skill."
 ---
 
 # Clay & Lapis Studio
@@ -22,6 +22,7 @@ Người dùng là Dũng. Gọi "anh", xưng "tôi", viết tiếng Việt. Anh 
 | Nghiên cứu đối thủ và ngách | `references/research-playbook.md` + `scripts/research/` |
 | Tự động hóa, tác vụ hẹn giờ | `references/automation.md` |
 | **16 repo của anh: repo nào dùng ở bước nào** | `references/toolbox-repos.md` |
+| **Khóa API: file mẫu và hướng dẫn** | `channel-studio/config/api_keys.env.example`, `channel-studio/config/HUONG_DAN_KHOA_API.md` |
 | Chạy trên máy anh thay vì cloud | `channel-studio/guides/local_setup.md` + mục "Chế độ máy local" trong `environment-and-apis.md` |
 | Quyết định đã chốt | `references/decisions-log.md` |
 | Bảng Notion | "Clay & Lapis – Video Pipeline", data source `collection://4201dcd7-7c95-8188-8452-000b17602005` |

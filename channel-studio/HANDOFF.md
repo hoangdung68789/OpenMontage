@@ -15,6 +15,9 @@
 | 001 Gilgamesh: The Lost Lines (video thử) | `channel-studio/videos/001-gilgamesh-lost-lines/` · project `gilgamesh-pilot` | Kịch bản: Phần 1 và 2 đã duyệt (1.867 từ, khoảng 15:46). Phần 3 và 4 chưa viết. Bản đồ 16 repo: references/toolbox-repos.md của skill | Tôi: kiểm S3.5, S4.1, S4.6, làm 3 mẫu giọng, viết Phần 3 |
 
 ## Quyết định mới trong phiên trước
+- Kênh YouTube **giữ tên ICYFOX**. Clay & Lapis là tên dự án.
+- Có file mẫu khóa API: `channel-studio/config/api_keys.env.example` và hướng dẫn `channel-studio/config/HUONG_DAN_KHOA_API.md`. Máy local dùng `OpenMontage/.env`.
+- Thử mẫu giọng S0.4: **ElevenLabs "Brian" đạt** (file nằm trên máy cloud cũ, không lên git). **Gemini lỗi 404**: công cụ `gemini_tts` gọi API v1, model chỉ có ở v1beta, phải sửa công cụ. **OpenAI 429**: tài khoản chưa nạp tiền.
 - Đã tạo skill `hoang-dung-clay-lapis-studio` và sắp xếp lại thư mục `channel-studio/`.
 - Mục tiêu video thử: 35–40 phút. Đã bỏ đoạn S4.8 ("wasteland" không kiểm được bài gốc).
 

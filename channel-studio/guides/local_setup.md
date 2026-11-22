@@ -6,7 +6,7 @@ Tài liệu này có 2 phần: phần A anh tự làm, phần B anh giao cho Cla
 | | Cloud (đang dùng) | Máy của anh (local) |
 |---|---|---|
 | Máy phải bật | Không | **Có**, trong suốt thời gian làm việc |
-| Khóa và token | Lưu trong cài đặt môi trường, proxy tự gắn | **Biến môi trường trên máy anh**, anh tự đặt |
+| Khóa và token | Lưu trong cài đặt môi trường, proxy tự gắn | **File `OpenMontage\.env`** trên máy anh (git bỏ qua file này), anh tự điền |
 | Mạng | Chỉ các host đã mở | Không giới hạn |
 | yt-dlp lấy số liệu từng video | Bị YouTube chặn vì nghi bot | Mạng nhà ít bị chặn hơn [nhận định, cần thử] |
 | Render video | Chạy trên máy cloud | Chạy bằng CPU của máy anh |
@@ -31,18 +31,10 @@ Tài liệu này có 2 phần: phần A anh tự làm, phần B anh giao cho Cla
 
      Sau đó vào thư mục ở bước 3 và gõ `claude`.
 3. **Tạo một thư mục trống** cho kênh: Windows `C:\ClayLapis`, macOS `~/ClayLapis`. Cả 16 repo sẽ nằm cạnh nhau trong thư mục này.
-4. **Đặt khóa vào biến môi trường của máy.** Anh tự gõ trong cửa sổ PowerShell hoặc Terminal riêng. **Không dán khóa vào khung chat với Claude.**
-   - Windows (PowerShell), mỗi dòng một lệnh, thay phần trong ngoặc kép bằng giá trị thật:
-     ```
-     setx GEMINI_API_KEY "AIza..."
-     setx ELEVENLABS_API_KEY "sk_..."
-     setx OPENAI_API_KEY "sk-..."
-     setx YT_CLIENT_ID "....apps.googleusercontent.com"
-     setx YT_CLIENT_SECRET "GOCSPX-..."
-     setx YT_REFRESH_TOKEN "1//0..."
-     ```
-   - macOS: thêm các dòng `export GEMINI_API_KEY="AIza..."` (và tương tự cho 5 biến còn lại) vào cuối file `~/.zshrc`.
-   - Đặt xong, **đóng hẳn rồi mở lại** Claude Code để nó đọc biến mới.
+4. **Khóa API:** làm **sau** phần B, khi Claude đã clone repo về máy. Cách làm ở `channel-studio/config/HUONG_DAN_KHOA_API.md` mục 2:
+   - Chép `channel-studio\config\api_keys.env.example` thành `OpenMontage\.env`.
+   - Mở bằng Notepad, dán khóa ngay sau dấu `=`, rồi lưu.
+   - Tự làm việc này trong Notepad. **Không dán khóa vào khung chat với Claude.**
 
 ## B. Câu lệnh đầu tiên dán cho Claude Code trên máy
 
@@ -77,7 +69,8 @@ Làm theo thứ tự. Hỏi anh trước khi cài phần mềm hệ thống. Kh�
    - Muốn dùng ở mọi thư mục thì chép thư mục skill đó vào `~/.claude/skills/`.
    - Nếu anh đăng nhập bằng tài khoản claude.ai đã lưu skill, skill cũng có thể tự có [chưa xác minh với phiên local].
 5. **Notion:** nếu chưa có công cụ Notion trong phiên, hướng dẫn anh kết nối Notion cho Claude Code theo tài liệu MCP của Claude Code [chưa xác minh cách làm cụ thể].
-6. **Kiểm tra:** từ thư mục OpenMontage, chạy bằng Git Bash trên Windows:
+6. **Khóa:** nếu chưa có `OpenMontage/.env`, nhắc anh tự chép từ `channel-studio/config/api_keys.env.example` và tự điền theo `channel-studio/config/HUONG_DAN_KHOA_API.md`. Không đọc và không in nội dung file `.env`.
+7. **Kiểm tra:** từ thư mục OpenMontage, chạy bằng Git Bash trên Windows:
    ```
    bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh
    ```
@@ -88,5 +81,5 @@ Làm theo thứ tự. Hỏi anh trước khi cài phần mềm hệ thống. Kh�
    - OpenAI OK.
    - Thấy tên kênh.
    - Analytics OK.
-7. **HyperFrames:** chạy `npx hyperframes --help` một lần để tải công cụ. Lần render đầu sẽ tải thêm trình duyệt headless.
-8. **Báo anh** những gì đã cài, những gì còn thiếu. Từ đây làm việc theo skill `hoang-dung-clay-lapis-studio`. Đóng phiên bằng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_end.py -m "..."`. Push dùng tài khoản GitHub của anh.
+8. **HyperFrames:** chạy `npx hyperframes --help` một lần để tải công cụ. Lần render đầu sẽ tải thêm trình duyệt headless.
+9. **Báo anh** những gì đã cài, những gì còn thiếu. Từ đây làm việc theo skill `hoang-dung-clay-lapis-studio`. Đóng phiên bằng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_end.py -m "..."`. Push dùng tài khoản GitHub của anh.

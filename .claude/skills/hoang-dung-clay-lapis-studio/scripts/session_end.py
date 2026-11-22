@@ -66,6 +66,12 @@ def scan_secrets(paths):
     return hits
 
 
+def scan_secrets_files(files):
+    rx = re.compile("|".join(SECRET_PATTERNS))
+    return [f for f in files if Path(f).stat().st_size < 5 * 1024 * 1024
+            and rx.search(Path(f).read_text(encoding="utf-8", errors="ignore"))]
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-m", "--message", required=True, help="mô tả ngắn cho commit (tiếng Anh hoặc Việt)")
@@ -79,14 +85,21 @@ def main():
         sys.exit(f"Đang không ở nhánh {BRANCH}. Chạy session_start.sh trước.")
 
     print("== 1. Sao lưu hồ sơ dự án:", ", ".join(mirror_projects()) or "(không có)")
-    print("== 2. Quét khóa/token")
-    hits = scan_secrets(["channel-studio", SKILL_REL])
+    print("== 2. Chuẩn bị commit (loại file .env) và quét khóa/token")
+    run(["git", "add", "-f", "channel-studio", SKILL_REL])
+    staged = [f for f in run(["git", "diff", "--cached", "--name-only"]).stdout.splitlines() if f]
+    envs = [f for f in staged if (Path(f).name == ".env" or Path(f).name.endswith(".env")) and not f.endswith(".example")]
+    if envs:
+        run(["git", "reset", "-q", "--"] + envs)
+        print("  đã loại khỏi commit:", ", ".join(envs))
+    staged = [f for f in staged if f not in envs and Path(f).is_file()]
+    hits = scan_secrets_files(staged)
     if hits:
+        run(["git", "reset", "-q"])
         sys.exit("DỪNG: có thể có khóa/token trong: " + ", ".join(hits))
     print("  không thấy khóa/token")
 
     print("== 3. Commit")
-    run(["git", "add", "-f", "channel-studio", SKILL_REL])
     if not run(["git", "diff", "--cached", "--quiet"], check=False).returncode:
         print("  không có thay đổi để commit")
     else:
