@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 23:20 (giờ Việt Nam).
+Cập nhật: 2026-11-22 23:49 (giờ Việt Nam).
 
 ## Đang làm (2)
 
@@ -10,9 +10,11 @@ Cập nhật: 2026-11-22 23:20 (giờ Việt Nam).
 | T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
 | T-026 | Đang làm | claude | Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API | publish |  |  | yt_publish.py có lệnh upload (dry-run đạt, test đạt); channel/youtube_api_audit.md điền sẵn mọi trường form Google (có nguồn), kèm trang chính sách riêng tư và điều khoản; PLAN.md dòng 10, 49 theo cách mới |  |
 
-## Chờ anh quyết (0)
+## Chờ anh quyết (1)
 
-(không có)
+| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
+|---|---|---|---|---|---|---|---|---|
+| T-028 | Chờ anh | claude | Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip | publish |  |  | Ghi kết quả privacyStatus đọc lại + quyết định vào TU_DONG_DANG_VIDEO.md và decisions-log | Anh cho phép tôi tải 1 clip thử 5 giây (màn hình đen, chế độ Không công khai) lên kênh ICYFOX rồi xóa ngay, để biết AI có tự đăng video được không? Trả lời 'thử'. |
 
 ## Bị chặn (0)
 
@@ -35,6 +37,7 @@ Cập nhật: 2026-11-22 23:20 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-027 Trả lời: có cách nào để AI tự đăng video lên YouTube không (kiểm chính sách + phương án) (2026-11-22 23:49): channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-019 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần (2026-11-22 22:21): channel-studio/videos/002-lady-be-good/script_part1.md, channel-studio/videos/002-lady-be-good/script_part2.md, channel-studio/videos/002-lady-be-good/script_part3.md, channel-studio/videos/002-lady-be-good/script_part4.md, channel-studio/videos/002-lady-be-good/script_full_ready.txt, channel-studio/videos/002-lady-be-good/script_part1.qa.md, channel-studio/videos/002-lady-be-good/script_part2.qa.md, channel-studio/videos/002-lady-be-good/script_part3.qa.md, channel-studio/videos/002-lady-be-good/script_part4.qa.md
 - T-024 Hướng dẫn + script khôi phục toàn bộ dữ liệu ICYFOX khi đổi máy tính (2026-11-22 22:03): channel-studio/guides/KHOI_PHUC_MAY_MOI.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh
 - T-023 Kiểm cấu trúc thư mục ICYFOX trên máy anh so với chuẩn của skill (2026-11-22 21:58): .claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md, channel-studio/videos/001-gilgamesh-lost-lines/README.md, channel-studio/HANDOFF.md
