@@ -1,0 +1,1 @@
+Làm tiếp kênh Clay & Lapis bằng skill hoang-dung-clay-lapis-studio. Lấy nhánh ccr-6640cec8-2anthl của repo hoangdung68789/OpenMontage, chạy bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh, đọc channel-studio/HANDOFF.md rồi báo tôi trạng thái và việc tiếp theo.
