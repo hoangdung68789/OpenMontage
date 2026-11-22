@@ -24,6 +24,7 @@ channel-studio/
 │       ├── script_partN.md    # kịch bản theo phần (templates/script_section_template.md)
 │       ├── voice/             # ghi chú mẫu giọng (file âm thanh không đưa lên git)
 │       ├── shorts/            # kịch bản và mốc cắt Shorts
+│       ├── render/            # dự án HyperFrames để render trên máy anh (index.html, compositions/, assets/ gồm MP3 theo đoạn và JPG đã nén). Không có final.mp4
 │       └── package/           # title.txt, description.md, tags.txt, subtitles/*.srt, thumbnail.png (dưới 2 MB)
 ├── projects/                  # bản sao của OpenMontage projects/<project-id>/ (checkpoint, artifacts)
 ├── research/                  # kết quả quét ngách và đối thủ (JSON), lưới thumbnail

@@ -23,6 +23,7 @@ Người dùng là Dũng. Gọi "anh", xưng "tôi", viết tiếng Việt. Anh 
 | Tự động hóa, tác vụ hẹn giờ | `references/automation.md` |
 | **16 repo của anh: repo nào dùng ở bước nào** | `references/toolbox-repos.md` |
 | **Khóa API: file mẫu và hướng dẫn** | `channel-studio/config/api_keys.env.example`, `channel-studio/config/HUONG_DAN_KHOA_API.md` |
+| **Render nhanh trên máy anh** | `references/local-render.md` |
 | Chạy trên máy anh thay vì cloud | `channel-studio/guides/local_setup.md` + mục "Chế độ máy local" trong `environment-and-apis.md` |
 | Quyết định đã chốt | `references/decisions-log.md` |
 | Bảng Notion | "Clay & Lapis – Video Pipeline", data source `collection://4201dcd7-7c95-8188-8452-000b17602005` |

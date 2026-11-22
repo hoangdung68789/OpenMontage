@@ -93,6 +93,11 @@ def main():
         run(["git", "reset", "-q", "--"] + envs)
         print("  đã loại khỏi commit:", ", ".join(envs))
     staged = [f for f in staged if f not in envs and Path(f).is_file()]
+    big = [f for f in staged if Path(f).stat().st_size > 95 * 1024 * 1024]
+    if big:
+        run(["git", "reset", "-q", "--"] + big)
+        print("  đã loại file > 95 MB (GitHub chặn > 100 MB, hãy dùng Google Drive):", ", ".join(big))
+        staged = [f for f in staged if f not in big]
     hits = scan_secrets_files(staged)
     if hits:
         run(["git", "reset", "-q"])
