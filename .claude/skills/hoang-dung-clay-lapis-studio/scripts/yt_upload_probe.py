@@ -1,6 +1,7 @@
 """THỬ: YouTube có ép video tải lên qua API của dự án ICYFOX về "Riêng tư" không? (anh cho phép ngày 22/11/2026)
 
   python yt_upload_probe.py upload [--out <thư mục>]          # tạo clip đen 5 giây, tải lên ở chế độ Không công khai
+  python yt_upload_probe.py upload --schedule-minutes 3       # tải lên Riêng tư + hẹn công khai sau 3 phút (không báo người đăng ký)
   python yt_upload_probe.py poll <video_id> [--minutes 6] [--delete] [--out <thư mục>]   # đọc lại trạng thái định kỳ, rồi xóa
 
 Không in token. Kết quả ghi vào <out>/result.json (mặc định channel-studio/research/<ngày>-api-upload-test/).
@@ -53,11 +54,13 @@ def main():
     sp = ap.add_subparsers(dest="cmd", required=True)
     u = sp.add_parser("upload")
     u.add_argument("--out")
+    u.add_argument("--schedule-minutes", type=float, default=0)
     p = sp.add_parser("poll")
     p.add_argument("video_id")
     p.add_argument("--minutes", type=float, default=6)
     p.add_argument("--delete", action="store_true")
     p.add_argument("--out")
+    p.add_argument("--until-public", action="store_true", help="dừng sau khi thấy public + 1 lần đọc nữa")
     a = ap.parse_args()
     d = outdir(a)
     h, scopes = yt_headers()
@@ -69,12 +72,19 @@ def main():
         body = {"snippet": {"title": "ICYFOX API test (will be deleted)", "description": "Automated upload test. Deleted within minutes.",
                             "categoryId": "22"},
                 "status": {"privacyStatus": "unlisted", "selfDeclaredMadeForKids": False}}
+        publish_at = None
+        if a.schedule_minutes:
+            from datetime import datetime, timedelta, timezone
+            publish_at = (datetime.now(timezone.utc) + timedelta(minutes=a.schedule_minutes)).replace(microsecond=0)
+            body["status"] = {"privacyStatus": "private", "publishAt": publish_at.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                              "selfDeclaredMadeForKids": False}
         size = clip.stat().st_size
-        r = requests.post(UP, params={"uploadType": "resumable", "part": "snippet,status"},
+        r = requests.post(UP, params={"uploadType": "resumable", "part": "snippet,status", "notifySubscribers": "false"},
                           headers={**h, "Content-Type": "application/json; charset=UTF-8",
                                    "X-Upload-Content-Type": "video/mp4", "X-Upload-Content-Length": str(size)},
                           json=body, timeout=60)
-        rec = {"at_vn": now_vn().strftime("%Y-%m-%d %H:%M:%S"), "scopes": scopes, "clip_bytes": size, "requested_privacy": "unlisted",
+        rec = {"at_vn": now_vn().strftime("%Y-%m-%d %H:%M:%S"), "scopes": scopes, "clip_bytes": size,
+               "requested_privacy": body["status"]["privacyStatus"], "requested_publishAt_utc": body["status"].get("publishAt"),
                "init_http": r.status_code}
         if not r.ok:
             rec["init_error"] = r.text[:500]
@@ -89,10 +99,10 @@ def main():
             print(json.dumps(rec, ensure_ascii=False, indent=1))
             sys.exit(2)
         j = r2.json()
-        rec.update({"video_id": j["id"], "returned_privacy": j["status"].get("privacyStatus"),
+        rec.update({"video_id": j["id"], "returned_privacy": j["status"].get("privacyStatus"), "returned_publishAt": j["status"].get("publishAt"),
                     "returned_uploadStatus": j["status"].get("uploadStatus")})
         rec["readback"] = status(h, j["id"])
-        save(d, "upload", rec)
+        save(d, "upload_scheduled" if a.schedule_minutes else "upload", rec)
         clip.unlink()  # không giữ file thử
         print(json.dumps(rec, ensure_ascii=False, indent=1))
         return
@@ -103,14 +113,20 @@ def main():
         s["at_vn"] = now_vn().strftime("%H:%M:%S")
         timeline.append(s)
         print(json.dumps(s, ensure_ascii=False), flush=True)
-        if time.time() >= end or (s.get("processingStatus") in ("succeeded", "failed") and len(timeline) >= 4):
+        pubs = [x for x in timeline if x.get("privacyStatus") == "public"]
+        if time.time() >= end:
+            break
+        if a.until_public:
+            if len(pubs) >= 2:
+                break
+        elif s.get("processingStatus") in ("succeeded", "failed") and len(timeline) >= 4:
             break
         time.sleep(30)
-    save(d, "poll", timeline)
+    save(d, "poll_scheduled" if a.until_public else "poll", timeline)
     if a.delete:
         r = requests.delete(f"{DATA}/videos", headers=h, params={"id": a.video_id}, timeout=30)
         after = status(h, a.video_id)
-        save(d, "delete", {"http": r.status_code, "error": r.text[:300] if not r.ok else "", "after": after,
+        save(d, "delete_scheduled" if a.until_public else "delete", {"http": r.status_code, "error": r.text[:300] if not r.ok else "", "after": after,
                            "at_vn": now_vn().strftime("%Y-%m-%d %H:%M:%S")})
         print("delete:", r.status_code, "| sau khi xóa:", after)
     print("Đã ghi", rel(d / "result.json"))

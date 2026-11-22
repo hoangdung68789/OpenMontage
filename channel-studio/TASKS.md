@@ -1,20 +1,19 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 23:53 (giờ Việt Nam).
+Cập nhật: 2026-11-22 23:55 (giờ Việt Nam).
 
-## Đang làm (2)
+## Đang làm (3)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
 | T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
+| T-030 | Đang làm | claude | Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa | publish |  |  | result.json có chuỗi trạng thái private→public đúng giờ hẹn (hoặc bị khóa), video đã xóa |  |
 | T-026 | Đang làm | claude | Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API | publish |  |  | yt_publish.py có lệnh upload (dry-run đạt, test đạt); channel/youtube_api_audit.md điền sẵn mọi trường form Google (có nguồn), kèm trang chính sách riêng tư và điều khoản; PLAN.md dòng 10, 49 theo cách mới |  |
 
-## Chờ anh quyết (1)
+## Chờ anh quyết (0)
 
-| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
-|---|---|---|---|---|---|---|---|---|
-| T-029 | Chờ anh | claude | Thử 24 giờ: tải clip 5 giây Không công khai qua API, sau 24 giờ đọc lại trạng thái rồi xóa | publish |  | 2026-11-25 | result.json có trạng thái sau >= 24 giờ; nếu vẫn unlisted thì thêm lệnh upload vào yt_publish.py (thẻ mới) | Anh cho phép thử lại trong 24 giờ không? Tải 1 clip 5 giây ở chế độ Không công khai (không ai thấy), để nguyên 24 giờ, rồi đọc lại và xóa. Trả lời 'thử 24 giờ'. |
+(không có)
 
 ## Bị chặn (0)
 

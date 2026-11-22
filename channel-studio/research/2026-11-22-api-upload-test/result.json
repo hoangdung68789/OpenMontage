@@ -68,5 +68,27 @@
    "found": false
   },
   "at_vn": "2026-11-22 23:52:26"
+ },
+ "upload_scheduled": {
+  "at_vn": "2026-11-22 23:55:41",
+  "scopes": "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.force-ssl",
+  "clip_bytes": 15190,
+  "requested_privacy": "private",
+  "requested_publishAt_utc": "2026-11-22T16:58:40Z",
+  "init_http": 200,
+  "put_http": 200,
+  "video_id": "e2qR5c3rtw8",
+  "returned_privacy": "private",
+  "returned_publishAt": "2026-11-22T16:58:40Z",
+  "returned_uploadStatus": "uploaded",
+  "readback": {
+   "found": true,
+   "privacyStatus": "private",
+   "uploadStatus": "uploaded",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "processing",
+   "title": "ICYFOX API test (will be deleted)"
+  }
  }
 }

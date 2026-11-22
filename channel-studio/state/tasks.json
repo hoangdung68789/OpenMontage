@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 30,
+ "next": 31,
  "tasks": [
   {
    "id": "T-001",
@@ -1001,7 +1001,7 @@
    "type": "publish",
    "dod": "result.json có trạng thái sau >= 24 giờ; nếu vẫn unlisted thì thêm lệnh upload vào yt_publish.py (thẻ mới)",
    "owner": "claude",
-   "status": "waiting",
+   "status": "dropped",
    "prio": 1,
    "due": "2026-11-25",
    "video": null,
@@ -1009,10 +1009,29 @@
    "created": "2026-11-22 23:53",
    "evidence": [],
    "log": [
-    "2026-11-22 23:53 wait"
+    "2026-11-22 23:53 wait",
+    "2026-11-22 23:55 drop"
    ],
-   "updated": "2026-11-22 23:53",
-   "question": "Anh cho phép thử lại trong 24 giờ không? Tải 1 clip 5 giây ở chế độ Không công khai (không ai thấy), để nguyên 24 giờ, rồi đọc lại và xóa. Trả lời 'thử 24 giờ'."
+   "updated": "2026-11-22 23:55",
+   "question": "Anh cho phép thử lại trong 24 giờ không? Tải 1 clip 5 giây ở chế độ Không công khai (không ai thấy), để nguyên 24 giờ, rồi đọc lại và xóa. Trả lời 'thử 24 giờ'.",
+   "reason": "Anh chọn thử hẹn giờ công khai sau 3 phút thay cho thử 24 giờ (22/11/2026)"
+  },
+  {
+   "id": "T-030",
+   "title": "Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa",
+   "type": "publish",
+   "dod": "result.json có chuỗi trạng thái private→public đúng giờ hẹn (hoặc bị khóa), video đã xóa",
+   "owner": "claude",
+   "status": "doing",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-22 23:55",
+   "evidence": [],
+   "log": [],
+   "session": "manual",
+   "updated": "2026-11-22 23:55"
   }
  ]
 }
