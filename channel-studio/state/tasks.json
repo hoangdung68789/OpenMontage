@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 22,
+ "next": 23,
  "tasks": [
   {
    "id": "T-001",
@@ -644,6 +644,53 @@
     ],
     "remaining": "Anh cần bấm Save skill lại trên file mới; nếu vẫn lỗi, chụp màn hình thông báo lỗi gửi tôi",
     "check": "python3 /mnt/skills/examples/skill-creator/scripts/quick_validate.py .claude/skills/hoang-dung-clay-lapis-studio && python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
+   }
+  },
+  {
+   "id": "T-022",
+   "title": "Bổ sung kho ý tưởng lên >= 4 ý tưởng Sẵn sàng (có bằng chứng, chấm N×P×K)",
+   "type": "ideas",
+   "dod": "IDEA_BANK.md có >= 4 dòng Sẵn sàng; mỗi ý tưởng mới có link + số liệu + giờ tra, điểm N×P×K >= 27, không trùng chủ đề đã xếp lịch; autopilot.py hết nhắc kho ý tưởng",
+   "owner": "claude",
+   "status": "done",
+   "prio": 2,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-22 21:54",
+   "evidence": [
+    "channel-studio/ideas/IDEA_BANK.md",
+    "channel-studio/research/2026-11-22-ideas/evidence.json"
+   ],
+   "log": [
+    "2026-11-22 21:56 done"
+   ],
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "updated": "2026-11-22 21:56",
+   "report": {
+    "summary": "Kho ý tưởng từ 1 lên 8 ý tưởng Sẵn sàng: thêm I-004..I-010 (Edmund Fitzgerald, USS Thresher, Operation Anthropoid, Pompeii, Bismarck, Texas Tower 4, Everest 1996), mỗi ý tưởng có link video đối thủ vượt trội, lượt xem tra bằng API lúc 22/11 21:55, hệ số so trung vị kênh, điểm N×P×K 40–100; không trùng 16 chủ đề đã xếp lịch",
+    "components": [
+     {
+      "name": "Lọc ứng viên",
+      "result": "radar 22/11 chỉ có 1 ứng viên mới hợp lệ (Bulge, 2.841 view, quá yếu), nên lọc thêm story_scan.json: video dài gấp >= 3 lần trung vị kênh, >= 200K view, 7 nhóm trụ cột; bỏ lịch sử giả, true crime, chính trị đương thời, chủ đề đã xếp lịch",
+      "verified_by": "script lọc chạy trên story_scan.json; đối chiếu khối releases trong PLAN.md",
+      "evidence": "channel-studio/research/2026-11-22-story-niches/story_scan.json"
+     },
+     {
+      "name": "Bằng chứng số liệu",
+      "result": "12 video, lượt xem hiện tại qua YouTube Data API videos.list, tra 22/11/2026 21:55",
+      "verified_by": "so tự động 11/11 số trong IDEA_BANK khớp evidence.json",
+      "evidence": "channel-studio/research/2026-11-22-ideas/evidence.json"
+     },
+     {
+      "name": "Chấm điểm và ghi kho",
+      "result": "7 ý tưởng mới, điểm 40–100 (>= 27), trạng thái Sẵn sàng; ghi rõ quy ước điểm N=4 và rủi ro nguồn/hình từng ý tưởng",
+      "verified_by": "grep đếm 8 dòng Sẵn sàng; autopilot.py không còn nhắc kho ý tưởng",
+      "evidence": "channel-studio/ideas/IDEA_BANK.md"
+     }
+    ],
+    "remaining": "Nguồn chính từng ý tưởng mới ghi [cần kiểm], chưa mở bản gốc (báo cáo USCG/NTSB, hồ sơ Thresher, điều trần Texas Tower 4); kiểm ở bước nghiên cứu của từng video. Thứ tự đưa vào PLAN chờ anh duyệt trong lô thứ Năm (analytics-loop.md §3.5). Điểm N=4 là quy ước tôi đặt, anh có thể đổi.",
+    "check": ""
    }
   }
  ]

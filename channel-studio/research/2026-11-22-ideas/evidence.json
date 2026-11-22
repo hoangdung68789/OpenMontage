@@ -1,0 +1,102 @@
+{
+ "checked_at_vn": "2026-11-22 21:55",
+ "source": "YouTube Data API v3 videos.list",
+ "videos": [
+  {
+   "id": "wIg90sVSwSE",
+   "title": "The Edmund Fitzgerald Mystery",
+   "channel": "Maritime Horrors",
+   "published": "2021-07-31",
+   "minutes": 30.3,
+   "views": 5897743
+  },
+  {
+   "id": "_2f0tZBSByI",
+   "title": "EDMUND FITZGERALD: The Full Story (50th Anniversary)",
+   "channel": "Part-Time Explorer",
+   "published": "2025-11-02",
+   "minutes": 112.5,
+   "views": 3172358
+  },
+  {
+   "id": "g-uJ1do3yV8",
+   "title": "CRUSH DEPTH: The Nightmarish Loss of USS Thresher",
+   "channel": "Brick Immortar",
+   "published": "2023-04-09",
+   "minutes": 29.2,
+   "views": 4834424
+  },
+  {
+   "id": "jxTcsOw215I",
+   "title": "Operation Anthropoid: The Most Important Assassination of WW2 (No AI Documentary)",
+   "channel": "Battle Guide",
+   "published": "2026-02-06",
+   "minutes": 23.5,
+   "views": 4608759
+  },
+  {
+   "id": "YmKKqsYFDP4",
+   "title": "Reinhard Heydrich: The Brutal Assassination Of The 'Hangman Of Czechoslovakia'",
+   "channel": "Timeline - World History Documentaries",
+   "published": "2026-05-02",
+   "minutes": 49.2,
+   "views": 275431
+  },
+  {
+   "id": "1wK-Q15P2VM",
+   "title": "Bismarck’s Final 24 Hours: The Downfall Of Hitler's Deadliest Battleship",
+   "channel": "Timeline - World History Documentaries",
+   "published": "2026-11-01",
+   "minutes": 46.7,
+   "views": 409898
+  },
+  {
+   "id": "8yFVVIpYMD8",
+   "title": "Bismarck: Inside The Operation To Destroy Hitler's Greatest Battleship",
+   "channel": "Timeline - World History Documentaries",
+   "published": "2026-07-25",
+   "minutes": 97.6,
+   "views": 243163
+  },
+  {
+   "id": "f2n9Nbt_jMk",
+   "title": "The Destruction of Pompeii (Documentary)",
+   "channel": "Astraway",
+   "published": "2026-06-01",
+   "minutes": 70.3,
+   "views": 11108050
+  },
+  {
+   "id": "WDTX68E66pk",
+   "title": "What Caused the 1996 Everest Disaster? (MARATHON)",
+   "channel": "Adventures Gone Wrong",
+   "published": "2024-12-24",
+   "minutes": 185.5,
+   "views": 845028
+  },
+  {
+   "id": "A0IB2pvjsHg",
+   "title": "The 2008 K2 Disaster - What REALLY Happened? (MARATHON)",
+   "channel": "Adventures Gone Wrong",
+   "published": "2024-12-30",
+   "minutes": 85.9,
+   "views": 528962
+  },
+  {
+   "id": "yal0RZvzW-0",
+   "title": "OFFSHORE NIGHTMARE: The Collapse of Texas Tower 4",
+   "channel": "Brick Immortar",
+   "published": "2024-12-08",
+   "minutes": 83.6,
+   "views": 2558252
+  },
+  {
+   "id": "-u2H62yiqs8",
+   "title": "The Sinking of the Andrea Doria",
+   "channel": "Maritime Horrors",
+   "published": "2022-08-12",
+   "minutes": 46.5,
+   "views": 1322578
+  }
+ ]
+}
