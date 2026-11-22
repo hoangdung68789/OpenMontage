@@ -1,0 +1,1457 @@
+{
+ "checked_at_vn": "2026-11-22 21:17",
+ "days": 7,
+ "published_after_utc": "2026-11-15T14:16:42Z",
+ "quota_units_est": 1129,
+ "min_minutes": 8,
+ "videos": [
+  {
+   "id": "Ntn9WUVS4lA",
+   "title": "The Universe's Biggest Alien Mysteries | Ancient Aliens",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-17T17:00:01Z",
+   "minutes": 46.1,
+   "views": 631412,
+   "views_per_hour": 5383.9,
+   "likes": 2868,
+   "comments": 154,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=Ntn9WUVS4lA",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 15.03,
+   "label": "VIRAL",
+   "flags": [
+    "lịch sử giả"
+   ]
+  },
+  {
+   "id": "3NE-Cz96W7E",
+   "title": "Winter Survival in Iran's Mountains: Trapped in Harsh Weather With Only Frozen Food",
+   "channel": "Alborz Family",
+   "channel_id": "UCMpBOpMDhU7aaOZuKZPPPsQ",
+   "published": "2026-11-17T15:23:16Z",
+   "minutes": 8.2,
+   "views": 534926,
+   "views_per_hour": 4499.3,
+   "likes": 1852,
+   "comments": 80,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=3NE-Cz96W7E",
+   "channel_subs": 5490,
+   "avg10": 90725,
+   "ratio": 5.9,
+   "label": "VIRAL",
+   "flags": []
+  },
+  {
+   "id": "bNKW00iSGzc",
+   "title": "The Biggest Fire in Texas History & More Unbelievable True Stories | LIVE Replay",
+   "channel": "Jack Mercer | How Bad Things Happen",
+   "channel_id": "UCUOhR4sZhLKOCkGfE6whXuw",
+   "published": "2026-11-16T07:53:58Z",
+   "minutes": 175.2,
+   "views": 345784,
+   "views_per_hour": 2299.4,
+   "likes": 165,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=bNKW00iSGzc",
+   "channel_subs": 2370,
+   "avg10": 181930,
+   "ratio": 1.9,
+   "label": "",
+   "flags": [
+    "trực tiếp / tổng hợp"
+   ]
+  },
+  {
+   "id": "ACN0YZD-zlU",
+   "title": "He Filmed His Own Disappearance: The Abandoned Kayak Mystery | Full Documentary",
+   "channel": "BingeWorthy Documentaries",
+   "channel_id": "UCi6XF582sSwBjjB9M4qNDVw",
+   "published": "2026-11-21T17:00:19Z",
+   "minutes": 49.9,
+   "views": 44994,
+   "views_per_hour": 2115.0,
+   "likes": 442,
+   "comments": 253,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=ACN0YZD-zlU",
+   "channel_subs": 121000,
+   "avg10": 15476,
+   "ratio": 2.91,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "txuGZm6A2jA",
+   "title": "What Happened at the ATM? The Mysterious Death of Taylour Young",
+   "channel": "NEW Unsolved Mysteries",
+   "channel_id": "UCIXccIKvDXeCiotkUV_vKZw",
+   "published": "2026-11-19T19:00:32Z",
+   "minutes": 35.5,
+   "views": 137985,
+   "views_per_hour": 2051.2,
+   "likes": 2718,
+   "comments": 561,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=txuGZm6A2jA",
+   "channel_subs": 58100,
+   "avg10": 177240,
+   "ratio": 0.78,
+   "label": "",
+   "flags": [
+    "án mạng / true crime"
+   ]
+  },
+  {
+   "id": "fti7309GwNY",
+   "title": "Are Aliens the Reason For These Diseases? | Ancient Aliens",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-16T17:00:13Z",
+   "minutes": 29.4,
+   "views": 287829,
+   "views_per_hour": 2037.4,
+   "likes": 1480,
+   "comments": 92,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=fti7309GwNY",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 6.85,
+   "label": "VIRAL",
+   "flags": [
+    "lịch sử giả"
+   ]
+  },
+  {
+   "id": "x3zTQgXJXjs",
+   "title": "Secrets Buried in South America | Ancient Aliens",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-18T17:00:29Z",
+   "minutes": 19.0,
+   "views": 187074,
+   "views_per_hour": 2005.7,
+   "likes": 836,
+   "comments": 23,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=x3zTQgXJXjs",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 4.45,
+   "label": "VƯỢT TRỘI",
+   "flags": [
+    "lịch sử giả"
+   ]
+  },
+  {
+   "id": "sbDyGuElf10",
+   "title": "Sacred Sites or Alien Landings? | Ancient Aliens (S3, E3) | Full Episode",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-18T23:00:14Z",
+   "minutes": 44.2,
+   "views": 129114,
+   "views_per_hour": 1479.4,
+   "likes": 575,
+   "comments": 36,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=sbDyGuElf10",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 3.07,
+   "label": "VƯỢT TRỘI",
+   "flags": [
+    "lịch sử giả"
+   ]
+  },
+  {
+   "id": "oJEp-IHe100",
+   "title": "Trapped Between Two Predators: A Yellowstone Survival Story| Wildlife Documentary",
+   "channel": "Explore Manufacturing Processes",
+   "channel_id": "UCG5Lhki8qLTjW306zcit9Cg",
+   "published": "2026-11-18T14:30:18Z",
+   "minutes": 15.5,
+   "views": 132648,
+   "views_per_hour": 1385.0,
+   "likes": 376,
+   "comments": 17,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=oJEp-IHe100",
+   "channel_subs": 19100,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": [
+    "động vật / tự nhiên"
+   ]
+  },
+  {
+   "id": "60DF07iTyfU",
+   "title": "Thanksgiving Through American History | The Real Story of Thanksgiving | Special",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-19T01:00:19Z",
+   "minutes": 44.3,
+   "views": 116153,
+   "views_per_hour": 1362.1,
+   "likes": 743,
+   "comments": 22,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=60DF07iTyfU",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 2.76,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "JpLNTgNW-9o",
+   "title": "They Fell in Love in the Middle of a Revolution | BIRDS OF WAR",
+   "channel": "INSIDE THE ARTHOUSE",
+   "channel_id": "UCwB-ioi_dD-Lr8PUjdkBWyw",
+   "published": "2026-11-18T16:34:16Z",
+   "minutes": 43.6,
+   "views": 117146,
+   "views_per_hour": 1250.1,
+   "likes": 24,
+   "comments": 2,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=JpLNTgNW-9o",
+   "channel_subs": 494000,
+   "avg10": 98902,
+   "ratio": 1.18,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "qny_SHo0tqU",
+   "title": "The MASSIVE Underground Cities Built by Ancient Civilizations",
+   "channel": "Uncharted Mysteries",
+   "channel_id": "UCtrFDttZdb4QxBpQc3fi1Cg",
+   "published": "2026-11-16T23:34:13Z",
+   "minutes": 174.2,
+   "views": 144857,
+   "views_per_hour": 1075.3,
+   "likes": 1359,
+   "comments": 84,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=qny_SHo0tqU",
+   "channel_subs": 310000,
+   "avg10": 139947,
+   "ratio": 1.04,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "stD_r5mwui4",
+   "title": "The Forgotten Age: The Hidden 200,000 Years of Human History",
+   "channel": "Secret Origins",
+   "channel_id": "UCxAt0KkZZUxgG3yxl-WDM2A",
+   "published": "2026-11-15T15:00:04Z",
+   "minutes": 23.8,
+   "views": 177269,
+   "views_per_hour": 1059.7,
+   "likes": 2161,
+   "comments": 236,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=stD_r5mwui4",
+   "channel_subs": 691000,
+   "avg10": 348667,
+   "ratio": 0.51,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "rP4a0s_M3oU",
+   "title": "New York & Hawaii Under Threat *Marathon* | Mega Disasters",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-16T20:00:13Z",
+   "minutes": 134.9,
+   "views": 134531,
+   "views_per_hour": 972.9,
+   "likes": 269,
+   "comments": 9,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=rP4a0s_M3oU",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 3.2,
+   "label": "VƯỢT TRỘI",
+   "flags": [
+    "trực tiếp / tổng hợp"
+   ]
+  },
+  {
+   "id": "Md7eNWWYJCg",
+   "title": "ABG Bloods vs Atlanta: The Bloods Gang War That Took Over The City - Bloods, Atlanta, Gang War",
+   "channel": "The Real Black Nerd 🤓 ",
+   "channel_id": "UCjHOchVgVge117Zz9tSSNGQ",
+   "published": "2026-11-20T16:28:18Z",
+   "minutes": 23.9,
+   "views": 44269,
+   "views_per_hour": 966.4,
+   "likes": 293,
+   "comments": 66,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=Md7eNWWYJCg",
+   "channel_subs": 5530,
+   "avg10": 50344,
+   "ratio": 0.88,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "Az2o_ABZZNY",
+   "title": "The Most Intense Fights in the Animal Kingdom | FULL EPISODE | Wildlife Documentary",
+   "channel": "WILD NATURE - Nature animal documentary",
+   "channel_id": "UCJjUlbs-ZEo4draiZzz66sQ",
+   "published": "2026-11-16T09:00:08Z",
+   "minutes": 238.0,
+   "views": 135542,
+   "views_per_hour": 908.0,
+   "likes": 2904,
+   "comments": 112,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=Az2o_ABZZNY",
+   "channel_subs": 245000,
+   "avg10": 97002,
+   "ratio": 1.4,
+   "label": "",
+   "flags": [
+    "động vật / tự nhiên"
+   ]
+  },
+  {
+   "id": "ieSgx2CduOU",
+   "title": "Alien Artifacts That Could Rewrite History | In Search of Aliens",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-15T19:00:01Z",
+   "minutes": 19.0,
+   "views": 128582,
+   "views_per_hour": 787.5,
+   "likes": 883,
+   "comments": 45,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=ieSgx2CduOU",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 3.06,
+   "label": "VƯỢT TRỘI",
+   "flags": [
+    "lịch sử giả"
+   ]
+  },
+  {
+   "id": "R2gNUN0ljTc",
+   "title": "The First Thanksgiving: What Really Happened in 1621?",
+   "channel": "Hidden Epoch",
+   "channel_id": "UCeClxlMoDbdladqed1UUSQA",
+   "published": "2026-11-17T01:30:18Z",
+   "minutes": 25.8,
+   "views": 101303,
+   "views_per_hour": 763.0,
+   "likes": 716,
+   "comments": 34,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=R2gNUN0ljTc",
+   "channel_subs": 2670,
+   "avg10": 769,
+   "ratio": 131.66,
+   "label": "VIRAL",
+   "flags": []
+  },
+  {
+   "id": "SZA2AUf18tM",
+   "title": "What Marie Antoinette's Execution Was REALLY Like",
+   "channel": "The Royal Lore",
+   "channel_id": "UCJlL4hLsMXOoMp3-ssrJsuQ",
+   "published": "2026-11-21T16:00:05Z",
+   "minutes": 16.7,
+   "views": 16260,
+   "views_per_hour": 729.9,
+   "likes": 37,
+   "comments": 2,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=SZA2AUf18tM",
+   "channel_subs": 216,
+   "avg10": 419,
+   "ratio": 38.83,
+   "label": "VIRAL",
+   "flags": []
+  },
+  {
+   "id": "42yDxxjjeUo",
+   "title": "Solving Ancient Egypt's Most Gruesome Cold Cases With Modern Forensics",
+   "channel": "Timeline - World History Documentaries",
+   "channel_id": "UC88lvyJe7aHZmcvzvubDFRg",
+   "published": "2026-11-16T22:00:02Z",
+   "minutes": 44.6,
+   "views": 98717,
+   "views_per_hour": 724.4,
+   "likes": 726,
+   "comments": 60,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=42yDxxjjeUo",
+   "channel_subs": 5910000,
+   "avg10": 121437,
+   "ratio": 0.81,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "gQ6wJbQWFSI",
+   "title": "Zombie Outbreak Survival: Trapped In A Walmart For 1 Year (Full Movie)",
+   "channel": "RedVest Survives",
+   "channel_id": "UCI6b4rk5HtAKPl0ozBFqQQQ",
+   "published": "2026-11-17T14:34:18Z",
+   "minutes": 43.3,
+   "views": 79202,
+   "views_per_hour": 661.6,
+   "likes": 563,
+   "comments": 65,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=gQ6wJbQWFSI",
+   "channel_subs": 644,
+   "avg10": 3390,
+   "ratio": 23.36,
+   "label": "VIRAL",
+   "flags": [
+    "hư cấu"
+   ]
+  },
+  {
+   "id": "3o5ojeTuzuY",
+   "title": "Could We Find the Lost Ark? | The UnXplained (S3, E3) | Full Episode",
+   "channel": "HISTORY",
+   "channel_id": "UC9MAhZQQd9egwWCxrwSIsJQ",
+   "published": "2026-11-16T01:00:01Z",
+   "minutes": 42.2,
+   "views": 92298,
+   "views_per_hour": 586.8,
+   "likes": 629,
+   "comments": 48,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=3o5ojeTuzuY",
+   "channel_subs": 15600000,
+   "avg10": 42021,
+   "ratio": 2.2,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "17Zm9zNeDhc",
+   "title": "Sie verliebt sich mit 15 im Internet, doch er war ein Monster | Carly Ryan | Crime Time Doku",
+   "channel": "Kati Winter",
+   "channel_id": "UCCy6AnozgCDzGQp8OEHtsrg",
+   "published": "2026-11-18T17:00:34Z",
+   "minutes": 15.0,
+   "views": 45526,
+   "views_per_hour": 488.1,
+   "likes": 1404,
+   "comments": 43,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=17Zm9zNeDhc",
+   "channel_subs": 256000,
+   "avg10": 15471,
+   "ratio": 2.94,
+   "label": "",
+   "flags": [
+    "án mạng / true crime"
+   ]
+  },
+  {
+   "id": "ronIEK8l_Ns",
+   "title": "50 Unsolved Murders in ALL 50 States of America Full Doc",
+   "channel": "WatchMojo.com",
+   "channel_id": "UCaWd5_7JhbQBe4dknZhsHJg",
+   "published": "2026-11-17T02:00:09Z",
+   "minutes": 66.2,
+   "views": 52664,
+   "views_per_hour": 398.1,
+   "likes": 330,
+   "comments": 20,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=ronIEK8l_Ns",
+   "channel_subs": 25800000,
+   "avg10": 33760,
+   "ratio": 1.56,
+   "label": "",
+   "flags": [
+    "án mạng / true crime"
+   ]
+  },
+  {
+   "id": "fIW2pKC3KpA",
+   "title": "History's Deadliest Lift Fall. 104 Dead. The Vaal Reefs Disaster. A Short Documentary",
+   "channel": "DisastersUncovered",
+   "channel_id": "UC3lv_rnB5LgXW8t9sUH3hXw",
+   "published": "2026-11-17T18:33:38Z",
+   "minutes": 17.4,
+   "views": 42191,
+   "views_per_hour": 364.6,
+   "likes": 637,
+   "comments": 114,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=fIW2pKC3KpA",
+   "channel_subs": 39200,
+   "avg10": 49550,
+   "ratio": 0.85,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "K6i_LfNl8_o",
+   "title": "Holidaymakers Take a Wrong Turn and Encounter Hidden Entity but | Film/Movie Explained in Hindi/Urdu",
+   "channel": "Your Explainer",
+   "channel_id": "UC5Wa7x5lxB8PqOZ7H1MF6Kw",
+   "published": "2026-11-17T09:41:52Z",
+   "minutes": 22.0,
+   "views": 42213,
+   "views_per_hour": 338.8,
+   "likes": 192,
+   "comments": 9,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=K6i_LfNl8_o",
+   "channel_subs": 134000,
+   "avg10": 17706,
+   "ratio": 2.38,
+   "label": "",
+   "flags": [
+    "hư cấu"
+   ]
+  },
+  {
+   "id": "KChi4IhYLMo",
+   "title": "Mountain Goat Mom Sends a Cougar Off the Cliff to Save Her Baby | Wildlife Documentary",
+   "channel": "Bird Survival Stories",
+   "channel_id": "UC1-3GxlaUfG2COmPOK3HHgQ",
+   "published": "2026-11-16T10:05:42Z",
+   "minutes": 30.7,
+   "views": 47763,
+   "views_per_hour": 322.3,
+   "likes": 911,
+   "comments": 69,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=KChi4IhYLMo",
+   "channel_subs": 16200,
+   "avg10": 55878,
+   "ratio": 0.85,
+   "label": "",
+   "flags": [
+    "động vật / tự nhiên"
+   ]
+  },
+  {
+   "id": "GnkxXXaLoFg",
+   "title": "Why Does the Llangollen Canal Keep BREACHING? 200 Years of Engineering Disasters!",
+   "channel": "Court Above The Cut",
+   "channel_id": "UCYByDH3Jbos0kFWrvIlmzYw",
+   "published": "2026-11-20T14:42:34Z",
+   "minutes": 18.6,
+   "views": 12132,
+   "views_per_hour": 255.0,
+   "likes": 911,
+   "comments": 96,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=GnkxXXaLoFg",
+   "channel_subs": 45500,
+   "avg10": 9692,
+   "ratio": 1.25,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "BwyM7aGf8p0",
+   "title": "The True Story of Violette Szabo — the Widow Who Went Back Into France and Never Came Home",
+   "channel": "LLOLL Shadow Archives",
+   "channel_id": "UCQ7S9dLULY6msYMZde2tfmg",
+   "published": "2026-11-17T18:00:28Z",
+   "minutes": 24.1,
+   "views": 24048,
+   "views_per_hour": 206.8,
+   "likes": 216,
+   "comments": 21,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=BwyM7aGf8p0",
+   "channel_subs": 182,
+   "avg10": 198,
+   "ratio": 121.27,
+   "label": "VIRAL",
+   "flags": []
+  },
+  {
+   "id": "u4Sl2GZcMWg",
+   "title": "How Many Survived? – A True Survival Story - Shackleton’s Endurance Expedition",
+   "channel": "Hadi Jungle",
+   "channel_id": "UCF8MtuDq4iO7YzLliSJ0q2A",
+   "published": "2026-11-16T19:58:32Z",
+   "minutes": 18.1,
+   "views": 19457,
+   "views_per_hour": 140.7,
+   "likes": 84,
+   "comments": 2,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=u4Sl2GZcMWg",
+   "channel_subs": 955,
+   "avg10": 1217,
+   "ratio": 15.99,
+   "label": "VIRAL",
+   "flags": []
+  },
+  {
+   "id": "xFH9z3seSSI",
+   "title": "POW's Sent To An Australian Work Camp | True Story War Drama Mini-Series | The Dunera Boys",
+   "channel": "Free Movie Lab",
+   "channel_id": "UCbqdB4Hmso3uIS9udnlpRuQ",
+   "published": "2026-11-16T10:15:37Z",
+   "minutes": 150.2,
+   "views": 19105,
+   "views_per_hour": 129.1,
+   "likes": 156,
+   "comments": 12,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=xFH9z3seSSI",
+   "channel_subs": 102000,
+   "avg10": 16567,
+   "ratio": 1.15,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "gZdYNOowZ2A",
+   "title": "What Really Happened at The Sowerby Bridge Trucking Crash?",
+   "channel": "Freedom Muscle",
+   "channel_id": "UClNfe0Y0UtqePnAyIP471Sg",
+   "published": "2026-11-16T17:00:20Z",
+   "minutes": 22.3,
+   "views": 14607,
+   "views_per_hour": 103.4,
+   "likes": 104,
+   "comments": 15,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=gZdYNOowZ2A",
+   "channel_subs": 11400,
+   "avg10": 9896,
+   "ratio": 1.48,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "8_Qx85r3WhE",
+   "title": "German War Brides Were Shocked by What American Soldiers Did Next: WW2 True Story (1945)",
+   "channel": "Mr. WWII",
+   "channel_id": "UC7oFkV_QqcfuhPq5zI8kpkg",
+   "published": "2026-11-19T18:15:25Z",
+   "minutes": 11.6,
+   "views": 6963,
+   "views_per_hour": 102.4,
+   "likes": 67,
+   "comments": 2,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=8_Qx85r3WhE",
+   "channel_subs": 732,
+   "avg10": 32796,
+   "ratio": 0.21,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "u5nFcYL2O8E",
+   "title": "The Madden Movie Is a DISASTER for John Madden’s Legacy (w/ Sal Licata) | Stugotz and Company",
+   "channel": "Stugotz",
+   "channel_id": "UCJrkQOGhdmMAOT7U0PO5qTA",
+   "published": "2026-11-20T00:07:36Z",
+   "minutes": 82.0,
+   "views": 5064,
+   "views_per_hour": 81.5,
+   "likes": 78,
+   "comments": 34,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=u5nFcYL2O8E",
+   "channel_subs": 17800,
+   "avg10": 2491,
+   "ratio": 2.03,
+   "label": "",
+   "flags": [
+    "hư cấu"
+   ]
+  },
+  {
+   "id": "n8U-4c4FeKg",
+   "title": "The ENTIRE History of Norse Mythology in 1 hour",
+   "channel": "Ziro History",
+   "channel_id": "UC0D2w4MJDTzx8ceT1YSbiTw",
+   "published": "2026-11-17T20:30:23Z",
+   "minutes": 70.1,
+   "views": 9145,
+   "views_per_hour": 80.4,
+   "likes": 76,
+   "comments": 7,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=n8U-4c4FeKg",
+   "channel_subs": 29700,
+   "avg10": 14150,
+   "ratio": 0.65,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "bS9lRTL-H6k",
+   "title": "Bradley vs Montgomery: The Myths About the Bulge Most Americans Still Believe",
+   "channel": "WW2 Exposed",
+   "channel_id": "UCF0g_WfKtjOt85Iowl_YqTw",
+   "published": "2026-11-20T14:05:50Z",
+   "minutes": 156.3,
+   "views": 2841,
+   "views_per_hour": 59.0,
+   "likes": 631,
+   "comments": 4,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=bS9lRTL-H6k",
+   "channel_subs": 6090,
+   "avg10": 780,
+   "ratio": 3.64,
+   "label": "VƯỢT TRỘI",
+   "flags": []
+  },
+  {
+   "id": "yJXg1gIlBhk",
+   "title": "The Three Sisters Who Shared a Single Eye | The Graeae | Greek Mythology for Sleep",
+   "channel": "PesoArt",
+   "channel_id": "UCkGklWQv-JYN7r_DSru_I1Q",
+   "published": "2026-11-17T02:00:17Z",
+   "minutes": 124.1,
+   "views": 6778,
+   "views_per_hour": 51.2,
+   "likes": 62,
+   "comments": 4,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=yJXg1gIlBhk",
+   "channel_subs": 1320,
+   "avg10": 5662,
+   "ratio": 1.2,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "GOOoit-T0ng",
+   "title": "ISLAND WATERS | Beneath Paradise Lies an Ocean Full of Untold Stories | FULL DOCUMENTARY",
+   "channel": "The Ocean Planet",
+   "channel_id": "UCFZ_h_YPm3lRy_Eg4mxqMfA",
+   "published": "2026-11-19T16:13:30Z",
+   "minutes": 180.9,
+   "views": 3519,
+   "views_per_hour": 50.2,
+   "likes": 26,
+   "comments": 5,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=GOOoit-T0ng",
+   "channel_subs": 5490,
+   "avg10": 5319,
+   "ratio": 0.66,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "KY75DrBqC1c",
+   "title": "The Sinking of RMS Lusitania (1915) | The True Story",
+   "channel": "History of Bharat",
+   "channel_id": "UC5ofsY9h_3444TXMe2tK25A",
+   "published": "2026-11-21T12:30:35Z",
+   "minutes": 30.9,
+   "views": 605,
+   "views_per_hour": 23.5,
+   "likes": 5,
+   "comments": 0,
+   "pillars": [
+    "P1",
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=KY75DrBqC1c",
+   "channel_subs": 4290,
+   "avg10": 231693,
+   "ratio": 0.0,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "9j1A0_uZ5S8",
+   "title": "Hitler Invaded the Soviet Union. It Became His Biggest Mistake | WWII Untold",
+   "channel": "WWII UNTOLD",
+   "channel_id": "UC58AJyZAbHg7U8Y5ain0zCA",
+   "published": "2026-11-20T21:26:25Z",
+   "minutes": 341.0,
+   "views": 614,
+   "views_per_hour": 15.0,
+   "likes": 11,
+   "comments": 0,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=9j1A0_uZ5S8",
+   "channel_subs": 182,
+   "avg10": 336,
+   "ratio": 1.83,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "dKIfmJocP6c",
+   "title": "The Origins of Greek Mythology - Full animated movie",
+   "channel": "Greek Mythology Series",
+   "channel_id": "UCaH5EImZRIujDIWAYvgFd1w",
+   "published": "2026-11-16T22:00:08Z",
+   "minutes": 16.5,
+   "views": 1820,
+   "views_per_hour": 13.4,
+   "likes": 82,
+   "comments": 22,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=dKIfmJocP6c",
+   "channel_subs": 283,
+   "avg10": 1352,
+   "ratio": 1.35,
+   "label": "",
+   "flags": [
+    "hư cấu"
+   ]
+  },
+  {
+   "id": "vEl1SQIugwM",
+   "title": "How Women Transformed Factories and Won WWII - Untold War Stories",
+   "channel": "Progress - Science Documentaries",
+   "channel_id": "UCsvOKiFRXrG1AvfSo2RUZKQ",
+   "published": "2026-11-17T12:00:18Z",
+   "minutes": 52.0,
+   "views": 1471,
+   "views_per_hour": 12.0,
+   "likes": 7,
+   "comments": 0,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=vEl1SQIugwM",
+   "channel_subs": 316000,
+   "avg10": 1575,
+   "ratio": 0.93,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "RATCV_vCLSs",
+   "title": "The Ocean's Death Well Mystery!",
+   "channel": "Dekho Meesam",
+   "channel_id": "UCBGej9UoEY5RR9HCPRIXnPg",
+   "published": "2026-11-17T10:23:39Z",
+   "minutes": 10.3,
+   "views": 722,
+   "views_per_hour": 5.8,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=RATCV_vCLSs",
+   "channel_subs": 0,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "y7oMQehiwuU",
+   "title": "THE LOST OCEAN: THE UNDERWATER TITANIC | Full Mystery Thriller Movie (2026)",
+   "channel": "VELMORA MYSTRIES",
+   "channel_id": "UCAPpnaxsuaukPletlTYaLTQ",
+   "published": "2026-11-19T18:00:01Z",
+   "minutes": 37.9,
+   "views": 355,
+   "views_per_hour": 5.2,
+   "likes": 6,
+   "comments": 0,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=y7oMQehiwuU",
+   "channel_subs": 24,
+   "avg10": 158,
+   "ratio": 2.25,
+   "label": "",
+   "flags": [
+    "hư cấu"
+   ]
+  },
+  {
+   "id": "iazBRxMmJEs",
+   "title": "How Did This Happen? The Antares Disaster",
+   "channel": "Trace the Failure",
+   "channel_id": "UCc8gkrlruNjkbvhsqflBI1A",
+   "published": "2026-11-22T09:53:10Z",
+   "minutes": 25.0,
+   "views": 20,
+   "views_per_hour": 4.6,
+   "likes": 1,
+   "comments": 1,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=iazBRxMmJEs",
+   "channel_subs": 948,
+   "avg10": 2456,
+   "ratio": 0.01,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "WPsaGga1FAk",
+   "title": "The Most Brutal Escape of WW2",
+   "channel": "Yazalio",
+   "channel_id": "UCf7zUMI62iMjgESN5V5nZhw",
+   "published": "2026-11-20T10:59:26Z",
+   "minutes": 17.5,
+   "views": 224,
+   "views_per_hour": 4.4,
+   "likes": 9,
+   "comments": 0,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=WPsaGga1FAk",
+   "channel_subs": 627,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "-y54sZiPQ6c",
+   "title": "The End of World War II - The Untold Story of USS Missouri's Surrender",
+   "channel": "Doc of the Day",
+   "channel_id": "UCZeq5B4ur7uk9fUBvYkHlOA",
+   "published": "2026-11-15T23:00:01Z",
+   "minutes": 54.9,
+   "views": 624,
+   "views_per_hour": 3.9,
+   "likes": 2,
+   "comments": 0,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=-y54sZiPQ6c",
+   "channel_subs": 65800,
+   "avg10": 818,
+   "ratio": 0.76,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "g5NA8Wf-8D4",
+   "title": "🔴 LIVE: 10 Darkest Unsolved Mysteries That Defied Logic | Non-Stop Documentary Marathon",
+   "channel": "Untraced",
+   "channel_id": "UCaBkxvHVS0sduL9xKAbIjnA",
+   "published": "2026-11-19T03:43:12Z",
+   "minutes": 83.2,
+   "views": 229,
+   "views_per_hour": 2.8,
+   "likes": 6,
+   "comments": 0,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=g5NA8Wf-8D4",
+   "channel_subs": 99,
+   "avg10": 19,
+   "ratio": 12.18,
+   "label": "VIRAL",
+   "flags": [
+    "trực tiếp / tổng hợp"
+   ]
+  },
+  {
+   "id": "RKh-QEC8890",
+   "title": "The Entire Story of Norse Mythology | Full Documentary",
+   "channel": "Avero History",
+   "channel_id": "UCPtbjk0V83dLa-TBoQ7ETFg",
+   "published": "2026-11-19T19:00:13Z",
+   "minutes": 52.9,
+   "views": 181,
+   "views_per_hour": 2.7,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P5"
+   ],
+   "url": "https://www.youtube.com/watch?v=RKh-QEC8890",
+   "channel_subs": 3,
+   "avg10": 142,
+   "ratio": 1.28,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "jiPyqZN0F_U",
+   "title": "Flannan Isles: The Unsolved Mystery 😱 || Documentary || Ancient Lab",
+   "channel": "Ancient Lab",
+   "channel_id": "UCQgLtAJ9wUkBYK9HKlbHaLg",
+   "published": "2026-11-16T07:30:06Z",
+   "minutes": 8.7,
+   "views": 314,
+   "views_per_hour": 2.1,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=jiPyqZN0F_U",
+   "channel_subs": 42,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "KZz2nIExulM",
+   "title": "The Ships Were Found 169 Years Later — But the Men Were Gone",
+   "channel": "Unexplained Atlas",
+   "channel_id": "UCfKz9Qu3ZW3ovptxsnfmD6Q",
+   "published": "2026-11-21T14:06:34Z",
+   "minutes": 10.8,
+   "views": 46,
+   "views_per_hour": 1.9,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=KZz2nIExulM",
+   "channel_subs": 15,
+   "avg10": 172,
+   "ratio": 0.27,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "mFH3BFvTpyA",
+   "title": "Air France Flight 447 Air Crash | The Mystery of the Atlantic Ocean | Full Documentary in Urdu",
+   "channel": "DB World Tv",
+   "channel_id": "UCs8a_OPs-XgzOkRsPzi_3Ew",
+   "published": "2026-11-15T21:53:27Z",
+   "minutes": 13.1,
+   "views": 268,
+   "views_per_hour": 1.7,
+   "likes": 13,
+   "comments": 4,
+   "pillars": [
+    "P1"
+   ],
+   "url": "https://www.youtube.com/watch?v=mFH3BFvTpyA",
+   "channel_subs": 71,
+   "avg10": 263,
+   "ratio": 1.02,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "ui2CNIfxdZg",
+   "title": "Air France Flight 447 – Lost Over the Atlantic | Disaster Documentary",
+   "channel": "Disaster Files",
+   "channel_id": "UClvl3S8-zFlN5KnE-NInnZA",
+   "published": "2026-11-21T16:20:33Z",
+   "minutes": 41.4,
+   "views": 32,
+   "views_per_hour": 1.5,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=ui2CNIfxdZg",
+   "channel_subs": 2,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "757q8ob_FXQ",
+   "title": "Assassination Of Yamamoto - Untold Story",
+   "channel": "WW2 Story",
+   "channel_id": "UCpxIORKqLPmFuUdeh-CH5ow",
+   "published": "2026-11-17T18:00:19Z",
+   "minutes": 23.1,
+   "views": 134,
+   "views_per_hour": 1.2,
+   "likes": 9,
+   "comments": 0,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=757q8ob_FXQ",
+   "channel_subs": 6880,
+   "avg10": 509,
+   "ratio": 0.26,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "PEnkv47eG_E",
+   "title": "The Titanic: The Untold Story Behind Its Final Hours | 1912 Disaster",
+   "channel": "Hidden History Files",
+   "channel_id": "UCPqJuc5FHxabG75EHUWmCog",
+   "published": "2026-11-22T00:30:29Z",
+   "minutes": 8.9,
+   "views": 16,
+   "views_per_hour": 1.2,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=PEnkv47eG_E",
+   "channel_subs": 0,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "U7W7Jf3cBPc",
+   "title": "The Mystery of 129 Men Lost in the Arctic: The Franklin Expedition:",
+   "channel": "Qissa Box",
+   "channel_id": "UCgFB7k_o5hhwYSBQgb-wpDA",
+   "published": "2026-11-20T14:00:37Z",
+   "minutes": 9.0,
+   "views": 48,
+   "views_per_hour": 1.0,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=U7W7Jf3cBPc",
+   "channel_subs": 241,
+   "avg10": 138,
+   "ratio": 0.35,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "6AQss2_a4Sg",
+   "title": "Kalpana Chawla & the Columbia Disaster: What Really Happened? | Full Animated Documentary",
+   "channel": "Untold Tales of History",
+   "channel_id": "UCnLH9KkmSLJq_KXEuLgTXhA",
+   "published": "2026-11-20T10:58:11Z",
+   "minutes": 21.2,
+   "views": 44,
+   "views_per_hour": 0.9,
+   "likes": 1,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=6AQss2_a4Sg",
+   "channel_subs": 383,
+   "avg10": 38,
+   "ratio": 1.17,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "BMgxyLTHte0",
+   "title": "The 129 Men Who Vanished in the Arctic | The Franklin Expedition Mystery",
+   "channel": "THE VANISHING MAP",
+   "channel_id": "UCpARrII2PutRowpQLatkooA",
+   "published": "2026-11-18T17:15:50Z",
+   "minutes": 11.0,
+   "views": 74,
+   "views_per_hour": 0.8,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=BMgxyLTHte0",
+   "channel_subs": 23,
+   "avg10": 233,
+   "ratio": 0.32,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "4w-l2wSHEq8",
+   "title": "Haunted Ardennes: A True World War II Horror Story from the Bulge",
+   "channel": "Ghost Stories of the Battles",
+   "channel_id": "UCaEohlF6EK-radAWoK2MUDg",
+   "published": "2026-11-18T20:00:23Z",
+   "minutes": 36.0,
+   "views": 75,
+   "views_per_hour": 0.8,
+   "likes": 4,
+   "comments": 1,
+   "pillars": [
+    "P3"
+   ],
+   "url": "https://www.youtube.com/watch?v=4w-l2wSHEq8",
+   "channel_subs": 827,
+   "avg10": 72,
+   "ratio": 1.04,
+   "label": "",
+   "flags": [
+    "hư cấu"
+   ]
+  },
+  {
+   "id": "Y4Xf7CJJIp8",
+   "title": "Tenerife: The Deadliest Plane Crash in History Happened on the Ground",
+   "channel": "Brinkfall",
+   "channel_id": "UCEL5CLZWE0P2oSApVgebrEg",
+   "published": "2026-11-17T18:00:21Z",
+   "minutes": 12.3,
+   "views": 95,
+   "views_per_hour": 0.8,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=Y4Xf7CJJIp8",
+   "channel_subs": 3,
+   "avg10": 59,
+   "ratio": 1.61,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "cjCedPckITc",
+   "title": "The Terrifying True Story of the Lost Franklin Expedition & The Ghost Ships",
+   "channel": "STO ",
+   "channel_id": "UCXdjya4L3nHHWbtddyWWUBA",
+   "published": "2026-11-18T00:38:17Z",
+   "minutes": 12.2,
+   "views": 68,
+   "views_per_hour": 0.6,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=cjCedPckITc",
+   "channel_subs": 72100,
+   "avg10": 29,
+   "ratio": 2.36,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "jvWwTXJ5HB4",
+   "title": "What Really Happened at Chernobyl? The Disaster Explained",
+   "channel": "Explained Simply",
+   "channel_id": "UC472jeytAANTqE-uEiEy6ZQ",
+   "published": "2026-11-17T11:04:18Z",
+   "minutes": 10.3,
+   "views": 71,
+   "views_per_hour": 0.6,
+   "likes": 1,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=jvWwTXJ5HB4",
+   "channel_subs": 42,
+   "avg10": 82,
+   "ratio": 0.87,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "ZI6xlwyDL7k",
+   "title": "The Franklin Expedition and the Northwest Passage: The Inuit Knew",
+   "channel": "The Odd Past",
+   "channel_id": "UCkwhViwvOBjORmoEjK_cGwA",
+   "published": "2026-11-21T18:00:38Z",
+   "minutes": 21.8,
+   "views": 11,
+   "views_per_hour": 0.5,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=ZI6xlwyDL7k",
+   "channel_subs": 41,
+   "avg10": 1019,
+   "ratio": 0.01,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "NPKQJsc5ZS4",
+   "title": "MS Estonia – Lost in the Baltic | Disaster Documentary",
+   "channel": "Disaster Files",
+   "channel_id": "UClvl3S8-zFlN5KnE-NInnZA",
+   "published": "2026-11-22T03:02:48Z",
+   "minutes": 38.6,
+   "views": 4,
+   "views_per_hour": 0.4,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=NPKQJsc5ZS4",
+   "channel_subs": 2,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "IF-goT2gSZU",
+   "title": "The Expedition That Drew a Map — Then Disappeared",
+   "channel": "The Forgotten Page",
+   "channel_id": "UC2QGu56jGgxXwah8VC6GPpA",
+   "published": "2026-11-20T23:44:53Z",
+   "minutes": 14.9,
+   "views": 11,
+   "views_per_hour": 0.3,
+   "likes": 0,
+   "comments": 1,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=IF-goT2gSZU",
+   "channel_subs": 1,
+   "avg10": 11,
+   "ratio": 1.01,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "o41WyIWS_VA",
+   "title": "Tenerife 1977 – The Deadliest Crash in Aviation History | Disaster Documentary",
+   "channel": "Disaster Files",
+   "channel_id": "UClvl3S8-zFlN5KnE-NInnZA",
+   "published": "2026-11-21T16:13:16Z",
+   "minutes": 39.1,
+   "views": 7,
+   "views_per_hour": 0.3,
+   "likes": 1,
+   "comments": 0,
+   "pillars": [
+    "P4"
+   ],
+   "url": "https://www.youtube.com/watch?v=o41WyIWS_VA",
+   "channel_subs": 2,
+   "avg10": null,
+   "ratio": null,
+   "label": "",
+   "flags": []
+  },
+  {
+   "id": "N8eXbdMCGaI",
+   "title": "129 Men Vanished in the Arctic | Franklin's Lost Expedition",
+   "channel": "HISTORY GATE",
+   "channel_id": "UCJVY2DE3i4jTRXOfXsEN0GQ",
+   "published": "2026-11-15T19:02:28Z",
+   "minutes": 18.7,
+   "views": 20,
+   "views_per_hour": 0.1,
+   "likes": 0,
+   "comments": 0,
+   "pillars": [
+    "P2"
+   ],
+   "url": "https://www.youtube.com/watch?v=N8eXbdMCGaI",
+   "channel_subs": 26,
+   "avg10": 447,
+   "ratio": 0.04,
+   "label": "",
+   "flags": []
+  }
+ ]
+}

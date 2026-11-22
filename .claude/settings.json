@@ -1,0 +1,38 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/skills/hoang-dung-clay-lapis-studio/scripts/hooks/run.sh\" session",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/skills/hoang-dung-clay-lapis-studio/scripts/hooks/run.sh\" prompt",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/skills/hoang-dung-clay-lapis-studio/scripts/hooks/run.sh\" stop",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

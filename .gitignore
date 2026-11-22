@@ -104,3 +104,5 @@ venv/
 
 # Local Wan / diffusers GPU environment
 .venv-wan/
+# ICYFOX: id phiên Claude hiện tại (hook ghi, chỉ dùng trên máy)
+.claude/.icyfox_session

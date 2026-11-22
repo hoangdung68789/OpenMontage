@@ -1,0 +1,245 @@
+{
+ "raw": {
+  "fetched_at_vn": "2026-11-22 21:31",
+  "start": "2026-10-25",
+  "end": "2026-11-21",
+  "scopes": "https://www.googleapis.com/auth/yt-analytics.readonly https://www.googleapis.com/auth/youtube.force-ssl",
+  "channel": {
+   "id": "UCdeGNyGvJWma9V3ITlPthaA",
+   "title": "ICYFOX",
+   "stats": {
+    "viewCount": "0",
+    "subscriberCount": "0",
+    "hiddenSubscriberCount": false,
+    "videoCount": "0"
+   }
+  },
+  "videos": {},
+  "daily": [
+   {
+    "day": "2026-10-25",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-10-26",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-10-27",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-10-28",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-10-29",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-10-30",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-10-31",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-01",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-02",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-03",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-04",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-05",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-06",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-07",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-08",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-09",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-10",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-11",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-12",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-13",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-14",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-15",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-16",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-17",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-18",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   },
+   {
+    "day": "2026-11-19",
+    "views": 0,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "subscribersGained": 0,
+    "subscribersLost": 0
+   }
+  ],
+  "per_video": [],
+  "per_video_lifetime": [],
+  "traffic": [],
+  "country": [],
+  "content_type": [],
+  "revenue": {
+   "error": "401 Insufficient permission to access this report."
+  },
+  "first7": {},
+  "retention": {}
+ },
+ "rows": [],
+ "groups": {
+  "pillar": {},
+  "series": {},
+  "hook": {}
+ }
+}

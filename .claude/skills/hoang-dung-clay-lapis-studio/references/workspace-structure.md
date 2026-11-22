@@ -12,24 +12,48 @@
 ## Cây thư mục `channel-studio/`
 ```
 channel-studio/
+├── MISSION.md                 # MỤC TIÊU VĨNH VIỄN: đọc đầu tiên. Chỉ anh sửa
+├── PLAN.md                    # kế hoạch hiện hành; khối phases + releases (autopilot.py đọc)
 ├── HANDOFF.md                 # trạng thái mới nhất: đọc đầu phiên, cập nhật cuối phiên
+├── TASKS.md                   # sổ việc (tự sinh, đừng sửa tay)
 ├── README.md                  # bản đồ ngắn
+├── state/
+│   └── tasks.json             # dữ liệu sổ việc (scripts/tasks.py quản lý)
+├── logs/
+│   └── YYYY-MM.md             # NHẬT KÝ LỊCH SỬ: báo cáo hoàn thành từng việc (tasks.py ghi, chỉ thêm)
+├── ideas/
+│   └── IDEA_BANK.md           # kho ý tưởng có bằng chứng + điểm
+├── analytics/
+│   ├── reports/YYYY-MM-DD/    # report.md + data.json (yt_analytics_report.py)
+│   ├── WINNERS.md             # video thắng và quy luật rút ra
+│   └── video_map.json         # YouTube ID → thư mục video, trụ cột, series, tập, kiểu hook
+├── series/
+│   ├── SERIES_INDEX.md        # mọi series, tập kế tiếp, tập cuối (tự sinh)
+│   └── <series-id>/           # series.json (nguồn) + SERIES.md (tự sinh)
 ├── channel/
 │   ├── channel_setup.md       # tên kênh, About, từ khóa, danh sách phát, cài đặt tải lên, checklist YPP, lịch đăng
 │   └── automation_plan.md     # kế hoạch tự động hóa
 ├── videos/
-│   └── NNN-slug/              # mỗi video một thư mục, ví dụ 001-gilgamesh-lost-lines
-│       ├── README.md          # trạng thái, link Notion, checklist (templates/video_readme_template.md)
-│       ├── proposal.md        # đề xuất đã duyệt
-│       ├── script_partN.md    # kịch bản theo phần (templates/script_section_template.md)
-│       ├── voice/             # ghi chú mẫu giọng (file âm thanh không đưa lên git)
-│       ├── shorts/            # kịch bản và mốc cắt Shorts
-│       ├── render/            # dự án HyperFrames để render trên máy anh (index.html, compositions/, assets/ gồm MP3 theo đoạn và JPG đã nén). Không có final.mp4
-│       └── package/           # title.txt, description.md, tags.txt, subtitles/*.srt, thumbnail.png (dưới 2 MB)
+│   └── NNN-slug/              # mỗi video dài một thư mục, ví dụ 002-lady-be-good
+│       ├── README.md          # trạng thái, trụ cột (P1–P5), series/tập nếu có, link Notion
+│       ├── script_outline.md  # dàn ý + hook (dòng đầu ghi ĐÃ DUYỆT <ngày> khi anh duyệt lô tuần)
+│       ├── script_partN.md    # kịch bản theo phần; dòng đầu có "QA ĐẠT <ngày>" khi qa_check.py đạt
+│       ├── script_partN.qa.md # báo cáo tự kiểm
+│       ├── script_full_ready.txt # đánh dấu kịch bản đủ các phần (autopilot đọc)
+│       ├── voice/             # ghi chú giọng (file âm thanh không lên git)
+│       ├── shorts/            # Shorts cắt từ video này: SNN-slug.md (+ .mp4 không lên git)
+│       ├── render/            # dự án HyperFrames + RENDERED.txt (đường dẫn MP4, dung lượng, thời gian render)
+│       └── package/           # title.txt, description.md, tags.txt, category.txt, thumbnail.png (< 2 MB),
+│                              # subtitles/<mã ngôn ngữ>.srt, i18n.json, publish_at.txt, UPLOADED.txt (yt_publish.py ghi)
+├── shorts/
+│   └── SNN-slug/              # Shorts độc lập (giai đoạn 1): kịch bản + package/ như trên
 ├── projects/                  # bản sao của OpenMontage projects/<project-id>/ (checkpoint, artifacts)
-├── research/                  # kết quả quét ngách và đối thủ (JSON), lưới thumbnail
-└── guides/                    # ảnh hướng dẫn cho anh (ví dụ nhập khóa Gemini)
+├── research/                  # quét ngách, đối thủ, radar xu hướng (<ngày>-radar/RADAR.md)
+├── config/                    # mẫu khóa API + hướng dẫn
+└── guides/                    # ảnh và hướng dẫn cho anh
 ```
+
+**Tên file MP4 khi render = mã gói** (ví dụ `002-lady-be-good.mp4`, `S03-foo-fighters-name.mp4`). Anh kéo thả lên Studio, YouTube lấy tên file làm tiêu đề, `yt_publish.py` dựa vào đó để nhận ra video.
 
 ## Quy ước
 - **Tên thư mục video:** `NNN-slug`, đánh số tăng dần, slug tiếng Anh viết thường có gạch nối. **Project ID của OpenMontage** dùng slug ngắn, ví dụ `gilgamesh-pilot`. Ghi cặp tên này trong README của video.

@@ -1,0 +1,42 @@
+# Sổ việc ICYFOX
+
+Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
+Cập nhật: 2026-11-22 21:34 (giờ Việt Nam).
+
+## Đang làm (0)
+
+(không có)
+
+## Chờ anh quyết (1)
+
+| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
+|---|---|---|---|---|---|---|---|---|
+| T-001 | Chờ anh | claude | Duyệt dàn ý + hook video 002 Lady Be Good | outline | 002-lady-be-good | 2026-11-27 | Anh trả lời duyệt; dòng đầu script_outline.md ghi ĐÃ DUYỆT <ngày> | Anh duyệt dàn ý và hook 60 giây của 002 (channel-studio/videos/002-lady-be-good/script_outline.md)? Sẽ gộp vào LÔ DUYỆT TUẦN thứ Năm 26/11 nếu anh chưa xem. |
+
+## Bị chặn (0)
+
+(không có)
+
+## Chưa làm (theo ưu tiên) (11)
+
+| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
+|---|---|---|---|---|---|---|---|---|
+| T-002 | Chưa làm | codex | Sửa tools/audio/gemini_tts.py dùng API v1beta (model gemini-3.8-flash-tts báo 404) | code |  | 2026-11-25 | Tạo được 1 file giọng 10 giây bằng gemini_tts; test pytest đạt |  |
+| T-004 | Chưa làm | claude | Render thử 3 phút bằng HyperFrames để đo thời gian render trên cloud | render |  | 2026-11-30 | MP4 3 phút + render/RENDERED.txt ghi thời gian render, máy, dung lượng |  |
+| T-005 | Chưa làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
+| T-006 | Chưa làm | claude | Thử yt_publish.py với Short đầu tiên anh tải lên (đặt publishAt qua API) | publish |  | 2026-12-01 | package/UPLOADED.txt ghi kết quả; ghi vào HANDOFF API có cho hẹn giờ hay không |  |
+| T-007 | Chưa làm | claude | Chạy lại radar sau 24–48 giờ để kiểm chứng đà tăng của ứng viên (I-001) | research |  | 2026-11-24 | RADAR.md mới + so lượt xem 2 thời điểm cho 3 ứng viên trong IDEA_BANK |  |
+| T-012 | Chưa làm | claude | Cấu hình Google Drive (GDRIVE_REFRESH_TOKEN) để chuyển file MP4 cho anh | ops |  | 2026-12-05 | check_apis.py báo Drive OK; tải thử 1 file lên thư mục ICYFOX |  |
+| T-009 | Chưa làm | claude | Viết Phần 3 kịch bản 001 Gilgamesh (chương 5–7) | script | 001-gilgamesh-lost-lines | 2026-12-14 | script_part3.md QA ĐẠT (qa_check.py --mark) |  |
+| T-010 | Chưa làm | claude | Viết Phần 4 kịch bản 001 Gilgamesh (chương 8–9) | script | 001-gilgamesh-lost-lines | 2026-12-16 | script_part4.md QA ĐẠT (qa_check.py --mark) |  |
+| T-003 | Chưa làm | claude | Làm 3 mẫu giọng Gemini cho đoạn S0.4 của 001 (charon, en-us-riko, en-us-sami) | voice | 001-gilgamesh-lost-lines |  | 3 file mp3 30–60 giây gửi anh chọn (chờ T-002) |  |
+| T-008 | Chưa làm | claude | Kiểm S3.5, S4.1, S4.6 của 001 bằng bản dịch Thompson 1928 (cần host archive.org) | research | 001-gilgamesh-lost-lines |  | Ghi kết quả kiểm + link nguồn vào script_part2.md mục Cần kiểm |  |
+| T-011 | Chưa làm | claude | Lấy lại phụ đề video QkRRERFPfEM (lần trước lỗi 429) | research |  |  | File phụ đề trong research/2026-11-22-wartimestories/subs/ |  |
+
+## Xong gần đây
+
+- T-016 Báo cáo số liệu kênh tự động qua YouTube Analytics API (2026-11-22 21:34): channel-studio/analytics/reports/2026-11-22/report.md, channel-studio/analytics/reports/2026-11-22/data.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/research/yt_analytics_report.py
+- T-017 Chế độ tự lái: autopilot.py, pipeline icyfox-autopilot, qa_check.py, yt_publish.py, autopilot.md (2026-11-22 21:34): .claude/skills/hoang-dung-clay-lapis-studio/references/autopilot.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py, pipeline_defs/icyfox-autopilot.yaml, .claude/skills/hoang-dung-clay-lapis-studio/scripts/qa_check.py, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_publish.py, channel-studio/videos/001-gilgamesh-lost-lines/script_part2.qa.md
+- T-014 Bộ nhớ series nhiều tập (series.py + series-playbook) (2026-11-22 21:33): .claude/skills/hoang-dung-clay-lapis-studio/scripts/series.py, .claude/skills/hoang-dung-clay-lapis-studio/references/series-playbook.md, channel-studio/series/SERIES_INDEX.md
+- T-015 Radar xu hướng thời gian thực + kho ý tưởng có bằng chứng (2026-11-22 21:33): channel-studio/research/2026-11-22-radar/RADAR.md, channel-studio/research/2026-11-22-radar/outliers.json, channel-studio/ideas/IDEA_BANK.md
+- T-013 Xây hệ thống quy tắc làm việc, sổ việc, quy tắc hoàn thành, hook chống quên (2026-11-22 21:32): .claude/skills/hoang-dung-clay-lapis-studio/references/work-contract.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py, .claude/skills/hoang-dung-clay-lapis-studio/scripts/hooks/pulse.py, .claude/settings.json, channel-studio/MISSION.md, channel-studio/PLAN.md, .claude/skills/hoang-dung-clay-lapis-studio/references/read-map.md

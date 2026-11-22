@@ -1,6 +1,6 @@
 ---
 name: hoang-dung-clay-lapis-studio
-description: "Vận hành trọn quy trình kênh YouTube ICYFOX (kể chuyện có thật: bí ẩn Trái Đất, sinh tồn và thám hiểm, chiến tranh, thảm họa, thế giới cổ đại và thần thoại; dự án Clay & Lapis; lời thoại tiếng Anh, người xem Mỹ, giọng AI, phụ đề 11 ngôn ngữ). Gồm: mở và đóng phiên đúng cách (đọc HANDOFF, khôi phục hồ sơ dự án, kiểm tra API, lưu GitHub), phân tích kênh đối thủ bằng YouTube Data API, chọn chủ đề, viết kịch bản có nguồn theo từng phần, làm mẫu giọng, dựng video bằng OpenMontage + HyperFrames, soạn gói đăng (tiêu đề, mô tả, thumbnail, hashtag, phụ đề), gắn phụ đề và đọc số liệu qua YouTube API, cập nhật bảng Notion. Dùng ngay khi Dũng nhắc đến ICYFOX, Clay & Lapis, 'làm tiếp kênh', gửi link kênh YouTube để phân tích, video kể chuyện, bí ẩn, sinh tồn, chiến tranh, thảm họa, video lịch sử, thần thoại, Gilgamesh, Lưỡng Hà, phần kịch bản tiếp theo, mẫu giọng, gói đăng, kiểm tra API kênh, báo cáo tuần, quét đối thủ, hoặc khi mở phiên mới cho kênh, kể cả khi không gọi tên skill."
+description: "Vận hành trọn quy trình kênh YouTube ICYFOX (kể chuyện có thật: bí ẩn Trái Đất, sinh tồn và thám hiểm, chiến tranh, thảm họa, thế giới cổ đại và thần thoại; dự án Clay & Lapis; lời thoại tiếng Anh, người xem Mỹ, giọng AI, phụ đề 11 ngôn ngữ). Gồm: mở và đóng phiên đúng cách (đọc HANDOFF, khôi phục hồ sơ dự án, kiểm tra API, lưu GitHub), phân tích kênh đối thủ bằng YouTube Data API, chọn chủ đề, viết kịch bản có nguồn theo từng phần, làm mẫu giọng, dựng video bằng OpenMontage + HyperFrames, soạn gói đăng (tiêu đề, mô tả, thumbnail, hashtag, phụ đề), gắn phụ đề và đọc số liệu qua YouTube API, cập nhật bảng Notion; chế độ tự lái (radar xu hướng, tự viết, tự dựng, áp gói đăng và hẹn giờ), sổ việc có kiểm chứng và nhật ký lịch sử, bộ nhớ series nhiều tập, báo cáo số liệu kênh và học từ video thắng. Dùng ngay khi Dũng nhắc đến ICYFOX, Clay & Lapis, 'làm tiếp kênh', gửi link kênh YouTube để phân tích, video kể chuyện, bí ẩn, sinh tồn, chiến tranh, thảm họa, video lịch sử, thần thoại, Gilgamesh, Lưỡng Hà, phần kịch bản tiếp theo, mẫu giọng, gói đăng, kiểm tra API kênh, báo cáo tuần, quét đối thủ, xu hướng, series, tập tiếp theo, tự động hóa, tự lái, sổ việc, nhật ký, hoặc khi mở phiên mới cho kênh, kể cả khi không gọi tên skill."
 ---
 
 # Clay & Lapis Studio
@@ -19,7 +19,7 @@ Ngày 22/11/2026, anh rất thất vọng với một phiên khác. Anh gửi li
 - Không giao kịch bản hay kế hoạch, kết thúc bằng 3 câu hỏi.
 - Không lưu kết quả lên git.
 
-Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó:
+Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó. **Bản đầy đủ và bắt buộc: `references/work-contract.md`** (chu trình 6 bước, luật chống làm nửa vời, QUY TẮC HOÀN THÀNH, 7 lớp chống quên). **Mục tiêu vĩnh viễn: `channel-studio/MISSION.md`. Kế hoạch hiện hành: `channel-studio/PLAN.md`.**
 
 1. **Mở phiên trước khi làm bất cứ gì** (mục 1). Câu trả lời đầu tiên phải ghi kết quả kiểm tra API.
 2. **Có khóa API thì dùng ngay.**
@@ -38,13 +38,31 @@ Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó
 6. **Lưu kết quả bằng `session_end.py`.**
    - Dữ liệu kênh nằm ở nhánh `ccr-6640cec8-2anthl`.
    - Làm theo quy định git của phiên. Nếu phiên được giao nhánh khác và chưa có lời anh cho phép đẩy lên `ccr-6640cec8-2anthl`, hỏi anh 1 câu trước khi push.
-7. **Tự kiểm trước khi gửi câu trả lời:** đối chiếu với bảng "Tự kiểm" trong `references/request-playbooks.md`.
+7. **Tự kiểm trước khi gửi câu trả lời:** đối chiếu với bảng "Tự kiểm" trong `references/request-playbooks.md` và `work-contract.md` §5.
+8. **Mỗi việc là một thẻ trong sổ việc** (`scripts/tasks.py`), có mục "xong khi" kiểm được. Đọc đúng file theo `references/read-map.md`.
+9. **Chỉ báo "xong" khi `tasks.py done` chấp nhận:**
+   - sản phẩm có thật
+   - đã kiểm chứng thật
+   - có báo cáo từng thành phần (`--component "Tên :: Kết quả :: Cách kiểm chứng :: Bằng chứng"`)
+   - đã ghi vào nhật ký lịch sử `channel-studio/logs/`.
+   Chưa đủ thì nói rõ phần nào chưa xong. Hook Stop chặn câu "đã xong" khi không có thẻ nào được `done`.
+10. **Tự lái, chỉ hỏi việc quan trọng** (`references/autopilot.md` §4). Việc khác tự quyết, ghi lý do, làm tiếp. Câu hỏi gom vào LÔ DUYỆT TUẦN (thứ Năm).
 
 ## Bản đồ tài nguyên
 
 | Thứ | Ở đâu |
 |---|---|
-| **Trạng thái mới nhất** (đọc đầu tiên) | `channel-studio/HANDOFF.md`, repo `hoangdung68789/OpenMontage`, nhánh `ccr-6640cec8-2anthl` |
+| **Mục tiêu vĩnh viễn** (đọc đầu tiên) | `channel-studio/MISSION.md` |
+| **Kế hoạch hiện hành** (giai đoạn, lịch đăng) | `channel-studio/PLAN.md` (khối `phases`, `releases` do `autopilot.py` đọc) |
+| **Sổ việc** (ai làm gì, xong khi nào) | `channel-studio/TASKS.md`, sinh từ `channel-studio/state/tasks.json` bằng `scripts/tasks.py` |
+| **Nhật ký lịch sử** (báo cáo hoàn thành từng việc) | `channel-studio/logs/<năm-tháng>.md` (chỉ thêm) |
+| **Hợp đồng làm việc + quy tắc hoàn thành** | `references/work-contract.md` |
+| **Loại việc nào đọc file nào, dùng công cụ nào** | `references/read-map.md` |
+| **Chế độ tự lái** (ai làm gì, nhịp tuần, việc quan trọng phải hỏi, lô duyệt tuần) | `references/autopilot.md` + `scripts/autopilot.py` + `pipeline_defs/icyfox-autopilot.yaml` |
+| **Series nhiều tập** | `references/series-playbook.md` + `scripts/series.py` + `channel-studio/series/` |
+| **Số liệu → ý tưởng → video** | `references/analytics-loop.md` + `scripts/research/yt_analytics_report.py`, `niche_outliers.py` (radar) + `channel-studio/analytics/`, `channel-studio/ideas/IDEA_BANK.md` |
+| **Tự kiểm kịch bản, áp gói đăng** | `scripts/qa_check.py`, `scripts/yt_publish.py` |
+| **Trạng thái mới nhất** | `channel-studio/HANDOFF.md`, repo `hoangdung68789/OpenMontage`, nhánh `ccr-6640cec8-2anthl` |
 | Cấu trúc thư mục, quy ước tên | `references/workspace-structure.md` |
 | Môi trường cloud, khóa, API, sự cố thường gặp | `references/environment-and-apis.md` |
 | Quy trình sản xuất một video, nhận diện hình ảnh | `references/production-workflow.md` |
@@ -78,7 +96,7 @@ Chỉ đọc file tham chiếu nào cần cho việc đang làm. Không cần đ
    - In `HANDOFF.md`.
 
    Nếu skill được cài ở cấp tài khoản mà repo chưa ở đúng nhánh, chạy trước: `git fetch origin ccr-6640cec8-2anthl && git checkout ccr-6640cec8-2anthl`.
-2. Đọc hết `HANDOFF.md`. Đọc các dòng Notion có trạng thái khác "Đã đăng".
+2. Đọc `MISSION.md`, `PLAN.md`, hết `HANDOFF.md`, `TASKS.md`, 5 mục cuối của nhật ký (`python scripts/tasks.py log --n 5`). Chạy `python scripts/autopilot.py` để xem việc hôm nay. Đọc các dòng Notion có trạng thái khác "Đã đăng".
    Script cũng in danh sách 16 repo, đánh dấu repo nào đang thiếu. Nếu việc sắp làm cần repo đang thiếu (xem `references/toolbox-repos.md`), gọi `add_repo(owner="hoangdung68789", repo=...)`, clone, rồi `register_repo_root` để nạp skill của repo đó.
 3. Báo anh 3 dòng: tình trạng API, video đang làm và đang ở bước nào, việc anh cần làm.
 
@@ -99,6 +117,12 @@ Vì sao: bỏ bước này thì dễ làm lại việc cũ, hoặc hỏi lại n
 | "báo cáo tuần" | Lấy số liệu YouTube Analytics, so với tuần trước, đề xuất điều chỉnh |
 | "quét đối thủ" | Làm theo `research-playbook.md` |
 | "lưu", "kết thúc phiên" | Đóng phiên (mục 5) |
+| "tự lái", "chạy tự động", "hôm nay làm gì" | `scripts/autopilot.py`, rồi làm từ trên xuống theo `autopilot.md` |
+| "xu hướng", "chủ đề đang lên", "quét xu hướng" | `scripts/research/niche_outliers.py --days 7` → IDEA_BANK (`analytics-loop.md`) |
+| "số liệu kênh", "video nào tốt nhất" | `scripts/research/yt_analytics_report.py` → WINNERS, IDEA_BANK |
+| "series mới", "tập tiếp theo" | `series-playbook.md`: `series.py new` hoặc `series.py brief <id>` trước khi viết |
+| "sổ việc", "nhật ký", "đã làm gì" | `scripts/tasks.py list`, `scripts/tasks.py log --n 10` |
+| "đã tải video lên" | `scripts/yt_publish.py scan` → `auto` |
 
 ## 3. Quy trình một video
 
@@ -115,6 +139,12 @@ Vì sao: bỏ bước này thì dễ làm lại việc cũ, hoặc hỏi lại n
 | 9 | Anh tải lên và hẹn giờ | Anh làm | Link video |
 | 10 | Gắn phụ đề và bản dịch | Không | Phụ đề và bản dịch đã lên YouTube |
 | 11 | Báo cáo sau 7 ngày | Không | Notion: giờ xem, sub mới |
+
+**Video mới từ 23/11/2026 dùng pipeline `icyfox-autopilot`** (`references/autopilot.md` §6):
+- Cổng proposal: anh duyệt theo LÔ TUẦN.
+- script, scene_plan, assets: kiểm tra tự động (`qa_check.py`, giấy phép ảnh, `hyperframes lint/check`).
+- publish: anh kéo thả file lên Studio, `yt_publish.py` làm phần còn lại.
+Video thử 001 vẫn dùng `animated-explainer`.
 
 Trước mỗi bước, đọc skill hướng dẫn của bước đó trong OpenMontage, tại `skills/pipelines/explainer/<stage>-director.md`. Quy tắc "Rule Zero" của `AGENT_GUIDE.md` yêu cầu như vậy. OpenMontage chặn ngay trong mã nguồn việc ghi một bước là "completed" khi chưa có duyệt. Vì vậy, ở bước có cổng duyệt: ghi `awaiting_human`, trình bày cho anh, rồi **dừng lượt**. Mỗi cổng phải được duyệt riêng, câu "duyệt" trước đó không áp dụng cho cổng sau.
 
@@ -135,6 +165,7 @@ Trước mỗi bước, đọc skill hướng dẫn của bước đó trong Ope
 
 ## 5. Đóng phiên (khi xong việc, hoặc trước khi anh mở phiên mới)
 
+0. Mọi thẻ việc của phiên phải ở trạng thái xong (`tasks.py done` có báo cáo từng thành phần), chờ anh, hoặc bị chặn. Không để thẻ "đang làm".
 1. Cập nhật `channel-studio/HANDOFF.md` theo `templates/handoff_template.md`: trạng thái hiện tại, quyết định mới, việc tiếp theo.
 2. Cập nhật dòng Notion của video đang làm.
 3. Chạy:

@@ -86,9 +86,24 @@ def main():
 
     print("== 1. Sao lưu hồ sơ dự án:", ", ".join(mirror_projects()) or "(không có)")
     print("== 2. Chuẩn bị commit (loại file .env) và quét khóa/token")
-    paths = ["channel-studio", SKILL_REL] + [p for p in [".agents/skills/hoang-dung-clay-lapis-studio"] if Path(p).exists()]
+    # sinh lại các file tự sinh để khớp dữ liệu
+    here = Path(__file__).resolve().parent
+    for cmd in (["tasks.py", "render"], ["series.py", "render"]):
+        run([sys.executable, str(here / cmd[0]), cmd[1]], check=False)
+    doing = [l for l in run([sys.executable, str(here / "tasks.py"), "list"], check=False).stdout.splitlines() if "[Đang làm]" in l]
+    if doing:
+        print("  CẢNH BÁO: còn thẻ 'Đang làm' (hoàn thành, chờ anh, hoặc bị chặn trước khi đóng phiên):")
+        for l in doing:
+            print("   ", l)
+    extra = [".agents/skills/hoang-dung-clay-lapis-studio", ".claude/settings.json", "CLAUDE.md", "AGENTS.md",
+             "pipeline_defs/icyfox-autopilot.yaml", ".gitignore"]
+    paths = ["channel-studio", SKILL_REL] + [p for p in extra if Path(p).exists()]
     run(["git", "add", "-f"] + paths)
     staged = [f for f in run(["git", "diff", "--cached", "--name-only"]).stdout.splitlines() if f]
+    junk = [f for f in staged if "__pycache__" in f or f.endswith((".pyc", ".icyfox_session")) or "/.pytest_cache/" in f]
+    if junk:
+        run(["git", "reset", "-q", "--"] + junk)
+        staged = [f for f in staged if f not in junk]
     envs = [f for f in staged if (Path(f).name == ".env" or Path(f).name.endswith(".env")) and not f.endswith(".example")]
     if envs:
         run(["git", "reset", "-q", "--"] + envs)

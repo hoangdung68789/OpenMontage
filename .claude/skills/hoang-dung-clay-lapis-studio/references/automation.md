@@ -1,6 +1,9 @@
 # Tự động hóa và tác vụ hẹn giờ
 
-**Điều kiện để tạo tác vụ hẹn giờ:** anh đã đồng ý (22/11/2026), nhưng **chỉ tạo khi video thử đạt yêu cầu**, nghĩa là đã render xong và đo được thời gian, chi phí. Trước khi tạo, xác nhận lại với anh 1 dòng.
+**Cập nhật 22/11/2026 (tối):** anh yêu cầu tự động hóa toàn bộ, chỉ hỏi việc quan trọng. Thay 4 tác vụ riêng lẻ bên dưới bằng **1 phiên tự lái mỗi ngày**. Phiên đó chạy `autopilot.py` để biết hôm nay làm gì. Lời nhắn và quy tắc: `references/autopilot.md` §8.
+- Phiên tự lái được chạy ngay từ bây giờ, vì các việc nghiên cứu, kịch bản, Shorts và gói đăng không phụ thuộc vào video thử.
+- Việc dựng và render tự động chỉ bật sau khi render thử đạt (đo thời gian ở giai đoạn 0).
+Bảng dưới giữ lại để tham khảo, nếu sau này cần tách tác vụ.
 
 ## Lịch (giờ Việt Nam, `CRON_TZ=Asia/Ho_Chi_Minh`)
 Chạy trên môi trường `video-channel-studio`, mỗi lần chạy mở một phiên mới (`create_new_session_on_fire`), bật thông báo đẩy về điện thoại. Giờ dưới đây đã lệch phút để tránh giờ chẵn, bận.

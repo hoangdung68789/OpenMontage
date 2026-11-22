@@ -1,6 +1,28 @@
 # ICYFOX (dự án Clay & Lapis): ghi chú bàn giao (cập nhật 22/11/2026)
 
+**Đọc trước: `MISSION.md` (mục tiêu vĩnh viễn) → `PLAN.md` (kế hoạch) → file này → `TASKS.md` (sổ việc) → `references/work-contract.md` (hợp đồng làm việc).** Việc hôm nay: `python3 .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py`.
+
 Đọc file này trước khi làm tiếp. Quy trình đầy đủ nằm trong skill `hoang-dung-clay-lapis-studio` (`.claude/skills/hoang-dung-clay-lapis-studio/SKILL.md`). **Đọc mục 0 "Tiêu chuẩn làm việc" trước.** Mở phiên bằng `bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh`.
+
+## HỆ THỐNG MỚI (22/11/2026, tối): tự lái, sổ việc có kiểm chứng, chống quên
+- **Mục tiêu vĩnh viễn:** `channel-studio/MISSION.md`. **Kế hoạch:** `channel-studio/PLAN.md` (khối phases và releases).
+- **Hợp đồng làm việc + QUY TẮC HOÀN THÀNH:** `references/work-contract.md`.
+  - Mỗi việc là một thẻ `scripts/tasks.py`.
+  - Chỉ báo xong khi `tasks.py done` chấp nhận: kiểm chứng thật, báo cáo từng thành phần, ghi nhật ký `channel-studio/logs/<tháng>.md`.
+- **Hook** trong `OpenMontage/.claude/settings.json` chỉ chạy khi mở Claude Code trong thư mục OpenMontage (máy anh):
+  - SessionStart in mục tiêu, kế hoạch, việc hôm nay.
+  - UserPromptSubmit nhắc mỗi lượt.
+  - Stop chặn khi còn việc dở, chưa lưu, hoặc báo "xong" sai.
+  - Phiên cloud không có hook: `session_start.sh` in nội dung tương đương.
+- **Bản đồ đọc file:** `references/read-map.md`. **Series:** `references/series-playbook.md` + `scripts/series.py`.
+- **Tự lái:** `references/autopilot.md` + `scripts/autopilot.py` + pipeline `icyfox-autopilot`. Anh chỉ duyệt lô tuần (thứ Năm), kéo thả MP4 lên Studio, quyết việc quan trọng.
+- **Số liệu:**
+  - Radar xu hướng `scripts/research/niche_outliers.py`. Lần chạy đầu: `research/2026-11-22-radar/RADAR.md`, 67 video, 3 ứng viên.
+  - Báo cáo kênh `scripts/research/yt_analytics_report.py`.
+  - Kho ý tưởng `ideas/IDEA_BANK.md`. Video thắng `analytics/WINNERS.md`.
+- **Đăng:** `scripts/yt_publish.py` áp gói đăng và hẹn giờ cho video anh đã tải lên Studio (để Riêng tư). [Cần thử với Short đầu tiên] API có cho đặt `publishAt` hay không.
+- **Tự kiểm kịch bản:** `scripts/qa_check.py`.
+- **Kiểm thử công cụ:** `python -m pytest -q .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests` (6 bài, đạt 22/11/2026).
 
 ## Thay đổi quan trọng (22/11/2026, cuối ngày)
 - **Phạm vi chủ đề đã mở rộng thành 5 trụ cột kể chuyện** (`references/content-pillars.md`): bí ẩn Trái Đất và đại dương, sinh tồn và thám hiểm, chiến tranh, thảm họa, thế giới cổ đại và thần thoại. Gilgamesh vẫn là video thử thuộc trụ cột P5.
@@ -18,12 +40,8 @@
 - **Mốc YPP:** kênh mới từ 01/02/2027 cần 8.000 giờ xem. [Cần kiểm] ICYFOX có thuộc diện "kênh mới" không.
 - `check_apis.py` đã được sửa để in tiếng Việt trên console Windows (trước đó lỗi `gbk`).
 
-## Ai đang làm gì (Claude, Codex…)
-Quy tắc: `references/multi-agent.md`. Nhận việc thì thêm dòng, làm xong thì xóa dòng. Lưu ngay mỗi lần đổi.
-
-| Agent | Việc | File sẽ sửa | Bắt đầu |
-|---|---|---|---|
-| (trống) | | | |
+## Ai đang làm gì
+Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `tasks.py start <id> --owner <claude|codex>`. Quy tắc: `references/multi-agent.md`.
 
 ## Trạng thái API (22/11/2026)
 - **Gemini:** OK. Network secret, header `x-goog-api-key`. Thấy model `gemini-3.8-flash-tts`.

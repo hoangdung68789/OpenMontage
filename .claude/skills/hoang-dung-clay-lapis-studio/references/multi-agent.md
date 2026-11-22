@@ -11,13 +11,14 @@ Anh dùng nhiều trợ lý AI trên cùng một repo, cùng nhánh `ccr-6640cec
 Bảng trên là NHẬN ĐỊNH. Sau 2 tuần, xem bên nào làm việc nào nhanh và đúng hơn rồi chỉnh.
 
 ## Quy tắc chống đụng nhau
-1. **Mỗi việc chỉ một agent làm.**
-   - Trước khi bắt đầu: chạy `session_start.sh` (kéo bản mới nhất), mở `channel-studio/HANDOFF.md`, xem bảng **"Ai đang làm gì"**.
-   - Không nhận việc đang có agent khác giữ.
-2. **Ghi tên khi nhận việc:** thêm 1 dòng vào bảng (agent, việc, file sẽ sửa, giờ bắt đầu), rồi lưu ngay bằng `session_end.py`.
-3. **Khi làm xong:** xóa dòng đó, cập nhật "Việc tiếp theo", rồi lưu bằng `session_end.py`.
+1. **Mỗi việc chỉ một agent làm.** Sổ việc chung là `channel-studio/TASKS.md` (sinh từ `state/tasks.json`).
+   - Trước khi bắt đầu: chạy `session_start.sh` (kéo bản mới nhất), rồi `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py list`.
+   - Không nhận thẻ đang "Đang làm" của agent khác.
+2. **Nhận việc:** `tasks.py start T-xxx --owner codex` (hoặc `tasks.py add … --owner codex --start`), rồi lưu ngay bằng `session_end.py` để agent khác thấy. Codex đặt biến `ICYFOX_AGENT=codex` để thẻ mới tự ghi tên.
+3. **Xong việc:** `tasks.py done T-xxx --evidence … --summary … --component …` (việc code bắt buộc thêm `--check "<lệnh test>"`), cập nhật "Việc tiếp theo" trong HANDOFF, lưu bằng `session_end.py`. Quy tắc hoàn thành: `work-contract.md` §3.
 4. **Push bị từ chối** (agent khác vừa đẩy): `git fetch origin ccr-6640cec8-2anthl && git merge --no-edit FETCH_HEAD`, xử lý xung đột nếu có, rồi push lại. Không dùng `--force`.
-5. **Không cùng lúc sửa** `HANDOFF.md`, `SKILL.md` hay cùng một file kịch bản. File chung thì sửa nhỏ và lưu ngay.
+5. **Không cùng lúc sửa** `HANDOFF.md`, `SKILL.md`, `PLAN.md`, `state/tasks.json` hay cùng một file kịch bản. File chung thì sửa nhỏ và lưu ngay. Xung đột ở `tasks.json`: giữ cả hai thẻ, rồi chạy `tasks.py render`.
+6. **Codex không có hook của Claude Code.** Codex phải tự đọc `channel-studio/MISSION.md`, `PLAN.md`, `TASKS.md` và `work-contract.md` mỗi lần nhận việc.
 
 ## Khóa API
 - **Trên máy anh:** Claude và Codex đọc chung file `OpenMontage/.env`. Git bỏ qua file này, `session_end.py` cũng tự loại các file `.env` ra khỏi commit.

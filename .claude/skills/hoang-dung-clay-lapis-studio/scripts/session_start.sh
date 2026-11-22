@@ -2,7 +2,7 @@
 # Mở phiên làm việc kênh Clay & Lapis. Chạy từ thư mục gốc repo OpenMontage.
 # 1) chuyển sang nhánh làm việc và kéo bản mới nhất
 # 2) khôi phục hồ sơ dự án OpenMontage (projects/ bị gitignore) từ channel-studio/projects/
-# 3) kiểm tra API  4) in HANDOFF.md
+# 3) kiểm tra API  4) in HANDOFF.md  5) in mục tiêu, kế hoạch, việc hôm nay  6) sổ việc
 set -u
 BRANCH="ccr-6640cec8-2anthl"
 SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
@@ -51,3 +51,8 @@ PY=""; for c in python3 python py; do "$c" -c "import sys" >/dev/null 2>&1 && PY
 
 echo "== 4. HANDOFF.md"
 cat channel-studio/HANDOFF.md 2>/dev/null || echo "(chưa có channel-studio/HANDOFF.md)"
+
+echo "== 5. Mục tiêu, kế hoạch, hợp đồng làm việc, việc hôm nay (giống hook SessionStart; cloud không có hook nên in ở đây)"
+PYTHONIOENCODING=utf-8 "$PY" "$SKILL_DIR/scripts/hooks/pulse.py" session </dev/null
+echo "== 6. Sổ việc đang mở"
+PYTHONIOENCODING=utf-8 "$PY" "$SKILL_DIR/scripts/tasks.py" list
