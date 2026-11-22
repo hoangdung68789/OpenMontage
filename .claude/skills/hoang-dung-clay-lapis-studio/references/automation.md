@@ -1,9 +1,16 @@
 # Tự động hóa và tác vụ hẹn giờ
 
-**Cập nhật 22/11/2026 (tối):** anh yêu cầu tự động hóa toàn bộ, chỉ hỏi việc quan trọng. Thay 4 tác vụ riêng lẻ bên dưới bằng **1 phiên tự lái mỗi ngày**. Phiên đó chạy `autopilot.py` để biết hôm nay làm gì. Lời nhắn và quy tắc: `references/autopilot.md` §8.
-- Phiên tự lái được chạy ngay từ bây giờ, vì các việc nghiên cứu, kịch bản, Shorts và gói đăng không phụ thuộc vào video thử.
-- Việc dựng và render tự động chỉ bật sau khi render thử đạt (đo thời gian ở giai đoạn 0).
-Bảng dưới giữ lại để tham khảo, nếu sau này cần tách tác vụ.
+**Đang chạy (22/11/2026, anh yêu cầu):** 2 tác vụ trên máy anh, app Claude desktop:
+- `icyfox-san-xuat-9h-17h` (cron `0 9,17 * * *`)
+- `icyfox-bao-cao-tuan-cn-9h` (cron `0 9 * * 0`)
+
+Lời nhắn đầy đủ: `~/.claude/scheduled-tasks/<taskId>/SKILL.md` trên máy anh.
+
+**Cập nhật 22/11/2026 (tối), chế độ tự lái:** anh yêu cầu tự động hóa toàn bộ, chỉ hỏi việc quan trọng.
+- **Không tạo thêm phiên tự lái trên cloud**, vì 2 tác vụ trên máy anh đã chạy mỗi ngày. Chạy song song sẽ trùng việc và xung đột git.
+- Lời nhắn của tác vụ sản xuất nên đổi sang bản tự lái ở `references/autopilot.md` §8 (thẻ việc T-018): chạy `autopilot.py`, làm từ trên xuống đến khi gặp việc quan trọng.
+- Tác vụ báo cáo Chủ nhật dùng `scripts/research/yt_analytics_report.py`, ghi vào `channel-studio/analytics/reports/<ngày>/`.
+- Điều kiện cũ "chỉ tạo khi video thử đạt" đã được anh thay bằng yêu cầu trực tiếp (decisions-log 22/11). Bảng cloud bên dưới là phương án cũ, chưa tạo.
 
 ## Lịch (giờ Việt Nam, `CRON_TZ=Asia/Ho_Chi_Minh`)
 Chạy trên môi trường `video-channel-studio`, mỗi lần chạy mở một phiên mới (`create_new_session_on_fire`), bật thông báo đẩy về điện thoại. Giờ dưới đây đã lệch phút để tránh giờ chẵn, bận.

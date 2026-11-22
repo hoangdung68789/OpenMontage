@@ -1,6 +1,6 @@
 # 002 · Lady Be Good (The Bomber the Desert Swallowed)
 
-- Project ID trong OpenMontage: `lady-be-good` (chưa tạo, sẽ tạo khi anh duyệt dàn ý)
+- Project ID trong OpenMontage: `lady-be-good` (đã tạo 22/11, checkpoint research + proposal)
 - Dòng Notion: "002 · Lady Be Good", trạng thái "Chờ duyệt"
 - Concept: series "Documented", trụ cột P2 + P3 · Công cụ dựng: chốt ở bước đề xuất · Cách dựng: atelier
 - Thời lượng mục tiêu: 35 phút · Số từ mục tiêu: khoảng 5.200 (150 từ/phút)
@@ -9,8 +9,8 @@
 
 ## Tiến độ
 - [x] Nghiên cứu sơ bộ (nguồn chính đã xác định, xem `script_outline.md`)
-- [ ] Dàn ý và hook 60 giây đã duyệt (`script_outline.md`). **Đang chờ anh duyệt**
-- [ ] Kịch bản: phần 1 [ ] · phần 2 [ ] · phần 3 [ ] · phần 4 [ ]
+- [x] Dàn ý và hook 60 giây đã duyệt (`script_outline.md`), 22/11
+- [ ] Kịch bản: phần 1 [viết xong, **chờ anh duyệt** `script_part1.md`] · phần 2 [ ] · phần 3 [ ] · phần 4 [ ]
 - [ ] Mẫu giọng đã duyệt
 - [ ] Phân cảnh đã duyệt
 - [ ] Tài nguyên đã duyệt, danh sách ghi công đã xong

@@ -1,0 +1,97 @@
+{
+  "version": "1.0",
+  "project_id": "lady-be-good",
+  "pipeline_type": "animated-explainer",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-11-22T13:51:41.534481+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "A",
+          "title": "The Bomber the Desert Swallowed",
+          "hook": "1958: an American bomber found 440 miles into the Libyan Desert, no one aboard.",
+          "narrative_structure": "story",
+          "visual_approach": "Documented series: archive photos (PD-checked), custom maps, document cards with sources on screen",
+          "target_platform": "youtube",
+          "target_duration_seconds": 2100,
+          "why_this_works": "Proven topic (3.2M top video); differentiated by sourcing"
+        },
+        {
+          "id": "B",
+          "title": "Lady Be Good: What the Diary Says",
+          "hook": "Eight days of entries, written while walking into the Sahara.",
+          "narrative_structure": "journey",
+          "visual_approach": "Diary-led, day-by-day map",
+          "target_platform": "youtube",
+          "target_duration_seconds": 1800,
+          "why_this_works": "Emotional core; but full diary text not verified"
+        },
+        {
+          "id": "C",
+          "title": "The Ghost Bomber Myth, Checked Against the Record",
+          "hook": "No, it did not fly itself home.",
+          "narrative_structure": "myth_busting",
+          "visual_approach": "Myth/record cards",
+          "target_platform": "youtube",
+          "target_duration_seconds": 1500,
+          "why_this_works": "Answers 'flew itself home' titles"
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "A",
+        "rationale": "User approved outline and 60s hook on 2026-11-22 ('ok xong roi hay dung video')"
+      },
+      "production_plan": {
+        "pipeline": "animated-explainer",
+        "playbook": "custom",
+        "render_runtime": "hyperframes",
+        "composition_mode": "atelier",
+        "stages": [
+          {
+            "stage": "script",
+            "tools": [],
+            "approach": "4 parts, each approved separately"
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [],
+            "approach": "Atelier, Documented series cards"
+          },
+          {
+            "stage": "assets",
+            "tools": [],
+            "approach": "Gemini TTS narration, NARA/USAF images after licence check"
+          }
+        ]
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 1.5,
+        "line_items": [
+          {
+            "tool": "gemini_tts",
+            "operation": "~35 min narration, ~52,500 audio tokens at 25 tok/s, 9 USD/1M until 31/12/2026",
+            "quantity": 1,
+            "estimated_usd": 0.5
+          },
+          {
+            "tool": "gemini_tts",
+            "operation": "retakes buffer",
+            "quantity": 2,
+            "estimated_usd": 1.0
+          }
+        ],
+        "budget_verdict": "within_budget"
+      },
+      "approval": {
+        "status": "approved",
+        "user_notes": "Outline + hook approved 2026-11-22"
+      }
+    }
+  }
+}

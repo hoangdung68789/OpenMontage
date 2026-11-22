@@ -1,0 +1,204 @@
+{
+  "version": "1.0",
+  "project_id": "lady-be-good",
+  "pipeline_type": "animated-explainer",
+  "stage": "research",
+  "status": "completed",
+  "timestamp": "2026-11-22T13:51:41.454343+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": false,
+  "human_approved": false,
+  "artifacts": {
+    "research_brief": {
+      "version": "1.0",
+      "topic": "Lady Be Good (B-24D 41-24301): the bomber found in the Libyan Desert, told from the record",
+      "research_date": "2026-11-22",
+      "research_summary": "Proven topic: top video 3.2M views (Scary Interesting, 17 min), several 400K+ long-forms. Most titles say 'vanished without a trace' or 'flew itself home'. Underserved angle: a documented, source-on-screen telling that shows where the records disagree (discovery month, whether the plane joined the formation, walk distance, water carried) and uses the diary only as quoted by published sources.",
+      "landscape": {
+        "existing_content": [
+          {
+            "title": "Found Crew Journals Reveal a Horrifying End",
+            "url": "https://www.youtube.com/watch?v=TaYsbuRmTX0",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (Scary Interesting)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "3,203,669 views, 17:31, published 2024-09-17 (YouTube Data API 2026-11-22)"
+          },
+          {
+            "title": "Lost In Sahara - Lady Be Good  #youtubeshorts #history #ww2",
+            "url": "https://www.youtube.com/watch?v=KtvtNiOarBw",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (history_snaps)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "865,345 views, 0:53, published 2024-04-08 (YouTube Data API 2026-11-22)"
+          },
+          {
+            "title": "Retrouv\u00e9 dans le D\u00e9sert 16 ans apr\u00e8s sa Myst\u00e9rieuse Disparition - l'\u00c9nigme du \"Lady Be Good\"",
+            "url": "https://www.youtube.com/watch?v=oMG9X0jqhQo",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (Sombre Histoire)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "760,787 views, 36:59, published 2024-11-22 (YouTube Data API 2026-11-22)"
+          },
+          {
+            "title": "WW2 Bomber Found In The Sahara - The \"Lady Be Good\" Tragedy - Desert Survival",
+            "url": "https://www.youtube.com/watch?v=NbNGnMpkwE4",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (The Raven's Eye)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "482,806 views, 10:31, published 2022-04-22 (YouTube Data API 2026-11-22)"
+          },
+          {
+            "title": "A Lost Bomber Found In The Desert \u2013 The \"Lady Be Good\"",
+            "url": "https://www.youtube.com/watch?v=6hblXdT1HHc",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (Rex's Hangar)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "429,436 views, 7:23, published 2021-10-31 (YouTube Data API 2026-11-22)"
+          },
+          {
+            "title": "The B-24 That Flew Itself Home \u2014 And Disappeared for 16 Years",
+            "url": "https://www.youtube.com/watch?v=Lq6tWv0qlVk",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (History X)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "417,927 views, 19:47, published 2026-04-23 (YouTube Data API 2026-11-22)"
+          },
+          {
+            "title": "B-24 Liberator, Lady Be Good",
+            "url": "https://www.youtube.com/watch?v=oRzCTIO4jgo",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (Randy Skinner)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "356,913 views, 9:16, published 2010-07-05 (YouTube Data API 2026-11-22)"
+          },
+          {
+            "title": "The Story of the Lady Be Good by Dick Campbell",
+            "url": "https://www.youtube.com/watch?v=qpYlqP4_OVc",
+            "source": "youtube",
+            "angle": "retelling/summary",
+            "what_it_covers": "Lady Be Good story (City of Oshkosh)",
+            "what_it_misses": "Not reviewed in detail; check sourcing on screen",
+            "engagement_signal": "268,135 views, 39:24, published 2017-01-31 (YouTube Data API 2026-11-22)"
+          }
+        ],
+        "saturated_angles": [
+          "'Vanished without a trace' mystery framing",
+          "'Ghost bomber flew itself home' framing",
+          "Short Shorts recap of the discovery"
+        ],
+        "underserved_gaps": [
+          "Explicit comparison of conflicting official/secondary accounts",
+          "Sources shown on screen for every claim",
+          "Full timeline from arrival (18 Mar 1943) to recovery of remains (1960)"
+        ]
+      },
+      "data_points": [
+        {
+          "claim": "Lady Be Good's first combat mission was the 4 April 1943 Naples raid; it never returned",
+          "source_url": "https://unwritten-record.blogs.archives.gov/?p=15424",
+          "credibility": "primary_source"
+        },
+        {
+          "claim": "The wreck was spotted in 1958 roughly 440 miles southeast of Benghazi",
+          "source_url": "https://www.airandspaceforces.com/article/0214lady/",
+          "credibility": "primary_source"
+        },
+        {
+          "claim": "Diary found in Toner's pocket in February 1960; last entry dated Monday 12 April",
+          "source_url": "https://www.airandspaceforces.com/article/0214lady/",
+          "credibility": "primary_source"
+        },
+        {
+          "claim": "Five crew remains found 11 Feb 1960; Shelley and Ripslinger found later in 1960; Moore never found",
+          "source_url": "https://en.wikipedia.org/wiki/Lady_Be_Good_(aircraft)",
+          "credibility": "secondary_source"
+        },
+        {
+          "claim": "Wreck moved to Tobruk in August 1994; parts displayed at the National Museum of the USAF",
+          "source_url": "https://en.wikipedia.org/wiki/Lady_Be_Good_(aircraft)",
+          "credibility": "secondary_source"
+        }
+      ],
+      "audience_insights": {
+        "common_questions": [
+          "Why did they fly past their base?",
+          "Why did they jump instead of landing?",
+          "Was anyone ever found alive?"
+        ],
+        "misconceptions": [
+          {
+            "myth": "The plane flew itself home / was a ghost bomber",
+            "reality": "It overshot its base on the return leg and crashed after the crew bailed out",
+            "source": "https://unwritten-record.blogs.archives.gov/?p=15424"
+          },
+          {
+            "myth": "It vanished without any trace or explanation",
+            "reality": "Official reports point to a navigation error (reciprocal bearing) and ADF failure",
+            "source": "https://en.wikipedia.org/wiki/Lady_Be_Good_(aircraft)"
+          }
+        ],
+        "knowledge_level": "General WWII-curious US viewers; questions above are editorial assumptions, not yet sourced from forums"
+      },
+      "angles_discovered": [
+        {
+          "name": "Documented: the record vs the legend",
+          "hook": "Top titles say it vanished without a trace. The records say otherwise.",
+          "type": "contrarian",
+          "why_now": "Recent high-view videos repeat the 'flew itself home' framing (History X, Apr 2026)"
+        },
+        {
+          "name": "The walk, through the diary",
+          "hook": "Eight men, little water, and a diary kept until 12 April.",
+          "type": "narrative",
+          "why_now": "Evergreen survival story; P2 pillar"
+        },
+        {
+          "name": "How a navigator missed Africa",
+          "hook": "One radio bearing, read the wrong way round.",
+          "type": "evergreen",
+          "why_now": "Explainer angle missing from short recaps"
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://unwritten-record.blogs.archives.gov/?p=15424",
+          "title": "NARA Unwritten Record: Lost and Found",
+          "used_for": "timeline, crew, mission",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.airandspaceforces.com/article/0214lady/",
+          "title": "Air & Space Forces Magazine, Feb 2014",
+          "used_for": "discovery, diary quotes, base location",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Lady_Be_Good_(aircraft)",
+          "title": "Wikipedia (pointer to primary reports)",
+          "used_for": "mission details, remains recovery (pointer)",
+          "reliability": "secondary"
+        },
+        {
+          "url": "https://www.shaw.af.mil/News/Article-Display/Article/214791/the-first-last-and-only-flight-of-lady-be-good/",
+          "title": "Shaw AFB article",
+          "used_for": "first/last mission framing",
+          "reliability": "primary"
+        },
+        {
+          "url": "https://www.nationalmuseum.af.mil/Visit/Museum-Exhibits/Fact-Sheets/Display/Article/196178/",
+          "title": "NMUSAF fact sheet (403 to automated fetch)",
+          "used_for": "museum parts (not read yet)",
+          "reliability": "primary"
+        }
+      ]
+    }
+  }
+}

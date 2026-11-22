@@ -40,6 +40,13 @@
 - **Mốc YPP:** kênh mới từ 01/02/2027 cần 8.000 giờ xem. [Cần kiểm] ICYFOX có thuộc diện "kênh mới" không.
 - `check_apis.py` đã được sửa để in tiếng Việt trên console Windows (trước đó lỗi `gbk`).
 
+## Tự động hóa (tạo 22/11/2026 theo yêu cầu anh)
+- Tác vụ hẹn giờ trên máy anh (app Claude desktop, mục Scheduled):
+  - `icyfox-san-xuat-9h-17h`: 09:00 và 17:00 mỗi ngày. Hiện làm tiếp tới cổng duyệt kế tiếp rồi dừng.
+  - `icyfox-bao-cao-tuan-cn-9h`: Chủ nhật 09:00, báo cáo số liệu kênh.
+- Chỉ chạy khi app Claude đang mở; app đóng thì chạy khi mở lại. Không tự duyệt, không tải video lên.
+- **Việc cần làm (T-018):** đổi lời nhắn của 2 tác vụ sang chế độ tự lái (`references/autopilot.md` §8), và ghi báo cáo tuần vào `channel-studio/analytics/reports/` bằng `yt_analytics_report.py`. Phiên trên máy anh làm được việc này, vì file tác vụ nằm ở `~/.claude/scheduled-tasks/`. Không tạo thêm tác vụ trên cloud để tránh chạy trùng.
+
 ## Ai đang làm gì
 Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `tasks.py start <id> --owner <claude|codex>`. Quy tắc: `references/multi-agent.md`.
 
@@ -53,7 +60,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 ## Video đang làm
 | Video | Thư mục | Bước hiện tại | Đang chờ gì |
 |---|---|---|---|
-| 002 Lady Be Good (đăng dự kiến 11/12) | `channel-studio/videos/002-lady-be-good/` | Dàn ý và hook 60 giây xong | Anh duyệt `script_outline.md` |
+| 002 Lady Be Good (đăng dự kiến 11/12) | `channel-studio/videos/002-lady-be-good/` · project `lady-be-good` (research + proposal đã ghi checkpoint) | Dàn ý đã duyệt 22/11. Phần 1 kịch bản (chương 0–2, khoảng 1.270 từ, 00:00–10:40) đã viết | Anh duyệt `script_part1.md`; tôi kiểm 4 mục 'Cần kiểm' trong file |
 | 001 Gilgamesh: The Lost Lines (video thử) | `channel-studio/videos/001-gilgamesh-lost-lines/` · project `gilgamesh-pilot` | Kịch bản: Phần 1 và 2 đã duyệt (1.867 từ, khoảng 15:46). Phần 3 và 4 chưa viết. Bản đồ 16 repo: references/toolbox-repos.md của skill | Tôi: kiểm S3.5, S4.1, S4.6, làm 3 mẫu giọng, viết Phần 3 |
 
 ## Quyết định mới trong phiên trước
@@ -65,7 +72,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 
 ## Việc tiếp theo (theo thứ tự)
 0. **Nếu anh gửi link kênh đối thủ:** làm đủ `request-playbooks.md` mục A trong cùng lượt trả lời.
-0a. **Chờ anh duyệt** dàn ý và hook của video 002 Lady Be Good. Duyệt xong: kiểm các mục "Cần kiểm", rồi viết Phần 1. Video 002 đăng trước Gilgamesh (001 dời sang 25/12 theo kế hoạch 90 ngày; dòng Notion của 001 chưa đổi ngày).
+0a. **Chờ anh duyệt Phần 1** kịch bản 002 (`videos/002-lady-be-good/script_part1.md`). Hook đã đổi "In November 1958" thành "In 1958" vì nguồn lệch tháng. Duyệt xong: viết Phần 2 (chương 3–4). Video 002 đăng trước Gilgamesh (001 dời sang 25/12 theo kế hoạch 90 ngày; dòng Notion của 001 chưa đổi ngày).
 0b. Lấy lại phụ đề video `QkRRERFPfEM` (lần trước bị lỗi 429).
 1. Chạy `check_apis.py`. Đạt là thấy tên kênh, số sub, và Analytics OK. Nếu lỗi, tra bảng sự cố trong `references/environment-and-apis.md`.
 2. Làm 3 mẫu giọng Gemini cho đoạn S0.4 (`videos/001-gilgamesh-lost-lines/script_part1.md`), gửi anh chọn.
