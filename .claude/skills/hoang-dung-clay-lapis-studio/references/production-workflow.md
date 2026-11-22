@@ -53,6 +53,8 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 - Nhịp đọc thật của Algenib: đoạn S5.5 đọc 37,2 giây, kịch bản ước tính 44 giây.
 - Đọc dài: chia theo đoạn của kịch bản, mỗi lần gọi một đoạn, rồi ghép lại.
 
+- **Hạn mức (đo 22/11/2026):** gói miễn phí chỉ có 10 lượt/ngày cho mỗi model TTS, đặt lại lúc 15:00 giờ VN. Một video 30 đoạn cần 3 ngày. `narrate.py` tự dừng khi hết lượt và tự bỏ qua đoạn đã có, nên chỉ cần chạy lại sau 15:00. Muốn nhanh hơn phải bật thanh toán (việc tài khoản của anh). Shorts dùng chung lượt.
+
 ## 5. Phân cảnh (scene_plan, cần duyệt)
 - Mỗi cảnh có: mốc giây (theo độ dài thật của file giọng), loại cảnh, mô tả, nguồn hình kèm giấy phép, chữ trên màn hình.
 - Các loại cảnh:

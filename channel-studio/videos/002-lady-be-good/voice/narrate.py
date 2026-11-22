@@ -35,6 +35,9 @@ for s in secs:
                           headers=headers, json=body, timeout=300)
         if r.ok or r.status_code not in (429, 500, 503):
             break
+        if r.status_code == 429 and "PerDay" in r.text:  # free tier = 10 requests/day/model; retrying only burns time
+            print(s["id"], "DỪNG: hết hạn mức ngày của Gemini (gói miễn phí 10 lượt/ngày), chạy lại sau khi hạn mức đặt lại", flush=True)
+            sys.exit(2)
         time.sleep(20 * (attempt + 1))
     if not r.ok:
         print(s["id"], "LỖI", r.status_code, r.text[:200], flush=True); continue

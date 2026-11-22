@@ -7,6 +7,8 @@ YouTube lấy tên file làm tiêu đề (ví dụ "002-lady-be-good"), script n
   python yt_publish.py scan                                   # liệt kê video Riêng tư có tiêu đề dạng mã gói (002-..., S01-...)
   python yt_publish.py apply <thư_mục_video_hoặc_short> --video-id <ID> [--publish-at "2026-12-11 21:00"] [--dry-run]
   python yt_publish.py auto [--dry-run]                       # khớp tự động mọi video Riêng tư với gói đăng rồi áp
+  python yt_publish.py upload <thư_mục_video> [--file X.mp4] [--publish-at ...] [--dry-run]
+                                                              # SAU KHI QUA AUDIT (YT_AUDIT_APPROVED=1): AI tự tải lên + áp gói + hẹn giờ
 
 Áp gồm: tiêu đề, mô tả, thẻ, danh mục, ngôn ngữ, bản dịch tiêu đề/mô tả (package/i18n.json), thumbnail (package/thumbnail.png|jpg),
 phụ đề (package/subtitles/<mã ngôn ngữ>.srt, bỏ qua ngôn ngữ đã có), hẹn giờ (publishAt: giờ Việt Nam → UTC).
@@ -134,6 +136,51 @@ def apply(h, vdir, vid, when, dry):
     print("  Đã áp:", "; ".join(done))
 
 
+def find_mp4(vdir, given):
+    if given:
+        return Path(given)
+    readme = (vdir / "README.md").read_text(encoding="utf-8") if (vdir / "README.md").exists() else ""
+    pid = (re.search(r"Project ID[^`]*`([\w-]+)`", readme) or [None, ""])[1]
+    cands = []
+    if pid:
+        cands += sorted((CS.parent / "projects" / pid / "renders").glob("*final*.mp4"))
+    cands += sorted((vdir / "render").glob("*.mp4"))
+    return cands[-1] if cands else None
+
+
+def upload(h, vdir, mp4, dry):
+    """Tải MP4 lên (Riêng tư, tiêu đề = mã gói) rồi áp gói đăng + hẹn giờ. Trả về video ID."""
+    import os
+    import requests
+    if not mp4 or not mp4.exists():
+        sys.exit(f"Không thấy file MP4 cho {rel(vdir)}. Dùng --file <đường dẫn>")
+    if (vdir / "package" / "UPLOADED.txt").exists():
+        sys.exit(f"{rel(vdir)} đã tải lên rồi (package/UPLOADED.txt). Không tải trùng.")
+    size = mp4.stat().st_size
+    print(f"Tải lên {mp4} ({size / 1e6:.1f} MB) → Riêng tư, tiêu đề \"{vdir.name}\", hạn mức 100 đơn vị")
+    if dry:
+        print("  (chạy thử, chưa gửi gì)")
+        return None
+    # Chặn tải khi chưa qua audit: video tải từ dự án chưa audit bị khóa Riêng tư vĩnh viễn (YouTube Help 7300965)
+    if os.environ.get("YT_AUDIT_APPROVED") != "1":
+        sys.exit("Chưa bật YT_AUDIT_APPROVED=1 trong .env (chỉ bật khi Google đã duyệt audit). Tải lúc này video sẽ bị khóa Riêng tư.")
+    meta = {"snippet": {"title": vdir.name, "categoryId": "27", "defaultLanguage": "en", "defaultAudioLanguage": "en"},
+            "status": {"privacyStatus": "private", "selfDeclaredMadeForKids": False}}
+    r = requests.post(f"{UPLOAD}/videos", params={"uploadType": "resumable", "part": "snippet,status"},
+                      headers={**h, "Content-Type": "application/json", "X-Upload-Content-Type": "video/mp4",
+                               "X-Upload-Content-Length": str(size)}, json=meta, timeout=60)
+    if not r.ok:
+        sys.exit(f"videos.insert lỗi {r.status_code}: {r.text[:300]}")
+    # shortcut: một lần PUT cả file, không nối lại khi rớt mạng giữa chừng; nếu hay rớt thì đổi sang gửi từng khúc 256 KB×n
+    with open(mp4, "rb") as f:
+        r = requests.put(r.headers["Location"], headers={**h, "Content-Type": "video/mp4"}, data=f, timeout=6 * 3600)
+    if not r.ok:
+        sys.exit(f"Tải file lỗi {r.status_code}: {r.text[:300]}")
+    vid = r.json()["id"]
+    print(f"  Đã tải: https://youtu.be/{vid}")
+    return vid
+
+
 def main():
     utf8()
     ap = argparse.ArgumentParser()
@@ -146,8 +193,20 @@ def main():
     p.add_argument("--dry-run", action="store_true")
     p = sp.add_parser("auto")
     p.add_argument("--dry-run", action="store_true")
+    p = sp.add_parser("upload")
+    p.add_argument("vdir")
+    p.add_argument("--file")
+    p.add_argument("--publish-at")
+    p.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     h, scopes = yt_headers()
+    if a.cmd == "upload":
+        vdir = Path(a.vdir)
+        when = publish_time(vdir, a.publish_at)
+        vid = upload(h, vdir, find_mp4(vdir, a.file), a.dry_run)
+        if vid:
+            apply(h, vdir, vid, when, False)
+        return
     if a.cmd == "apply":
         vdir = Path(a.vdir)
         apply(h, vdir, a.video_id, publish_time(vdir, a.publish_at), a.dry_run)

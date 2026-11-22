@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 26,
+ "next": 27,
  "tasks": [
   {
    "id": "T-001",
@@ -869,6 +869,23 @@
    "log": [],
    "session": "d23070b8-1623-4d17-9914-de0b8466788c",
    "updated": "2026-11-22 22:43"
+  },
+  {
+   "id": "T-026",
+   "title": "Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API",
+   "type": "publish",
+   "dod": "yt_publish.py có lệnh upload (dry-run đạt, test đạt); channel/youtube_api_audit.md điền sẵn mọi trường form Google (có nguồn), kèm trang chính sách riêng tư và điều khoản; PLAN.md dòng 10, 49 theo cách mới",
+   "owner": "claude",
+   "status": "doing",
+   "prio": 2,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-22 23:19",
+   "evidence": [],
+   "log": [],
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "updated": "2026-11-22 23:19"
   }
  ]
 }
