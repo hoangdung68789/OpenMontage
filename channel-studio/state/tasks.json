@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 31,
+ "next": 32,
  "tasks": [
   {
    "id": "T-001",
@@ -1022,16 +1022,69 @@
    "type": "publish",
    "dod": "result.json có chuỗi trạng thái private→public đúng giờ hẹn (hoặc bị khóa), video đã xóa",
    "owner": "claude",
-   "status": "doing",
+   "status": "done",
    "prio": 1,
    "due": null,
    "video": null,
    "series": null,
    "created": "2026-11-22 23:55",
+   "evidence": [
+    "channel-studio/research/2026-11-22-api-upload-test/result.json",
+    "channel-studio/guides/TU_DONG_DANG_VIDEO.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py"
+   ],
+   "log": [
+    "2026-11-23 00:00 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-23 00:00",
+   "report": {
+    "summary": "Thử hẹn giờ công khai sau 3 phút qua API: ĐẠT. Video e2qR5c3rtw8 tải lên Riêng tư, hẹn 23:58:40, YouTube tự chuyển Công khai lúc 23:59:21 (trễ tối đa 41 giây), không bị khóa; đã xóa (204)",
+    "components": [
+     {
+      "name": "Tải lên + hẹn giờ",
+      "result": "videos.insert 200, trả về privacyStatus=private, publishAt=2026-11-22T16:58:40Z (23:58:40 VN), notifySubscribers=false",
+      "verified_by": "đọc lại bằng videos.list ngay sau khi tải",
+      "evidence": "channel-studio/research/2026-11-22-api-upload-test/result.json"
+     },
+     {
+      "name": "Chuyển Công khai",
+      "result": "23:58:51 vẫn private; 23:59:21 và 23:59:51 đều public; không có failureReason/rejectionReason",
+      "verified_by": "script poll 30 giây/lần, tự dừng sau 2 lần thấy public",
+      "evidence": "channel-studio/research/2026-11-22-api-upload-test/result.json"
+     },
+     {
+      "name": "Dọn dẹp",
+      "result": "videos.delete 204 lúc 23:59:53, đọc lại không còn video; video ở chế độ Công khai khoảng 30–60 giây",
+      "verified_by": "videos.list sau khi xóa trả found=false",
+      "evidence": "channel-studio/research/2026-11-22-api-upload-test/result.json"
+     },
+     {
+      "name": "Ghi nhận",
+      "result": "hướng dẫn §4b + decisions-log; script thêm --schedule-minutes, --until-public",
+      "verified_by": "đọc lại file, py_compile đạt",
+      "evidence": "channel-studio/guides/TU_DONG_DANG_VIDEO.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py"
+     }
+    ],
+    "remaining": "Mới quan sát khoảng 30 giây ở chế độ Công khai; chưa thử video dài hay Short thật. Lần kiểm thật là Short đầu tiên 01/12 (có phương án anh kéo thả dự phòng)",
+    "check": ""
+   }
+  },
+  {
+   "id": "T-031",
+   "title": "Thêm lệnh tự tải lên + hẹn giờ vào yt_publish.py (videos.insert, publishAt, notifySubscribers) và đổi quy trình tự lái: AI tự đăng, anh chỉ dự phòng",
+   "type": "code",
+   "dod": "yt_publish.py upload chạy thử bằng dry-run + 1 lần thật với clip thử đã xóa; autopilot.md, MISSION, PLAN, read-map cập nhật; test pytest đạt",
+   "owner": "claude",
+   "status": "todo",
+   "prio": 1,
+   "due": "2026-11-28",
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 00:00",
    "evidence": [],
    "log": [],
-   "session": "manual",
-   "updated": "2026-11-22 23:55"
+   "updated": "2026-11-23 00:00"
   }
  ]
 }

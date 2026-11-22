@@ -38,3 +38,20 @@ Script: `.claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py`
 - Chưa thử chế độ hẹn giờ công khai (`publishAt`).
 
 **Việc tiếp theo:** thử 24 giờ (clip Không công khai, sau 24 giờ đọc lại rồi xóa). Đạt thì thêm chức năng tự tải lên vào `yt_publish.py`. Short đầu tiên (01/12) sẽ dùng chế độ hẹn giờ, kèm phương án dự phòng: anh kéo thả nếu video bị khóa.
+
+### 4b. Thử hẹn giờ công khai (22/11/2026, anh yêu cầu "hẹn giờ trong 3 phút")
+| Giờ (VN) | Sự kiện | Chế độ hiển thị |
+|---|---|---|
+| 23:55:41 | Tải clip 5 giây qua `videos.insert`, chế độ Riêng tư, hẹn công khai `publishAt` 23:58:40, không báo người đăng ký (`notifySubscribers=false`) | private |
+| 23:56:18 | YouTube xử lý xong, không có lỗi | private (chờ giờ hẹn) |
+| 23:58:51 | Đã quá giờ hẹn 11 giây | private |
+| **23:59:21** | **YouTube tự chuyển sang Công khai** (trễ tối đa 41 giây so với giờ hẹn) | **public** |
+| 23:59:51 | Đọc lại | public |
+| 23:59:53 | Xóa video `e2qR5c3rtw8` | HTTP 204, không còn video |
+
+**Kết luận (SỰ THẬT trong phạm vi đã thử):** AI tải video lên và hẹn giờ công khai qua API được. Video tự chuyển sang Công khai đúng giờ, không bị khóa Riêng tư.
+**Giới hạn:**
+- Mới quan sát khoảng 30 giây ở chế độ Công khai.
+- Chưa thử video dài và chưa thử Short thật.
+- Trang trợ giúp 7300965 vẫn mô tả việc khóa, nên Short đầu tiên (01/12) là lần kiểm thật. Nếu bị khóa thì quay về cách anh kéo thả.
+**Việc tiếp theo:** thẻ T-031, thêm lệnh tự tải lên vào `yt_publish.py` và cập nhật quy trình tự lái.

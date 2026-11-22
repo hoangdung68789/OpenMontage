@@ -1,14 +1,13 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 23:55 (giờ Việt Nam).
+Cập nhật: 2026-11-23 00:00 (giờ Việt Nam).
 
-## Đang làm (3)
+## Đang làm (2)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
 | T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
-| T-030 | Đang làm | claude | Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa | publish |  |  | result.json có chuỗi trạng thái private→public đúng giờ hẹn (hoặc bị khóa), video đã xóa |  |
 | T-026 | Đang làm | claude | Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API | publish |  |  | yt_publish.py có lệnh upload (dry-run đạt, test đạt); channel/youtube_api_audit.md điền sẵn mọi trường form Google (có nguồn), kèm trang chính sách riêng tư và điều khoản; PLAN.md dòng 10, 49 theo cách mới |  |
 
 ## Chờ anh quyết (0)
@@ -19,11 +18,12 @@ Cập nhật: 2026-11-22 23:55 (giờ Việt Nam).
 
 (không có)
 
-## Chưa làm (theo ưu tiên) (10)
+## Chưa làm (theo ưu tiên) (11)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
 | T-002 | Chưa làm | codex | Sửa tools/audio/gemini_tts.py dùng API v1beta (model gemini-3.8-flash-tts báo 404) | code |  | 2026-11-25 | Tạo được 1 file giọng 10 giây bằng gemini_tts; test pytest đạt |  |
+| T-031 | Chưa làm | claude | Thêm lệnh tự tải lên + hẹn giờ vào yt_publish.py (videos.insert, publishAt, notifySubscribers) và đổi quy trình tự lái: AI tự đăng, anh chỉ dự phòng | code |  | 2026-11-28 | yt_publish.py upload chạy thử bằng dry-run + 1 lần thật với clip thử đã xóa; autopilot.md, MISSION, PLAN, read-map cập nhật; test pytest đạt |  |
 | T-004 | Chưa làm | claude | Render thử 3 phút bằng HyperFrames để đo thời gian render trên cloud | render |  | 2026-11-30 | MP4 3 phút + render/RENDERED.txt ghi thời gian render, máy, dung lượng |  |
 | T-005 | Chưa làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
 | T-006 | Chưa làm | claude | Thử yt_publish.py với Short đầu tiên anh tải lên (đặt publishAt qua API) | publish |  | 2026-12-01 | package/UPLOADED.txt ghi kết quả; ghi vào HANDOFF API có cho hẹn giờ hay không |  |
@@ -36,6 +36,7 @@ Cập nhật: 2026-11-22 23:55 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-030 Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa (2026-11-23 00:00): channel-studio/research/2026-11-22-api-upload-test/result.json, channel-studio/guides/TU_DONG_DANG_VIDEO.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py
 - T-028 Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip (2026-11-22 23:53): channel-studio/research/2026-11-22-api-upload-test/result.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py, channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-027 Trả lời: có cách nào để AI tự đăng video lên YouTube không (kiểm chính sách + phương án) (2026-11-22 23:49): channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-019 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần (2026-11-22 22:21): channel-studio/videos/002-lady-be-good/script_part1.md, channel-studio/videos/002-lady-be-good/script_part2.md, channel-studio/videos/002-lady-be-good/script_part3.md, channel-studio/videos/002-lady-be-good/script_part4.md, channel-studio/videos/002-lady-be-good/script_full_ready.txt, channel-studio/videos/002-lady-be-good/script_part1.qa.md, channel-studio/videos/002-lady-be-good/script_part2.qa.md, channel-studio/videos/002-lady-be-good/script_part3.qa.md, channel-studio/videos/002-lady-be-good/script_part4.qa.md
