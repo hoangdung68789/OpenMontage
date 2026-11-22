@@ -1,19 +1,20 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 23:51 (giờ Việt Nam).
+Cập nhật: 2026-11-22 23:53 (giờ Việt Nam).
 
-## Đang làm (3)
+## Đang làm (2)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
 | T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
-| T-028 | Đang làm | claude | Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip | publish |  |  | Ghi kết quả privacyStatus đọc lại + quyết định vào TU_DONG_DANG_VIDEO.md và decisions-log |  |
 | T-026 | Đang làm | claude | Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API | publish |  |  | yt_publish.py có lệnh upload (dry-run đạt, test đạt); channel/youtube_api_audit.md điền sẵn mọi trường form Google (có nguồn), kèm trang chính sách riêng tư và điều khoản; PLAN.md dòng 10, 49 theo cách mới |  |
 
-## Chờ anh quyết (0)
+## Chờ anh quyết (1)
 
-(không có)
+| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
+|---|---|---|---|---|---|---|---|---|
+| T-029 | Chờ anh | claude | Thử 24 giờ: tải clip 5 giây Không công khai qua API, sau 24 giờ đọc lại trạng thái rồi xóa | publish |  | 2026-11-25 | result.json có trạng thái sau >= 24 giờ; nếu vẫn unlisted thì thêm lệnh upload vào yt_publish.py (thẻ mới) | Anh cho phép thử lại trong 24 giờ không? Tải 1 clip 5 giây ở chế độ Không công khai (không ai thấy), để nguyên 24 giờ, rồi đọc lại và xóa. Trả lời 'thử 24 giờ'. |
 
 ## Bị chặn (0)
 
@@ -36,6 +37,7 @@ Cập nhật: 2026-11-22 23:51 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-028 Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip (2026-11-22 23:53): channel-studio/research/2026-11-22-api-upload-test/result.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py, channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-027 Trả lời: có cách nào để AI tự đăng video lên YouTube không (kiểm chính sách + phương án) (2026-11-22 23:49): channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-019 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần (2026-11-22 22:21): channel-studio/videos/002-lady-be-good/script_part1.md, channel-studio/videos/002-lady-be-good/script_part2.md, channel-studio/videos/002-lady-be-good/script_part3.md, channel-studio/videos/002-lady-be-good/script_part4.md, channel-studio/videos/002-lady-be-good/script_full_ready.txt, channel-studio/videos/002-lady-be-good/script_part1.qa.md, channel-studio/videos/002-lady-be-good/script_part2.qa.md, channel-studio/videos/002-lady-be-good/script_part3.qa.md, channel-studio/videos/002-lady-be-good/script_part4.qa.md
 - T-024 Hướng dẫn + script khôi phục toàn bộ dữ liệu ICYFOX khi đổi máy tính (2026-11-22 22:03): channel-studio/guides/KHOI_PHUC_MAY_MOI.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh

@@ -18,5 +18,55 @@
    "processingStatus": "processing",
    "title": "ICYFOX API test (will be deleted)"
   }
+ },
+ "poll": [
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "uploaded",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "processing",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:50:53"
+  },
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "processed",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "succeeded",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:51:24"
+  },
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "processed",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "succeeded",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:51:54"
+  },
+  {
+   "found": true,
+   "privacyStatus": "unlisted",
+   "uploadStatus": "processed",
+   "failureReason": null,
+   "rejectionReason": null,
+   "processingStatus": "succeeded",
+   "title": "ICYFOX API test (will be deleted)",
+   "at_vn": "23:52:24"
+  }
+ ],
+ "delete": {
+  "http": 204,
+  "error": "",
+  "after": {
+   "found": false
+  },
+  "at_vn": "2026-11-22 23:52:26"
  }
 }
