@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 20,
+ "next": 21,
  "tasks": [
   {
    "id": "T-001",
@@ -505,6 +505,46 @@
     "2026-11-22 21:36 note: QA 22/11/2026: script_part1.md của 002 HỎNG. File ghi 'Số từ: khoảng 1.270, đọc xong 10:40', nhưng lời thoại thật chỉ có 753 từ (qa_check) hay 739 từ (wc -w), tức khoảng 6 phút. Việc phải làm: viết bổ sung khoảng 500 từ hoặc sửa mốc giờ, chạy lại qa_check, rồi mới viết Phần 2. Báo cáo: channel-studio/videos/002-lady-be-good/script_part1.qa.md"
    ],
    "updated": "2026-11-22 21:36"
+  },
+  {
+   "id": "T-020",
+   "title": "Đồng bộ GitHub + soạn lời nhắn cho phiên trên máy anh cập nhật hệ thống mới",
+   "type": "ops",
+   "dod": "Nhánh trên GitHub khớp bản cloud; file lời nhắn trong channel-studio/guides/; đã gửi anh",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-22 21:38",
+   "evidence": [
+    "channel-studio/guides/PROMPT_CAP_NHAT_MAY_TINH.md"
+   ],
+   "log": [
+    "2026-11-22 21:39 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-22 21:39",
+   "report": {
+    "summary": "Kiểm nhánh GitHub đã khớp bản cloud (a0e4add, không có commit mới từ máy anh); soạn lời nhắn 8 bước cho phiên trên máy anh: lưu việc dở, kéo bản mới, bật và kiểm hook, làm T-018, báo xong đúng quy tắc",
+    "components": [
+     {
+      "name": "Đồng bộ GitHub",
+      "result": "origin/ccr-6640cec8-2anthl = a0e4add, 0 commit lệch hai chiều trước khi soạn lời nhắn",
+      "verified_by": "git fetch + git log HEAD..FETCH_HEAD và FETCH_HEAD..HEAD đều rỗng",
+      "evidence": "channel-studio/HANDOFF.md"
+     },
+     {
+      "name": "Lời nhắn cho máy anh",
+      "result": "8 bước, có bước dừng để mở lại Claude Code bật hook, có lệnh kiểm hook + pytest 7 bài, cấm tạo thêm tác vụ hẹn giờ",
+      "verified_by": "đọc lại, đối chiếu từng đường dẫn trong lời nhắn với repo (session_start.sh, run.sh, tests/, autopilot.md §8, analytics-loop.md §3)",
+      "evidence": "channel-studio/guides/PROMPT_CAP_NHAT_MAY_TINH.md"
+     }
+    ],
+    "remaining": "Chưa kiểm được trên Windows: lệnh hook trong settings.json với đường dẫn có khoảng trắng (bước 4 của lời nhắn kiểm việc này)",
+    "check": ""
+   }
   }
  ]
 }
