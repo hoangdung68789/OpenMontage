@@ -3,6 +3,8 @@
 ## Công cụ (trong `scripts/research/`)
 | Script | Việc | Cách chạy |
 |---|---|---|
+| **`yt_api_channel.py` (MẶC ĐỊNH cho phân tích một kênh)** | Dùng **YouTube Data API**: số liệu thật từng video (view, like, bình luận, thời lượng, ngày đăng), trung vị, % video ≥3×, số video viral, nhịp đăng, 10 video nổi bật | `python yt_api_channel.py <@handle\|URL\|channel_id> <thư_mục> [200]` |
+| `story_scan.py` | So sánh nhiều nhóm chủ đề kể chuyện bằng yt-dlp (quét diện rộng) | `python story_scan.py <thư_mục>` |
 | `niche_scan.py` | Quét nhiều ngách: mỗi ngách 2 từ khóa, lấy 10 kênh có video nhiều view nhất, đo 120 video gần nhất của mỗi kênh | `python3 niche_scan.py <thư_mục_kết_quả>`, sửa danh sách `NICHES` trong file trước khi chạy |
 | `summarize.py` | Tóm tắt kết quả quét ngách | `python3 summarize.py <thư_mục_kết_quả>` |
 | `deep_scan.py` | Quét sâu một ngách: 12 từ khóa, 30 kênh, 60 video mỗi kênh | `python3 deep_scan.py <thư_mục_kết_quả>`, sửa `QUERIES` |

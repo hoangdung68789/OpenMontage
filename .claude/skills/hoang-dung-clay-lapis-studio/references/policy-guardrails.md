@@ -44,6 +44,14 @@ Hệ quả cho kênh: **video dài là trục chính** để gom 8.000 giờ xem
 | Ảnh do AI vẽ (OpenAI `gpt-image`, Gemini) | Chỉ minh họa **không giống thật** (phong cách phù điêu, tranh vẽ), ghi "AI illustration" trong mô tả | Ảnh AI giống thật về sự kiện lịch sử, trừ khi bật khai báo AI |
 | Giọng | Gemini TTS, OpenAI TTS. ElevenLabs **gói trả phí** ([ElevenLabs help](https://elevenlabs.io/docs/help-center/legal/can-i-publish-the-content-i-generate-on-the-platform)) | ElevenLabs gói miễn phí cho video đăng kênh |
 
+## Lời kể, truyền thuyết, chuyện lạ
+Được kể, với 3 điều kiện:
+1. **Nói rõ đó là lời kể hoặc truyền thuyết.** Ví dụ: "according to a soldier's account published in…", "legend says…".
+2. **Ghi nguồn của lời kể.**
+3. **Không khẳng định là sự thật**, và nêu giải thích khoa học hoặc lịch sử nếu có.
+
+Đây là cách làm hợp lệ với các kênh như WartimeStories. Không phải lý do để gạt chủ đề đó đi.
+
 ## Quy tắc dẫn chứng (theo yêu cầu của anh)
 - Mỗi dữ kiện kèm nguồn: tên trang, link, ngày tra.
 - Tách rõ 3 loại: SỰ THẬT, NHẬN ĐỊNH, GIẢ THUYẾT CẦN THỬ.

@@ -1,6 +1,6 @@
 ---
 name: hoang-dung-clay-lapis-studio
-description: "Vận hành trọn quy trình kênh YouTube ICYFOX, dự án Clay & Lapis (lịch sử cổ đại và thần thoại, lời thoại tiếng Anh, người xem Mỹ, giọng AI, phụ đề 11 ngôn ngữ). Gồm: mở và đóng phiên đúng cách (đọc HANDOFF, khôi phục hồ sơ dự án, kiểm tra API, lưu GitHub), phân tích đối thủ, chọn chủ đề, viết kịch bản có nguồn theo từng phần, làm mẫu giọng, dựng video bằng OpenMontage + HyperFrames, soạn gói đăng (tiêu đề, mô tả, thumbnail, hashtag, phụ đề), gắn phụ đề và đọc số liệu qua YouTube API, cập nhật bảng Notion. Dùng ngay khi Dũng nhắc đến ICYFOX, Clay & Lapis, 'làm tiếp kênh', video lịch sử, thần thoại, Gilgamesh, Lưỡng Hà, phần kịch bản tiếp theo, mẫu giọng, gói đăng, kiểm tra API kênh, báo cáo tuần, quét đối thủ, hoặc khi mở phiên mới cho kênh, kể cả khi không gọi tên skill."
+description: "Vận hành trọn quy trình kênh YouTube ICYFOX (kể chuyện có thật: bí ẩn Trái Đất, sinh tồn và thám hiểm, chiến tranh, thảm họa, thế giới cổ đại và thần thoại; dự án Clay & Lapis; lời thoại tiếng Anh, người xem Mỹ, giọng AI, phụ đề 11 ngôn ngữ). Gồm: mở và đóng phiên đúng cách (đọc HANDOFF, khôi phục hồ sơ dự án, kiểm tra API, lưu GitHub), phân tích kênh đối thủ bằng YouTube Data API, chọn chủ đề, viết kịch bản có nguồn theo từng phần, làm mẫu giọng, dựng video bằng OpenMontage + HyperFrames, soạn gói đăng (tiêu đề, mô tả, thumbnail, hashtag, phụ đề), gắn phụ đề và đọc số liệu qua YouTube API, cập nhật bảng Notion. Dùng ngay khi Dũng nhắc đến ICYFOX, Clay & Lapis, 'làm tiếp kênh', gửi link kênh YouTube để phân tích, video kể chuyện, bí ẩn, sinh tồn, chiến tranh, thảm họa, video lịch sử, thần thoại, Gilgamesh, Lưỡng Hà, phần kịch bản tiếp theo, mẫu giọng, gói đăng, kiểm tra API kênh, báo cáo tuần, quét đối thủ, hoặc khi mở phiên mới cho kênh, kể cả khi không gọi tên skill."
 ---
 
 # Clay & Lapis Studio
@@ -8,6 +8,37 @@ description: "Vận hành trọn quy trình kênh YouTube ICYFOX, dự án Clay 
 Skill này là "sổ tay vận hành" của kênh Clay & Lapis. Mỗi phiên cloud chạy trên một máy mới, không nhớ gì từ phiên trước. Vì vậy mọi trạng thái nằm trong repo GitHub, bảng Notion và môi trường cloud. Skill chỉ cho biết phải đọc gì, làm theo thứ tự nào, và cất lại ở đâu.
 
 Người dùng là Dũng. Gọi "anh", xưng "tôi", viết tiếng Việt. Anh không rành kỹ thuật: hướng dẫn từng bước nhỏ, kèm link trực tiếp.
+
+## 0. Tiêu chuẩn làm việc (đọc trước mọi việc)
+
+Ngày 22/11/2026, anh rất thất vọng với một phiên khác. Anh gửi link kênh @WartimeStories và yêu cầu "phân tích đối thủ và lên kịch bản/kế hoạch dài hạn". Phiên đó trả lời như sau:
+- Bỏ qua `session_start.sh` và `check_apis.py`.
+- Dùng yt-dlp dù đã có YouTube Data API. Anh phải nhắc thì mới dùng.
+- Không xem nội dung video của đối thủ.
+- Gạt đối thủ sang một bên vì "không cùng ngách", rồi kéo về chủ đề cổ đại cũ.
+- Không giao kịch bản hay kế hoạch, kết thúc bằng 3 câu hỏi.
+- Không lưu kết quả lên git.
+
+Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó:
+
+1. **Mở phiên trước khi làm bất cứ gì** (mục 1). Câu trả lời đầu tiên phải ghi kết quả kiểm tra API.
+2. **Có khóa API thì dùng ngay.**
+   - Phân tích kênh hay video đối thủ: **YouTube Data API trước tiên**, bằng `scripts/research/yt_api_channel.py`.
+   - Chỉ dùng yt-dlp khi API lỗi (phải ghi rõ lỗi), hoặc khi cần quét tìm kiếm diện rộng.
+   - Không trả lời câu hỏi về số liệu bằng trí nhớ.
+3. **Giao đủ sản phẩm anh yêu cầu ngay trong lượt đó**, theo "định nghĩa hoàn thành" ở `references/request-playbooks.md`.
+   - Anh xin kịch bản thì phải có kịch bản (ít nhất bản nháp để duyệt). Anh xin kế hoạch thì phải có kế hoạch.
+   - Còn điểm nào chưa rõ: tự chọn phương án mặc định hợp lý, ghi rõ đã chọn gì, rồi làm tiếp. Câu hỏi chỉ để ở cuối, tối đa 3 câu, và chỉ cho quyết định thật sự cần anh chốt.
+4. **Đối thủ anh gửi là tín hiệu về chủ đề anh muốn.** Phân tích nghiêm túc và tìm cách làm hợp lệ.
+   - Lời kể nhân chứng, truyền thuyết: kể được nếu ghi rõ đó là lời kể và ghi nguồn.
+   - Không gạt đi vì "không cùng ngách". Phạm vi chủ đề hiện tại: `references/content-pillars.md`.
+5. **Kênh ICYFOX có mục tiêu khác hồ sơ bất động sản của anh.**
+   - Anh đã chốt (22/11/2026): mục tiêu là lượt xem, giờ xem và đủ điều kiện kiếm tiền YouTube. Không phải "ra khách bất động sản".
+   - Vẫn giữ quy tắc dẫn chứng và khung trả lời KẾT LUẬN / CHI TIẾT / DẪN CHỨNG / BƯỚC TIẾP THEO.
+6. **Lưu kết quả bằng `session_end.py`.**
+   - Dữ liệu kênh nằm ở nhánh `ccr-6640cec8-2anthl`.
+   - Làm theo quy định git của phiên. Nếu phiên được giao nhánh khác và chưa có lời anh cho phép đẩy lên `ccr-6640cec8-2anthl`, hỏi anh 1 câu trước khi push.
+7. **Tự kiểm trước khi gửi câu trả lời:** đối chiếu với bảng "Tự kiểm" trong `references/request-playbooks.md`.
 
 ## Bản đồ tài nguyên
 
@@ -21,6 +52,8 @@ Người dùng là Dũng. Gọi "anh", xưng "tôi", viết tiếng Việt. Anh 
 | Gói đăng, lịch đăng, 11 ngôn ngữ | `references/publish-package.md` |
 | Nghiên cứu đối thủ và ngách | `references/research-playbook.md` + `scripts/research/` |
 | Tự động hóa, tác vụ hẹn giờ | `references/automation.md` |
+| **Định nghĩa hoàn thành cho từng loại yêu cầu, bảng tự kiểm** | `references/request-playbooks.md` |
+| **Phạm vi chủ đề: 5 trụ cột kể chuyện** | `references/content-pillars.md` |
 | **16 repo của anh: repo nào dùng ở bước nào** | `references/toolbox-repos.md` |
 | **Khóa API: file mẫu và hướng dẫn** | `channel-studio/config/api_keys.env.example`, `channel-studio/config/HUONG_DAN_KHOA_API.md` |
 | **Render nhanh trên máy anh** | `references/local-render.md` |
