@@ -541,17 +541,67 @@
    "type": "script",
    "dod": "script_part2..4.md QA ĐẠT; script_full_ready.txt; Phần 1–4 vào lô duyệt thứ Năm",
    "owner": "claude",
-   "status": "todo",
+   "status": "done",
    "prio": 1,
    "due": "2026-12-02",
    "video": "002-lady-be-good",
    "series": null,
    "created": "2026-11-22 21:35",
-   "evidence": [],
-   "log": [
-    "2026-11-22 21:36 note: QA 22/11/2026: script_part1.md của 002 HỎNG. File ghi 'Số từ: khoảng 1.270, đọc xong 10:40', nhưng lời thoại thật chỉ có 753 từ (qa_check) hay 739 từ (wc -w), tức khoảng 6 phút. Việc phải làm: viết bổ sung khoảng 500 từ hoặc sửa mốc giờ, chạy lại qa_check, rồi mới viết Phần 2. Báo cáo: channel-studio/videos/002-lady-be-good/script_part1.qa.md"
+   "evidence": [
+    "channel-studio/videos/002-lady-be-good/script_part1.md",
+    "channel-studio/videos/002-lady-be-good/script_part2.md",
+    "channel-studio/videos/002-lady-be-good/script_part3.md",
+    "channel-studio/videos/002-lady-be-good/script_part4.md",
+    "channel-studio/videos/002-lady-be-good/script_full_ready.txt",
+    "channel-studio/videos/002-lady-be-good/script_part1.qa.md",
+    "channel-studio/videos/002-lady-be-good/script_part2.qa.md",
+    "channel-studio/videos/002-lady-be-good/script_part3.qa.md",
+    "channel-studio/videos/002-lady-be-good/script_part4.qa.md"
    ],
-   "updated": "2026-11-22 21:36"
+   "log": [
+    "2026-11-22 21:36 note: QA 22/11/2026: script_part1.md của 002 HỎNG. File ghi 'Số từ: khoảng 1.270, đọc xong 10:40', nhưng lời thoại thật chỉ có 753 từ (qa_check) hay 739 từ (wc -w), tức khoảng 6 phút. Việc phải làm: viết bổ sung khoảng 500 từ hoặc sửa mốc giờ, chạy lại qa_check, rồi mới viết Phần 2. Báo cáo: channel-studio/videos/002-lady-be-good/script_part1.qa.md",
+    "2026-11-22 22:08 start",
+    "2026-11-22 22:21 done"
+   ],
+   "updated": "2026-11-22 22:21",
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "report": {
+    "summary": "Kịch bản 002 Lady Be Good đủ 4 phần, mỗi phần qa_check ĐẠT; tổng 3.308 từ, khoảng 27:29; chờ anh duyệt cả kịch bản trong lô thứ Năm",
+    "components": [
+     {
+      "name": "Phần 1 (sửa)",
+      "result": "740 từ, 00:00–06:08, 8/8 đoạn có nguồn, bỏ 4 câu không nguồn",
+      "verified_by": "qa_check.py ĐẠT, số từ khớp",
+      "evidence": "channel-studio/videos/002-lady-be-good/script_part1.qa.md"
+     },
+     {
+      "name": "Phần 2 (chương 3–4)",
+      "result": "813 từ, 06:08–12:52, 8/8 đoạn có nguồn, 0 cụm trùng đối thủ",
+      "verified_by": "qa_check.py --mark ĐẠT",
+      "evidence": "channel-studio/videos/002-lady-be-good/script_part2.qa.md"
+     },
+     {
+      "name": "Phần 3 (chương 5)",
+      "result": "780 từ, 12:52–19:21, 7/7 đoạn có nguồn, 0 cụm trùng",
+      "verified_by": "qa_check.py --mark ĐẠT",
+      "evidence": "channel-studio/videos/002-lady-be-good/script_part3.qa.md"
+     },
+     {
+      "name": "Phần 4 (chương 6–7)",
+      "result": "975 từ, 19:21–27:29, 8/8 đoạn có nguồn, 0 cụm trùng; số liệu mâu thuẫn nói rõ trong lời thoại",
+      "verified_by": "qa_check.py --mark ĐẠT",
+      "evidence": "channel-studio/videos/002-lady-be-good/script_part4.qa.md"
+     },
+     {
+      "name": "Đánh dấu đủ kịch bản",
+      "result": "script_full_ready.txt ghi 4 phần, 3.308 từ",
+      "verified_by": "autopilot.py dòng 58 đọc file này",
+      "evidence": "channel-studio/videos/002-lady-be-good/script_full_ready.txt"
+     }
+    ],
+    "remaining": "Anh duyệt cả kịch bản trong lô thứ Năm; sau đó mẫu giọng, phân cảnh, tài nguyên (kiểm giấy phép ảnh 1959), dựng, gói đăng. Câu 'Wheelus near Tripoli' và 'behind the wings' kiểm lại ở bước tài nguyên.",
+    "check": ""
+   }
   },
   {
    "id": "T-020",

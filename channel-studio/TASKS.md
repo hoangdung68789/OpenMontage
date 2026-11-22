@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 22:03 (giờ Việt Nam).
+Cập nhật: 2026-11-22 22:21 (giờ Việt Nam).
 
 ## Đang làm (0)
 
@@ -15,7 +15,7 @@ Cập nhật: 2026-11-22 22:03 (giờ Việt Nam).
 
 (không có)
 
-## Chưa làm (theo ưu tiên) (12)
+## Chưa làm (theo ưu tiên) (11)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
@@ -23,7 +23,6 @@ Cập nhật: 2026-11-22 22:03 (giờ Việt Nam).
 | T-004 | Chưa làm | claude | Render thử 3 phút bằng HyperFrames để đo thời gian render trên cloud | render |  | 2026-11-30 | MP4 3 phút + render/RENDERED.txt ghi thời gian render, máy, dung lượng |  |
 | T-005 | Chưa làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
 | T-006 | Chưa làm | claude | Thử yt_publish.py với Short đầu tiên anh tải lên (đặt publishAt qua API) | publish |  | 2026-12-01 | package/UPLOADED.txt ghi kết quả; ghi vào HANDOFF API có cho hẹn giờ hay không |  |
-| T-019 | Chưa làm | claude | 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần | script | 002-lady-be-good | 2026-12-02 | script_part2..4.md QA ĐẠT; script_full_ready.txt; Phần 1–4 vào lô duyệt thứ Năm |  |
 | T-007 | Chưa làm | claude | Chạy lại radar sau 24–48 giờ để kiểm chứng đà tăng của ứng viên (I-001) | research |  | 2026-11-24 | RADAR.md mới + so lượt xem 2 thời điểm cho 3 ứng viên trong IDEA_BANK |  |
 | T-012 | Chưa làm | claude | Cấu hình Google Drive (GDRIVE_REFRESH_TOKEN) để chuyển file MP4 cho anh | ops |  | 2026-12-05 | check_apis.py báo Drive OK; tải thử 1 file lên thư mục ICYFOX |  |
 | T-009 | Chưa làm | claude | Viết Phần 3 kịch bản 001 Gilgamesh (chương 5–7) | script | 001-gilgamesh-lost-lines | 2026-12-14 | script_part3.md QA ĐẠT (qa_check.py --mark) |  |
@@ -34,6 +33,7 @@ Cập nhật: 2026-11-22 22:03 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-019 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần (2026-11-22 22:21): channel-studio/videos/002-lady-be-good/script_part1.md, channel-studio/videos/002-lady-be-good/script_part2.md, channel-studio/videos/002-lady-be-good/script_part3.md, channel-studio/videos/002-lady-be-good/script_part4.md, channel-studio/videos/002-lady-be-good/script_full_ready.txt, channel-studio/videos/002-lady-be-good/script_part1.qa.md, channel-studio/videos/002-lady-be-good/script_part2.qa.md, channel-studio/videos/002-lady-be-good/script_part3.qa.md, channel-studio/videos/002-lady-be-good/script_part4.qa.md
 - T-024 Hướng dẫn + script khôi phục toàn bộ dữ liệu ICYFOX khi đổi máy tính (2026-11-22 22:03): channel-studio/guides/KHOI_PHUC_MAY_MOI.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh
 - T-023 Kiểm cấu trúc thư mục ICYFOX trên máy anh so với chuẩn của skill (2026-11-22 21:58): .claude/skills/hoang-dung-clay-lapis-studio/references/workspace-structure.md, channel-studio/videos/001-gilgamesh-lost-lines/README.md, channel-studio/HANDOFF.md
 - T-022 Bổ sung kho ý tưởng lên >= 4 ý tưởng Sẵn sàng (có bằng chứng, chấm N×P×K) (2026-11-22 21:56): channel-studio/ideas/IDEA_BANK.md, channel-studio/research/2026-11-22-ideas/evidence.json
