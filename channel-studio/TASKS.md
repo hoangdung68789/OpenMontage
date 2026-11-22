@@ -1,11 +1,13 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-22 22:41 (giờ Việt Nam).
+Cập nhật: 2026-11-22 22:52 (giờ Việt Nam).
 
-## Đang làm (0)
+## Đang làm (1)
 
-(không có)
+| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
+|---|---|---|---|---|---|---|---|---|
+| T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
 
 ## Chờ anh quyết (0)
 
@@ -15,7 +17,7 @@ Cập nhật: 2026-11-22 22:41 (giờ Việt Nam).
 
 (không có)
 
-## Chưa làm (theo ưu tiên) (11)
+## Chưa làm (theo ưu tiên) (10)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
@@ -27,7 +29,6 @@ Cập nhật: 2026-11-22 22:41 (giờ Việt Nam).
 | T-012 | Chưa làm | claude | Cấu hình Google Drive (GDRIVE_REFRESH_TOKEN) để chuyển file MP4 cho anh | ops |  | 2026-12-05 | check_apis.py báo Drive OK; tải thử 1 file lên thư mục ICYFOX |  |
 | T-009 | Chưa làm | claude | Viết Phần 3 kịch bản 001 Gilgamesh (chương 5–7) | script | 001-gilgamesh-lost-lines | 2026-12-14 | script_part3.md QA ĐẠT (qa_check.py --mark) |  |
 | T-010 | Chưa làm | claude | Viết Phần 4 kịch bản 001 Gilgamesh (chương 8–9) | script | 001-gilgamesh-lost-lines | 2026-12-16 | script_part4.md QA ĐẠT (qa_check.py --mark) |  |
-| T-003 | Chưa làm | claude | Làm 3 mẫu giọng Gemini cho đoạn S0.4 của 001 (charon, en-us-riko, en-us-sami) | voice | 001-gilgamesh-lost-lines |  | 3 file mp3 30–60 giây gửi anh chọn (chờ T-002) |  |
 | T-008 | Chưa làm | claude | Kiểm S3.5, S4.1, S4.6 của 001 bằng bản dịch Thompson 1928 (cần host archive.org) | research | 001-gilgamesh-lost-lines |  | Ghi kết quả kiểm + link nguồn vào script_part2.md mục Cần kiểm |  |
 | T-011 | Chưa làm | claude | Lấy lại phụ đề video QkRRERFPfEM (lần trước lỗi 429) | research |  |  | File phụ đề trong research/2026-11-22-wartimestories/subs/ |  |
 

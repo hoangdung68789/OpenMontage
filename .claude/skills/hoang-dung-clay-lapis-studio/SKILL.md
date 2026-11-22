@@ -111,7 +111,7 @@ Vì sao: bỏ bước này thì dễ làm lại việc cũ, hoặc hỏi lại n
 | "kiểm tra API" | Chạy `scripts/check_apis.py`. Nếu lỗi, tra bảng sự cố trong `environment-and-apis.md` |
 | "video mới: <chủ đề>" | Tạo `channel-studio/videos/NNN-slug/` từ `templates/video_readme_template.md`, thêm dòng Notion, chạy research rồi proposal (cổng duyệt) |
 | "viết phần N" | Viết phần kịch bản theo `production-workflow.md` §Kịch bản (cổng duyệt) |
-| "mẫu giọng" | Làm 3 mẫu giọng Gemini cho đoạn khó đọc nhất (cổng duyệt) |
+| "mẫu giọng" | Giọng kênh đã chốt là Algenib (decisions-log 22/11/2026). Chỉ làm mẫu khi anh muốn đổi giọng |
 | "dựng" | Phân cảnh → tài nguyên → ghép → render (có cổng duyệt) |
 | "gói đăng" | Soạn theo `publish-package.md` |
 | "gắn phụ đề <link>" | Sau khi anh đã tải video lên: đưa phụ đề, tiêu đề và mô tả đã dịch lên qua API |
@@ -132,7 +132,7 @@ Vì sao: bỏ bước này thì dễ làm lại việc cũ, hoặc hỏi lại n
 | 1 | Nghiên cứu (research) | Không | `research_brief.json` hợp lệ theo schema |
 | 2 | Đề xuất (proposal) | **Có** | 3 concept, so sánh **cả 2 công cụ dựng** (HyperFrames, Remotion), cách dựng (atelier hay cảnh mẫu), chi phí |
 | 3 | Kịch bản, chia phần | **Có, từng phần** | `script_partN.md`: lời tiếng Anh, ghi chú giọng và hình, bản dịch Việt, nguồn |
-| 4 | Mẫu giọng | **Có** | 3 mẫu 30–60 giây |
+| 4 | Giọng đọc | Không (giọng kênh Algenib đã chốt 22/11/2026) | `narrate.py` cả video, kiểm bằng whisper. Chỉ làm 3 mẫu khi anh yêu cầu đổi giọng |
 | 5 | Phân cảnh (scene_plan) | **Có** | Danh sách cảnh có mốc giây, nguồn ảnh đã kiểm giấy phép |
 | 6 | Tài nguyên (assets) | **Có** | Giọng đọc, ảnh, bản đồ, nhạc, kèm danh sách ghi công |
 | 7 | Dựng và render | Không | MP4 16:9. Kiểm tra bằng `npx hyperframes lint` và `check` |

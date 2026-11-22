@@ -2,6 +2,8 @@
 
 Mọi phiên AI (Claude trên cloud, Claude trên máy anh, Codex…) đọc file này **trước khi làm bất cứ việc gì**. Hook của Claude Code tự in phần tóm tắt dưới đây ở đầu phiên, sau mỗi lần nén ngữ cảnh, và nhắc lại mỗi lượt anh gửi yêu cầu.
 
+Cập nhật theo lời anh: "Kênh youtube tôi giao cho bạn quản lý… mục tiêu cuối cùng là bật kiếm tiền trên youtube và duy trì tính năng kiếm tiền. Tôi chỉ xem kết quả từ dữ liệu kênh đạt được và số tiền kiếm được… giai đoạn đầu thì hỏi tôi khi chưa rõ, sau khi đủ thông tin để chốt kế hoạch thì thực thi mà không cần hỏi lại tôi nữa" (anh Dũng, 22/11/2026).
+
 **Chỉ anh Dũng được đổi file này.** AI thấy cần đổi thì ghi đề xuất vào `.claude/skills/hoang-dung-clay-lapis-studio/references/decisions-log.md` và hỏi anh trong lô duyệt tuần.
 
 <!-- pulse:start -->
@@ -9,7 +11,7 @@ Mọi phiên AI (Claude trên cloud, Claude trên máy anh, Codex…) đọc fil
 - THỨ TỰ ƯU TIÊN KHI XUNG ĐỘT: (1) an toàn kênh: không vi phạm chính sách, giữ quyền kiếm tiền → (2) đạt rồi giữ YPP → (3) tối đa giờ xem video dài → (4) sub và Shorts.
 - CHỈ SỐ BẮC CỰC: trước YPP = giờ xem video dài mỗi tuần. Sau YPP = doanh thu ước tính mỗi tuần (và RPM theo trụ cột).
 - DỮ LIỆU QUYẾT ĐỊNH: số liệu kênh mình (Analytics) > video đang lên trong ngách (radar Data API) > đối thủ > giả thuyết. Ý tưởng không có bằng chứng không được vào lịch.
-- TỰ LÁI: AI tự tìm chủ đề, viết, dựng, soạn gói đăng, áp gói và hẹn giờ. Anh chỉ (a) duyệt lô tuần bằng 1 tin nhắn, (b) kéo thả file lên YouTube Studio, (c) quyết các việc quan trọng (references/autopilot.md §4).
+- ANH GIAO TOÀN QUYỀN (22/11/2026): AI quản lý kênh, tự chọn chủ đề, viết, dựng, đóng gói, áp gói, hẹn giờ và chỉnh kế hoạch theo số liệu, KHÔNG hỏi lại việc đã chốt và không còn lô duyệt tuần. Anh chỉ xem kết quả: số liệu kênh và tiền kiếm được (báo cáo Chủ nhật). Anh chỉ làm việc máy không làm thay được: kéo thả MP4 lên Studio, việc tài khoản (đăng nhập, token, nộp YPP/AdSense), chi tiền ngoài ngân sách đã duyệt (references/autopilot.md §4).
 - LÀM THẬT ĐẾN XONG: mỗi việc là một thẻ trong sổ việc. Chỉ được báo "xong" khi `tasks.py done` chấp nhận (có kiểm chứng thật, có báo cáo từng thành phần trong nhật ký lịch sử).
 <!-- pulse:end -->
 
@@ -56,7 +58,7 @@ Chi tiết: `references/analytics-loop.md` và `references/autopilot.md`.
 | File | Ai đổi | Khi nào |
 |---|---|---|
 | `MISSION.md` | Chỉ anh | Khi anh muốn đổi mục tiêu |
-| `PLAN.md` | AI đề xuất, anh duyệt trong lô tuần | Đổi nhịp đăng, đổi trụ cột, lập chặng mới |
+| `PLAN.md` | AI tự đổi theo số liệu, ghi lý do vào decisions-log (anh giao quyền 22/11/2026) | Đổi nhịp đăng, đổi trụ cột, lập chặng mới |
 | `TASKS.md` / `state/tasks.json` | AI, qua `tasks.py` | Liên tục |
 | `series/` | AI, qua `series.py` | Theo `series-playbook.md` |
 | `ideas/IDEA_BANK.md`, `analytics/` | AI | Theo `analytics-loop.md` |

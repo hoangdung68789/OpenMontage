@@ -15,7 +15,7 @@
   - Stop chặn khi còn việc dở, chưa lưu, hoặc báo "xong" sai.
   - Phiên cloud không có hook: `session_start.sh` in nội dung tương đương.
 - **Bản đồ đọc file:** `references/read-map.md`. **Series:** `references/series-playbook.md` + `scripts/series.py`.
-- **Tự lái:** `references/autopilot.md` + `scripts/autopilot.py` + pipeline `icyfox-autopilot`. Anh chỉ duyệt lô tuần (thứ Năm), kéo thả MP4 lên Studio, quyết việc quan trọng.
+- **Tự lái:** `references/autopilot.md` + `scripts/autopilot.py` + pipeline `icyfox-autopilot`. **Anh giao toàn quyền 22/11/2026:** AI tự quản lý kênh tới bật và giữ kiếm tiền, không còn lô duyệt tuần, không hỏi lại việc đã chốt. Anh chỉ xem báo cáo Chủ nhật (số liệu + doanh thu), kéo thả MP4 lên Studio, làm việc tài khoản và chi tiền ngoài ngân sách.
 - **Số liệu:**
   - Radar xu hướng `scripts/research/niche_outliers.py`. Lần chạy đầu: `research/2026-11-22-radar/RADAR.md`, 67 video, 3 ứng viên.
   - Báo cáo kênh `scripts/research/yt_analytics_report.py`.
@@ -60,7 +60,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 ## Cảnh báo QA (22/11/2026, tối)
 - **002 Phần 1 HỎNG QA (đã xử lý 22/11, T-019):** file từng ghi "khoảng 1.270 từ, đọc xong 10:40", thật ra 753 từ. Đã tính lại mốc giờ theo số từ thật, bỏ các câu không có nguồn; nay 740 từ, 00:00–06:08, QA ĐẠT.
   - Từ nay `qa_check.py` tự đối chiếu số từ ghi trong file với số từ thật.
-- **002 từ Phần 2:** mỗi phần tự kiểm bằng `qa_check.py`. Anh duyệt **cả kịch bản 1 lần** trong lô duyệt tuần thay vì từng phần, theo yêu cầu "chỉ hỏi việc quan trọng". Project `lady-be-good` vẫn dùng pipeline `animated-explainer`, nên cổng script cần đúng 1 lần duyệt đó.
+- **002 từ Phần 2:** mỗi phần tự kiểm bằng `qa_check.py`. Anh đã duyệt cả kịch bản 1 lần (22/11) thay vì từng phần, theo yêu cầu "chỉ hỏi việc quan trọng". Project `lady-be-good` vẫn dùng pipeline `animated-explainer`, nên cổng script cần đúng 1 lần duyệt đó.
 
 ## Trạng thái API (22/11/2026)
 - **Gemini:** OK. Network secret, header `x-goog-api-key`. Thấy model `gemini-3.8-flash-tts`.
@@ -72,7 +72,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 ## Video đang làm
 | Video | Thư mục | Bước hiện tại | Đang chờ gì |
 |---|---|---|---|
-| 002 Lady Be Good (đăng dự kiến 11/12) | `channel-studio/videos/002-lady-be-good/` · project `lady-be-good` (research + proposal đã ghi checkpoint) | Kịch bản 4 phần anh đã duyệt 22/11 (checkpoint `script`). 3 mẫu giọng S5.5 đã gửi | Anh chọn giọng (`videos/002-lady-be-good/voice/README.md`); sau đó: phân cảnh → tài nguyên → dựng → gói đăng |
+| 002 Lady Be Good (đăng dự kiến 11/12) | `channel-studio/videos/002-lady-be-good/` · project `lady-be-good` (research + proposal đã ghi checkpoint) | Kịch bản 4 phần anh đã duyệt 22/11. Giọng Algenib anh chốt 22/11; đang tạo lời đọc 31 đoạn (T-025) | AI: lời đọc → phân cảnh → tài nguyên → dựng → gói đăng (tự duyệt). Anh: kéo thả MP4 khi xong |
 | 001 Gilgamesh: The Lost Lines (video thử) | `channel-studio/videos/001-gilgamesh-lost-lines/` · project `gilgamesh-pilot` | Kịch bản: Phần 1 và 2 đã duyệt (1.867 từ, khoảng 15:46). Phần 3 và 4 chưa viết. Bản đồ 16 repo: references/toolbox-repos.md của skill | Tôi: kiểm S3.5, S4.1, S4.6, làm 3 mẫu giọng, viết Phần 3 |
 
 ## Quyết định mới trong phiên trước
@@ -84,7 +84,7 @@ Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `ta
 
 ## Việc tiếp theo (theo thứ tự)
 0. **Nếu anh gửi link kênh đối thủ:** làm đủ `request-playbooks.md` mục A trong cùng lượt trả lời.
-0a. **Chờ anh chọn 1 trong 3 mẫu giọng 002** (Charon, Algenib, Gacrux; file ở `projects/lady-be-good/assets/audio/voice_samples/`, ghi chú `videos/002-lady-be-good/voice/README.md`). Kịch bản đã duyệt 22/11. Giọng Gemini đọc chậm hơn dự tính khoảng 30% (video có thể dài khoảng 35 phút). `gemini_tts.py` còn 404 (T-002); gọi thẳng `v1beta generateContent` thì chạy được. Video 002 đăng trước Gilgamesh (001 dời sang 25/12 theo kế hoạch 90 ngày; dòng Notion của 001 chưa đổi ngày).
+0a. **002: anh đã chốt giọng Algenib (22/11).** AI đang tạo lời đọc bằng `videos/002-lady-be-good/voice/narrate.py` (T-025), rồi kiểm bằng `check_voice.py` + `narration_report.py`. Lời đọc thật nhanh hơn ước tính 125 từ/phút khoảng 20%, nên video sẽ ngắn hơn 27:29. Gemini có giới hạn tần suất (429): chạy lại đoạn lỗi bằng `narrate.py <dir> Algenib <id>`. `gemini_tts.py` còn 404 (T-002, của Codex). 001 dời sang 25/12; dòng Notion của 001 chưa đổi ngày.
 0b. Lấy lại phụ đề video `QkRRERFPfEM` (lần trước bị lỗi 429).
 0c. **T-007 (radar lần 2): KHÔNG chạy trước 23/11/2026 21:17 giờ VN.** Radar lần 1 tra lúc 22/11 21:17; cần cách 24–48 giờ mới đo được đà tăng. Phiên tự lái 23/11 lúc 09:00 và 17:00 bỏ qua thẻ này. Lần hợp lệ đầu tiên là phiên 24/11 09:00 (khoảng 36 giờ, vẫn kịp hạn 24/11). Làm: `niche_outliers.py --days 7`, rồi so lượt xem 3 video `BwyM7aGf8p0`, `R2gNUN0ljTc`, `3NE-Cz96W7E` với `research/2026-11-22-radar/outliers.json`. Video nào còn tăng thì gắn nhãn "ĐANG LÊN – ĐÃ KIỂM CHỨNG" trong IDEA_BANK.
 1. Chạy `check_apis.py`. Đạt là thấy tên kênh, số sub, và Analytics OK. Nếu lỗi, tra bảng sự cố trong `references/environment-and-apis.md`.

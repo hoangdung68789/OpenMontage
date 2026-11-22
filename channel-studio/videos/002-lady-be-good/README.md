@@ -11,8 +11,8 @@
 - [x] Nghiên cứu sơ bộ (nguồn chính đã xác định, xem `script_outline.md`)
 - [x] Dàn ý và hook 60 giây đã duyệt (`script_outline.md`), 22/11
 - [x] Kịch bản: phần 1–4, mỗi phần QA ĐẠT; **anh đã duyệt 22/11** (checkpoint `script` của project `lady-be-good`)
-- [ ] Mẫu giọng: 3 mẫu S5.5 (Charon, Algenib, Gacrux), **chờ anh chọn** (`voice/README.md`)
-- [ ] Mẫu giọng đã duyệt
+- [x] Giọng: anh chốt **Algenib** (gemini-3.8-flash-tts) 22/11, dùng cho mọi video của kênh
+- [ ] Lời đọc 31 đoạn đã tạo và kiểm (T-025, `voice/narration_report.md`)
 - [ ] Phân cảnh đã duyệt
 - [ ] Tài nguyên đã duyệt, danh sách ghi công đã xong
 - [ ] Render xong, `npx hyperframes lint` và `check` đạt

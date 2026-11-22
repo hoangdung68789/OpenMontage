@@ -9,7 +9,8 @@ Anh yêu cầu (22/11/2026): "Tôi muốn tất cả đều tự động hóa…
 | Dàn ý, hook, kịch bản đầy đủ, tự kiểm | AI | OpenMontage pipeline `icyfox-autopilot`, `qa_check.py` |
 | Giọng đọc, phân cảnh, tài nguyên, dựng, render | AI | gemini_tts, HyperFrames |
 | Shorts, gói đăng (tiêu đề, mô tả, thẻ, thumbnail, 11 phụ đề, bản dịch, giờ đăng) | AI | `publish-package.md` |
-| **Duyệt lô tuần**: 1 tin nhắn thứ Năm, trả lời "duyệt" hoặc sửa | **Anh** (khoảng 5 phút) | — |
+| Chọn chủ đề và dàn ý tuần sau (thay lô duyệt tuần, bỏ từ 22/11/2026): AI tự chốt theo kế hoạch + số liệu, ghi vào HANDOFF | AI | IDEA_BANK, radar, Analytics |
+| **Xem kết quả**: báo cáo Chủ nhật (số liệu kênh, doanh thu) | **Anh** | `yt_analytics_report.py` |
 | **Kéo thả file MP4 của tuần vào YouTube Studio, để Riêng tư, không cần điền gì** | **Anh** (khoảng 10 phút, thứ Bảy hoặc Chủ nhật) | YouTube Studio |
 | Áp tiêu đề, mô tả, thumbnail, phụ đề, bản dịch, hẹn giờ công khai | AI | `yt_publish.py auto` |
 | Báo cáo, học từ video thắng, chỉnh kế hoạch | AI | `analytics-loop.md` |
@@ -42,16 +43,17 @@ Video tải lên bằng API từ dự án Google chưa qua kiểm duyệt (audit
 |---|---|
 | Chủ nhật 09:00 (tác vụ trên máy anh) | Báo cáo số liệu kênh (`yt_analytics_report.py`) và cập nhật WINNERS, IDEA_BANK |
 | 2 ngày một lần | Radar xu hướng |
-| **Thứ Năm** | **LÔ DUYỆT TUẦN** gửi anh (mẫu ở §5) |
+| Thứ Năm | AI tự chốt lô tuần sau (mẫu ở §5), ghi vào HANDOFF. **Không gửi anh duyệt** (anh giao quyền 22/11/2026) |
 | **Thứ Bảy** | **GÓI TẢI LÊN** gửi anh: danh sách file MP4 theo thứ tự, link tải (Drive hoặc thư mục trên máy anh) |
 | Sau khi anh tải lên | `yt_publish.py auto`: áp gói, hẹn giờ, phụ đề. Báo anh danh sách đã hẹn giờ |
 
 ## 4. Việc quan trọng: CHỈ những việc này mới hỏi anh
-1. **Lô duyệt tuần:** chủ đề và dàn ý của các video dài tuần sau, gồm cả chủ đề thay thế từ radar.
-2. **Cờ "CẦN ANH XEM"** của `qa_check.py`: bạo lực chi tiết, tự hại, bạo lực tình dục, lời khuyên tài chính, sức khỏe hay pháp lý.
+Cập nhật 22/11/2026 theo lời anh: "Kênh youtube tôi giao cho bạn quản lý… mục tiêu cuối cùng là bật kiếm tiền trên youtube và duy trì tính năng kiếm tiền. Tôi chỉ xem kết quả từ dữ liệu kênh đạt được và số tiền kiếm được… giai đoạn đầu thì hỏi tôi khi chưa rõ, sau khi đủ thông tin để chốt kế hoạch thì thực thi mà không cần hỏi lại tôi nữa" (anh Dũng, 22/11/2026). Lô duyệt tuần đã bỏ. Kế hoạch 90 ngày đã chốt, nên mọi việc trong kế hoạch AI tự làm.
+1. *(Đã bỏ: lô duyệt tuần.)*
+2. **Cờ "CẦN ANH XEM"** của `qa_check.py`: AI tự chọn phương án an toàn (bỏ hoặc làm nhẹ đoạn đó, theo `policy-guardrails.md`), ghi vào HANDOFF. Chỉ hỏi khi bỏ đoạn đó làm hỏng cả video.
 3. **Tiền:** khoản chi mới ngoài ngân sách, nâng gói (ElevenLabs, OpenAI…). Ngân sách giọng Gemini khoảng 9 USD/tháng đã được duyệt (KE_HOACH_90_NGAY §4).
 4. **Tài khoản và quyền:** cần anh đăng nhập, xác minh, bật API, cấp lại token, xử lý cảnh cáo hay vi phạm của YouTube.
-5. **Đổi kế hoạch lớn:** đổi nhịp đăng, bỏ hoặc thêm trụ cột, kéo dài series, đổi tên hay nhận diện kênh.
+5. **Đổi tên kênh hoặc nhận diện kênh.** Đổi nhịp đăng, trụ cột, series theo số liệu thì AI tự làm, ghi lý do vào decisions-log và nêu trong báo cáo Chủ nhật.
 6. **Mâu thuẫn với MISSION** hoặc chính sách.
 
 Mọi việc khác AI **tự quyết, ghi lý do vào HANDOFF hoặc decisions-log, rồi làm tiếp**. Câu hỏi gom vào lô duyệt tuần, trừ khi gấp (mục 2 và 4).
@@ -74,7 +76,7 @@ Khi anh duyệt: ghi `ĐÃ DUYỆT <ngày> (lô tuần)` ở dòng đầu `scrip
 Pipeline `pipeline_defs/icyfox-autopilot.yaml` là bản sao của `animated-explainer`. Chỉ khác cổng duyệt của người, theo yêu cầu của anh:
 | Bước | Cổng | Thay bằng |
 |---|---|---|
-| proposal | **Giữ:** anh duyệt theo lô tuần | — |
+| proposal | Tự động (anh giao quyền 22/11/2026) | Ý tưởng có bằng chứng nhu cầu trong IDEA_BANK; ghi duyệt `auto` kèm trích lời anh |
 | script | Tự động | `qa_check.py` ĐẠT. Gặp "CẦN ANH XEM" thì dừng, đưa vào lô duyệt |
 | scene_plan | Tự động | Mọi ảnh có giấy phép thương mại và ghi công (`policy-guardrails.md`) |
 | assets | Tự động | Giọng đọc dài khớp kịch bản ±10%; `npx hyperframes lint` + `check` đạt |

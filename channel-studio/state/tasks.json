@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 25,
+ "next": 26,
  "tasks": [
   {
    "id": "T-001",
@@ -45,15 +45,18 @@
    "type": "voice",
    "dod": "3 file mp3 30–60 giây gửi anh chọn (chờ T-002)",
    "owner": "claude",
-   "status": "todo",
+   "status": "dropped",
    "prio": 2,
    "due": null,
    "video": "001-gilgamesh-lost-lines",
    "series": null,
    "created": "2026-11-22 21:31",
    "evidence": [],
-   "log": [],
-   "updated": "2026-11-22 21:31"
+   "log": [
+    "2026-11-22 22:47 drop"
+   ],
+   "updated": "2026-11-22 22:47",
+   "reason": "Anh chốt giọng kênh Algenib 22/11/2026 cho mọi video; không làm mẫu giọng cho 001 nữa (decisions-log)"
   },
   {
    "id": "T-004",
@@ -849,6 +852,23 @@
     "remaining": "Chưa chạy thử trên Windows thật: winget, Notepad, Git Bash với đường dẫn có khoảng trắng. Phiên máy mới sẽ kiểm ở bước 2–5 của lời nhắn",
     "check": "bash -n .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh && python3 /mnt/skills/examples/skill-creator/scripts/quick_validate.py .claude/skills/hoang-dung-clay-lapis-studio && python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
    }
+  },
+  {
+   "id": "T-025",
+   "title": "002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11)",
+   "type": "voice",
+   "dod": "31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn",
+   "owner": "claude",
+   "status": "doing",
+   "prio": 1,
+   "due": "2026-11-25",
+   "video": "002-lady-be-good",
+   "series": null,
+   "created": "2026-11-22 22:43",
+   "evidence": [],
+   "log": [],
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "updated": "2026-11-22 22:43"
   }
  ]
 }

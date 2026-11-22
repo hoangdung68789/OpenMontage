@@ -44,16 +44,14 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 - Khi đủ các phần: gộp thành `script.json` hợp lệ theo `schemas/artifacts/script.schema.json`, ghi checkpoint `script`.
 
 ## 4. Giọng
-- Công cụ `gemini_tts` (OpenMontage, `tools/audio/gemini_tts.py`), model `gemini-3.8-flash-tts`, xuất WAV. Gọi qua registry:
-  ```python
-  from tools.tool_registry import registry
-  registry.discover()
-  registry.get("gemini_tts").execute({...})
-  ```
-- Xem danh sách giọng: `{"operation": "list_voices"}` với `GEMINI_API_KEY=proxy-injected`. Danh sách có rất nhiều giọng và ngôn ngữ, cần lọc giọng tiếng Anh Mỹ.
-- **Mẫu giọng:** lấy đoạn S0.4 (nhiều sắc thái nhất), làm 3 giọng khác nhau. Gửi anh MP3 (`ffmpeg -i x.wav -b:a 128k x.mp3`), gửi bằng SendUserFile.
-- Mẫu được duyệt thì giữ cố định giọng và model. Đổi giọng hay model phải làm mẫu và duyệt lại (theo `skills/meta/voice-performance-director.md`).
-- Đọc dài: chia theo từng đoạn, mỗi lần gọi dưới khoảng 10 phút âm thanh, rồi ghép lại.
+- **Giọng kênh đã chốt (22/11/2026): `gemini-3.8-flash-tts`, giọng Algenib**, cho mọi video dài và Shorts. Không làm mẫu giọng, không hỏi lại. Chỉ làm 3 mẫu khi anh yêu cầu đổi giọng.
+- Công cụ: `channel-studio/videos/002-lady-be-good/voice/narrate.py <thư_mục_ra> Algenib [mã đoạn…]`. Script đọc `projects/<id>/artifacts/script.json`, ghi mỗi đoạn một file WAV, tự làm tiếp nếu chạy dở. Video khác thì đổi đường dẫn `script.json` trong script.
+  - Gọi thẳng API `v1beta` `generateContent`, vì `tools/audio/gemini_tts.py` còn lỗi 404 (thẻ T-002). T-002 xong thì chuyển về công cụ.
+  - **Bẫy đã gặp:** chỉ dẫn giọng ghép thẳng vào đầu văn bản sẽ bị đọc to. `systemInstruction` bị model từ chối (lỗi 400). Phải dùng bố cục `# AUDIO PROFILE / ### DIRECTOR'S NOTES / #### TRANSCRIPT`.
+  - API trả về file WAV hoàn chỉnh (`audio/wav`). Không bọc thêm một lớp WAV nữa.
+- Kiểm: `voice/check_voice.py` (whisper small.en, chạy ở mức ưu tiên Idle với 2 luồng CPU, so với kịch bản) và `voice/narration_report.py` (độ dài, LUFS, % khớp). Whisper ghi số bằng chữ số, nên đoạn nhiều số sẽ khớp thấp dù giọng đọc đúng.
+- Nhịp đọc thật của Algenib: đoạn S5.5 đọc 37,2 giây, kịch bản ước tính 44 giây.
+- Đọc dài: chia theo đoạn của kịch bản, mỗi lần gọi một đoạn, rồi ghép lại.
 
 ## 5. Phân cảnh (scene_plan, cần duyệt)
 - Mỗi cảnh có: mốc giây (theo độ dài thật của file giọng), loại cảnh, mô tả, nguồn hình kèm giấy phép, chữ trên màn hình.

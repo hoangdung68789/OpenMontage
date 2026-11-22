@@ -162,7 +162,7 @@ def agenda():
     # Nhịp tuần: thứ Năm gom lô duyệt, thứ Bảy gom gói tải lên
     wd = t.weekday()
     if wd == 3:
-        items.append((1, "Anh", "Hôm nay thứ Năm: gửi anh LÔ DUYỆT TUẦN (chủ đề + dàn ý + hook của tuần sau), 1 tin nhắn duy nhất"))
+        items.append((1, "AI", "Hôm nay thứ Năm: AI tự chốt lô tuần sau (chủ đề + dàn ý + hook), ghi HANDOFF; không gửi anh duyệt (anh giao quyền 22/11/2026)"))
     if wd == 5:
         items.append((1, "Anh", "Hôm nay thứ Bảy: chuẩn bị GÓI TẢI LÊN tuần sau (danh sách file theo thứ tự + link), báo anh 1 tin"))
     items.sort(key=lambda x: x[0])
