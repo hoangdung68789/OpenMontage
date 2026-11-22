@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 00:01 (giờ Việt Nam).
+Cập nhật: 2026-11-23 00:04 (giờ Việt Nam).
 
 ## Đang làm (1)
 
@@ -35,6 +35,7 @@ Cập nhật: 2026-11-23 00:01 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-033 Sao chép repo OmniVoice + VoiceStudio vào phiên và ghi vào bản đồ repo (2026-11-23 00:04): .claude/skills/hoang-dung-clay-lapis-studio/references/toolbox-repos.md, /home/user/hoangdung68789/voicestudio/README.md, /home/user/hoangdung68789/omnivoice/README.md
 - T-030 Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa (2026-11-23 00:00): channel-studio/research/2026-11-22-api-upload-test/result.json, channel-studio/guides/TU_DONG_DANG_VIDEO.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py
 - T-028 Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip (2026-11-22 23:53): channel-studio/research/2026-11-22-api-upload-test/result.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py, channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-027 Trả lời: có cách nào để AI tự đăng video lên YouTube không (kiểm chính sách + phương án) (2026-11-22 23:49): channel-studio/guides/TU_DONG_DANG_VIDEO.md
@@ -49,4 +50,3 @@ Cập nhật: 2026-11-23 00:01 (giờ Việt Nam).
 - T-016 Báo cáo số liệu kênh tự động qua YouTube Analytics API (2026-11-22 21:34): channel-studio/analytics/reports/2026-11-22/report.md, channel-studio/analytics/reports/2026-11-22/data.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/research/yt_analytics_report.py
 - T-017 Chế độ tự lái: autopilot.py, pipeline icyfox-autopilot, qa_check.py, yt_publish.py, autopilot.md (2026-11-22 21:34): .claude/skills/hoang-dung-clay-lapis-studio/references/autopilot.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py, pipeline_defs/icyfox-autopilot.yaml, .claude/skills/hoang-dung-clay-lapis-studio/scripts/qa_check.py, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_publish.py, channel-studio/videos/001-gilgamesh-lost-lines/script_part2.qa.md
 - T-014 Bộ nhớ series nhiều tập (series.py + series-playbook) (2026-11-22 21:33): .claude/skills/hoang-dung-clay-lapis-studio/scripts/series.py, .claude/skills/hoang-dung-clay-lapis-studio/references/series-playbook.md, channel-studio/series/SERIES_INDEX.md
-- T-015 Radar xu hướng thời gian thực + kho ý tưởng có bằng chứng (2026-11-22 21:33): channel-studio/research/2026-11-22-radar/RADAR.md, channel-studio/research/2026-11-22-radar/outliers.json, channel-studio/ideas/IDEA_BANK.md

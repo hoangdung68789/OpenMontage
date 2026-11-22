@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 33,
+ "next": 34,
  "tasks": [
   {
    "id": "T-001",
@@ -1160,6 +1160,54 @@
    "evidence": [],
    "log": [],
    "updated": "2026-11-23 00:01"
+  },
+  {
+   "id": "T-033",
+   "title": "Sao chép repo OmniVoice + VoiceStudio vào phiên và ghi vào bản đồ repo",
+   "type": "ops",
+   "dod": "2 repo clone được (đọc), toolbox-repos.md có dòng mô tả + giấy phép + cách dùng",
+   "owner": "claude",
+   "status": "done",
+   "prio": 3,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 00:04",
+   "evidence": [
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/toolbox-repos.md",
+    "/home/user/hoangdung68789/voicestudio/README.md",
+    "/home/user/hoangdung68789/omnivoice/README.md"
+   ],
+   "log": [
+    "2026-11-23 00:04 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-23 00:04",
+   "report": {
+    "summary": "Clone (chỉ đọc) OmniVoice 4d5ed0f (2,2 MB) và VoiceStudio 2bb2130 (156 MB); ghi 2 dòng vào bản đồ repo kèm cảnh báo giấy phép: trọng số OmniVoice mặc định không dùng thương mại",
+    "components": [
+     {
+      "name": "OmniVoice",
+      "result": "clone --depth 1 commit 4d5ed0f, 2,2 MB, mã Apache-2.0, TTS hơn 600 ngôn ngữ",
+      "verified_by": "git rev-parse + remote get-url đúng repo, đọc LICENSE và README",
+      "evidence": "/home/user/hoangdung68789/omnivoice/README.md"
+     },
+     {
+      "name": "VoiceStudio",
+      "result": "clone --depth 1 commit 2bb2130, 156 MB, ứng dụng AGPL-3.0, mặc định dùng OmniVoice",
+      "verified_by": "git rev-parse + remote get-url đúng repo, đọc LICENSE-NOTICE, README, CLAUDE.md",
+      "evidence": "/home/user/hoangdung68789/voicestudio/README.md"
+     },
+     {
+      "name": "Cảnh báo giấy phép",
+      "result": "README VoiceStudio dòng 125 ghi trọng số OmniVoice mặc định là CC-BY-NC (không dùng thương mại) → không dùng cho video kiếm tiền",
+      "verified_by": "grep README, trích nguyên văn",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/toolbox-repos.md"
+     }
+    ],
+    "remaining": "Chỉ đọc: phiên này không đẩy được lên 2 repo đó. Chưa chạy thử engine nào; giấy phép từng engine khác trong Model Manager chưa kiểm",
+    "check": ""
+   }
   }
  ]
 }
