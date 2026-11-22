@@ -40,7 +40,7 @@ Video tải lên bằng API từ dự án Google chưa qua kiểm duyệt (audit
 ## 3. Nhịp tuần
 | Ngày (giờ Việt Nam) | Việc |
 |---|---|
-| Thứ Hai | Báo cáo số liệu kênh (`yt_analytics_report.py`) và cập nhật WINNERS, IDEA_BANK |
+| Chủ nhật 09:00 (tác vụ trên máy anh) | Báo cáo số liệu kênh (`yt_analytics_report.py`) và cập nhật WINNERS, IDEA_BANK |
 | 2 ngày một lần | Radar xu hướng |
 | **Thứ Năm** | **LÔ DUYỆT TUẦN** gửi anh (mẫu ở §5) |
 | **Thứ Bảy** | **GÓI TẢI LÊN** gửi anh: danh sách file MP4 theo thứ tự, link tải (Drive hoặc thư mục trên máy anh) |
@@ -88,7 +88,12 @@ Video thử 001 Gilgamesh vẫn dùng `animated-explainer` (đã duyệt từng 
 - **File MP4 không lên git.** Đưa lên Google Drive (cần `GDRIVE_REFRESH_TOKEN`) hoặc để trên máy anh. Gói tải lên chỉ đường tới file.
 
 ## 8. Tác vụ hẹn giờ
-Một phiên tự động mỗi ngày đủ để chạy cả vòng (autopilot.py quyết định hôm nay làm gì). Lời nhắn của phiên:
+**Đang có (22/11/2026):** trên máy anh, app Claude desktop: `icyfox-san-xuat-9h-17h` (09:00 và 17:00) và `icyfox-bao-cao-tuan-cn-9h` (Chủ nhật 09:00).
+- Không tạo thêm trên cloud, vì sẽ chạy trùng.
+- Tác vụ sản xuất dùng lời nhắn dưới đây. Phiên trên máy anh cập nhật file `~/.claude/scheduled-tasks/icyfox-san-xuat-9h-17h/SKILL.md` (thẻ T-018).
+- Máy anh mở Claude Code trong thư mục OpenMontage nên **có đủ 3 hook** nhắc mục tiêu và chặn báo "xong" sai.
+
+Lời nhắn:
 ```
 Dùng skill hoang-dung-clay-lapis-studio, chế độ tự lái. Nếu phiên chưa có repo hoangdung68789/OpenMontage thì add_repo,
 clone, checkout nhánh ccr-6640cec8-2anthl. Chạy bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh,

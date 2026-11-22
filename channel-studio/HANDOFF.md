@@ -50,6 +50,12 @@
 ## Ai đang làm gì
 Xem `channel-studio/TASKS.md` (sinh từ `state/tasks.json`). Nhận việc: `tasks.py start <id> --owner <claude|codex>`. Quy tắc: `references/multi-agent.md`.
 
+## Cảnh báo QA (22/11/2026, tối)
+- **002 Phần 1 HỎNG QA:** file ghi "khoảng 1.270 từ, đọc xong 10:40", nhưng lời thoại thật có 753 từ (khoảng 6 phút ở 125 từ/phút).
+  - Phải viết bổ sung khoảng 500 từ hoặc sửa mốc giờ, rồi chạy lại `qa_check.py` trước khi viết Phần 2 (thẻ T-020).
+  - Từ nay `qa_check.py` tự đối chiếu số từ ghi trong file với số từ thật.
+- **002 từ Phần 2:** mỗi phần tự kiểm bằng `qa_check.py`. Anh duyệt **cả kịch bản 1 lần** trong lô duyệt tuần thay vì từng phần, theo yêu cầu "chỉ hỏi việc quan trọng". Project `lady-be-good` vẫn dùng pipeline `animated-explainer`, nên cổng script cần đúng 1 lần duyệt đó.
+
 ## Trạng thái API (22/11/2026)
 - **Gemini:** OK. Network secret, header `x-goog-api-key`. Thấy model `gemini-3.8-flash-tts`.
 - **YouTube OAuth + Data API + Analytics:** **OK** (22/11/2026, đã bật API trong dự án 979474479924). Kênh **ICYFOX** (0 sub, 0 video). Anh đã chốt giữ tên ICYFOX.

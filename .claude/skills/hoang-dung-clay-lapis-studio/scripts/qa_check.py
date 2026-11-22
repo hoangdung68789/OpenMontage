@@ -7,7 +7,8 @@ Kiểm:
   2. Đủ số từ lời thoại (mặc định >= 700 mỗi phần).
   3. Có mục Nguồn với >= 3 link; báo tỉ lệ đoạn có dòng '- Nguồn:'.
   4. Không trùng lời đối thủ: so cụm 8 từ với mọi phụ đề trong channel-studio/research (chống "reused content").
-  5. Cờ chính sách (cần anh xem): mô tả bạo lực chi tiết, tự hại, lời khuyên tài chính/sức khỏe/pháp lý.
+  5. Số từ ghi trong file ("Số từ: ...") phải khớp số từ lời thoại thật (lệch tối đa 15%), chống báo sai tiến độ.
+  6. Cờ chính sách (cần anh xem): mô tả bạo lực chi tiết, tự hại, lời khuyên tài chính/sức khỏe/pháp lý.
 Kết quả: <file>.qa.md cạnh kịch bản. Mã thoát 0 = QA ĐẠT, 2 = HỎNG (AI tự sửa), 3 = CẦN ANH XEM (đưa vào lô duyệt tuần).
 --mark: khi đạt, thêm "· QA ĐẠT <ngày>" vào dòng tiêu đề (autopilot đọc dấu này).
 """
@@ -67,6 +68,12 @@ def main():
         fails.append(f"lời thoại {len(words)} từ < {a.min_words}")
     if links < 3 or not re.search(r"(?im)^#+\s*Nguồn", t):
         fails.append(f"thiếu mục '## Nguồn' với >= 3 link (đang có {links} link)")
+    claim = re.search(r"Số từ:\s*\**\s*(?:khoảng\s*)?([\d.,]+)", t)
+    if claim:
+        claimed = int(re.sub(r"[.,]", "", claim.group(1)))
+        if claimed and abs(claimed - len(words)) / claimed > 0.15:
+            fails.append(f"file ghi 'Số từ: {claim.group(1)}' nhưng lời thoại thật có {len(words)} từ "
+                         f"(lệch {abs(claimed - len(words)) / claimed:.0%}); sửa con số và các mốc giờ, hoặc viết bổ sung")
     info.append(f"Lời thoại: {len(words)} từ (khoảng {len(words) / 125:.1f} phút ở 125 từ/phút). Đoạn có dòng Nguồn: {with_src}/{len(segs)}.")
     comp = competitor_shingles()
     mine = shingles(words)

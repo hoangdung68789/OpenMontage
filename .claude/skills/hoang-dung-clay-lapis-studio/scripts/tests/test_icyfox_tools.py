@@ -129,3 +129,14 @@ def test_analytics_report_finds_winners_from_replay(ws):
     assert "THẮNG" in rep and "Video 3" in rep and "P3" in rep and "Rơi mạnh nhất" in rep
     winners = (ws / "channel-studio" / "analytics" / "WINNERS.md").read_text(encoding="utf-8")
     assert "Video 6" in rep and "Video 3" in winners and "Video 6" in winners and "Video 0" not in winners
+
+
+def test_qa_check_catches_false_word_count(ws):
+    f = ws / "part.md"
+    body = "# Part 1 · chờ duyệt\n\n### S1 · 0:00–1:00 · x\n> " + "word " * 760 + "\n- Nguồn: a\n\n- Số từ: **khoảng 1.270**\n\n## Nguồn\n- https://a.org\n- https://b.org\n- https://c.org\n"
+    f.write_text(body, encoding="utf-8")
+    r = run(ws, S / "qa_check.py", f)
+    assert r.returncode == 2 and "lệch" in r.stdout
+    f.write_text(body.replace("khoảng 1.270", "760"), encoding="utf-8")
+    r = run(ws, S / "qa_check.py", f, "--mark")
+    assert r.returncode == 0 and "QA ĐẠT" in f.read_text(encoding="utf-8").splitlines()[0]

@@ -21,7 +21,7 @@ PLAN = CS / "PLAN.md"
 LEAD = {"outline": 14, "script": 9, "render": 4, "package": 2}
 SHORTS_BUFFER_DAYS = 7     # luôn có sẵn Shorts đủ cho 7 ngày tới
 RADAR_MAX_AGE = 2          # quét xu hướng tối đa 2 ngày một lần
-REPORT_MAX_AGE = 7         # báo cáo số liệu kênh tối đa 7 ngày một lần
+REPORT_MAX_AGE = 8         # báo cáo số liệu kênh hằng tuần (tác vụ Chủ nhật 09:00), quá 8 ngày là trễ
 
 
 def d(s):
