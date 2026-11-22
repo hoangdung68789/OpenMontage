@@ -31,6 +31,17 @@ if [ -d channel-studio/projects ]; then
   done
 fi
 
+echo "== 2b. Bộ công cụ (16 repo, xem references/toolbox-repos.md)"
+PARENT="$(cd .. && pwd)"
+for r in OpenMontage hyperframes gsap-skills GSAP motion-design-skill three.js remotion whisperX yt-dlp \
+         Agent-Reach awesome-opus5-5-videos agent-skills CLI-Anything blender-skills seek-tune replica-skill; do
+  found=""
+  for d in "$PARENT"/*/; do
+    [ "$(basename "$d" | tr 'A-Z' 'a-z')" = "$(echo "$r" | tr 'A-Z' 'a-z')" ] && found="$d"
+  done
+  if [ -n "$found" ]; then echo "  [có]   $r"; else echo "  [thiếu] $r  -> add_repo(owner=\"hoangdung68789\", repo=\"$(echo "$r" | tr 'A-Z' 'a-z')\") nếu cần"; fi
+done
+
 echo "== 3. Kiểm tra API"
 python3 -c "import requests" 2>/dev/null || pip install -q requests
 python3 "$SKILL_DIR/scripts/check_apis.py" || echo "(kiểm tra API lỗi, xem references/environment-and-apis.md)"

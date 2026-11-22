@@ -21,6 +21,7 @@ Người dùng là Dũng. Gọi "anh", xưng "tôi", viết tiếng Việt. Anh 
 | Gói đăng, lịch đăng, 11 ngôn ngữ | `references/publish-package.md` |
 | Nghiên cứu đối thủ và ngách | `references/research-playbook.md` + `scripts/research/` |
 | Tự động hóa, tác vụ hẹn giờ | `references/automation.md` |
+| **16 repo của anh: repo nào dùng ở bước nào** | `references/toolbox-repos.md` |
 | Quyết định đã chốt | `references/decisions-log.md` |
 | Bảng Notion | "Clay & Lapis – Video Pipeline", data source `collection://4201dcd7-7c95-8188-8452-000b17602005` |
 | Mẫu file | `templates/` |
@@ -41,6 +42,7 @@ Chỉ đọc file tham chiếu nào cần cho việc đang làm. Không cần đ
 
    Nếu skill được cài ở cấp tài khoản mà repo chưa ở đúng nhánh, chạy trước: `git fetch origin ccr-6640cec8-2anthl && git checkout ccr-6640cec8-2anthl`.
 2. Đọc hết `HANDOFF.md`. Đọc các dòng Notion có trạng thái khác "Đã đăng".
+   Script cũng in danh sách 16 repo, đánh dấu repo nào đang thiếu. Nếu việc sắp làm cần repo đang thiếu (xem `references/toolbox-repos.md`), gọi `add_repo(owner="hoangdung68789", repo=...)`, clone, rồi `register_repo_root` để nạp skill của repo đó.
 3. Báo anh 3 dòng: tình trạng API, video đang làm và đang ở bước nào, việc anh cần làm.
 
 Vì sao: bỏ bước này thì dễ làm lại việc cũ, hoặc hỏi lại những gì anh đã chốt.
