@@ -1,0 +1,6 @@
+[submodule "voice-lab/VoiceStudio"]
+	path = voice-lab/VoiceStudio
+	url = https://github.com/debpalash/VoiceStudio.git
+[submodule "voice-lab/OmniVoice"]
+	path = voice-lab/OmniVoice
+	url = https://github.com/k2-fsa/OmniVoice.git

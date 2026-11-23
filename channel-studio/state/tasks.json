@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 38,
+ "next": 39,
  "tasks": [
   {
    "id": "T-001",
@@ -1262,6 +1262,68 @@
   },
   {
    "id": "T-035",
+   "title": "Cài VoiceStudio + OmniVoice trên máy anh, clone giọng Algenib",
+   "type": "voice",
+   "dod": "VoiceStudio + OmniVoice cài trên máy (submodule voice-lab/), 1 bản clone Algenib bằng engine trọng số thương mại được (VoxCPM2 Apache-2.0), whisper ≥95% chuẩn hoá, đo LUFS, đã đẩy GitHub",
+   "owner": "claude",
+   "status": "done",
+   "prio": 2,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 10:54",
+   "evidence": [
+    "voice-lab/README.md",
+    "voice-lab/clone-algenib/clone_voxcpm2.py",
+    "voice-lab/clone-algenib/S1.3_clone_voxcpm2.mp3",
+    ".gitmodules",
+    "channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log"
+   ],
+   "log": [
+    "2026-11-23 10:59 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-23 10:59",
+   "report": {
+    "summary": "VoiceStudio (2bb2130) + OmniVoice (4d5ed0f) là submodule ở voice-lab/; môi trường CUDA (torch 2.10+cu128) + voxcpm 2.0.3; clone Algenib bằng VoxCPM2 đọc S1.3: 20,2 s, 48 kHz, tạo 43 s trên RTX 4060",
+    "components": [
+     {
+      "name": "Cài đặt",
+      "result": "uv sync EXIT 0; voxcpm 2.0.3 EXIT 0; CUDA True",
+      "verified_by": "log cài đặt",
+      "evidence": "channel-studio/state/jobs/2026-11-23-voicestudio-uv-sync.log"
+     },
+     {
+      "name": "Giấy phép",
+      "result": "VoxCPM2 Apache-2.0, không dùng OmniVoice CC-BY-NC",
+      "verified_by": "model_licenses.json VoiceStudio + trang HF k2-fsa/OmniVoice",
+      "evidence": "voice-lab/README.md"
+     },
+     {
+      "name": "Lời đọc clone",
+      "result": "whisper 94,4% thô, 100% chuẩn hoá (chỉ lệch cách viết Be Good/4th)",
+      "verified_by": "check_voice.py",
+      "evidence": "channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log"
+     },
+     {
+      "name": "Độ giống giọng",
+      "result": "cosine 0,881 (Gemini 0,765; Charon 0,292; Gacrux 0,140)",
+      "verified_by": "voice_similarity.py",
+      "evidence": "channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log"
+     },
+     {
+      "name": "Độ to",
+      "result": "clone -22,6 LUFS / đỉnh -0,4 dBFS; Gemini -24,3 LUFS",
+      "verified_by": "ffmpeg ebur128",
+      "evidence": "channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log"
+     }
+    ],
+    "remaining": "Đẩy GitHub ngay sau thẻ này. Anh nghe so sánh 2 mp3. Chưa dùng giọng clone cho video đăng kênh (điều khoản Gemini 'replicate any component' chưa rõ). Clone nhanh hơn Gemini (20 s so với 28 s) vì bỏ [pause]",
+    "check": ""
+   }
+  },
+  {
+   "id": "T-036",
    "title": "Tìm chủ đề đang lên liên quan kênh (radar lần 2 + kiểm chứng 2 thời điểm + cụm chủ đề), đưa vào kho ý tưởng",
    "type": "research",
    "dod": "TREND.md + RADAR.md mới + bảng chủ đề có nhãn theo định nghĩa của anh; IDEA_BANK cập nhật",
@@ -1279,7 +1341,8 @@
     "channel-studio/ideas/IDEA_BANK.md"
    ],
    "log": [
-    "2026-11-23 11:05 done"
+    "2026-11-23 11:05 done",
+    "2026-11-23 đổi số T-035 → T-036 (trùng số với thẻ của máy anh)"
    ],
    "session": "manual",
    "updated": "2026-11-23 11:05",
@@ -1314,22 +1377,6 @@
     "remaining": "Đo lại 25/11 khoảng 11:00 (T-007) để nâng nhãn; chủ đề 12 Sứ đồ và vợ lãnh đạo Quốc xã mới đo 1 lần",
     "check": ""
    }
-  },
-  {
-   "id": "T-036",
-   "title": "VoiceStudio trên máy anh: cài app, bật VoxCPM2, thiết kế giọng 'icyfox-narrator' (không nhân bản người thật), kiểm thẻ mô hình openbmb/VoxCPM2 (Apache-2.0), chạy voicestudio_tts.py check + sample 60 giây, rồi đọc lại 002 bằng giọng này",
-   "type": "voice",
-   "dod": "File mẫu WAV + manifest.json (engine voxcpm2, giấy phép apache-2.0) + ghi chú giấy phép đã kiểm; HANDOFF ghi thời gian sinh 1 phút giọng",
-   "owner": "claude-local",
-   "status": "todo",
-   "prio": 1,
-   "due": "2026-11-26",
-   "video": null,
-   "series": null,
-   "created": "2026-11-23 11:05",
-   "evidence": [],
-   "log": [],
-   "updated": "2026-11-23 11:05"
   },
   {
    "id": "T-037",
@@ -1371,6 +1418,25 @@
     "remaining": "Chưa sinh giọng thật: VoiceStudio phải chạy trên máy anh (T-036); cloud thiếu host huggingface.co để tải mô hình",
     "check": "python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests -k voicestudio"
    }
+  },
+  {
+   "id": "T-038",
+   "title": "VoiceStudio trên máy anh: cài app, bật VoxCPM2, thiết kế giọng 'icyfox-narrator' (không nhân bản người thật), kiểm thẻ mô hình openbmb/VoxCPM2 (Apache-2.0), chạy voicestudio_tts.py check + sample 60 giây, rồi đọc lại 002 bằng giọng này",
+   "type": "voice",
+   "dod": "File mẫu WAV + manifest.json (engine voxcpm2, giấy phép apache-2.0) + ghi chú giấy phép đã kiểm; HANDOFF ghi thời gian sinh 1 phút giọng",
+   "owner": "claude-local",
+   "status": "dropped",
+   "prio": 1,
+   "due": "2026-11-26",
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 11:05",
+   "evidence": [],
+   "log": [
+    "2026-11-23 đổi số T-036 → T-038 và bỏ vì trùng T-035"
+   ],
+   "updated": "2026-11-23 11:05",
+   "reason": "Trùng T-035 của máy anh (đã cài VoiceStudio, clone giọng Algenib bằng VoxCPM2 Apache-2.0)"
   }
  ]
 }

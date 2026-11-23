@@ -1,0 +1,12 @@
+# 23/11/2026 kiểm bản clone Algenib (VoxCPM2 qua VoiceStudio) đoạn S1.3 của video 002
+## whisper (check_voice.py, small.en)
+{"file": "S1.3_voxcpm2.wav", "id": "S1.3", "match_pct": 94.4, "ref_words": 54, "heard_words": 54, "diffs": ["replace: 'be good' -> 'b goode'", "replace: 'fourth' -> '4th'"]}
+{"file": "S1.3.wav", "id": "S1.3", "match_pct": 94.4, "ref_words": 54, "heard_words": 54, "diffs": ["insert: '' -> 'the'", "replace: 'be good' -> 'begood'", "replace: 'fourth' -> '4th'"]}
+Chuẩn hoá (tên riêng + số viết bằng chữ): bản clone 54/54 từ đúng = 100%; bản Gemini thừa 1 từ 'the'.
+## ffmpeg ebur128
+clone  : I -22.6 LUFS, LRA 3.1 LU, Peak -0.4 dBFS
+gemini : I -24.3 LUFS, LRA 9.0 LU, Peak -3.7 dBFS
+## độ giống giọng (voice_similarity.py, ECAPA cosine so với algenib_ref.wav cắt từ S0.1)
+S1.3_voxcpm2.wav 0.881 | narration_g31/S1.3.wav 0.765 | S5.5_Algenib.wav 0.679 | S5.5_Charon.wav 0.292 | S5.5_Gacrux.wav 0.140
+## thời lượng
+clone 20.16 s (48 kHz, tạo 43.1 s trên RTX 4060) | gemini 28.16 s

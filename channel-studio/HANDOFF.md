@@ -7,8 +7,8 @@
 ## MỚI NHẤT
 - **23/11/2026 11:30:**
   - Đã tạo **phiên cloud dự phòng** (13:17 và 20:17; tự SKIP nếu máy anh vừa làm trong 8 giờ qua).
-  - **Giọng đọc chuyển sang VoiceStudio** (anh yêu cầu): engine VoxCPM2, giọng tự thiết kế `icyfox-narrator`, cấm OmniVoice; thẻ T-036 cho máy anh.
-  - **Chủ đề đang lên:** `research/2026-11-23-trend/DE_XUAT_CHU_DE.md`. Chưa có chủ đề nào ĐÃ KIỂM CHỨNG; 5 TÍN HIỆU SỚM hợp kênh; đo lại 25/11 (T-007).
+  - **Giọng đọc chuyển sang VoiceStudio** (anh yêu cầu): engine VoxCPM2, giọng tự thiết kế `icyfox-narrator`, cấm OmniVoice. Máy anh đã cài VoiceStudio và clone giọng Algenib bằng VoxCPM2 (T-035). [Cần kiểm] điều khoản Gemini API về việc dùng giọng Algenib làm mẫu clone.
+  - **Chủ đề đang lên:** `research/2026-11-23-trend/DE_XUAT_CHU_DE.md`. Chưa có chủ đề nào ĐÃ KIỂM CHỨNG; 5 TÍN HIỆU SỚM hợp kênh; đo lại 25/11 (T-007). Thẻ tìm chủ đề: T-036.
   - Đề xuất theo mùa: kéo Dyatlov (016) hoặc Franklin (015) lên tháng 12–1.
 - **23/11/2026 10:53:** lượt 09:00 trên máy anh không chạy (commit cuối cách 10,8 giờ). Đã thêm `autopilot.py --backup-check` và đề xuất phiên cloud dự phòng (autopilot.md §8b). **Chờ anh xác nhận** (T-034): hệ thống chặn việc tạo tác vụ hẹn giờ khi anh chưa trực tiếp yêu cầu.
 - **Việc anh làm 1 lần để AI chạy không cần nhắc:** (1) xác nhận tạo phiên cloud dự phòng; (2) bật trả phí Gemini API, vì gói miễn phí chỉ 10 lượt/ngày theo dòng 0a bên dưới, không đủ cho 1–2 video/ngày; ước tính khoảng 9 USD/tháng (KE_HOACH_90_NGAY §4); (3) nếu muốn máy anh chạy đều 09:00 và 17:00: để máy không ngủ khi cắm sạc và để app Claude mở.
