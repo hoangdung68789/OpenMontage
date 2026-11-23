@@ -193,6 +193,20 @@ def history(t, kind, body):
     return f
 
 
+def remote_next():
+    """Đọc số thẻ kế tiếp trên GitHub (nhánh kênh) để máy anh và cloud không cấp trùng số. Lỗi gì cũng trả 0."""
+    try:
+        br = "ccr-6640cec8-2anthl"
+        subprocess.run(["git", "fetch", "-q", "origin", br], cwd=ROOT, capture_output=True, timeout=60)
+        r = subprocess.run(["git", "show", f"origin/{br}:channel-studio/state/tasks.json"], cwd=ROOT, capture_output=True, text=True, timeout=30)
+        import json as _j
+        d = _j.loads(r.stdout) if r.returncode == 0 else {}
+        ids = [int(t["id"][2:]) for t in d.get("tasks", []) if t.get("id", "").startswith("T-")]
+        return max([d.get("next", 0)] + [i + 1 for i in ids])
+    except Exception:
+        return 0
+
+
 def session_id():
     try:
         return SESSION_FILE.read_text(encoding="utf-8").strip() or "manual"
@@ -314,6 +328,8 @@ def main():
         print(("\n## ".join(entries[-x.n:])) if len(entries) > 1 else entries[0])
         return
     if x.cmd == "add":
+        local_ids = [int(t["id"][2:]) + 1 for t in db["tasks"] if t["id"].startswith("T-")]
+        db["next"] = max([db["next"], remote_next()] + local_ids)
         tid = f"T-{db['next']:03d}"
         db["next"] += 1
         t = {"id": tid, "title": x.title, "type": x.type, "dod": x.dod, "owner": x.owner, "status": "todo",
