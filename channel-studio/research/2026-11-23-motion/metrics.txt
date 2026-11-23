@@ -1,0 +1,12 @@
+ICYFOX002_0.mp4 {'sec': 180.0, 'static_pct': 14.7, 'longest_static': 11.4, 'sec_per_change': 25.7, 'pct_still': 52.2}
+ICYFOX002_900.mp4 {'sec': 300.0, 'static_pct': 71.1, 'longest_static': 22.6, 'sec_per_change': 16.7, 'pct_still': 82.1}
+GV8KGcFqeLc_0.mp4 {'sec': 180.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 3.0, 'pct_still': 1.1}
+GV8KGcFqeLc_900.mp4 {'sec': 300.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 3.3, 'pct_still': 0.7}
+d2lJUOv0hLA_0.mp4 {'sec': 180.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 4.7, 'pct_still': 0.0}
+d2lJUOv0hLA_900.mp4 {'sec': 300.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 3.6, 'pct_still': 0.2}
+jS-g2JjQSJ4_0.mp4 {'sec': 180.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 4.1, 'pct_still': 3.4}
+jS-g2JjQSJ4_900.mp4 {'sec': 300.0, 'static_pct': 3.5, 'longest_static': 6.8, 'sec_per_change': 4.8, 'pct_still': 14.9}
+qq1CHsVJJ6A_0.mp4 {'sec': 180.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 90.0, 'pct_still': 81.0}
+qq1CHsVJJ6A_900.mp4 {'sec': 300.0, 'static_pct': 1.1, 'longest_static': 3.2, 'sec_per_change': 300.0, 'pct_still': 14.7}
+xMawDAtte4Y_0.mp4 {'sec': 180.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 6.0, 'pct_still': 28.8}
+xMawDAtte4Y_900.mp4 {'sec': 300.0, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 10.7, 'pct_still': 22.1}

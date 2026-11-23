@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 43,
+ "next": 44,
  "tasks": [
   {
    "id": "T-001",
@@ -1637,6 +1637,69 @@
    "evidence": [],
    "log": [],
    "updated": "2026-11-23 12:44"
+  },
+  {
+   "id": "T-043",
+   "title": "Phân tích chuyển động 5 kênh đối thủ, đặt mốc chuyển động cho video sau",
+   "type": "research",
+   "dod": "Đo static_pct/sec_per_change/pct_still trên 2 đoạn mỗi video của 5 kênh + 002; báo cáo BAO_CAO_CHUYEN_DONG.md; cập nhật production-workflow §5 §8; xóa bản tải",
+   "owner": "claude",
+   "status": "done",
+   "prio": 2,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 15:50",
+   "evidence": [
+    "channel-studio/research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md",
+    "channel-studio/research/2026-11-23-motion/metrics.txt",
+    "channel-studio/research/2026-11-23-motion/videos.json",
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/motion_metrics.py",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/production-workflow.md"
+   ],
+   "log": [
+    "2026-11-23 15:51 start",
+    "2026-11-23 15:51 done"
+   ],
+   "updated": "2026-11-23 15:51",
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "report": {
+    "summary": "Chọn 5 video nhiều view qua YouTube Data API (Fall of Civilizations, Real Time History, Johnny Harris, Uncharted Mysteries, Wartime Stories), tải 2 đoạn 480p (0-3', 15-20'), đo chuyển động và so với 002. Đối thủ đứng yên 0-3,5%, 002 đứng yên 14,7% (mở đầu) và 71,1% (giữa). Đặt mốc mới: static_pct ≤2%, đổi hình 5-8 s, pct_still ≤25%",
+    "components": [
+     {
+      "name": "Chọn video",
+      "result": "5 kênh, mỗi kênh 1 video ≥8 phút nhiều view nhất trong 50 video mới (41,2 tr; 7,6 tr; 7,95 tr; 1,31 tr; 760 N view)",
+      "verified_by": "YouTube Data API playlistItems + videos.list",
+      "evidence": "channel-studio/research/2026-11-23-motion/videos.json"
+     },
+     {
+      "name": "Đo chuyển động",
+      "result": "12 đoạn; đối thủ static_pct 0-3,5%, đoạn đứng yên lâu nhất 6,8 s, đổi hình 3,0-10,7 s (trừ Wartime Stories: tranh parallax); 002 static_pct 14,7%/71,1%, đổi hình 25,7/16,7 s",
+      "verified_by": "freezedetect -60dB d=3 + chênh ảnh xám 64x36 cách 1 s, chạy lại khớp số lần 1",
+      "evidence": "channel-studio/research/2026-11-23-motion/metrics.txt"
+     },
+     {
+      "name": "Phân loại kiểu chuyển động",
+      "result": "5 kiểu (timelapse + đẩy máy tranh khắc; bản đồ ký hiệu hiện dần; người dẫn + tư liệu; ảnh khung bo góc nền đen + bụi; tranh minh họa parallax)",
+      "verified_by": "xem lưới khung 3 s/khung của từng đoạn",
+      "evidence": "channel-studio/research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md"
+     },
+     {
+      "name": "Cập nhật quy trình",
+      "result": "production-workflow §5 đổi mốc 6-10 s ước lượng thành 5-8 s đo thật + 3 kỹ thuật học được; §8 thêm ngưỡng đạt static_pct ≤2%, pct_still ≤25% và lệnh motion_metrics.py",
+      "verified_by": "grep motion_metrics production-workflow.md",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/production-workflow.md"
+     },
+     {
+      "name": "Dọn bản tải",
+      "result": "đã xóa 10 đoạn video tải về + 2 đoạn 002 + lưới khung hình trong scratchpad",
+      "verified_by": "ls scratchpad không còn motion-dl/own/frames",
+      "evidence": "channel-studio/research/2026-11-23-motion/metrics.txt"
+     }
+    ],
+    "remaining": "Chưa áp mốc mới vào video nào; video 003 sẽ là lần đầu kiểm theo mốc này. Chỉ đo hình, không đo tiếng/nhịp nhạc của đối thủ.",
+    "check": "python -m py_compile .claude/skills/hoang-dung-clay-lapis-studio/scripts/motion_metrics.py"
+   }
   }
  ]
 }

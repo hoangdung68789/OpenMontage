@@ -5,6 +5,7 @@
 Đọc file này trước khi làm tiếp. Quy trình đầy đủ nằm trong skill `hoang-dung-clay-lapis-studio` (`.claude/skills/hoang-dung-clay-lapis-studio/SKILL.md`). **Đọc mục 0 "Tiêu chuẩn làm việc" trước.** Mở phiên bằng `bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh`.
 
 ## MỚI NHẤT
+- **23/11/2026 16:10: mốc chuyển động mới (T-043).** Đo 5 kênh đối thủ: đứng yên ≥3 s chỉ 0–3,5%. 002 đứng yên 14,7% ở phần mở đầu và 71,1% ở phần giữa. Video 003 phải đạt `scripts/motion_metrics.py`: static_pct ≤2%, đổi hình 5–8 s, pct_still ≤25%. Báo cáo: `research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md`.
 - **23/11/2026 12:45: 002 Lady Be Good ĐÃ ĐĂNG CÔNG KHAI** https://youtu.be/RHKCFi3l2V0 (anh yêu cầu đăng ngay, không hẹn giờ).
   - Giọng: clone Algenib bằng Qwen3-TTS "chậm + sáng" (anh chọn). Render trên máy anh 14m12s (HyperFrames, 19 đoạn, 5 worker); tiếng chuẩn hóa -14 LUFS. Chi tiết `videos/002-lady-be-good/render/RENDERED.txt`.
   - Tải lên bằng `yt_publish.py upload ... --now` (cờ mới: áp gói rồi chuyển Công khai). Đọc lại: `package/READBACK.txt`.

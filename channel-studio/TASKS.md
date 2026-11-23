@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 13:04 (giờ Việt Nam).
+Cập nhật: 2026-11-23 15:51 (giờ Việt Nam).
 
 ## Đang làm (0)
 
@@ -34,6 +34,7 @@ Cập nhật: 2026-11-23 13:04 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-043 Phân tích chuyển động 5 kênh đối thủ, đặt mốc chuyển động cho video sau (2026-11-23 15:51): channel-studio/research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md, channel-studio/research/2026-11-23-motion/metrics.txt, channel-studio/research/2026-11-23-motion/videos.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/motion_metrics.py, .claude/skills/hoang-dung-clay-lapis-studio/references/production-workflow.md
 - T-041 002 Lady Be Good: tải lên qua API + công khai ngay 23/11 (anh yêu cầu không hẹn giờ) (2026-11-23 12:44): channel-studio/videos/002-lady-be-good/package/UPLOADED.txt, channel-studio/videos/002-lady-be-good/package/READBACK.txt
 - T-025 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) (2026-11-23 12:39): channel-studio/videos/002-lady-be-good/voice/narration_report_clone.md, projects/lady-be-good/assets/audio/narration_clone/S0.1.wav
 - T-039 002 Lady Be Good: dựng HyperFrames + render MP4 30 phút (2026-11-23 12:39): channel-studio/videos/002-lady-be-good/render/renders/lady-be-good.mp4, channel-studio/videos/002-lady-be-good/render/RENDERED.txt
@@ -48,4 +49,3 @@ Cập nhật: 2026-11-23 13:04 (giờ Việt Nam).
 - T-027 Trả lời: có cách nào để AI tự đăng video lên YouTube không (kiểm chính sách + phương án) (2026-11-22 23:49): channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-026 Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API (2026-11-22 23:22): channel-studio/PLAN.md
 - T-019 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần (2026-11-22 22:21): channel-studio/videos/002-lady-be-good/script_part1.md, channel-studio/videos/002-lady-be-good/script_part2.md, channel-studio/videos/002-lady-be-good/script_part3.md, channel-studio/videos/002-lady-be-good/script_part4.md, channel-studio/videos/002-lady-be-good/script_full_ready.txt, channel-studio/videos/002-lady-be-good/script_part1.qa.md, channel-studio/videos/002-lady-be-good/script_part2.qa.md, channel-studio/videos/002-lady-be-good/script_part3.qa.md, channel-studio/videos/002-lady-be-good/script_part4.qa.md
-- T-024 Hướng dẫn + script khôi phục toàn bộ dữ liệu ICYFOX khi đổi máy tính (2026-11-22 22:03): channel-studio/guides/KHOI_PHUC_MAY_MOI.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/restore_machine.sh

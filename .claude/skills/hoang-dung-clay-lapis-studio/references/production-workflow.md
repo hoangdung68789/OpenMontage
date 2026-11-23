@@ -64,7 +64,8 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
   - Thẻ chữ, lưới thẻ (tổ bay, chip số liệu): sau khi hiện vẫn trôi chậm (máy đẩy 1.00→1.05 hoặc lia), bật sáng lần lượt từng mục đúng lúc lời nhắc tới; thẻ dài > 8 s thì tách thành nhiều nhịp.
   - Bản đồ: máy di chuyển + đường bay vẽ dần + điểm nhấp nháy (đã có ở 002).
   - Minh họa: parallax nhiều lớp chạy tốc độ khác nhau, thêm bụi/sương trôi.
-  - Đổi cảnh mỗi 6–10 s; chuyển cảnh đa dạng (cắt, hòa, đẩy, khớp hình).
+  - Đổi hình trung bình mỗi 5–8 s (đo 23/11 trên Uncharted Mysteries và Fall of Civilizations: 3,6–10,7 s; 002 là 16,7–25,7 s). Một ảnh không giữ quá 12 s. Chuyển cảnh đa dạng (cắt, hòa, đẩy, khớp hình).
+  - Học từ đối thủ (`channel-studio/research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md`): ảnh di vật trong khung bo góc trên nền tối có bụi trôi; ký hiệu bản đồ hiện dần theo lời; biểu tượng trên thẻ số liệu hiện lần lượt.
   - Cấm: lắc/rung khung. Chuyển động chậm, mượt kiểu phim tài liệu.
 - Các loại cảnh:
   - Ảnh di vật thật, cho chuyển động chậm có chủ đích (parallax, đẩy máy).
@@ -89,6 +90,7 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 ## 8. Kiểm tra chất lượng trước khi trình anh
 - **Không có đoạn hình đứng yên ≥ 4 s** (đo trên bản render):
   `ffmpeg -nostats -i X.mp4 -an -vf "scale=480:-1,freezedetect=n=-60dB:d=4" -f null - 2>&1 | grep freeze_start` phải ra rỗng.
+  Đo đủ chỉ số bằng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/motion_metrics.py X.mp4`. Đạt khi `static_pct` ≤ 2%, `sec_per_change` 5–8, `pct_still` ≤ 25%. Đây là mức của 5 kênh đối thủ đo ngày 23/11: đứng yên 0–3,5%.
   Mốc so sánh 002 (23/11): 110 đoạn đứng yên ≥ 3 s, tổng 62% thời lượng, dài nhất 34,6 s (thẻ "NINE MEN" lúc 2:42). Lỗi này là lý do có luật trên.
 - Tiếng khớp hình. Không có khung hình đen. Âm lượng ổn (khoảng −14 LUFS cho YouTube, nhận định).
 - Mọi ảnh đều có trong danh sách ghi công trong repo. Trên màn hình KHÔNG ghi nguồn từng ảnh; mô tả chỉ 1 dòng nguồn tổng hợp nếu có (anh chốt 23/11/2026, xem `publish-package.md`). Ảnh CC BY/BY-SA vẫn phải có ghi công vì giấy phép bắt buộc.
