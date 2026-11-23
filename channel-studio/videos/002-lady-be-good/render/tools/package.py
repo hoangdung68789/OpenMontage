@@ -57,22 +57,12 @@ def tail():
     out = ["CHAPTERS"]
     for c, name in zip(TL["chapters"], CH_NAMES):
         out.append(f"{mmss(0 if c['num'] == 0 else c['start'])} {name}")
-    out += ["", "SOURCES"] + [f"- {n} – {u} (accessed {ACCESSED})" for n, u in SOURCES]
+    # anh chốt 23/11: mô tả không liệt kê nguồn, ghi công ảnh public domain hay cách làm video (vẫn lưu ở render/tools)
     lic = {MAN[PHOTOS[k]["file"]]["license"] for k in used_photos()}
-    assert lic == {"Public domain"}, lic  # gộp ghi công chỉ đúng khi mọi ảnh là public domain
-    out += ["", "IMAGE CREDITS", "Photographs: U.S. Army Air Forces / U.S. Air Force, public domain, via Wikimedia Commons:"]
-    for k in used_photos():  # chỉ ghi tên file để mô tả dưới 5000 byte; link đầy đủ ở render/tools/beats.py + _manifest.json
-        out.append("- " + MAN[PHOTOS[k]["file"]]["page"].removeprefix("https://"))  # tên file tải về có thể khác tên trên Commons
-    out.append("- Maps drawn from Natural Earth data (public domain); positions are approximate.")
-    out.append("- Illustrations made for this video; they are labeled \"Illustration\" on screen.")
-    out += ["", "MUSIC"]
-    for track in dict.fromkeys(m[0] for m in MUSIC):
-        name = track.removesuffix(".mp3").replace("_", " ")
-        out += [f"\"{name}\" Kevin MacLeod (incompetech.com)", "Licensed under Creative Commons: By Attribution 4.0",
-                "http://creativecommons.org/licenses/by/4.0/", ""]
-    out += ["HOW WE MAKE VIDEOS",
-            "Research and scripts are prepared with AI assistance and checked against the sources above before publishing. "
-            "Narration uses a synthetic (AI) voice. Where the records disagree, the video says so and shows each source.",
+    assert lic == {"Public domain"}, lic  # ảnh public domain không bắt buộc ghi công; ảnh CC BY thì phải thêm lại dòng ghi công
+    names = ", ".join(f"\"{t.removesuffix('.mp3').replace('_', ' ')}\"" for t in dict.fromkeys(m[0] for m in MUSIC))
+    out += ["", f"Music: {names} by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0 "
+            "(http://creativecommons.org/licenses/by/4.0/)",  # giấy phép CC BY bắt buộc ghi công nhạc
             "", " ".join(HASH)]
     return "\n".join(out)
 

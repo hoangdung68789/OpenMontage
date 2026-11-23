@@ -24,18 +24,12 @@ CHAPTERS
 02:20 Chapter 1 – ...
 ...
 
-SOURCES
-- <Tên nguồn> – <link> (accessed <ngày>)
-...
-
-IMAGE CREDITS
-- <tên file> by <tác giả>, <giấy phép>, via Wikimedia Commons – <link>
-
-HOW WE MAKE VIDEOS
-Research and scripts are prepared with AI assistance and checked by a human editor before publishing. Narration uses a synthetic voice.
+Music: "<bài 1>", "<bài 2>" by <tác giả> (<nguồn>), licensed under CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/)
+<chỉ khi có ảnh/clip CC BY hoặc CC BY-SA: 1 dòng> Images: <tác giả> / <giấy phép>, via Wikimedia Commons
 
 #history #mythology #<chủ đề>
 ```
+- **Anh chốt 23/11/2026: mô tả gọn.** KHÔNG ghi danh sách nguồn (SOURCES), không ghi công ảnh public domain, không có đoạn "HOW WE MAKE VIDEOS"/cách làm video. Chỉ giữ dòng ghi công mà giấy phép bắt buộc: nhạc CC BY (Kevin MacLeod...) và ảnh CC BY/BY-SA nếu có. Nguồn vẫn lưu trong repo (kịch bản, `render/tools`, `_manifest.json`) để tự kiểm.
 - Mốc chương bắt đầu từ `00:00`. Cần ít nhất 3 chương, mỗi chương dài từ 10 giây [theo quy định chapters của YouTube, cần kiểm lại khi dùng].
 
 ## Khai báo AI khi tải lên

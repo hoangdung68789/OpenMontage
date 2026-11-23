@@ -95,7 +95,11 @@ def apply(h, vdir, vid, when, dry, public=False):
         body["status"]["publishAt"] = when[0]
     if i18n:
         body["localizations"] = {k: {"title": v["title"][:100], "description": v["description"]} for k, v in i18n.items()}
-    parts = "snippet,status" + (",localizations" if i18n else "")
+    ok, cur = api(h, f"{DATA}/videos", {"part": "status", "id": vid}, fatal=False)
+    if ok and cur.get("items") and cur["items"][0]["status"]["privacyStatus"] == "public" and not dry:
+        body.pop("status")  # video đã công khai: chỉ sửa nội dung, không kéo về Riêng tư
+        when, public = (None, "đã công khai từ trước"), False
+    parts = ("snippet,status" if "status" in body else "snippet") + (",localizations" if i18n else "")
     thumb = next((p for p in (pkg / "thumbnail.png", pkg / "thumbnail.jpg") if p.exists()), None)
     subs = sorted((pkg / "subtitles").glob("*.srt")) if (pkg / "subtitles").exists() else []
     units = 50 + (50 if thumb else 0) + 400 * len(subs)
