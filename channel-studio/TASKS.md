@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 16:07 (giờ Việt Nam).
+Cập nhật: 2026-11-23 17:16 (giờ Việt Nam).
 
 ## Đang làm (1)
 
@@ -35,6 +35,7 @@ Cập nhật: 2026-11-23 16:07 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-044 Đưa motion graphics vào skill: quy tắc, bộ chuyển động, cổng đo trong sổ việc, quy trình (2026-11-23 17:16): .claude/skills/hoang-dung-clay-lapis-studio/references/motion-graphics.md, channel-studio/motion-kit/icyfox_motion.py, channel-studio/motion-kit/README.md, channel-studio/motion-kit/demo/metrics.txt, channel-studio/motion-kit/demo/grid.jpg
 - T-043 Phân tích chuyển động 5 kênh đối thủ, đặt mốc chuyển động cho video sau (2026-11-23 15:51): channel-studio/research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md, channel-studio/research/2026-11-23-motion/metrics.txt, channel-studio/research/2026-11-23-motion/videos.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/motion_metrics.py, .claude/skills/hoang-dung-clay-lapis-studio/references/production-workflow.md
 - T-041 002 Lady Be Good: tải lên qua API + công khai ngay 23/11 (anh yêu cầu không hẹn giờ) (2026-11-23 12:44): channel-studio/videos/002-lady-be-good/package/UPLOADED.txt, channel-studio/videos/002-lady-be-good/package/READBACK.txt
 - T-025 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) (2026-11-23 12:39): channel-studio/videos/002-lady-be-good/voice/narration_report_clone.md, projects/lady-be-good/assets/audio/narration_clone/S0.1.wav
@@ -49,4 +50,3 @@ Cập nhật: 2026-11-23 16:07 (giờ Việt Nam).
 - T-028 Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip (2026-11-22 23:53): channel-studio/research/2026-11-22-api-upload-test/result.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py, channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-027 Trả lời: có cách nào để AI tự đăng video lên YouTube không (kiểm chính sách + phương án) (2026-11-22 23:49): channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-026 Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API (2026-11-22 23:22): channel-studio/PLAN.md
-- T-019 002 Lady Be Good: viết Phần 2–4, mỗi phần qa_check ĐẠT; gộp duyệt cả kịch bản 1 lần trong lô duyệt tuần (2026-11-22 22:21): channel-studio/videos/002-lady-be-good/script_part1.md, channel-studio/videos/002-lady-be-good/script_part2.md, channel-studio/videos/002-lady-be-good/script_part3.md, channel-studio/videos/002-lady-be-good/script_part4.md, channel-studio/videos/002-lady-be-good/script_full_ready.txt, channel-studio/videos/002-lady-be-good/script_part1.qa.md, channel-studio/videos/002-lady-be-good/script_part2.qa.md, channel-studio/videos/002-lady-be-good/script_part3.qa.md, channel-studio/videos/002-lady-be-good/script_part4.qa.md

@@ -204,3 +204,41 @@ def test_voicestudio_client_parses_segments_and_blocks_noncommercial(tmp_path):
         with pytest.raises(SystemExit):
             vs.gate(bad)
     assert vs.gate("voxcpm2")[0] == "apache-2.0"
+
+
+def test_render_gate_rejects_static_video_and_accepts_moving(ws):
+    """Cổng chuyển động: video đứng yên 8 giây bị từ chối, video luôn chuyển động được nhận."""
+    still, moving = ws / "still.mp4", ws / "moving.mp4"
+    frame = ws / "f.png"   # một khung chi tiết, lặp 8 giây, toàn khung I để file > 100 KB
+    subprocess.run(["ffmpeg", "-v", "error", "-f", "lavfi", "-i", "testsrc2=s=640x360:d=1", "-frames:v", "1", str(frame)], check=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-loop", "1", "-i", str(frame), "-t", "8", "-r", "30", "-c:v", "libx264", "-g", "1",
+                    "-pix_fmt", "yuv420p", str(still)], check=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-f", "lavfi", "-i", "testsrc2=s=640x360:d=8:r=30", "-c:v", "libx264", "-b:v", "2M",
+                    str(moving)], check=True)
+    comp = "--component", "Render :: 8 giây, 640x360 :: motion_metrics.py chạy trong tasks.py :: {}"
+    for name, expect in (("still.mp4", 2), ("moving.mp4", 0)):
+        run(ws, S / "tasks.py", "add", f"render {name}", "--type", "render", "--dod", "đạt mốc chuyển động")
+    r = run(ws, S / "tasks.py", "done", "T-001", "--evidence", "still.mp4", "--summary", "Render thử video đứng yên",
+            comp[0], comp[1].format("still.mp4"))
+    assert r.returncode == 2 and "chưa đạt mốc chuyển động" in r.stdout, r.stdout
+    r = run(ws, S / "tasks.py", "done", "T-002", "--evidence", "moving.mp4", "--summary", "Render thử video chuyển động",
+            comp[0], comp[1].format("moving.mp4"))
+    assert r.returncode == 0, r.stdout + r.stderr
+
+
+def test_motion_kit_validate_and_build(tmp_path):
+    kit = S.parents[3] / "channel-studio" / "motion-kit" / "icyfox_motion.py"
+    if not kit.exists():
+        pytest.skip("không có motion-kit")
+    plan = {"scenes": [{"type": "title", "dur": 5, "text": "T"}, {"type": "quote", "dur": 6, "text": "a b c", "by": "x"},
+                       {"type": "stat", "dur": 5, "value": 12, "label": "x"}]}
+    pf = tmp_path / "p.json"
+    pf.write_text(json.dumps(plan))
+    r = subprocess.run([sys.executable, str(kit), "build", str(pf), str(tmp_path / "out")], capture_output=True, text=True)
+    assert r.returncode == 0, r.stdout + r.stderr
+    body = (tmp_path / "out" / "compositions" / "body.html").read_text(encoding="utf-8")
+    assert 'window.__timelines["body"]' in body and "Math.random" not in body and (tmp_path / "out" / "assets" / "gsap.min.js").exists()
+    bad = {"scenes": [{"type": "photo", "dur": 30, "src": "x.jpg"}]}   # thiếu ghi công
+    pf.write_text(json.dumps(bad))
+    r = subprocess.run([sys.executable, str(kit), "validate", str(pf)], capture_output=True, text=True)
+    assert r.returncode == 2 and "ghi công" in r.stdout

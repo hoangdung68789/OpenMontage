@@ -33,6 +33,7 @@ channel-studio/
 ├── channel/
 │   ├── channel_setup.md       # tên kênh, About, từ khóa, danh sách phát, cài đặt tải lên, checklist YPP, lịch đăng
 │   └── automation_plan.md     # kế hoạch tự động hóa
+├── motion-kit/                # BỘ CHUYỂN ĐỘNG: icyfox_motion.py (validate/build), vendor/gsap, demo/ (lưới khung + số đo)
 ├── videos/
 │   └── NNN-slug/              # mỗi video dài một thư mục, ví dụ 002-lady-be-good
 │       ├── README.md          # trạng thái, trụ cột (P1–P5), series/tập nếu có, link Notion
@@ -42,6 +43,7 @@ channel-studio/
 │       ├── script_full_ready.txt # đánh dấu kịch bản đủ các phần (autopilot đọc)
 │       ├── voice/             # ghi chú giọng (file âm thanh không lên git)
 │       ├── shorts/            # Shorts cắt từ video này: SNN-slug.md (+ .mp4 không lên git)
+│       ├── render/motion_plan.json # kế hoạch chuyển động từng cảnh (icyfox_motion.py validate)
 │       ├── render/            # dự án HyperFrames + RENDERED.txt (đường dẫn MP4, dung lượng, thời gian render)
 │       └── package/           # title.txt, description.md, tags.txt, category.txt, thumbnail.png (< 2 MB),
 │                              # subtitles/<mã ngôn ngữ>.srt, i18n.json, publish_at.txt, UPLOADED.txt (yt_publish.py ghi)

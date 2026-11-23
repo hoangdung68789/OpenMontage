@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 44,
+ "next": 45,
  "tasks": [
   {
    "id": "T-001",
@@ -1703,6 +1703,68 @@
     ],
     "remaining": "Chưa áp mốc mới vào video nào; video 003 sẽ là lần đầu kiểm theo mốc này. Chỉ đo hình, không đo tiếng/nhịp nhạc của đối thủ.",
     "check": "python -m py_compile .claude/skills/hoang-dung-clay-lapis-studio/scripts/motion_metrics.py"
+   }
+  },
+  {
+   "id": "T-044",
+   "title": "Đưa motion graphics vào skill: quy tắc, bộ chuyển động, cổng đo trong sổ việc, quy trình",
+   "type": "code",
+   "dod": "motion-graphics.md + motion-kit (validate/build) + bản thử render đạt mốc + cổng render trong tasks.py + test",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 17:16",
+   "evidence": [
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/motion-graphics.md",
+    "channel-studio/motion-kit/icyfox_motion.py",
+    "channel-studio/motion-kit/README.md",
+    "channel-studio/motion-kit/demo/metrics.txt",
+    "channel-studio/motion-kit/demo/grid.jpg"
+   ],
+   "log": [
+    "2026-11-23 17:16 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-23 17:16",
+   "report": {
+    "summary": "Motion graphics thành một phần của skill: quy tắc 3 lớp chuyển động + mốc đo, bộ 6 loại cảnh sinh HyperFrames, bản thử 49,5 giây render trên cloud đạt static 0% (002: 71%), cổng tasks.py từ chối render đứng yên",
+    "components": [
+     {
+      "name": "Quy tắc",
+      "result": "motion-graphics.md: 4 mốc đo, 3 lớp (máy quay/không khí/nhịp ≤ 8 s), bảng 38 thành phần HyperFrames theo nhu cầu, quy trình 6 bước",
+      "verified_by": "script kiểm cả 38 tên thành phần/khối có thật trong hyperframes/registry (0 thiếu)",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/motion-graphics.md"
+     },
+     {
+      "name": "Bộ chuyển động",
+      "result": "icyfox_motion.py: 6 loại cảnh (title, photo, document, map, stat, quote), validate (khoảng trống ≤ 8 s, ảnh phải ghi công), build ra dự án HyperFrames, GSAP để sẵn",
+      "verified_by": "npx hyperframes lint 0 lỗi, check đạt (19/19 WCAG AA)",
+      "evidence": "channel-studio/motion-kit/icyfox_motion.py"
+     },
+     {
+      "name": "Bản thử render",
+      "result": "49,5 s, 6 cảnh ảnh 002, render draft 2 m 33 s trên cloud; static_pct 0, longest 0 s, pct_still 4,1, sec_per_change 8,2",
+      "verified_by": "motion_metrics.py + freezedetect d=4 rỗng + xem lưới 8 khung, sửa 3 lỗi hình (ảnh nhỏ, vệt tô không theo tài liệu, vệt tô trắng) rồi render lại",
+      "evidence": "channel-studio/motion-kit/demo/metrics.txt, channel-studio/motion-kit/demo/grid.jpg"
+     },
+     {
+      "name": "Cổng sổ việc",
+      "result": "tasks.py done loại render chạy motion_metrics trên MP4, từ chối nếu static_pct > 2, longest ≥ 4, pct_still > 25",
+      "verified_by": "test video đứng yên bị từ chối, video chuyển động được nhận; 13/13 test đạt",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py"
+     },
+     {
+      "name": "Nối quy trình",
+      "result": "production-workflow, read-map, SKILL.md, workspace-structure (motion-kit/, render/motion_plan.json), decisions-log",
+      "verified_by": "grep từng file có dòng mới",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/SKILL.md, .claude/skills/hoang-dung-clay-lapis-studio/references/read-map.md"
+     }
+    ],
+    "remaining": "sec_per_change 8,2 s hơi trên mốc 5–8 s (nhịp đổi hình nhẹ nhàng chưa vượt ngưỡng đo); chưa có cảnh 3D hay video thật; video 003 trở đi phải dựng bằng bộ này",
+    "check": "python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
    }
   }
  ]

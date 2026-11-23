@@ -1,0 +1,100 @@
+{
+ "seed": 11,
+ "assets_dir": "../videos/002-lady-be-good/render/assets/img",
+ "scenes": [
+  {
+   "type": "title",
+   "dur": 5,
+   "text": "THE BOMBER",
+   "sub": "ICYFOX · MOTION KIT TEST"
+  },
+  {
+   "type": "photo",
+   "dur": 14,
+   "src": "Lady_Be_Good.jpg",
+   "caption": "April 4, 1943: the crew takes off from Soluch.",
+   "credit": "U.S. Air Force · public domain (demo)",
+   "details": [
+    [
+     35,
+     55,
+     2.2
+    ]
+   ]
+  },
+  {
+   "type": "map",
+   "dur": 10,
+   "route": [
+    [
+     420,
+     300
+    ],
+    [
+     760,
+     420
+    ],
+    [
+     1180,
+     640
+    ],
+    [
+     1500,
+     860
+    ]
+   ],
+   "places": [
+    [
+     420,
+     300,
+     "SOLUCH"
+    ],
+    [
+     1180,
+     640,
+     "LIBYAN DESERT"
+    ],
+    [
+     1500,
+     860,
+     "WRECK SITE"
+    ]
+   ],
+   "caption": "440 miles past the coast."
+  },
+  {
+   "type": "document",
+   "dur": 10,
+   "src": "B-24D_Lady_Be_Good_Missing_Air_Crew_Report_MACR_937_page_1.png",
+   "credit": "NARA · public domain (demo)",
+   "highlights": [
+    [
+     8,
+     52,
+     84,
+     3,
+     1.5
+    ],
+    [
+     8,
+     60,
+     84,
+     3,
+     3.5
+    ]
+   ]
+  },
+  {
+   "type": "stat",
+   "dur": 6,
+   "value": 440,
+   "label": "miles into the Sahara"
+  },
+  {
+   "type": "quote",
+   "dur": 8,
+   "text": "We never saw the coast. We only saw sand.",
+   "by": "— DIARY, 1943 (DEMO TEXT)"
+  }
+ ]
+}

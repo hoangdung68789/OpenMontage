@@ -136,6 +136,21 @@ def dod_check(task, paths, check_cmd):
         vids = [f for f in files if f.suffix.lower() in (".mp4", ".mov", ".webm")]
         if t == "render" and not [v for v in vids if v.stat().st_size > 100_000]:
             errs.append("cần file video > 100 KB")
+        for v in vids:   # CỔNG CHUYỂN ĐỘNG (references/motion-graphics.md §1): không nhận video đứng yên
+            if v.stat().st_size <= 100_000:
+                continue
+            r = subprocess.run([sys.executable, str(Path(__file__).resolve().parent / "motion_metrics.py"), str(v)],
+                               capture_output=True, text=True)
+            m = re.search(r"\{.*\}", r.stdout)
+            if not m:
+                errs.append(f"không đo được chuyển động của {v.name}: {(r.stdout + r.stderr)[-200:]}")
+                continue
+            met = __import__("ast").literal_eval(m.group(0))
+            bad = [f"{k}={met[k]} (mốc {lim})" for k, lim, ok in (
+                ("static_pct", "<= 2", met["static_pct"] <= 2), ("longest_static", "< 4", met["longest_static"] < 4),
+                ("pct_still", "<= 25", met["pct_still"] <= 25)) if not ok]
+            if bad:
+                errs.append(f"{v.name} chưa đạt mốc chuyển động: " + ", ".join(bad) + " (xem motion-graphics.md)")
         if t == "shorts" and not (vids or md):
             errs.append("cần video Short hoặc kịch bản Short .md")
     elif t == "package":
