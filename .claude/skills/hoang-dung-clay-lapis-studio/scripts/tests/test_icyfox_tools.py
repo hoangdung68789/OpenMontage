@@ -189,3 +189,18 @@ def test_backup_check_skips_when_recent_commit(tmp_path):
     assert run(work, S / "autopilot.py", "--backup-check").returncode == 0
     commit("now" if False else __import__("datetime").datetime.now().isoformat(timespec="seconds"))
     assert run(work, S / "autopilot.py", "--backup-check").returncode == 3
+
+
+def test_voicestudio_client_parses_segments_and_blocks_noncommercial(tmp_path):
+    import importlib.util
+    spec = importlib.util.spec_from_file_location("vs", S / "voice" / "voicestudio_tts.py")
+    vs = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(vs)
+    md = tmp_path / "p.md"
+    md.write_text("# x\n### S0.1 · 0:00 · a\n> Hello there. [pause] World.\n- Giọng: x\n### S0.2 · b\n> Second line.\n", encoding="utf-8")
+    segs = vs.segments(md)
+    assert [s["id"] for s in segs] == ["S0.1", "S0.2"] and "[pause]" not in segs[0]["text"]
+    for bad in ("omnivoice", "tts-1", "audio-cpp", "unknown-engine"):
+        with pytest.raises(SystemExit):
+            vs.gate(bad)
+    assert vs.gate("voxcpm2")[0] == "apache-2.0"

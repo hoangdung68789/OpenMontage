@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 10:54 (giờ Việt Nam).
+Cập nhật: 2026-11-23 11:05 (giờ Việt Nam).
 
 ## Đang làm (1)
 
@@ -9,21 +9,20 @@ Cập nhật: 2026-11-23 10:54 (giờ Việt Nam).
 |---|---|---|---|---|---|---|---|---|
 | T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
 
-## Chờ anh quyết (1)
+## Chờ anh quyết (0)
 
-| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
-|---|---|---|---|---|---|---|---|---|
-| T-034 | Chờ anh | claude | Cho AI tự chạy không cần anh nhắc: phiên cloud dự phòng khi máy anh tắt + tự chạy tiếp khi hết hạn mức + danh sách việc anh làm 1 lần | ops |  |  | autopilot.py --backup-check chạy đúng (RUN/SKIP); tác vụ hẹn giờ cloud tạo xong; autopilot.md §8 + HANDOFF cập nhật; test đạt | Anh cho phép tạo tác vụ hẹn giờ trên cloud 'ICYFOX dự phòng' (13:17 và 20:17 mỗi ngày; tự bỏ qua nếu máy anh vừa làm trong 8 giờ qua)? Trả lời 'tạo lịch dự phòng'. |
+(không có)
 
 ## Bị chặn (0)
 
 (không có)
 
-## Chưa làm (theo ưu tiên) (11)
+## Chưa làm (theo ưu tiên) (12)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
 | T-002 | Chưa làm | codex | Sửa tools/audio/gemini_tts.py dùng API v1beta (model gemini-3.8-flash-tts báo 404) | code |  | 2026-11-25 | Tạo được 1 file giọng 10 giây bằng gemini_tts; test pytest đạt |  |
+| T-036 | Chưa làm | claude-local | VoiceStudio trên máy anh: cài app, bật VoxCPM2, thiết kế giọng 'icyfox-narrator' (không nhân bản người thật), kiểm thẻ mô hình openbmb/VoxCPM2 (Apache-2.0), chạy voicestudio_tts.py check + sample 60 giây, rồi đọc lại 002 bằng giọng này | voice |  | 2026-11-26 | File mẫu WAV + manifest.json (engine voxcpm2, giấy phép apache-2.0) + ghi chú giấy phép đã kiểm; HANDOFF ghi thời gian sinh 1 phút giọng |  |
 | T-004 | Chưa làm | claude | Render thử 3 phút bằng HyperFrames để đo thời gian render trên cloud | render |  | 2026-11-30 | MP4 3 phút + render/RENDERED.txt ghi thời gian render, máy, dung lượng |  |
 | T-005 | Chưa làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
 | T-032 | Chưa làm | claude-local | Bật AI tự tải lên: đặt YT_AUDIT_APPROVED=1 trong OpenMontage/.env (thử thật T-028/T-030 đạt), tải thật Short đầu tiên bằng yt_publish.py upload với hẹn giờ 01/12, theo dõi 24 giờ; bị khóa thì anh kéo thả | publish |  | 2026-11-30 | UPLOADED.txt của Short đầu ghi video_id + publishAt; sau giờ hẹn đọc lại privacyStatus=public; ghi kết quả vào TU_DONG_DANG_VIDEO.md §5 |  |
@@ -37,6 +36,9 @@ Cập nhật: 2026-11-23 10:54 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-034 Cho AI tự chạy không cần anh nhắc: phiên cloud dự phòng khi máy anh tắt + tự chạy tiếp khi hết hạn mức + danh sách việc anh làm 1 lần (2026-11-23 11:05): .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py, .claude/skills/hoang-dung-clay-lapis-studio/references/autopilot.md, .claude/skills/hoang-dung-clay-lapis-studio/references/decisions-log.md
+- T-035 Tìm chủ đề đang lên liên quan kênh (radar lần 2 + kiểm chứng 2 thời điểm + cụm chủ đề), đưa vào kho ý tưởng (2026-11-23 11:05): channel-studio/research/2026-11-23-trend/DE_XUAT_CHU_DE.md, channel-studio/research/2026-11-23-trend/trend_rows.json, channel-studio/research/2026-11-23-radar/RADAR.md, channel-studio/ideas/IDEA_BANK.md
+- T-037 Script giọng VoiceStudio (voicestudio_tts.py) + chặn engine không thương mại (2026-11-23 11:05): .claude/skills/hoang-dung-clay-lapis-studio/scripts/voice/voicestudio_tts.py, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py
 - T-033 Sao chép repo OmniVoice + VoiceStudio vào phiên và ghi vào bản đồ repo (2026-11-23 00:04): .claude/skills/hoang-dung-clay-lapis-studio/references/toolbox-repos.md, /home/user/hoangdung68789/voicestudio/README.md, /home/user/hoangdung68789/omnivoice/README.md
 - T-030 Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa (2026-11-23 00:00): channel-studio/research/2026-11-22-api-upload-test/result.json, channel-studio/guides/TU_DONG_DANG_VIDEO.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py
 - T-028 Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip (2026-11-22 23:53): channel-studio/research/2026-11-22-api-upload-test/result.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py, channel-studio/guides/TU_DONG_DANG_VIDEO.md
@@ -49,6 +51,3 @@ Cập nhật: 2026-11-23 10:54 (giờ Việt Nam).
 - T-018 Đổi lời nhắn 2 tác vụ hẹn giờ trên máy anh sang chế độ tự lái (autopilot.md §8); báo cáo tuần ghi vào analytics/reports/ (2026-11-22 21:49): channel-studio/HANDOFF.md, .claude/settings.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py
 - T-021 Sửa lỗi anh không lưu được skill (description 1.240 > 1.024 ký tự) (2026-11-22 21:44): .claude/skills/hoang-dung-clay-lapis-studio/SKILL.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py
 - T-020 Đồng bộ GitHub + soạn lời nhắn cho phiên trên máy anh cập nhật hệ thống mới (2026-11-22 21:39): channel-studio/guides/PROMPT_CAP_NHAT_MAY_TINH.md
-- T-016 Báo cáo số liệu kênh tự động qua YouTube Analytics API (2026-11-22 21:34): channel-studio/analytics/reports/2026-11-22/report.md, channel-studio/analytics/reports/2026-11-22/data.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/research/yt_analytics_report.py
-- T-017 Chế độ tự lái: autopilot.py, pipeline icyfox-autopilot, qa_check.py, yt_publish.py, autopilot.md (2026-11-22 21:34): .claude/skills/hoang-dung-clay-lapis-studio/references/autopilot.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py, pipeline_defs/icyfox-autopilot.yaml, .claude/skills/hoang-dung-clay-lapis-studio/scripts/qa_check.py, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_publish.py, channel-studio/videos/001-gilgamesh-lost-lines/script_part2.qa.md
-- T-014 Bộ nhớ series nhiều tập (series.py + series-playbook) (2026-11-22 21:33): .claude/skills/hoang-dung-clay-lapis-studio/scripts/series.py, .claude/skills/hoang-dung-clay-lapis-studio/references/series-playbook.md, channel-studio/series/SERIES_INDEX.md
