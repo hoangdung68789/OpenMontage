@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 00:04 (giờ Việt Nam).
+Cập nhật: 2026-11-23 10:54 (giờ Việt Nam).
 
 ## Đang làm (1)
 
@@ -9,9 +9,11 @@ Cập nhật: 2026-11-23 00:04 (giờ Việt Nam).
 |---|---|---|---|---|---|---|---|---|
 | T-025 | Đang làm | claude | 002 Lady Be Good: lời đọc cả video bằng giọng Algenib (anh chốt 22/11) | voice | 002-lady-be-good | 2026-11-25 | 31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn |  |
 
-## Chờ anh quyết (0)
+## Chờ anh quyết (1)
 
-(không có)
+| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
+|---|---|---|---|---|---|---|---|---|
+| T-034 | Chờ anh | claude | Cho AI tự chạy không cần anh nhắc: phiên cloud dự phòng khi máy anh tắt + tự chạy tiếp khi hết hạn mức + danh sách việc anh làm 1 lần | ops |  |  | autopilot.py --backup-check chạy đúng (RUN/SKIP); tác vụ hẹn giờ cloud tạo xong; autopilot.md §8 + HANDOFF cập nhật; test đạt | Anh cho phép tạo tác vụ hẹn giờ trên cloud 'ICYFOX dự phòng' (13:17 và 20:17 mỗi ngày; tự bỏ qua nếu máy anh vừa làm trong 8 giờ qua)? Trả lời 'tạo lịch dự phòng'. |
 
 ## Bị chặn (0)
 

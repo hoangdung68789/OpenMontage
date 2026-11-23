@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 34,
+ "next": 35,
  "tasks": [
   {
    "id": "T-001",
@@ -1208,6 +1208,26 @@
     "remaining": "Chỉ đọc: phiên này không đẩy được lên 2 repo đó. Chưa chạy thử engine nào; giấy phép từng engine khác trong Model Manager chưa kiểm",
     "check": ""
    }
+  },
+  {
+   "id": "T-034",
+   "title": "Cho AI tự chạy không cần anh nhắc: phiên cloud dự phòng khi máy anh tắt + tự chạy tiếp khi hết hạn mức + danh sách việc anh làm 1 lần",
+   "type": "ops",
+   "dod": "autopilot.py --backup-check chạy đúng (RUN/SKIP); tác vụ hẹn giờ cloud tạo xong; autopilot.md §8 + HANDOFF cập nhật; test đạt",
+   "owner": "claude",
+   "status": "waiting",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 10:53",
+   "evidence": [],
+   "log": [
+    "2026-11-23 10:54 wait"
+   ],
+   "session": "manual",
+   "updated": "2026-11-23 10:54",
+   "question": "Anh cho phép tạo tác vụ hẹn giờ trên cloud 'ICYFOX dự phòng' (13:17 và 20:17 mỗi ngày; tự bỏ qua nếu máy anh vừa làm trong 8 giờ qua)? Trả lời 'tạo lịch dự phòng'."
   }
  ]
 }

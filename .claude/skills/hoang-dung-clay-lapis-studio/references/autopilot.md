@@ -104,3 +104,14 @@ rồi python3 .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py. 
 và references/work-contract.md, đến khi hết việc hoặc gặp việc quan trọng ở autopilot.md §4. Mỗi việc là một thẻ tasks.py.
 Chỉ báo xong khi tasks.py done chấp nhận. Cuối phiên chạy session_end.py, rồi gửi anh 1 tin ngắn: bảng thành phần đã làm và việc anh cần làm.
 ```
+
+### 8b. Phiên cloud dự phòng (đề xuất 23/11/2026, CHỜ ANH XÁC NHẬN, chưa tạo)
+**Vì sao cần:** tác vụ trên máy anh chỉ chạy khi máy bật và app Claude đang mở. Sáng 23/11, lúc 10:53, commit cuối trên GitHub đã cách đó 10,8 giờ: lượt 09:00 không chạy.
+
+**Cách làm:**
+- Lịch `CRON_TZ=Asia/Ho_Chi_Minh 17 13,20 * * *` (13:17 và 20:17), mỗi lần mở một phiên mới trên môi trường `video-channel-studio`. Môi trường này đã có đủ 16 repo, khóa API, biến YouTube.
+- Bước đầu tiên của phiên: `python3 SK/scripts/autopilot.py --backup-check`.
+  - **SKIP** (mã 3): nhánh có commit trong 8 giờ qua, tức máy anh vừa làm. Phiên kết thúc ngay, gần như không tốn hạn mức.
+  - **RUN**: phiên cloud làm việc thay, theo đúng autopilot.py và work-contract. Bỏ qua thẻ `claude-local` và việc cần `.env` của máy anh.
+- Không chạy trùng: cách đặt giờ và ngưỡng 8 giờ bảo đảm khi máy anh vừa chạy lúc 09:00 hoặc 17:00 thì phiên cloud lúc 13:17 hoặc 20:17 sẽ SKIP.
+

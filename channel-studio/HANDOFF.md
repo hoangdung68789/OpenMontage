@@ -5,6 +5,8 @@
 Đọc file này trước khi làm tiếp. Quy trình đầy đủ nằm trong skill `hoang-dung-clay-lapis-studio` (`.claude/skills/hoang-dung-clay-lapis-studio/SKILL.md`). **Đọc mục 0 "Tiêu chuẩn làm việc" trước.** Mở phiên bằng `bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh`.
 
 ## MỚI NHẤT
+- **23/11/2026 10:53:** lượt 09:00 trên máy anh không chạy (commit cuối cách 10,8 giờ). Đã thêm `autopilot.py --backup-check` và đề xuất phiên cloud dự phòng (autopilot.md §8b). **Chờ anh xác nhận** (T-034): hệ thống chặn việc tạo tác vụ hẹn giờ khi anh chưa trực tiếp yêu cầu.
+- **Việc anh làm 1 lần để AI chạy không cần nhắc:** (1) xác nhận tạo phiên cloud dự phòng; (2) bật trả phí Gemini API, vì gói miễn phí chỉ 10 lượt/ngày theo dòng 0a bên dưới, không đủ cho 1–2 video/ngày; ước tính khoảng 9 USD/tháng (KE_HOACH_90_NGAY §4); (3) nếu muốn máy anh chạy đều 09:00 và 17:00: để máy không ngủ khi cắm sạc và để app Claude mở.
 - **22/11/2026 23:59: thử hẹn giờ công khai qua API ĐẠT** (T-030). Clip tự chuyển Công khai đúng giờ hẹn, đã xóa. Việc tiếp theo là **T-032**: bật `YT_AUDIT_APPROVED=1` trong `.env` trên máy anh rồi tải thật Short đầu tiên. Chi tiết: `guides/TU_DONG_DANG_VIDEO.md` §4b.
 
 ## HỆ THỐNG MỚI (22/11/2026, tối): tự lái, sổ việc có kiểm chứng, chống quên
