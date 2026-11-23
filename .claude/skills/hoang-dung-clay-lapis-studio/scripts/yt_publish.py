@@ -7,7 +7,8 @@ YouTube lấy tên file làm tiêu đề (ví dụ "002-lady-be-good"), script n
   python yt_publish.py scan                                   # liệt kê video Riêng tư có tiêu đề dạng mã gói (002-..., S01-...)
   python yt_publish.py apply <thư_mục_video_hoặc_short> --video-id <ID> [--publish-at "2026-12-11 21:00"] [--dry-run]
   python yt_publish.py auto [--dry-run]                       # khớp tự động mọi video Riêng tư với gói đăng rồi áp
-  python yt_publish.py upload <thư_mục_video> [--file X.mp4] [--publish-at ...] [--dry-run]
+  python yt_publish.py upload <thư_mục_video> [--file X.mp4] [--publish-at ... | --now] [--dry-run]
+                                                              # --now: không hẹn giờ, áp gói xong chuyển Công khai ngay
                                                               # SAU KHI QUA AUDIT (YT_AUDIT_APPROVED=1): AI tự tải lên + áp gói + hẹn giờ
 
 Áp gồm: tiêu đề, mô tả, thẻ, danh mục, ngôn ngữ, bản dịch tiêu đề/mô tả (package/i18n.json), thumbnail (package/thumbnail.png|jpg),
@@ -73,7 +74,7 @@ def private_uploads(h):
     return [v for v in j.get("items", []) if v["status"]["privacyStatus"] == "private" and CODE_RX.match(v["snippet"]["title"].strip().lower())]
 
 
-def apply(h, vdir, vid, when, dry):
+def apply(h, vdir, vid, when, dry, public=False):
     import requests
     pkg = vdir / "package"
     need = [pkg / "title.txt", pkg / "description.md", pkg / "tags.txt"]
@@ -98,7 +99,7 @@ def apply(h, vdir, vid, when, dry):
     thumb = next((p for p in (pkg / "thumbnail.png", pkg / "thumbnail.jpg") if p.exists()), None)
     subs = sorted((pkg / "subtitles").glob("*.srt")) if (pkg / "subtitles").exists() else []
     units = 50 + (50 if thumb else 0) + 400 * len(subs)
-    print(f"Video {vid} ← {rel(vdir)}\n  Tiêu đề: {title}\n  Hẹn giờ: {when[1] + ' (giờ VN)' if when else 'KHÔNG (để Riêng tư)'}\n"
+    print(f"Video {vid} ← {rel(vdir)}\n  Tiêu đề: {title}\n  Hẹn giờ: {when[1] + ' (giờ VN)' if when else ('KHÔNG, công khai ngay' if public else 'KHÔNG (để Riêng tư)')}\n"
           f"  Thẻ: {len(tags)} · Bản dịch: {len(i18n)} ngôn ngữ · Thumbnail: {rel(thumb) if thumb else 'không có'} · Phụ đề: {len(subs)} file\n"
           f"  Hạn mức ước tính: {units} đơn vị")
     if dry:
@@ -125,6 +126,11 @@ def apply(h, vdir, vid, when, dry):
                                      "media": (s.name, s.read_bytes(), "application/octet-stream")}, timeout=120)
             done.append(f"phụ đề {lang}" + ("" if r.ok else f" LỖI {r.status_code} {r.text[:120]}"))
     stamp = now_vn().strftime("%Y-%m-%d %H:%M")
+    if public:  # công khai sau cùng, khi thumbnail + phụ đề đã lên
+        r = requests.put(f"{DATA}/videos", params={"part": "status"}, headers={**h, "Content-Type": "application/json"},
+                         json={"id": vid, "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}}, timeout=60)
+        done.append("công khai" if r.ok else f"công khai LỖI {r.status_code} {r.text[:150]}")
+        when = (None, stamp) if r.ok else when
     (pkg / "UPLOADED.txt").write_text(f"video_id={vid}\napplied_at_vn={stamp}\npublish_at_vn={when[1] if when else ''}\nresult={'; '.join(done)}\n",
                                       encoding="utf-8")
     vm = load_json(CS / "analytics" / "video_map.json", {})
@@ -198,15 +204,16 @@ def main():
     p.add_argument("vdir")
     p.add_argument("--file")
     p.add_argument("--publish-at")
+    p.add_argument("--now", action="store_true", help="không hẹn giờ: công khai ngay sau khi áp gói")
     p.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()
     h, scopes = yt_headers()
     if a.cmd == "upload":
         vdir = Path(a.vdir)
-        when = publish_time(vdir, a.publish_at)
+        when = None if a.now else publish_time(vdir, a.publish_at)
         vid = upload(h, vdir, find_mp4(vdir, a.file), a.dry_run)
         if vid:
-            apply(h, vdir, vid, when, False)
+            apply(h, vdir, vid, when, False, public=a.now)
         return
     if a.cmd == "apply":
         vdir = Path(a.vdir)

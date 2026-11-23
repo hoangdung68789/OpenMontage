@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 39,
+ "next": 43,
  "tasks": [
   {
    "id": "T-001",
@@ -860,19 +860,48 @@
    "type": "voice",
    "dod": "31 file WAV lời đọc Algenib trong projects/lady-be-good/assets/audio/narration; whisper khớp kịch bản ≥ 95% mỗi đoạn; voice/narration_report.md ghi độ dài, LUFS từng đoạn",
    "owner": "claude",
-   "status": "doing",
+   "status": "done",
    "prio": 1,
    "due": "2026-11-25",
    "video": "002-lady-be-good",
    "series": null,
    "created": "2026-11-22 22:43",
-   "evidence": [],
+   "evidence": [
+    "channel-studio/videos/002-lady-be-good/voice/narration_report_clone.md",
+    "projects/lady-be-good/assets/audio/narration_clone/S0.1.wav"
+   ],
    "log": [
     "2026-11-22 23:53 note: 22/11 23:58: làm lại bằng gemini-3.1-flash-tts-preview Algenib vào projects/lady-be-good/assets/audio/narration_g31 (thay narration/ của 3.8). Đạt 10/31 đoạn (S0.1–S3.2) thì hết lượt ngày (429 PerDay, fallbacks.md F1). Chạy lại cùng lệnh alt_voice.py sau 15:00 23/11; log channel-studio/state/jobs/2026-11-22-voice-002-g31.log",
-    "2026-11-22 23:58 note: 23/11 00:10 whisper 10 đoạn narration_g31: 89,4–100% (S2.4, S3.1 = 100%). Mọi chỗ lệch là whisper viết số bằng chữ số (440, 4th 25) và tên riêng (Soluch→Saluch, Be Good→Begood); riêng S1.3 có thêm chữ 'the', cần nghe lại. Log: channel-studio/state/jobs/2026-11-23-checkvoice-002-g31.log"
+    "2026-11-22 23:58 note: 23/11 00:10 whisper 10 đoạn narration_g31: 89,4–100% (S2.4, S3.1 = 100%). Mọi chỗ lệch là whisper viết số bằng chữ số (440, 4th 25) và tên riêng (Soluch→Saluch, Be Good→Begood); riêng S1.3 có thêm chữ 'the', cần nghe lại. Log: channel-studio/state/jobs/2026-11-23-checkvoice-002-g31.log",
+    "2026-11-23 12:39 done"
    ],
    "session": "d23070b8-1623-4d17-9914-de0b8466788c",
-   "updated": "2026-11-22 23:58"
+   "updated": "2026-11-23 12:39",
+   "report": {
+    "summary": "Lời đọc 002 làm bằng giọng clone Algenib (Qwen3-TTS 1.7B Base, chậm + sáng, nghỉ x1.6) thay Gemini theo lựa chọn của anh 23/11; 31 WAV, tổng 29:26, -23 LUFS mỗi đoạn trước khi trộn",
+    "components": [
+     {
+      "name": "31 file WAV",
+      "result": "31/31 đoạn có file, tổng 29:26",
+      "verified_by": "ls narration_clone/*.wav | wc -l = 31",
+      "evidence": "channel-studio/videos/002-lady-be-good/voice/narration_report_clone.md"
+     },
+     {
+      "name": "Khớp kịch bản",
+      "result": "30/31 đoạn >= 90%, S1.1 = 88.4% do whisper ghi số bằng chữ số (400, 34) và tên riêng Soluch; nghe lại không thiếu câu",
+      "verified_by": "whisper small.en so kịch bản, bảng trong báo cáo",
+      "evidence": "channel-studio/videos/002-lady-be-good/voice/narration_report_clone.md"
+     },
+     {
+      "name": "Độ to từng đoạn",
+      "result": "-22.6 đến -23.2 LUFS mỗi đoạn, video cuối -14.0 LUFS",
+      "verified_by": "ffmpeg ebur128",
+      "evidence": "channel-studio/videos/002-lady-be-good/voice/narration_report_clone.md"
+     }
+    ],
+    "remaining": "không có",
+    "check": ""
+   }
   },
   {
    "id": "T-026",
@@ -1438,6 +1467,176 @@
    ],
    "updated": "2026-11-23 11:05",
    "reason": "Trùng T-035 của máy anh (đã cài VoiceStudio, clone giọng Algenib bằng VoxCPM2 Apache-2.0)"
+  },
+  {
+   "id": "T-039",
+   "title": "002 Lady Be Good: dựng HyperFrames + render MP4 30 phút",
+   "type": "render",
+   "dod": "render/renders/lady-be-good.mp4 1920x1080 30fps đủ 30:19, check ok, loudness ~-14 LUFS, RENDERED.txt",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": "2026-11-25",
+   "video": "002-lady-be-good",
+   "series": null,
+   "created": "2026-11-23 12:14",
+   "evidence": [
+    "channel-studio/videos/002-lady-be-good/render/renders/lady-be-good.mp4",
+    "channel-studio/videos/002-lady-be-good/render/RENDERED.txt"
+   ],
+   "log": [
+    "2026-11-23 12:14 start",
+    "2026-11-23 12:39 done"
+   ],
+   "updated": "2026-11-23 12:39",
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "report": {
+    "summary": "Render 002 trên máy anh bằng HyperFrames 0.8.171 (19 đoạn, 5 worker), 14m12s; tiếng chuẩn hóa -20.5 -> -14.0 LUFS",
+    "components": [
+     {
+      "name": "Hình",
+      "result": "video h264 width=1920 height=1080 r_frame_rate=30/1 duration=1819.30 s",
+      "verified_by": "lệnh ffprobe -show_entries stream=width,height,r_frame_rate:format=duration",
+      "evidence": "channel-studio/videos/002-lady-be-good/render/RENDERED.txt"
+     },
+     {
+      "name": "Tiếng",
+      "result": "-14.0 LUFS, true peak -1.1 dBFS, aac 48k 192k",
+      "verified_by": "ffmpeg ebur128 sau loudnorm 2 lượt",
+      "evidence": "channel-studio/videos/002-lady-be-good/render/RENDERED.txt"
+     },
+     {
+      "name": "Nội dung",
+      "result": "chú thích ảnh, thẻ tổ bay, chip số liệu, bản đồ đã sửa; check không lỗi",
+      "verified_by": "npx hyperframes check + snapshot trước render, xem khung 100/1000/1600 s",
+      "evidence": "channel-studio/videos/002-lady-be-good/render/tools/build.py"
+     }
+    ],
+    "remaining": "không có",
+    "check": ""
+   }
+  },
+  {
+   "id": "T-040",
+   "title": "002 Lady Be Good: gói đăng (tiêu đề, mô tả có nguồn + ghi công, thumbnail, phụ đề EN, bản dịch tiêu đề/mô tả 10 ngôn ngữ)",
+   "type": "package",
+   "dod": "package/ có title.txt, description.md <5000 byte, tags.txt, thumbnail.jpg 1280x720, subtitles/en.srt, i18n.json",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": "2026-11-25",
+   "video": "002-lady-be-good",
+   "series": null,
+   "created": "2026-11-23 12:14",
+   "evidence": [
+    "channel-studio/videos/002-lady-be-good/package/title.txt",
+    "channel-studio/videos/002-lady-be-good/package/description.md",
+    "channel-studio/videos/002-lady-be-good/package/tags.txt",
+    "channel-studio/videos/002-lady-be-good/package/thumbnail.jpg",
+    "channel-studio/videos/002-lady-be-good/package/subtitles/en.srt",
+    "channel-studio/videos/002-lady-be-good/package/i18n.json"
+   ],
+   "log": [
+    "2026-11-23 12:14 start",
+    "2026-11-23 12:39 done"
+   ],
+   "updated": "2026-11-23 12:39",
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "report": {
+    "summary": "Gói đăng 002: tiêu đề, mô tả 4204 byte (chương, 5 nguồn, ghi công ảnh/nhạc, khai báo giọng tổng hợp), 14 tag, thumbnail 1280x720, phụ đề EN 375 cue, bản dịch tiêu đề/mô tả 10 ngôn ngữ",
+    "components": [
+     {
+      "name": "Tiêu đề + mô tả",
+      "result": "1 dòng tiêu đề; mô tả 4204 byte < 5000",
+      "verified_by": "wc -c, yt_publish đọc title.txt",
+      "evidence": "channel-studio/videos/002-lady-be-good/package/description.md"
+     },
+     {
+      "name": "Thumbnail",
+      "result": "1280x720 208 KB, ảnh USAF public domain không có người",
+      "verified_by": "mở xem ảnh",
+      "evidence": "channel-studio/videos/002-lady-be-good/package/thumbnail.jpg"
+     },
+     {
+      "name": "Phụ đề EN",
+      "result": "375 cue, không chồng, ngắn nhất 0.69 s",
+      "verified_by": "srt.py khớp whisper với kịch bản",
+      "evidence": "channel-studio/videos/002-lady-be-good/package/subtitles/en.srt"
+     },
+     {
+      "name": "Bản dịch",
+      "result": "10 ngôn ngữ tiêu đề + tóm tắt",
+      "verified_by": "đọc i18n.json",
+      "evidence": "channel-studio/videos/002-lady-be-good/package/i18n.json"
+     }
+    ],
+    "remaining": "không có",
+    "check": ""
+   }
+  },
+  {
+   "id": "T-041",
+   "title": "002 Lady Be Good: tải lên qua API + công khai ngay 23/11 (anh yêu cầu không hẹn giờ)",
+   "type": "publish",
+   "dod": "UPLOADED.txt có video_id; videos.list đọc lại privacyStatus=public, tiêu đề, thumbnail, phụ đề EN",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": "2026-11-25",
+   "video": "002-lady-be-good",
+   "series": null,
+   "created": "2026-11-23 12:14",
+   "evidence": [
+    "channel-studio/videos/002-lady-be-good/package/UPLOADED.txt",
+    "channel-studio/videos/002-lady-be-good/package/READBACK.txt"
+   ],
+   "log": [
+    "2026-11-23 12:39 start",
+    "2026-11-23 12:44 done"
+   ],
+   "updated": "2026-11-23 12:44",
+   "session": "d23070b8-1623-4d17-9914-de0b8466788c",
+   "report": {
+    "summary": "Tải 002 lên kênh ICYFOX qua API (547.6 MB), áp gói rồi chuyển công khai ngay 12:43 23/11: https://youtu.be/RHKCFi3l2V0",
+    "components": [
+     {
+      "name": "Tải lên",
+      "result": "video_id=RHKCFi3l2V0, uploadStatus=uploaded, duration PT30M20S, hd",
+      "verified_by": "videos.list part=status,contentDetails",
+      "evidence": "channel-studio/videos/002-lady-be-good/package/READBACK.txt"
+     },
+     {
+      "name": "Công khai",
+      "result": "privacyStatus=public, selfDeclaredMadeForKids=False",
+      "verified_by": "videos.list part=status đọc lại sau khi PUT",
+      "evidence": "channel-studio/videos/002-lady-be-good/package/READBACK.txt"
+     },
+     {
+      "name": "Gói đăng",
+      "result": "tiêu đề đúng title.txt, 14 tag, mô tả 4204 byte, 11 localizations, thumbnail set, phụ đề en standard",
+      "verified_by": "videos.list part=snippet,localizations + captions.list",
+      "evidence": "channel-studio/videos/002-lady-be-good/package/UPLOADED.txt"
+     }
+    ],
+    "remaining": "không có",
+    "check": ""
+   }
+  },
+  {
+   "id": "T-042",
+   "title": "002 Lady Be Good: phụ đề 10 ngôn ngữ (dịch en.srt, giữ mốc giờ) rồi đưa lên video RHKCFi3l2V0",
+   "type": "package",
+   "dod": "package/subtitles có 10 file SRT (vi es pt-BR hi id fr de ja ko ar) cùng số cue với en.srt; yt_publish.py apply ghi đủ; captions.list đọc lại 11 ngôn ngữ",
+   "owner": "claude",
+   "status": "todo",
+   "prio": 2,
+   "due": "2026-11-26",
+   "video": "002-lady-be-good",
+   "series": null,
+   "created": "2026-11-23 12:44",
+   "evidence": [],
+   "log": [],
+   "updated": "2026-11-23 12:44"
   }
  ]
 }

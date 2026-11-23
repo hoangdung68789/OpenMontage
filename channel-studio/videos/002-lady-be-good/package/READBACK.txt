@@ -1,0 +1,9 @@
+read_at_vn=2026-11-23 (videos.list)
+title= The Bomber the Desert Swallowed: Lady Be Good
+privacyStatus= public | uploadStatus= uploaded | madeForKids= False
+duration= PT30M20S | definition= hd | caption= true
+processing= processing
+thumbnails= ['default', 'medium', 'high', 'standard', 'maxres']
+tags= 14 | localizations= ['ar', 'de', 'en', 'es', 'fr', 'hi', 'id', 'ja', 'ko', 'pt-BR', 'vi']
+description_bytes= 4204
+captions= [('en', 'standard')]

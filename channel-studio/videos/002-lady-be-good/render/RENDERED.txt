@@ -1,0 +1,6 @@
+file=render/renders/lady-be-good.mp4 (không đưa lên git, 547.6 MB)
+rendered_at_vn=2026-11-23 12:36
+machine=máy anh Dũng (i5-14400F 16 luồng, RTX 4060), HyperFrames 0.8.171, 5 worker, segmented capture 19 đoạn (lần 2 dùng lại 3 đoạn của lần 1)
+render_time=14m 11.9s (capture 12m 3s, encode 11m 41s, assemble 1m 38s); lần 1 lỗi drawElement ở khung 1690 -> chạy lại với --experimental-fast-capture=false --resume
+spec=h264 1920x1080 30fps, aac 48kHz 192k stereo, duration 1819.30 s
+loudness=bản render -20.5 LUFS -> loudnorm 2 lượt -> -14.0 LUFS, true peak -1.1 dBFS (hình copy nguyên, không mã hóa lại)

@@ -1,10 +1,14 @@
-# ICYFOX (dự án Clay & Lapis): ghi chú bàn giao (cập nhật 22/11/2026)
+# ICYFOX (dự án Clay & Lapis): ghi chú bàn giao (cập nhật 23/11/2026)
 
 **Đọc trước: `MISSION.md` (mục tiêu vĩnh viễn) → `PLAN.md` (kế hoạch) → file này → `TASKS.md` (sổ việc) → `references/work-contract.md` (hợp đồng làm việc).** Việc hôm nay: `python3 .claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py`.
 
 Đọc file này trước khi làm tiếp. Quy trình đầy đủ nằm trong skill `hoang-dung-clay-lapis-studio` (`.claude/skills/hoang-dung-clay-lapis-studio/SKILL.md`). **Đọc mục 0 "Tiêu chuẩn làm việc" trước.** Mở phiên bằng `bash .claude/skills/hoang-dung-clay-lapis-studio/scripts/session_start.sh`.
 
 ## MỚI NHẤT
+- **23/11/2026 12:45: 002 Lady Be Good ĐÃ ĐĂNG CÔNG KHAI** https://youtu.be/RHKCFi3l2V0 (anh yêu cầu đăng ngay, không hẹn giờ).
+  - Giọng: clone Algenib bằng Qwen3-TTS "chậm + sáng" (anh chọn). Render trên máy anh 14m12s (HyperFrames, 19 đoạn, 5 worker); tiếng chuẩn hóa -14 LUFS. Chi tiết `videos/002-lady-be-good/render/RENDERED.txt`.
+  - Tải lên bằng `yt_publish.py upload ... --now` (cờ mới: áp gói rồi chuyển Công khai). Đọc lại: `package/READBACK.txt`.
+  - Còn lại: phụ đề 10 ngôn ngữ (thẻ mới trong TASKS.md); đo thử `--workers 8` ở video sau xem render có nhanh hơn không.
 - **23/11/2026 11:30:**
   - Đã tạo **phiên cloud dự phòng** (13:17 và 20:17; tự SKIP nếu máy anh vừa làm trong 8 giờ qua).
   - **Giọng đọc chuyển sang VoiceStudio** (anh yêu cầu): engine VoxCPM2, giọng tự thiết kế `icyfox-narrator`, cấm OmniVoice. Máy anh đã cài VoiceStudio và clone giọng Algenib bằng VoxCPM2 (T-035). [Cần kiểm] điều khoản Gemini API về việc dùng giọng Algenib làm mẫu clone.

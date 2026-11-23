@@ -1,0 +1,273 @@
+{
+  "ok": false,
+  "strict": false,
+  "browserSkipped": true,
+  "lint": {
+    "ok": false,
+    "errorCount": 3,
+    "warningCount": 10,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "audio_src_not_found",
+        "severity": "error",
+        "message": "<audio> element references file(s) not found in the project: assets/audio/mix.mp3. The rendered video will be silent.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add the file \"assets/audio/mix.mp3\" to the project directory, or update the src attribute to point to an existing file."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch0.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 3 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch1.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 5 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch2.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 6 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch3.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#ch3b11f\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#ch3b11f",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch3.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 177.575s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_fullscreen_overlay_starts_visible",
+        "severity": "error",
+        "message": "Full-frame overlay \"#ch3b11f\" starts visible before its first GSAP opacity tween at 177.57s. It will cover earlier render frames, often as a blank/white video.",
+        "selector": "#ch3b11f",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch3.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `opacity: 0` to \"#ch3b11f\" in CSS/inline styles, or add an immediate `gsap.set(\"#ch3b11f\", { opacity: 0 })` (outside the timeline) before the reveal tween."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 2 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch4.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "gsap_repeated_fromto_without_baseline",
+        "severity": "warning",
+        "message": "2 tl.fromTo() calls target \"#ch4b7f\" with no stable baseline. The last-authored fromTo \"from\" values become the element's resting state for any seek before the first tween actually runs, because GSAP applies fromTo from-values at authoring time (immediateRender), not at tween position.",
+        "selector": "#ch4b7f",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch4.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `immediateRender: false` to every fromTo except the earliest-positioned one (at 95.735s), so pre-first-tween seeks keep its \"from\" values. A hiding `tl.set(..., 0)` baseline trips gsap_timeline_set_initial_hide, and a `gsap.set` authored before the fromTo calls is overwritten by them."
+      },
+      {
+        "code": "gsap_fullscreen_overlay_starts_visible",
+        "severity": "error",
+        "message": "Full-frame overlay \"#ch4b7f\" starts visible before its first GSAP opacity tween at 95.73s. It will cover earlier render frames, often as a blank/white video.",
+        "selector": "#ch4b7f",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch4.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Add `opacity: 0` to \"#ch4b7f\" in CSS/inline styles, or add an immediate `gsap.set(\"#ch4b7f\", { opacity: 0 })` (outside the timeline) before the reveal tween."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 5 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch5.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 5 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch6.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      },
+      {
+        "code": "duplicate_media_discovery_risk",
+        "severity": "warning",
+        "message": "Detected 3 matching img entries with the same source/start/duration.",
+        "selector": "[data-composition-id]",
+        "dataAttributes": {},
+        "sourceFile": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\channel-studio\\videos\\002-lady-be-good\\render\\compositions\\ch7.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Avoid duplicated media nodes that can be discovered twice during compilation."
+      }
+    ],
+    "filesScanned": 9
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "duration": 0,
+    "samples": [],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 0,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [],
+    "checked": 0,
+    "passed": 0
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

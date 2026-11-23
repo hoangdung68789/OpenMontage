@@ -1,0 +1,5 @@
+# Sinh lại được bằng tools/build.py; ảnh/nhạc gốc nằm ở projects/lady-be-good/assets
+assets/
+renders/
+node_modules/
+.hyperframes/

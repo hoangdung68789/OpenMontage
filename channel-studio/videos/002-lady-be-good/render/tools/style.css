@@ -1,0 +1,65 @@
+#root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: "Inter", sans-serif; color: #F1EBE0; }
+.beat { position: absolute; inset: 0; }
+.bf { position: absolute; inset: 0; background: #1B1714; overflow: hidden; }
+.ph-full { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.ph-full img { width: 100%; height: 100%; object-fit: cover; }
+.vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(27,23,20,0) 45%, rgba(27,23,20,0.85) 100%); }
+.desk { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, #3a2e25 0%, #1B1714 75%); }
+.ph-print { position: absolute; left: 50%; top: 47%; width: 1000px; height: 760px; margin: -380px 0 0 -500px; display: flex; align-items: center; justify-content: center; }
+.ph-print img { max-width: 1000px; max-height: 760px; border: 14px solid #E8DFCC; box-shadow: 0 30px 80px rgba(0,0,0,0.6); background: #E8DFCC; }
+.cap { position: absolute; left: 120px; bottom: 120px; max-width: 1300px; font-family: "EB Garamond", serif; font-style: italic; font-size: 46px; line-height: 1.2; color: #F1EBE0; text-shadow: 0 2px 18px rgba(0,0,0,0.9); padding-left: 24px; border-left: 4px solid #B5734A; }
+.credit { position: absolute; right: 110px; bottom: 64px; font-size: 20px; letter-spacing: 0.06em; color: rgba(241,235,224,0.62); text-shadow: 0 1px 6px rgba(0,0,0,0.9); }
+.t-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.t-main { font-family: "EB Garamond", serif; font-size: 130px; font-weight: 600; letter-spacing: 0.04em; color: #F1EBE0; }
+.t-rule { width: 420px; height: 3px; background: #B5734A; margin: 26px 0 22px; transform-origin: 50% 50%; }
+.t-sub { font-size: 30px; letter-spacing: 0.32em; color: #C9A54C; font-weight: 600; }
+.t-brand .t-main { font-size: 150px; letter-spacing: 0.12em; }
+.t-chapter .t-main { font-size: 110px; }
+.t-chapter { flex-direction: column-reverse; }
+.t-chapter .t-sub { color: #B5734A; }
+.t-date .t-main { font-size: 120px; color: #E8DFCC; }
+.t-stamp .t-main { font-family: "Space Mono", monospace; font-size: 120px; font-weight: 700; color: #C8423A; border: 8px solid #C8423A; padding: 10px 50px; }
+.t-big .t-main { font-size: 150px; }
+.sand { position: absolute; inset: 0; background: linear-gradient(180deg, #2a2119 0%, #6e5238 70%, #8a6a49 100%); }
+.nb { position: absolute; left: 50%; top: 50%; width: 1180px; min-height: 560px; margin: -300px 0 0 -590px; background: #E8DFCC; color: #2a2119; padding: 70px 90px 60px; box-shadow: 0 40px 90px rgba(0,0,0,0.65); background-image: repeating-linear-gradient(180deg, transparent 0 63px, rgba(31,78,140,0.22) 63px 65px); }
+.q-label { font-size: 22px; letter-spacing: 0.28em; text-transform: uppercase; color: #8a5a3a; margin-bottom: 24px; font-weight: 600; }
+.q-date { font-family: "Space Mono", monospace; font-size: 30px; color: #1F4E8C; margin-bottom: 18px; }
+.q-text { font-family: "EB Garamond", serif; font-style: italic; font-size: 84px; line-height: 1.22; }
+.q-src { position: absolute; left: 0; right: 0; bottom: 92px; text-align: center; font-size: 26px; letter-spacing: 0.08em; color: #C9A54C; }
+.cc-title, .chip-title { position: absolute; top: 110px; left: 0; right: 0; text-align: center; font-size: 34px; letter-spacing: 0.34em; color: #C9A54C; font-weight: 700; }
+.cc-grid { position: absolute; inset: 200px 100px 140px; display: flex; gap: 60px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.cc-group { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.cc-glabel { font-size: 22px; letter-spacing: 0.24em; color: #B5734A; font-weight: 700; }
+.cc-row { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; max-width: 1720px; }
+.cc { width: 320px; height: 236px; background: #E8DFCC; color: #2a2119; padding: 26px 26px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); border-top: 8px solid #1F4E8C; }
+.cc-rank { font-family: "Space Mono", monospace; font-size: 22px; color: #8a5a3a; }
+.cc-name { font-family: "EB Garamond", serif; font-size: 40px; font-weight: 600; line-height: 1.1; margin: 10px 0 12px; }
+.cc-role { font-size: 20px; letter-spacing: 0.18em; text-transform: uppercase; color: #1F4E8C; font-weight: 600; }
+.cc.dim { opacity: 0.3; }
+.cc.hi { border-top-color: #C8423A; }
+.chips { position: absolute; inset: 220px 120px 200px; display: flex; gap: 50px; align-items: center; justify-content: center; }
+.chip { min-width: 420px; padding: 44px 50px; background: rgba(232,223,204,0.07); border: 2px solid #B5734A; text-align: center; }
+.chip-v { font-family: "EB Garamond", serif; font-size: 78px; font-weight: 600; color: #F1EBE0; }
+.chip-s { margin-top: 14px; font-size: 24px; letter-spacing: 0.12em; color: #C9A54C; }
+.chip-note { position: absolute; left: 0; right: 0; bottom: 150px; text-align: center; font-family: "EB Garamond", serif; font-style: italic; font-size: 40px; color: rgba(241,235,224,0.8); }
+.chain { position: absolute; inset: 0 80px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.link { padding: 34px 30px; border: 3px solid #4a3b30; font-size: 34px; font-weight: 600; letter-spacing: 0.04em; background: rgba(232,223,204,0.05); }
+.arrow { font-size: 46px; color: #E8893A; }
+.cmp { position: absolute; inset: 160px 160px 220px; display: flex; gap: 80px; justify-content: center; align-items: center; }
+.sheet { width: 700px; min-height: 480px; background: #E8DFCC; color: #2a2119; padding: 60px 64px; box-shadow: 0 30px 70px rgba(0,0,0,0.55); }
+.sheet-h { font-family: "Space Mono", monospace; font-size: 34px; color: #1F4E8C; font-weight: 700; margin-bottom: 30px; }
+.sheet-b { font-family: "EB Garamond", serif; font-size: 52px; line-height: 1.25; }
+.mapcam { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: #121519; }
+.mapcam img, .mapcam svg { position: absolute; left: 0; top: 0; }
+.mapvig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(18,21,25,0) 55%, rgba(18,21,25,0.8) 100%); }
+.mlab { font-family: "Inter", sans-serif; font-weight: 700; letter-spacing: 0.08em; }
+.maphead { position: absolute; top: 90px; left: 120px; font-size: 34px; letter-spacing: 0.3em; font-weight: 700; color: #C9A54C; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
+.mapnote { position: absolute; left: 120px; bottom: 120px; font-family: "EB Garamond", serif; font-style: italic; font-size: 50px; color: #F1EBE0; text-shadow: 0 2px 16px rgba(0,0,0,0.95); padding-left: 24px; border-left: 4px solid #E8893A; }
+.illus { position: absolute; inset: 0; }
+
+.chip-n { font-family: "EB Garamond", serif; font-size: 42px; color: #E8DFCC; margin-bottom: 4px; }
+.chip-v { white-space: nowrap; }
+.compact .cc { width: 250px; height: 176px; padding: 18px 20px; }
+.compact .cc-name { font-size: 32px; margin: 6px 0 8px; }
+.compact .cc-rank { font-size: 18px; }
+.compact .cc-role { font-size: 16px; }

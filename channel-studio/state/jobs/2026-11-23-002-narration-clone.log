@@ -1,0 +1,54 @@
+# 002 lời đọc clone Algenib (Qwen3 1.7B Base, mẫu S0.1, nghỉ x1.6, chậm+sáng) — anh chọn 23/11
+'sox' is not recognized as an internal or external command,
+operable program or batch file.
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights:  22%|██▏       | 104/480 [00:00<00:00, 1034.64it/s]Loading weights:  43%|████▎     | 208/480 [00:00<00:00, 599.33it/s] Loading weights:  58%|█████▊    | 278/480 [00:00<00:00, 436.16it/s]Loading weights:  69%|██████▉   | 330/480 [00:00<00:00, 393.44it/s]Loading weights:  78%|███████▊  | 374/480 [00:00<00:00, 373.07it/s]Loading weights:  86%|████████▋ | 414/480 [00:00<00:00, 355.27it/s]Loading weights:  94%|█████████▍| 451/480 [00:01<00:00, 351.23it/s]Loading weights: 100%|██████████| 480/480 [00:01<00:00, 350.12it/s]
+Loading weights:   0%|          | 0/496 [00:00<?, ?it/s]Loading weights:  49%|████▉     | 243/496 [00:00<00:00, 2416.62it/s]Loading weights: 100%|██████████| 496/496 [00:00<00:00, 2628.97it/s]
+Could not infer sample rate from base model; defaulting to 24000 Hz.
+Warming up predictor (3 runs)...
+Capturing CUDA graph for predictor...
+CUDA graph captured!
+Warming up talker graph (3 runs)...
+Capturing CUDA graph for talker decode...
+Talker CUDA graph captured!
+{"sid": "S0.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S0.1.wav", "chunks": 11, "seconds": 73.65, "render_s": 50.1, "sr": 24000}
+{"sid": "S1.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S1.1.wav", "chunks": 7, "seconds": 59.97, "render_s": 29.0, "sr": 24000}
+{"sid": "S1.2", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S1.2.wav", "chunks": 13, "seconds": 73.55, "render_s": 35.8, "sr": 24000}
+{"sid": "S1.3", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S1.3.wav", "chunks": 4, "seconds": 26.39, "render_s": 12.7, "sr": 24000}
+{"sid": "S2.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S2.1.wav", "chunks": 6, "seconds": 46.02, "render_s": 22.0, "sr": 24000}
+{"sid": "S2.2", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S2.2.wav", "chunks": 7, "seconds": 35.7, "render_s": 17.2, "sr": 24000}
+{"sid": "S2.3", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S2.3.wav", "chunks": 7, "seconds": 45.09, "render_s": 21.9, "sr": 24000}
+{"sid": "S2.4", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S2.4.wav", "chunks": 7, "seconds": 30.76, "render_s": 14.3, "sr": 24000}
+{"sid": "S3.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S3.1.wav", "chunks": 9, "seconds": 57.83, "render_s": 28.0, "sr": 24000}
+{"sid": "S3.2", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S3.2.wav", "chunks": 7, "seconds": 57.27, "render_s": 27.0, "sr": 24000}
+{"sid": "S3.3", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S3.3.wav", "chunks": 10, "seconds": 56.72, "render_s": 27.5, "sr": 24000}
+{"sid": "S3.4", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S3.4.wav", "chunks": 7, "seconds": 46.39, "render_s": 22.2, "sr": 24000}
+{"sid": "S4.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S4.1.wav", "chunks": 8, "seconds": 51.04, "render_s": 24.3, "sr": 24000}
+{"sid": "S4.2", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S4.2.wav", "chunks": 11, "seconds": 59.42, "render_s": 28.6, "sr": 24000}
+{"sid": "S4.3", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S4.3.wav", "chunks": 9, "seconds": 38.2, "render_s": 17.8, "sr": 24000}
+{"sid": "S4.4", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S4.4.wav", "chunks": 17, "seconds": 67.23, "render_s": 31.6, "sr": 24000}
+{"sid": "S5.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S5.1.wav", "chunks": 11, "seconds": 63.04, "render_s": 30.2, "sr": 24000}
+{"sid": "S5.2", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S5.2.wav", "chunks": 11, "seconds": 67.42, "render_s": 32.5, "sr": 24000}
+{"sid": "S5.3", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S5.3.wav", "chunks": 7, "seconds": 48.63, "render_s": 22.8, "sr": 24000}
+{"sid": "S5.4", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S5.4.wav", "chunks": 9, "seconds": 66.3, "render_s": 31.3, "sr": 24000}
+{"sid": "S5.5", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S5.5.wav", "chunks": 9, "seconds": 53.28, "render_s": 24.5, "sr": 24000}
+{"sid": "S5.6", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S5.6.wav", "chunks": 9, "seconds": 58.02, "render_s": 27.9, "sr": 24000}
+{"sid": "S5.7", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S5.7.wav", "chunks": 7, "seconds": 48.44, "render_s": 22.5, "sr": 24000}
+{"sid": "S6.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S6.1.wav", "chunks": 9, "seconds": 59.42, "render_s": 27.8, "sr": 24000}
+{"sid": "S6.2", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S6.2.wav", "chunks": 13, "seconds": 71.42, "render_s": 34.8, "sr": 24000}
+{"sid": "S6.3", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S6.3.wav", "chunks": 12, "seconds": 72.9, "render_s": 35.5, "sr": 24000}
+{"sid": "S6.4", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S6.4.wav", "chunks": 12, "seconds": 56.25, "render_s": 24.8, "sr": 24000}
+{"sid": "S6.5", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S6.5.wav", "chunks": 11, "seconds": 76.72, "render_s": 36.3, "sr": 24000}
+{"sid": "S7.1", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S7.1.wav", "chunks": 11, "seconds": 64.81, "render_s": 31.5, "sr": 24000}
+{"sid": "S7.2", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S7.2.wav", "chunks": 10, "seconds": 63.04, "render_s": 29.6, "sr": 24000}
+{"sid": "S7.3", "out": "projects\\lady-be-good\\assets\\audio\\narration_clone\\S7.3.wav", "chunks": 15, "seconds": 71.51, "render_s": 32.8, "sr": 24000}
+EXIT 0

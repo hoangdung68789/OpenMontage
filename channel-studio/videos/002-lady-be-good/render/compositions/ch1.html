@@ -1,0 +1,129 @@
+<template>
+<style>
+#root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: "Inter", sans-serif; color: #F1EBE0; }
+.beat { position: absolute; inset: 0; }
+.bf { position: absolute; inset: 0; background: #1B1714; overflow: hidden; }
+.ph-full { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.ph-full img { width: 100%; height: 100%; object-fit: cover; }
+.vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(27,23,20,0) 45%, rgba(27,23,20,0.85) 100%); }
+.desk { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, #3a2e25 0%, #1B1714 75%); }
+.ph-print { position: absolute; left: 50%; top: 47%; width: 1000px; height: 760px; margin: -380px 0 0 -500px; display: flex; align-items: center; justify-content: center; }
+.ph-print img { max-width: 1000px; max-height: 760px; border: 14px solid #E8DFCC; box-shadow: 0 30px 80px rgba(0,0,0,0.6); background: #E8DFCC; }
+.cap { position: absolute; left: 120px; bottom: 120px; max-width: 1300px; font-family: "EB Garamond", serif; font-style: italic; font-size: 46px; line-height: 1.2; color: #F1EBE0; text-shadow: 0 2px 18px rgba(0,0,0,0.9); padding-left: 24px; border-left: 4px solid #B5734A; }
+.credit { position: absolute; right: 110px; bottom: 64px; font-size: 20px; letter-spacing: 0.06em; color: rgba(241,235,224,0.62); text-shadow: 0 1px 6px rgba(0,0,0,0.9); }
+.t-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.t-main { font-family: "EB Garamond", serif; font-size: 130px; font-weight: 600; letter-spacing: 0.04em; color: #F1EBE0; }
+.t-rule { width: 420px; height: 3px; background: #B5734A; margin: 26px 0 22px; transform-origin: 50% 50%; }
+.t-sub { font-size: 30px; letter-spacing: 0.32em; color: #C9A54C; font-weight: 600; }
+.t-brand .t-main { font-size: 150px; letter-spacing: 0.12em; }
+.t-chapter .t-main { font-size: 110px; }
+.t-chapter { flex-direction: column-reverse; }
+.t-chapter .t-sub { color: #B5734A; }
+.t-date .t-main { font-size: 120px; color: #E8DFCC; }
+.t-stamp .t-main { font-family: "Space Mono", monospace; font-size: 120px; font-weight: 700; color: #C8423A; border: 8px solid #C8423A; padding: 10px 50px; }
+.t-big .t-main { font-size: 150px; }
+.sand { position: absolute; inset: 0; background: linear-gradient(180deg, #2a2119 0%, #6e5238 70%, #8a6a49 100%); }
+.nb { position: absolute; left: 50%; top: 50%; width: 1180px; min-height: 560px; margin: -300px 0 0 -590px; background: #E8DFCC; color: #2a2119; padding: 70px 90px 60px; box-shadow: 0 40px 90px rgba(0,0,0,0.65); background-image: repeating-linear-gradient(180deg, transparent 0 63px, rgba(31,78,140,0.22) 63px 65px); }
+.q-label { font-size: 22px; letter-spacing: 0.28em; text-transform: uppercase; color: #8a5a3a; margin-bottom: 24px; font-weight: 600; }
+.q-date { font-family: "Space Mono", monospace; font-size: 30px; color: #1F4E8C; margin-bottom: 18px; }
+.q-text { font-family: "EB Garamond", serif; font-style: italic; font-size: 84px; line-height: 1.22; }
+.q-src { position: absolute; left: 0; right: 0; bottom: 92px; text-align: center; font-size: 26px; letter-spacing: 0.08em; color: #C9A54C; }
+.cc-title, .chip-title { position: absolute; top: 110px; left: 0; right: 0; text-align: center; font-size: 34px; letter-spacing: 0.34em; color: #C9A54C; font-weight: 700; }
+.cc-grid { position: absolute; inset: 200px 100px 140px; display: flex; gap: 60px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.cc-group { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.cc-glabel { font-size: 22px; letter-spacing: 0.24em; color: #B5734A; font-weight: 700; }
+.cc-row { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; max-width: 1720px; }
+.cc { width: 320px; height: 236px; background: #E8DFCC; color: #2a2119; padding: 26px 26px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); border-top: 8px solid #1F4E8C; }
+.cc-rank { font-family: "Space Mono", monospace; font-size: 22px; color: #8a5a3a; }
+.cc-name { font-family: "EB Garamond", serif; font-size: 40px; font-weight: 600; line-height: 1.1; margin: 10px 0 12px; }
+.cc-role { font-size: 20px; letter-spacing: 0.18em; text-transform: uppercase; color: #1F4E8C; font-weight: 600; }
+.cc.dim { opacity: 0.3; }
+.cc.hi { border-top-color: #C8423A; }
+.chips { position: absolute; inset: 220px 120px 200px; display: flex; gap: 50px; align-items: center; justify-content: center; }
+.chip { min-width: 420px; padding: 44px 50px; background: rgba(232,223,204,0.07); border: 2px solid #B5734A; text-align: center; }
+.chip-v { font-family: "EB Garamond", serif; font-size: 78px; font-weight: 600; color: #F1EBE0; }
+.chip-s { margin-top: 14px; font-size: 24px; letter-spacing: 0.12em; color: #C9A54C; }
+.chip-note { position: absolute; left: 0; right: 0; bottom: 150px; text-align: center; font-family: "EB Garamond", serif; font-style: italic; font-size: 40px; color: rgba(241,235,224,0.8); }
+.chain { position: absolute; inset: 0 80px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.link { padding: 34px 30px; border: 3px solid #4a3b30; font-size: 34px; font-weight: 600; letter-spacing: 0.04em; background: rgba(232,223,204,0.05); }
+.arrow { font-size: 46px; color: #E8893A; }
+.cmp { position: absolute; inset: 160px 160px 220px; display: flex; gap: 80px; justify-content: center; align-items: center; }
+.sheet { width: 700px; min-height: 480px; background: #E8DFCC; color: #2a2119; padding: 60px 64px; box-shadow: 0 30px 70px rgba(0,0,0,0.55); }
+.sheet-h { font-family: "Space Mono", monospace; font-size: 34px; color: #1F4E8C; font-weight: 700; margin-bottom: 30px; }
+.sheet-b { font-family: "EB Garamond", serif; font-size: 52px; line-height: 1.25; }
+.mapcam { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: #121519; }
+.mapcam img, .mapcam svg { position: absolute; left: 0; top: 0; }
+.mapvig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(18,21,25,0) 55%, rgba(18,21,25,0.8) 100%); }
+.mlab { font-family: "Inter", sans-serif; font-weight: 700; letter-spacing: 0.08em; }
+.maphead { position: absolute; top: 90px; left: 120px; font-size: 34px; letter-spacing: 0.3em; font-weight: 700; color: #C9A54C; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
+.mapnote { position: absolute; left: 120px; bottom: 120px; font-family: "EB Garamond", serif; font-style: italic; font-size: 50px; color: #F1EBE0; text-shadow: 0 2px 16px rgba(0,0,0,0.95); padding-left: 24px; border-left: 4px solid #E8893A; }
+.illus { position: absolute; inset: 0; }
+
+.chip-n { font-family: "EB Garamond", serif; font-size: 42px; color: #E8DFCC; margin-bottom: 4px; }
+.chip-v { white-space: nowrap; }
+.compact .cc { width: 250px; height: 176px; padding: 18px 20px; }
+.compact .cc-name { font-size: 32px; margin: 6px 0 8px; }
+.compact .cc-rank { font-size: 18px; }
+.compact .cc-role { font-size: 16px; }
+
+</style>
+<div id="root" data-composition-id="ch1" data-width="1920" data-height="1080" data-duration="166.821">
+<div id="ch1b1" class="clip beat" data-start="0.000" data-duration="4.450" style="z-index:2"><div class="bf" id="ch1b1f"><div class="t-wrap t-chapter"><div class="t-main" id="ch1b1t">THE NEW CREW</div><div class="t-rule" id="ch1b1r"></div><div class="t-sub" id="ch1b1s">CHAPTER 1</div></div></div></div>
+<div id="ch1b2" class="clip beat" data-start="3.650" data-duration="17.985" style="z-index:3"><div class="bf" id="ch1b2f"><div class="mapcam" id="ch1b2m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><g id="ch1b2i1"><circle cx="1186.7" cy="1188.0" r="11.2" fill="#E8893A" opacity="0.25"/><circle cx="1186.7" cy="1188.0" r="5.0" fill="#E8893A"/><text x="1196.7" y="1179.3" font-size="18.8" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="3.1" paint-order="stroke">BENGHAZI</text></g><g id="ch1b2i2"><circle cx="1201.8" cy="1233.0" r="11.2" fill="#E8893A" opacity="0.25"/><circle cx="1201.8" cy="1233.0" r="5.0" fill="#E8893A"/><text x="1211.8" y="1254.2" font-size="18.8" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="3.1" paint-order="stroke">SOLUCH</text></g></svg></div><div class="mapvig"></div><div class="maphead" id="ch1b2h">376th BOMB GROUP · LIBYA, 1943</div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch1b3" class="clip beat" data-start="20.835" data-duration="18.687" style="z-index:4"><div class="bf" id="ch1b3f"><div class="desk"></div><div class="ph-print" id="ch1b3p"><img src="assets/img/Repaint_of_Lady_Be_Good.png" alt="" style="width:1000px;height:466px"></div><div class="cap" id="ch1b3c">B-24D Liberator 41-24301</div><div class="credit">B-24D 41-24301 · USAAF · public domain</div></div></div>
+<div id="ch1b4" class="clip beat" data-start="38.722" data-duration="13.426" style="z-index:5"><div class="bf" id="ch1b4f"><div class="mapcam" id="ch1b4m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><g id="ch1b4i1"><circle cx="1201.8" cy="1233.0" r="18.0" fill="#E8893A" opacity="0.25"/><circle cx="1201.8" cy="1233.0" r="8.0" fill="#E8893A"/><text x="1217.8" y="1267.0" font-size="30.0" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="5.0" paint-order="stroke">SOLUCH</text></g><path id="ch1b4i2" d="M1201.8,1233.0L697.5,315.0" fill="none" stroke="#C9A54C" stroke-width="4.00" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1047.4" stroke-dashoffset="1047.4"/><g id="ch1b4i3"><circle cx="697.5" cy="315.0" r="18.0" fill="#E8893A" opacity="0.25"/><circle cx="697.5" cy="315.0" r="8.0" fill="#E8893A"/><text x="713.5" y="301.0" font-size="30.0" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="5.0" paint-order="stroke">ITALY</text></g></svg></div><div class="mapvig"></div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch1b5" class="clip beat" data-start="51.348" data-duration="13.776" style="z-index:6"><div class="bf" id="ch1b5f"><div class="t-wrap t-stamp"><div class="t-main" id="ch1b5t">41-24301</div><div class="t-rule" id="ch1b5r"></div><div class="t-sub" id="ch1b5s">B-24D · NEW TO THE GROUP</div></div></div></div>
+<div id="ch1b6" class="clip beat" data-start="64.324" data-duration="15.386" style="z-index:7"><div class="bf" id="ch1b6f"><div class="ph-full" id="ch1b6p"><img src="assets/img/LADY_BE_GOOD_Crew.jpg" alt=""></div><div class="vig"></div><div class="cap" id="ch1b6c">The crew of Lady Be Good</div><div class="credit">USAAF crew photo · public domain</div></div></div>
+<div id="ch1b7" class="clip beat" data-start="78.910" data-duration="43.509" style="z-index:8"><div class="bf" id="ch1b7f"><div class="cc-title" id="ch1b7h">NINE MEN</div><div class="cc-grid"><div class="cc-group"><div class="cc-row"><div class="cc " id="ch1b7c0"><div class="cc-rank">1st Lt.</div><div class="cc-name">William Hatton</div><div class="cc-role">Pilot</div></div><div class="cc " id="ch1b7c1"><div class="cc-rank">2nd Lt.</div><div class="cc-name">Robert Toner</div><div class="cc-role">Co-pilot</div></div><div class="cc " id="ch1b7c2"><div class="cc-rank">2nd Lt.</div><div class="cc-name">D.P. Hays</div><div class="cc-role">Navigator</div></div><div class="cc " id="ch1b7c3"><div class="cc-rank">2nd Lt.</div><div class="cc-name">John Woravka</div><div class="cc-role">Bombardier</div></div><div class="cc " id="ch1b7c4"><div class="cc-rank">T/Sgt.</div><div class="cc-name">Harold Ripslinger</div><div class="cc-role">Flight engineer</div></div><div class="cc " id="ch1b7c5"><div class="cc-rank">T/Sgt.</div><div class="cc-name">Robert LaMotte</div><div class="cc-role">Radio operator</div></div><div class="cc " id="ch1b7c6"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Guy Shelley</div><div class="cc-role">Gunner</div></div><div class="cc " id="ch1b7c7"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Vernon Moore</div><div class="cc-role">Gunner</div></div><div class="cc " id="ch1b7c8"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Samuel Adams</div><div class="cc-role">Gunner</div></div></div></div></div></div></div>
+<div id="ch1b8" class="clip beat" data-start="121.619" data-duration="17.759" style="z-index:9"><div class="bf" id="ch1b8f"><div class="cc-title" id="ch1b8h">REMEMBER THESE NAMES</div><div class="cc-grid"><div class="cc-group"><div class="cc-row"><div class="cc " id="ch1b8c0"><div class="cc-rank">1st Lt.</div><div class="cc-name">William Hatton</div><div class="cc-role">Pilot</div></div><div class="cc " id="ch1b8c1"><div class="cc-rank">2nd Lt.</div><div class="cc-name">Robert Toner</div><div class="cc-role">Co-pilot</div></div><div class="cc " id="ch1b8c2"><div class="cc-rank">2nd Lt.</div><div class="cc-name">D.P. Hays</div><div class="cc-role">Navigator</div></div><div class="cc " id="ch1b8c3"><div class="cc-rank">2nd Lt.</div><div class="cc-name">John Woravka</div><div class="cc-role">Bombardier</div></div><div class="cc " id="ch1b8c4"><div class="cc-rank">T/Sgt.</div><div class="cc-name">Harold Ripslinger</div><div class="cc-role">Flight engineer</div></div><div class="cc " id="ch1b8c5"><div class="cc-rank">T/Sgt.</div><div class="cc-name">Robert LaMotte</div><div class="cc-role">Radio operator</div></div><div class="cc " id="ch1b8c6"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Guy Shelley</div><div class="cc-role">Gunner</div></div><div class="cc hi" id="ch1b8c7"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Vernon Moore</div><div class="cc-role">Gunner</div></div><div class="cc " id="ch1b8c8"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Samuel Adams</div><div class="cc-role">Gunner</div></div></div></div></div></div></div>
+<div id="ch1b9" class="clip beat" data-start="138.578" data-duration="8.970" style="z-index:10"><div class="bf" id="ch1b9f"><div class="t-wrap t-date"><div class="t-main" id="ch1b9t">4 APRIL 1943</div><div class="t-rule" id="ch1b9r"></div><div class="t-sub" id="ch1b9s">FIRST COMBAT MISSION</div></div></div></div>
+<div id="ch1b10" class="clip beat" data-start="146.748" data-duration="11.553" style="z-index:11"><div class="bf" id="ch1b10f"><div class="mapcam" id="ch1b10m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><g id="ch1b10i1"><circle cx="697.5" cy="315.0" r="5.0" fill="#E8893A" opacity="0.25"/><circle cx="697.5" cy="315.0" r="2.2" fill="#E8893A"/><text x="701.9" y="311.1" font-size="8.3" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="1.4" paint-order="stroke">NAPLES HARBOR</text></g><g id="ch1b10i2"><circle class="ch1b10i2r" cx="697.5" cy="315.0" r="2.8" fill="none" stroke="#C9A54C" stroke-width="0.8"/><circle class="ch1b10i2r" cx="697.5" cy="315.0" r="2.8" fill="none" stroke="#C9A54C" stroke-width="0.8"/><circle class="ch1b10i2r" cx="697.5" cy="315.0" r="2.8" fill="none" stroke="#C9A54C" stroke-width="0.8"/><circle class="ch1b10i2r" cx="697.5" cy="315.0" r="2.8" fill="none" stroke="#C9A54C" stroke-width="0.8"/></g></svg></div><div class="mapvig"></div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch1b11" class="clip beat" data-start="157.501" data-duration="9.320" style="z-index:12"><div class="bf" id="ch1b11f"><div class="t-wrap t-big"><div class="t-main" id="ch1b11t">MISSION 1</div><div class="t-rule" id="ch1b11r"></div></div></div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#ch1b1t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},0.500);
+tl.fromTo("#ch1b1r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},0.700);
+tl.fromTo("#ch1b1s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},1.300);
+tl.fromTo("#ch1b1f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},0.000);
+tl.fromTo("#ch1b2m",{x:-94.2,y:-220.0,scale:1.0},{x:-956.2,y:-1188.0,scale:1.6,duration:17.985,ease:"sine.inOut"},3.650);
+tl.fromTo("#ch1b2i1",{opacity:0},{opacity:1,duration:0.8},5.448);
+tl.fromTo("#ch1b2i2",{opacity:0},{opacity:1,duration:0.8},11.743);
+tl.fromTo("#ch1b2h",{opacity:0,y:12},{opacity:1,y:0,duration:0.9,ease:"power3.out"},4.050);
+tl.fromTo("#ch1b2f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},3.650);
+tl.fromTo("#ch1b3p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:18.687,ease:"none"},20.835);
+tl.fromTo("#ch1b3c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},21.835);
+tl.fromTo("#ch1b3f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},20.835);
+tl.fromTo("#ch1b4m",{x:-94.2,y:-220.0,scale:1.0},{x:-94.2,y:-220.0,scale:1.0,duration:13.426,ease:"sine.inOut"},38.722);
+tl.fromTo("#ch1b4i1",{opacity:0},{opacity:1,duration:0.8},38.990);
+tl.fromTo("#ch1b4i2",{attr:{"stroke-dashoffset":1047.4}},{attr:{"stroke-dashoffset":0},duration:3.0,ease:"power1.inOut"},40.065);
+tl.fromTo("#ch1b4i3",{opacity:0},{opacity:1,duration:0.8},44.092);
+tl.fromTo("#ch1b4f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},38.722);
+tl.fromTo("#ch1b5t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},51.848);
+tl.fromTo("#ch1b5r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},52.048);
+tl.fromTo("#ch1b5s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},52.648);
+tl.fromTo("#ch1b5f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},51.348);
+tl.fromTo("#ch1b6p",{scale:1.0,x:0},{scale:1.07,x:0,duration:15.386,ease:"none"},64.324);
+tl.fromTo("#ch1b6c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},65.324);
+tl.fromTo("#ch1b6f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},64.324);
+tl.fromTo(["#ch1b7c0","#ch1b7c1","#ch1b7c2","#ch1b7c3","#ch1b7c4","#ch1b7c5","#ch1b7c6","#ch1b7c7","#ch1b7c8"],{opacity:0,y:30},{opacity:1,y:0,duration:0.7,stagger:0.900,ease:"power3.out"},79.410);
+tl.fromTo("#ch1b7h",{opacity:0,y:12},{opacity:1,y:0,duration:0.9,ease:"power3.out"},79.210);
+tl.fromTo("#ch1b7f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},78.910);
+tl.fromTo(["#ch1b8c0","#ch1b8c1","#ch1b8c2","#ch1b8c3","#ch1b8c4","#ch1b8c5","#ch1b8c6","#ch1b8c7","#ch1b8c8"],{opacity:0,y:30},{opacity:1,y:0,duration:0.7,stagger:0.250,ease:"power3.out"},122.119);
+tl.fromTo("#ch1b8h",{opacity:0,y:12},{opacity:1,y:0,duration:0.9,ease:"power3.out"},121.919);
+tl.fromTo("#ch1b8f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},121.619);
+tl.fromTo("#ch1b9t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},139.078);
+tl.fromTo("#ch1b9r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},139.278);
+tl.fromTo("#ch1b9s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},139.878);
+tl.fromTo("#ch1b9f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},138.578);
+tl.fromTo("#ch1b10m",{x:-1361.0,y:-548.0,scale:3.2},{x:-1590.4,y:-612.0,scale:3.6,duration:11.553,ease:"sine.inOut"},146.748);
+tl.fromTo("#ch1b10i1",{opacity:0},{opacity:1,duration:0.8},147.903);
+tl.fromTo(".ch1b10i2r",{attr:{r:2.8},opacity:0.9},{attr:{r:72.2},opacity:0,duration:2.4,stagger:0.6,ease:"power1.out"},150.214);
+tl.fromTo("#ch1b10f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},146.748);
+tl.fromTo("#ch1b11t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},158.001);
+tl.fromTo("#ch1b11r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},158.201);
+tl.to("#ch1b11t",{opacity:0,duration:1.2,ease:"sine.in"},165.021);
+tl.fromTo("#ch1b11f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},157.501);
+window.__timelines["ch1"] = tl;
+</script>
+</template>

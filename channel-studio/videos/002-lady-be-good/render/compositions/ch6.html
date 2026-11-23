@@ -1,0 +1,199 @@
+<template>
+<style>
+#root { position: relative; width: 1920px; height: 1080px; overflow: hidden; font-family: "Inter", sans-serif; color: #F1EBE0; }
+.beat { position: absolute; inset: 0; }
+.bf { position: absolute; inset: 0; background: #1B1714; overflow: hidden; }
+.ph-full { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.ph-full img { width: 100%; height: 100%; object-fit: cover; }
+.vig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(27,23,20,0) 45%, rgba(27,23,20,0.85) 100%); }
+.desk { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 45%, #3a2e25 0%, #1B1714 75%); }
+.ph-print { position: absolute; left: 50%; top: 47%; width: 1000px; height: 760px; margin: -380px 0 0 -500px; display: flex; align-items: center; justify-content: center; }
+.ph-print img { max-width: 1000px; max-height: 760px; border: 14px solid #E8DFCC; box-shadow: 0 30px 80px rgba(0,0,0,0.6); background: #E8DFCC; }
+.cap { position: absolute; left: 120px; bottom: 120px; max-width: 1300px; font-family: "EB Garamond", serif; font-style: italic; font-size: 46px; line-height: 1.2; color: #F1EBE0; text-shadow: 0 2px 18px rgba(0,0,0,0.9); padding-left: 24px; border-left: 4px solid #B5734A; }
+.credit { position: absolute; right: 110px; bottom: 64px; font-size: 20px; letter-spacing: 0.06em; color: rgba(241,235,224,0.62); text-shadow: 0 1px 6px rgba(0,0,0,0.9); }
+.t-wrap { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.t-main { font-family: "EB Garamond", serif; font-size: 130px; font-weight: 600; letter-spacing: 0.04em; color: #F1EBE0; }
+.t-rule { width: 420px; height: 3px; background: #B5734A; margin: 26px 0 22px; transform-origin: 50% 50%; }
+.t-sub { font-size: 30px; letter-spacing: 0.32em; color: #C9A54C; font-weight: 600; }
+.t-brand .t-main { font-size: 150px; letter-spacing: 0.12em; }
+.t-chapter .t-main { font-size: 110px; }
+.t-chapter { flex-direction: column-reverse; }
+.t-chapter .t-sub { color: #B5734A; }
+.t-date .t-main { font-size: 120px; color: #E8DFCC; }
+.t-stamp .t-main { font-family: "Space Mono", monospace; font-size: 120px; font-weight: 700; color: #C8423A; border: 8px solid #C8423A; padding: 10px 50px; }
+.t-big .t-main { font-size: 150px; }
+.sand { position: absolute; inset: 0; background: linear-gradient(180deg, #2a2119 0%, #6e5238 70%, #8a6a49 100%); }
+.nb { position: absolute; left: 50%; top: 50%; width: 1180px; min-height: 560px; margin: -300px 0 0 -590px; background: #E8DFCC; color: #2a2119; padding: 70px 90px 60px; box-shadow: 0 40px 90px rgba(0,0,0,0.65); background-image: repeating-linear-gradient(180deg, transparent 0 63px, rgba(31,78,140,0.22) 63px 65px); }
+.q-label { font-size: 22px; letter-spacing: 0.28em; text-transform: uppercase; color: #8a5a3a; margin-bottom: 24px; font-weight: 600; }
+.q-date { font-family: "Space Mono", monospace; font-size: 30px; color: #1F4E8C; margin-bottom: 18px; }
+.q-text { font-family: "EB Garamond", serif; font-style: italic; font-size: 84px; line-height: 1.22; }
+.q-src { position: absolute; left: 0; right: 0; bottom: 92px; text-align: center; font-size: 26px; letter-spacing: 0.08em; color: #C9A54C; }
+.cc-title, .chip-title { position: absolute; top: 110px; left: 0; right: 0; text-align: center; font-size: 34px; letter-spacing: 0.34em; color: #C9A54C; font-weight: 700; }
+.cc-grid { position: absolute; inset: 200px 100px 140px; display: flex; gap: 60px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.cc-group { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.cc-glabel { font-size: 22px; letter-spacing: 0.24em; color: #B5734A; font-weight: 700; }
+.cc-row { display: flex; gap: 22px; flex-wrap: wrap; justify-content: center; max-width: 1720px; }
+.cc { width: 320px; height: 236px; background: #E8DFCC; color: #2a2119; padding: 26px 26px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); border-top: 8px solid #1F4E8C; }
+.cc-rank { font-family: "Space Mono", monospace; font-size: 22px; color: #8a5a3a; }
+.cc-name { font-family: "EB Garamond", serif; font-size: 40px; font-weight: 600; line-height: 1.1; margin: 10px 0 12px; }
+.cc-role { font-size: 20px; letter-spacing: 0.18em; text-transform: uppercase; color: #1F4E8C; font-weight: 600; }
+.cc.dim { opacity: 0.3; }
+.cc.hi { border-top-color: #C8423A; }
+.chips { position: absolute; inset: 220px 120px 200px; display: flex; gap: 50px; align-items: center; justify-content: center; }
+.chip { min-width: 420px; padding: 44px 50px; background: rgba(232,223,204,0.07); border: 2px solid #B5734A; text-align: center; }
+.chip-v { font-family: "EB Garamond", serif; font-size: 78px; font-weight: 600; color: #F1EBE0; }
+.chip-s { margin-top: 14px; font-size: 24px; letter-spacing: 0.12em; color: #C9A54C; }
+.chip-note { position: absolute; left: 0; right: 0; bottom: 150px; text-align: center; font-family: "EB Garamond", serif; font-style: italic; font-size: 40px; color: rgba(241,235,224,0.8); }
+.chain { position: absolute; inset: 0 80px; display: flex; align-items: center; justify-content: center; gap: 18px; }
+.link { padding: 34px 30px; border: 3px solid #4a3b30; font-size: 34px; font-weight: 600; letter-spacing: 0.04em; background: rgba(232,223,204,0.05); }
+.arrow { font-size: 46px; color: #E8893A; }
+.cmp { position: absolute; inset: 160px 160px 220px; display: flex; gap: 80px; justify-content: center; align-items: center; }
+.sheet { width: 700px; min-height: 480px; background: #E8DFCC; color: #2a2119; padding: 60px 64px; box-shadow: 0 30px 70px rgba(0,0,0,0.55); }
+.sheet-h { font-family: "Space Mono", monospace; font-size: 34px; color: #1F4E8C; font-weight: 700; margin-bottom: 30px; }
+.sheet-b { font-family: "EB Garamond", serif; font-size: 52px; line-height: 1.25; }
+.mapcam { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: #121519; }
+.mapcam img, .mapcam svg { position: absolute; left: 0; top: 0; }
+.mapvig { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(18,21,25,0) 55%, rgba(18,21,25,0.8) 100%); }
+.mlab { font-family: "Inter", sans-serif; font-weight: 700; letter-spacing: 0.08em; }
+.maphead { position: absolute; top: 90px; left: 120px; font-size: 34px; letter-spacing: 0.3em; font-weight: 700; color: #C9A54C; text-shadow: 0 2px 10px rgba(0,0,0,0.9); }
+.mapnote { position: absolute; left: 120px; bottom: 120px; font-family: "EB Garamond", serif; font-style: italic; font-size: 50px; color: #F1EBE0; text-shadow: 0 2px 16px rgba(0,0,0,0.95); padding-left: 24px; border-left: 4px solid #E8893A; }
+.illus { position: absolute; inset: 0; }
+
+.chip-n { font-family: "EB Garamond", serif; font-size: 42px; color: #E8DFCC; margin-bottom: 4px; }
+.chip-v { white-space: nowrap; }
+.compact .cc { width: 250px; height: 176px; padding: 18px 20px; }
+.compact .cc-name { font-size: 32px; margin: 6px 0 8px; }
+.compact .cc-rank { font-size: 18px; }
+.compact .cc-role { font-size: 16px; }
+
+</style>
+<div id="root" data-composition-id="ch6" data-width="1920" data-height="1080" data-duration="345.006">
+<div id="ch6b1" class="clip beat" data-start="0.000" data-duration="4.450" style="z-index:2"><div class="bf" id="ch6b1f"><div class="t-wrap t-chapter"><div class="t-main" id="ch6b1t">FOUND</div><div class="t-rule" id="ch6b1r"></div><div class="t-sub" id="ch6b1s">CHAPTER 6</div></div></div></div>
+<div id="ch6b2" class="clip beat" data-start="3.650" data-duration="16.516" style="z-index:3"><div class="bf" id="ch6b2f"><div class="sand"></div><div class="t-wrap t-big"><div class="t-main" id="ch6b2t">1943 → 1958</div><div class="t-rule" id="ch6b2r"></div></div></div></div>
+<div id="ch6b3" class="clip beat" data-start="19.366" data-duration="16.166" style="z-index:4"><div class="bf" id="ch6b3f"><svg class="illus" viewBox="0 0 1920 1080" width="1920" height="1080"><rect width="1920" height="1080" fill="#0f1216"/><rect width="1920" height="1080" fill="#e2c9a0"/><rect y="760" width="1920" height="320" fill="#c9a27a"/><g id="ch6b3xa"><g transform="translate(0,330) scale(0.8)" fill="#2a2119"><path d="M-120,0 L120,0 L130,8 L-120,10Z"/><path d="M-20,2 L-60,-70 L-40,-70 L20,2Z"/><path d="M-20,8 L-60,80 L-40,80 L20,8Z"/><path d="M-110,4 L-130,-26 L-118,-26 L-100,4Z"/></g></g></svg><div class="credit">Illustration</div></div></div>
+<div id="ch6b4" class="clip beat" data-start="34.733" data-duration="16.166" style="z-index:5"><div class="bf" id="ch6b4f"><div class="desk"></div><div class="ph-print" id="ch6b4p"><img src="assets/img/Lady_Be_Good.jpg" alt="" style="width:930px;height:640px"></div><div class="cap" id="ch6b4c">Lady Be Good from the air</div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b5" class="clip beat" data-start="50.099" data-duration="14.468" style="z-index:6"><div class="bf" id="ch6b5f"><div class="chip-title" id="ch6b5h">FIRST SIGHTED</div><div class="chips"><div class="chip" id="ch6b5c0"><div class="chip-v">May 1958</div><div class="chip-s">Wikipedia · Air &amp; Space Forces Magazine</div></div><div class="chip" id="ch6b5c1"><div class="chip-v">Nov 1958</div><div class="chip-s">U.S. National Archives</div></div></div><div class="chip-note" id="ch6b5n">The sources give different dates</div></div></div>
+<div id="ch6b6" class="clip beat" data-start="63.767" data-duration="17.630" style="z-index:7"><div class="bf" id="ch6b6f"><div class="t-wrap t-date"><div class="t-main" id="ch6b6t">FEBRUARY 1959</div><div class="t-rule" id="ch6b6r"></div><div class="t-sub" id="ch6b6s">D&#x27;ARCY OIL GEOLOGISTS REACH THE WRECK</div></div></div></div>
+<div id="ch6b7" class="clip beat" data-start="80.597" data-duration="13.984" style="z-index:8"><div class="bf" id="ch6b7f"><div class="ph-full" id="ch6b7p"><img src="assets/img/060530-F-1234S-042.jpg" alt=""></div><div class="vig"></div><div class="cap" id="ch6b7c">Broken in two behind the wings</div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b8" class="clip beat" data-start="93.781" data-duration="9.590" style="z-index:9"><div class="bf" id="ch6b8f"><div class="desk"></div><div class="ph-print" id="ch6b8p"><img src="assets/img/Upper_turret.jpg" alt="" style="width:1000px;height:638px"></div><div class="cap" id="ch6b8c">Upper turret, guns still in place</div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b9" class="clip beat" data-start="102.571" data-duration="17.280" style="z-index:10"><div class="bf" id="ch6b9f"><div class="desk"></div><div class="ph-print" id="ch6b9p"><img src="assets/img/Thermos_with_coffee.png" alt="" style="width:523px;height:640px"></div><div class="cap" id="ch6b9c">A thermos found in the wreck</div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b10" class="clip beat" data-start="119.051" data-duration="11.787" style="z-index:11"><div class="bf" id="ch6b10f"><div class="desk"></div><div class="ph-print" id="ch6b10p"><img src="assets/img/Hatton_s_headset.jpg" alt="" style="width:969px;height:640px"></div><div class="cap" id="ch6b10c">Hatton&#x27;s headset</div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b11" class="clip beat" data-start="130.038" data-duration="6.643" style="z-index:12"><div class="bf" id="ch6b11f"><div class="ph-full" id="ch6b11p"><img src="assets/img/Tail_view_of_the_crashed_Consolidated_B-24D_Lady_Be_Good._.jpg" alt=""></div><div class="vig"></div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b12" class="clip beat" data-start="135.882" data-duration="17.974" style="z-index:13"><div class="bf" id="ch6b12f"><div class="mapcam" id="ch6b12m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><g id="ch6b12i1"><circle cx="614.0" cy="1110.5" r="18.9" fill="#C9A54C" opacity="0.25"/><circle cx="614.0" cy="1110.5" r="8.4" fill="#C9A54C"/><text x="630.9" y="1095.8" font-size="31.6" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="5.3" paint-order="stroke">WHEELUS AIR BASE</text></g><g id="ch6b12i2"><circle cx="1520.1" cy="1728.7" r="18.9" fill="#C8423A" opacity="0.25"/><circle cx="1520.1" cy="1728.7" r="8.4" fill="#C8423A"/><text x="1537.0" y="1714.0" font-size="31.6" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="5.3" paint-order="stroke">WRECK</text></g><path id="ch6b12i3" d="M614.0,1110.5L1520.1,1728.7" fill="none" stroke="#E8893A" stroke-width="4.21" stroke-dasharray="14.7 10.5" stroke-linecap="round"/></svg></div><div class="mapvig"></div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch6b13" class="clip beat" data-start="153.056" data-duration="17.624" style="z-index:14"><div class="bf" id="ch6b13f"><svg class="illus" viewBox="0 0 1920 1080" width="1920" height="1080"><rect width="1920" height="1080" fill="#0f1216"/><rect width="1920" height="1080" fill="#e2c9a0"/><rect y="760" width="1920" height="320" fill="#c9a27a"/><g id="ch6b13xa"><g transform="translate(0,300) scale(1.4)" fill="#2a2119"><path d="M-120,0 L120,0 L130,8 L-120,10Z"/><path d="M-20,2 L-60,-70 L-40,-70 L20,2Z"/><path d="M-20,8 L-60,80 L-40,80 L20,8Z"/><path d="M-110,4 L-130,-26 L-118,-26 L-100,4Z"/></g></g><g id="ch6b13xb"><g transform="translate(0,480) scale(1.0)" fill="#2a2119"><ellipse cx="0" cy="0" rx="60" ry="26"/><rect x="40" y="-6" width="110" height="10"/><rect x="-100" y="-40" width="200" height="6"/><rect x="-4" y="-40" width="8" height="16"/></g></g><g id="ch6b13xc"><g transform="translate(0,560) scale(0.8)" fill="#2a2119"><ellipse cx="0" cy="0" rx="60" ry="26"/><rect x="40" y="-6" width="110" height="10"/><rect x="-100" y="-40" width="200" height="6"/><rect x="-4" y="-40" width="8" height="16"/></g></g></svg><div class="credit">Illustration</div></div></div>
+<div id="ch6b14" class="clip beat" data-start="169.880" data-duration="9.773" style="z-index:15"><div class="bf" id="ch6b14f"><div class="mapcam" id="ch6b14m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><circle id="ch6b14i1" cx="1475.9" cy="1660.0" r="70.0" fill="#C9A54C" fill-opacity="0.18" stroke="#C9A54C" stroke-width="0.8" stroke-dasharray="2.5 2.0"/><g id="ch6b14i2"><circle cx="1520.1" cy="1728.7" r="4.5" fill="#C8423A" opacity="0.25"/><circle cx="1520.1" cy="1728.7" r="2.0" fill="#C8423A"/></g></svg></div><div class="mapvig"></div><div class="mapnote" id="ch6b14n0">≈ 450 sq mi · 6 days</div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch6b15" class="clip beat" data-start="178.852" data-duration="16.502" style="z-index:16"><div class="bf" id="ch6b15f"><div class="desk"></div><div class="ph-print" id="ch6b15p"><img src="assets/img/Lady_Be_Good_crash_photos_1960_-4.jpg" alt="" style="width:827px;height:640px"></div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b16" class="clip beat" data-start="194.555" data-duration="7.530" style="z-index:17"><div class="bf" id="ch6b16f"><div class="desk"></div><div class="ph-print" id="ch6b16p"><img src="assets/img/Lady_Be_Good_crash_photos_1960_-2.jpg" alt="" style="width:801px;height:640px"></div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b17" class="clip beat" data-start="201.284" data-duration="9.001" style="z-index:18"><div class="bf" id="ch6b17f"><div class="t-wrap t-stamp"><div class="t-main" id="ch6b17t">SEARCH CALLED OFF</div><div class="t-rule" id="ch6b17r"></div><div class="t-sub" id="ch6b17s">SEPTEMBER 2, 1959</div></div></div></div>
+<div id="ch6b18" class="clip beat" data-start="209.486" data-duration="20.327" style="z-index:19"><div class="bf" id="ch6b18f"><div class="t-wrap t-date"><div class="t-main" id="ch6b18t">FEBRUARY 11, 1960</div><div class="t-rule" id="ch6b18r"></div><div class="t-sub" id="ch6b18s">A BRITISH PETROLEUM SURVEY TEAM</div></div></div></div>
+<div id="ch6b19" class="clip beat" data-start="229.012" data-duration="13.584" style="z-index:20"><div class="bf" id="ch6b19f"><div class="cc-grid"><div class="cc-group"><div class="cc-row"><div class="cc " id="ch6b19c0"><div class="cc-rank">1st Lt.</div><div class="cc-name">William Hatton</div><div class="cc-role">Pilot</div></div><div class="cc " id="ch6b19c1"><div class="cc-rank">2nd Lt.</div><div class="cc-name">Robert Toner</div><div class="cc-role">Co-pilot</div></div><div class="cc " id="ch6b19c2"><div class="cc-rank">2nd Lt.</div><div class="cc-name">D.P. Hays</div><div class="cc-role">Navigator</div></div><div class="cc " id="ch6b19c3"><div class="cc-rank">T/Sgt.</div><div class="cc-name">Robert LaMotte</div><div class="cc-role">Radio operator</div></div><div class="cc " id="ch6b19c4"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Samuel Adams</div><div class="cc-role">Gunner</div></div></div></div></div></div></div>
+<div id="ch6b20" class="clip beat" data-start="241.797" data-duration="11.028" style="z-index:21"><div class="bf" id="ch6b20f"><div class="desk"></div><div class="ph-print" id="ch6b20p"><img src="assets/img/Prayer_service.jpg" alt="" style="width:853px;height:640px"></div><div class="cap" id="ch6b20c">Service at the site, 1960</div><div class="credit">U.S. Air Force photo · public domain</div></div></div>
+<div id="ch6b21" class="clip beat" data-start="252.024" data-duration="15.213" style="z-index:22"><div class="bf" id="ch6b21f"><div class="mapcam" id="ch6b21m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><g id="ch6b21i1"><circle cx="1520.1" cy="1728.7" r="4.5" fill="#C8423A" opacity="0.25"/><circle cx="1520.1" cy="1728.7" r="2.0" fill="#C8423A"/><text x="1524.1" y="1725.2" font-size="7.5" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="1.2" paint-order="stroke">WRECK</text></g><path id="ch6b21i2" d="M1520.1,1728.7L1429.5,1615.0" fill="none" stroke="#E8893A" stroke-width="1.00" stroke-dasharray="3.5 2.5" stroke-linecap="round"/><text id="ch6b21i2t" x="1478.3" y="1671.9" font-size="7.0" fill="#F1EBE0" class="mlab" stroke="#121519" stroke-width="1.2" paint-order="stroke">≈ 81 mi · Wikipedia</text><g id="ch6b21i3"><circle cx="1429.5" cy="1615.0" r="4.5" fill="#C9A54C" opacity="0.25"/><circle cx="1429.5" cy="1615.0" r="2.0" fill="#C9A54C"/><text x="1425.5" y="1611.5" font-size="7.5" fill="#F1EBE0" text-anchor="end" class="mlab" stroke="#121519" stroke-width="1.2" paint-order="stroke">THE FIVE</text></g></svg></div><div class="mapvig"></div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch6b22" class="clip beat" data-start="266.437" data-duration="9.048" style="z-index:23"><div class="bf" id="ch6b22f"><div class="t-wrap t-stamp"><div class="t-main" id="ch6b22t">OPERATION CLIMAX</div><div class="t-rule" id="ch6b22r"></div><div class="t-sub" id="ch6b22s">MAY 1960</div></div></div></div>
+<div id="ch6b23" class="clip beat" data-start="274.685" data-duration="15.467" style="z-index:24"><div class="bf" id="ch6b23f"><svg class="illus" viewBox="0 0 1920 1080" width="1920" height="1080"><rect width="1920" height="1080" fill="#0f1216"/><rect width="1920" height="1080" fill="#e2c9a0"/><rect y="760" width="1920" height="320" fill="#c9a27a"/><g id="ch6b23xa"><g transform="translate(0,300) scale(1.4)" fill="#2a2119"><path d="M-120,0 L120,0 L130,8 L-120,10Z"/><path d="M-20,2 L-60,-70 L-40,-70 L20,2Z"/><path d="M-20,8 L-60,80 L-40,80 L20,8Z"/><path d="M-110,4 L-130,-26 L-118,-26 L-100,4Z"/></g></g><g id="ch6b23xb"><g transform="translate(0,480) scale(1.0)" fill="#2a2119"><ellipse cx="0" cy="0" rx="60" ry="26"/><rect x="40" y="-6" width="110" height="10"/><rect x="-100" y="-40" width="200" height="6"/><rect x="-4" y="-40" width="8" height="16"/></g></g><g id="ch6b23xc"><g transform="translate(0,560) scale(0.8)" fill="#2a2119"><ellipse cx="0" cy="0" rx="60" ry="26"/><rect x="40" y="-6" width="110" height="10"/><rect x="-100" y="-40" width="200" height="6"/><rect x="-4" y="-40" width="8" height="16"/></g></g></svg><div class="credit">Illustration</div></div></div>
+<div id="ch6b24" class="clip beat" data-start="289.351" data-duration="23.364" style="z-index:25"><div class="bf" id="ch6b24f"><div class="mapcam" id="ch6b24m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><g id="ch6b24i1"><circle cx="1429.5" cy="1615.0" r="6.2" fill="#C9A54C" opacity="0.25"/><circle cx="1429.5" cy="1615.0" r="2.8" fill="#C9A54C"/><text x="1435.1" y="1625.3" font-size="10.3" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="1.7" paint-order="stroke">THE FIVE</text></g><g id="ch6b24i2"><circle cx="1400.0" cy="1575.0" r="6.2" fill="#E8893A" opacity="0.25"/><circle cx="1400.0" cy="1575.0" r="2.8" fill="#E8893A"/><text x="1405.5" y="1570.2" font-size="10.3" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="1.7" paint-order="stroke">SHELLEY · MAY 12</text></g><g id="ch6b24i3"><circle cx="1378.9" cy="1545.0" r="6.2" fill="#E8893A" opacity="0.25"/><circle cx="1378.9" cy="1545.0" r="2.8" fill="#E8893A"/><text x="1384.5" y="1540.2" font-size="10.3" fill="#F1EBE0" text-anchor="start" class="mlab" stroke="#121519" stroke-width="1.7" paint-order="stroke">RIPSLINGER · MAY 17</text></g></svg></div><div class="mapvig"></div><div class="mapnote" id="ch6b24n0">Positions schematic</div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch6b25" class="clip beat" data-start="311.916" data-duration="13.210" style="z-index:26"><div class="bf" id="ch6b25f"><div class="chip-title" id="ch6b25h">HOW FAR BEYOND THE FIVE</div><div class="chips"><div class="chip" id="ch6b25c0"><div class="chip-n">Shelley</div><div class="chip-v">37.5 mi</div><div class="chip-s">Air &amp; Space Forces Magazine</div></div><div class="chip" id="ch6b25c1"><div class="chip-n">Shelley</div><div class="chip-v">21 mi</div><div class="chip-s">U.S. National Archives</div></div><div class="chip" id="ch6b25c2"><div class="chip-n">Ripslinger</div><div class="chip-v">+26 mi</div><div class="chip-s">Air &amp; Space Forces Magazine</div></div></div><div class="chip-note" id="ch6b25n">The records do not agree</div></div></div>
+<div id="ch6b26" class="clip beat" data-start="324.326" data-duration="9.826" style="z-index:27"><div class="bf" id="ch6b26f"><div class="mapcam" id="ch6b26m" style="width:2361px;height:2300px"><img src="assets/maps/med.svg" width="2361" height="2300" alt=""><svg viewBox="0 0 2361 2300" width="2361" height="2300"><g id="ch6b26i1"><circle cx="1520.1" cy="1728.7" r="4.5" fill="#C8423A" opacity="0.25"/><circle cx="1520.1" cy="1728.7" r="2.0" fill="#C8423A"/></g><g id="ch6b26i2"><circle cx="1509.7" cy="1715.0" r="4.5" fill="#E8893A" opacity="0.25"/><circle cx="1509.7" cy="1715.0" r="2.0" fill="#E8893A"/><text x="1505.7" y="1722.5" font-size="7.5" fill="#F1EBE0" text-anchor="end" class="mlab" stroke="#121519" stroke-width="1.2" paint-order="stroke">WORAVKA · AUG 1960 · ≈ 12 mi</text></g></svg></div><div class="mapvig"></div><div class="credit">Map: Natural Earth (public domain) · positions approximate</div></div></div>
+<div id="ch6b27" class="clip beat" data-start="333.352" data-duration="11.654" style="z-index:28"><div class="bf" id="ch6b27f"><div class="cc-title" id="ch6b27h">NEVER FOUND</div><div class="cc-grid"><div class="cc-group"><div class="cc-row"><div class="cc " id="ch6b27c0"><div class="cc-rank">S/Sgt.</div><div class="cc-name">Vernon Moore</div><div class="cc-role">Gunner</div></div></div></div></div></div></div>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.fromTo("#ch6b1t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},0.500);
+tl.fromTo("#ch6b1r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},0.700);
+tl.fromTo("#ch6b1s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},1.300);
+tl.fromTo("#ch6b1f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},0.000);
+tl.fromTo("#ch6b2t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},4.150);
+tl.fromTo("#ch6b2r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},4.350);
+tl.fromTo("#ch6b2f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},3.650);
+tl.fromTo("#ch6b3xa",{x:-300},{x:2200,duration:16.166,ease:"none"},19.366);
+tl.fromTo("#ch6b3f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},19.366);
+tl.fromTo("#ch6b4p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:16.166,ease:"none"},34.733);
+tl.fromTo("#ch6b4c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},35.733);
+tl.fromTo("#ch6b4f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},34.733);
+tl.fromTo("#ch6b5n",{opacity:0,y:10},{opacity:1,y:0,duration:0.9,ease:"power3.out"},52.299);
+tl.fromTo("#ch6b5h",{opacity:0,y:12},{opacity:1,y:0,duration:0.9,ease:"power3.out"},50.399);
+tl.fromTo("#ch6b5 .chip",{opacity:0,y:40},{opacity:1,y:0,duration:0.8,stagger:0.8,ease:"power3.out"},50.699);
+tl.fromTo("#ch6b5f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},50.099);
+tl.fromTo("#ch6b6t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},64.267);
+tl.fromTo("#ch6b6r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},64.467);
+tl.fromTo("#ch6b6s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},65.067);
+tl.fromTo("#ch6b6f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},63.767);
+tl.fromTo("#ch6b7p",{scale:1.0,x:0},{scale:1.07,x:0,duration:13.984,ease:"none"},80.597);
+tl.fromTo("#ch6b7c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},81.597);
+tl.fromTo("#ch6b7f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},80.597);
+tl.fromTo("#ch6b8p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:9.590,ease:"none"},93.781);
+tl.fromTo("#ch6b8c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},94.781);
+tl.fromTo("#ch6b8f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},93.781);
+tl.fromTo("#ch6b9p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:17.280,ease:"none"},102.571);
+tl.fromTo("#ch6b9c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},103.571);
+tl.fromTo("#ch6b9f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},102.571);
+tl.fromTo("#ch6b10p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:11.787,ease:"none"},119.051);
+tl.fromTo("#ch6b10c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},120.051);
+tl.fromTo("#ch6b10f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},119.051);
+tl.fromTo("#ch6b11p",{scale:1.07,x:0},{scale:1.0,x:0,duration:6.643,ease:"none"},130.038);
+tl.fromTo("#ch6b11f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},130.038);
+tl.fromTo("#ch6b12m",{x:-49.5,y:-799.5,scale:0.95},{x:-49.5,y:-799.5,scale:0.95,duration:17.974,ease:"sine.inOut"},135.882);
+tl.fromTo("#ch6b12i1",{opacity:0},{opacity:1,duration:0.8},136.780);
+tl.fromTo("#ch6b12i2",{opacity:0},{opacity:1,duration:0.8},139.476);
+tl.fromTo("#ch6b12i3",{opacity:0},{opacity:0.9,duration:1.0},142.172);
+tl.fromTo("#ch6b12f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},135.882);
+tl.fromTo("#ch6b13xa",{x:-300},{x:2200,duration:14.10,ease:"none"},153.056);
+tl.fromTo("#ch6b13xb",{x:2200},{x:-300,duration:18.33,ease:"none"},153.056);
+tl.fromTo("#ch6b13xc",{x:-300},{x:2200,duration:22.56,ease:"none"},153.056);
+tl.fromTo("#ch6b13f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},153.056);
+tl.fromTo("#ch6b14m",{x:-4910.0,y:-6100.0,scale:4.0},{x:-4910.0,y:-6100.0,scale:4.0,duration:9.773,ease:"sine.inOut"},169.880);
+tl.fromTo("#ch6b14i1",{opacity:0,attr:{r:42.0}},{opacity:1,attr:{r:70.0},duration:1.4,ease:"power2.out"},170.857);
+tl.fromTo("#ch6b14i2",{opacity:0},{opacity:1,duration:0.8},170.075);
+tl.fromTo("#ch6b14n0",{opacity:0,y:12},{opacity:1,y:0,duration:0.8},171.834);
+tl.fromTo("#ch6b14f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},169.880);
+tl.fromTo("#ch6b15p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:16.502,ease:"none"},178.852);
+tl.fromTo("#ch6b15f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},178.852);
+tl.fromTo("#ch6b16p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:7.530,ease:"none"},194.555);
+tl.fromTo("#ch6b16f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},194.555);
+tl.fromTo("#ch6b17t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},201.784);
+tl.fromTo("#ch6b17r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},201.984);
+tl.fromTo("#ch6b17s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},202.584);
+tl.fromTo("#ch6b17f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},201.284);
+tl.fromTo("#ch6b18t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},209.986);
+tl.fromTo("#ch6b18r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},210.186);
+tl.fromTo("#ch6b18s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},210.786);
+tl.fromTo("#ch6b18f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},209.486);
+tl.fromTo(["#ch6b19c0","#ch6b19c1","#ch6b19c2","#ch6b19c3","#ch6b19c4"],{opacity:0,y:30},{opacity:1,y:0,duration:0.7,stagger:0.900,ease:"power3.out"},229.512);
+tl.fromTo("#ch6b19f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},229.012);
+tl.fromTo("#ch6b20p",{scale:0.96,rotation:-1.2,y:16},{scale:1.03,rotation:-0.48,y:0,duration:11.028,ease:"none"},241.797);
+tl.fromTo("#ch6b20c",{opacity:0,y:24},{opacity:1,y:0,duration:0.9,ease:"power3.out"},242.797);
+tl.fromTo("#ch6b20f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},241.797);
+tl.fromTo("#ch6b21m",{x:-4910.0,y:-6100.0,scale:4.0},{x:-4910.0,y:-6100.0,scale:4.0,duration:15.213,ease:"sine.inOut"},252.024);
+tl.fromTo("#ch6b21i1",{opacity:0},{opacity:1,duration:0.8},252.329);
+tl.fromTo("#ch6b21i2",{opacity:0},{opacity:0.9,duration:1.0},253.546);
+tl.fromTo("#ch6b21i2t",{opacity:0},{opacity:1,duration:0.8},255.046);
+tl.fromTo("#ch6b21i3",{opacity:0},{opacity:1,duration:0.8},256.588);
+tl.fromTo("#ch6b21f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},252.024);
+tl.fromTo("#ch6b22t",{opacity:0,y:30},{opacity:1,y:0,duration:1.2,ease:"power3.out"},266.937);
+tl.fromTo("#ch6b22r",{scaleX:0},{scaleX:1,duration:1.2,ease:"power2.inOut"},267.137);
+tl.fromTo("#ch6b22s",{opacity:0,y:16},{opacity:1,y:0,duration:0.9,ease:"power3.out"},267.737);
+tl.fromTo("#ch6b22f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},266.437);
+tl.fromTo("#ch6b23xa",{x:-300},{x:2200,duration:12.37,ease:"none"},274.685);
+tl.fromTo("#ch6b23xb",{x:2200},{x:-300,duration:16.09,ease:"none"},274.685);
+tl.fromTo("#ch6b23xc",{x:-300},{x:2200,duration:19.80,ease:"none"},274.685);
+tl.fromTo("#ch6b23f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},274.685);
+tl.fromTo("#ch6b24m",{x:-3197.9,y:-4100.0,scale:2.9},{x:-3197.9,y:-4100.0,scale:2.9,duration:23.364,ease:"sine.inOut"},289.351);
+tl.fromTo("#ch6b24i1",{opacity:0},{opacity:1,duration:0.8},289.819);
+tl.fromTo("#ch6b24i2",{opacity:0},{opacity:1,duration:0.8},294.024);
+tl.fromTo("#ch6b24i3",{opacity:0},{opacity:1,duration:0.8},299.865);
+tl.fromTo("#ch6b24n0",{opacity:0,y:12},{opacity:1,y:0,duration:0.8},291.688);
+tl.fromTo("#ch6b24f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},289.351);
+tl.fromTo("#ch6b25n",{opacity:0,y:10},{opacity:1,y:0,duration:0.9,ease:"power3.out"},314.916);
+tl.fromTo("#ch6b25h",{opacity:0,y:12},{opacity:1,y:0,duration:0.9,ease:"power3.out"},312.216);
+tl.fromTo("#ch6b25 .chip",{opacity:0,y:40},{opacity:1,y:0,duration:0.8,stagger:0.8,ease:"power3.out"},312.516);
+tl.fromTo("#ch6b25f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},311.916);
+tl.fromTo("#ch6b26m",{x:-4910.0,y:-6100.0,scale:4.0},{x:-4910.0,y:-6100.0,scale:4.0,duration:9.826,ease:"sine.inOut"},324.326);
+tl.fromTo("#ch6b26i1",{opacity:0},{opacity:1,duration:0.8},324.523);
+tl.fromTo("#ch6b26i2",{opacity:0},{opacity:1,duration:0.8},325.800);
+tl.fromTo("#ch6b26f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},324.326);
+tl.fromTo(["#ch6b27c0"],{opacity:0,y:30},{opacity:1,y:0,duration:0.7,stagger:0.250,ease:"power3.out"},333.852);
+tl.fromTo("#ch6b27h",{opacity:0,y:12},{opacity:1,y:0,duration:0.9,ease:"power3.out"},333.652);
+tl.fromTo("#ch6b27f",{opacity:0},{opacity:1,duration:0.8,ease:"sine.inOut"},333.352);
+window.__timelines["ch6"] = tl;
+</script>
+</template>
