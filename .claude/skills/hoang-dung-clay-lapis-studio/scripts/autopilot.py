@@ -178,8 +178,32 @@ def agenda():
             "blocked": [f"{x['id']}: {x['title']} — {x.get('reason', '')}" for x in blocked]}
 
 
+BACKUP_IDLE_HOURS = 8   # phiên cloud dự phòng chỉ làm việc khi nhánh không có commit nào trong 8 giờ qua
+
+
+def backup_check():
+    """Phiên cloud dự phòng: máy anh vừa làm (có commit trong BACKUP_IDLE_HOURS giờ) thì bỏ qua để không chạy trùng."""
+    import subprocess
+    import time as _t
+    branch = "ccr-6640cec8-2anthl"
+    subprocess.run(["git", "fetch", "-q", "origin", branch], cwd=CS.parent, capture_output=True, timeout=120)
+    r = subprocess.run(["git", "log", "-1", "--format=%ct|%h|%s", f"origin/{branch}"], cwd=CS.parent, capture_output=True, text=True)
+    if r.returncode != 0 or "|" not in r.stdout:
+        print("RUN: không đọc được commit cuối (lỗi git), làm việc như bình thường")
+        return 0
+    ts, h, subj = r.stdout.strip().split("|", 2)
+    hours = (_t.time() - int(ts)) / 3600
+    if hours < BACKUP_IDLE_HOURS:
+        print(f"SKIP: commit cuối {h} cách đây {hours:.1f} giờ (< {BACKUP_IDLE_HOURS} giờ), máy anh hoặc phiên khác đang làm. Kết thúc phiên dự phòng.")
+        return 3
+    print(f"RUN: commit cuối {h} cách đây {hours:.1f} giờ (>= {BACKUP_IDLE_HOURS} giờ), máy anh có thể đang tắt. Phiên cloud làm thay.")
+    return 0
+
+
 def main():
     utf8()
+    if "--backup-check" in sys.argv:
+        sys.exit(backup_check())
     a = agenda()
     if "--json" in sys.argv:
         print(json.dumps(a, ensure_ascii=False, indent=1))

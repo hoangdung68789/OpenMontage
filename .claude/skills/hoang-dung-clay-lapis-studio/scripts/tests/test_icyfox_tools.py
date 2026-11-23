@@ -168,3 +168,24 @@ def test_watchdog_flags_stalled_overdue_and_log_errors(ws):
     assert "T-001 NGHI TREO" in r.stdout and "T-002 QUÁ HẠN" in r.stdout and "T-003" not in r.stdout
     assert "voice.log" in r.stdout and "[F1]" in r.stdout and "clean.log" not in r.stdout
     assert "rate.log: Bị giới hạn tốc độ" in r.stdout and "[F10]" in r.stdout
+
+
+def test_backup_check_skips_when_recent_commit(tmp_path):
+    """Phiên cloud dự phòng: có commit mới trên nhánh thì SKIP (mã 3), lâu không có commit thì RUN (mã 0)."""
+    import os
+    remote, work = tmp_path / "remote.git", tmp_path / "work"
+    subprocess.run(["git", "init", "-q", "--bare", str(remote)], check=True)
+    subprocess.run(["git", "init", "-q", "-b", "ccr-6640cec8-2anthl", str(work)], check=True)
+    (work / "channel-studio").mkdir()
+    (work / "AGENT_GUIDE.md").write_text("x")
+    env = {**os.environ, "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t", "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"}
+    def commit(date):
+        e = {**env, "GIT_AUTHOR_DATE": date, "GIT_COMMITTER_DATE": date}
+        subprocess.run(["git", "add", "-A"], cwd=work, check=True)
+        subprocess.run(["git", "commit", "-q", "--allow-empty", "-m", "x"], cwd=work, env=e, check=True)
+        subprocess.run(["git", "push", "-q", str(remote), "ccr-6640cec8-2anthl"], cwd=work, check=True)
+    subprocess.run(["git", "remote", "add", "origin", str(remote)], cwd=work, check=True)
+    commit("2001-01-01T00:00:00")
+    assert run(work, S / "autopilot.py", "--backup-check").returncode == 0
+    commit("now" if False else __import__("datetime").datetime.now().isoformat(timespec="seconds"))
+    assert run(work, S / "autopilot.py", "--backup-check").returncode == 3
