@@ -6,7 +6,7 @@ Cài 23/11/2026 theo yêu cầu anh: "cài repo vào OpenMontage ... Dùng repo 
 |---|---|---|
 | `VoiceStudio/` (submodule, debpalash/VoiceStudio) | Ứng dụng giọng nói chạy trên máy; dùng phần backend Python + engine | Mã AGPL-3.0 |
 | `OmniVoice/` (submodule, k2-fsa/OmniVoice) | Mã model OmniVoice | Mã Apache-2.0; **trọng số CC-BY-NC, cấm dùng thương mại** |
-| `clone-algenib/` | Script clone giọng Algenib bằng engine VoxCPM2 của VoiceStudio | Trọng số `openbmb/VoxCPM2` Apache-2.0 |
+| `clone-algenib/` | Script clone giọng Algenib bằng engine VoxCPM2 hoặc Qwen3-TTS Base của VoiceStudio (`--engine qwen3` giống nhất, đo 23/11) | Trọng số `openbmb/VoxCPM2` và `Qwen/Qwen3-TTS-12Hz-1.7B-Base` đều Apache-2.0 |
 
 ## Vì sao dùng VoxCPM2, không dùng OmniVoice
 
@@ -17,7 +17,9 @@ Cài 23/11/2026 theo yêu cầu anh: "cài repo vào OpenMontage ... Dùng repo 
 
 ```bash
 git submodule update --init voice-lab/VoiceStudio voice-lab/OmniVoice
-cd voice-lab/VoiceStudio && uv sync --frozen --group cuda && uv pip install "voxcpm>=2.0.3"
+cd voice-lab/VoiceStudio && uv sync --frozen --group cuda && uv pip install "voxcpm>=2.0.3" faster-qwen3-tts==0.5.4
+# trọng số Qwen3-TTS 1.7B Base (Apache-2.0, 4,3 GB) vào ~/.cache/qwen3-tts/1.7B-Base
+.venv/Scripts/python.exe -c "from huggingface_hub import snapshot_download as s; from pathlib import Path; s('Qwen/Qwen3-TTS-12Hz-1.7B-Base', local_dir=str(Path.home()/'.cache/qwen3-tts/1.7B-Base'))"
 ```
 
 Không chạy lệnh cài `irm ... | iex` trên trang VoiceStudio (tải và chạy ngay script từ mạng).
@@ -28,7 +30,7 @@ Không chạy lệnh cài `irm ... | iex` trên trang VoiceStudio (tải và ch�
 # 1. Mẫu giọng ~15 s + lời đọc khớp (đã có sẵn algenib_ref.txt; file .wav không đẩy git)
 python voice-lab/clone-algenib/make_ref.py <S0.1.wav của 002> voice-lab/clone-algenib
 # 2. Đọc một đoạn kịch bản bằng giọng clone
-voice-lab/VoiceStudio/.venv/Scripts/python.exe voice-lab/clone-algenib/clone_voxcpm2.py <script.json> <mã đoạn>
+voice-lab/VoiceStudio/.venv/Scripts/python.exe voice-lab/clone-algenib/clone_algenib.py <script.json> <mã đoạn>
 ```
 
 Lần đầu tải trọng số VoxCPM2 (vài GB) vào bộ nhớ đệm Hugging Face.

@@ -1249,10 +1249,11 @@
     "channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log"
    ],
    "log": [
-    "2026-11-23 10:59 done"
+    "2026-11-23 10:59 done",
+    "2026-11-23 11:20 note: Vòng 2 sau khi anh nghe 'vẫn chưa giống lắm': thêm Qwen3-TTS 1.7B Base (Apache-2.0) vào VoiceStudio (faster-qwen3-tts 0.5.4). Bản q3 giống 0,813 (mốc Gemini–Gemini 0,841; VoxCPM2 tốt nhất 0,792). Gửi anh 3 mp3 nghe chọn. Số đo: channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log"
    ],
    "session": "manual",
-   "updated": "2026-11-23 10:59",
+   "updated": "2026-11-23 11:20",
    "report": {
     "summary": "VoiceStudio (2bb2130) + OmniVoice (4d5ed0f) là submodule ở voice-lab/; môi trường CUDA (torch 2.10+cu128) + voxcpm 2.0.3; clone Algenib bằng VoxCPM2 đọc S1.3: 20,2 s, 48 kHz, tạo 43 s trên RTX 4060",
     "components": [

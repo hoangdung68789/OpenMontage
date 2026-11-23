@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 11:00 (giờ Việt Nam).
+Cập nhật: 2026-11-23 11:20 (giờ Việt Nam).
 
 ## Đang làm (1)
 
@@ -37,7 +37,7 @@ Cập nhật: 2026-11-23 11:00 (giờ Việt Nam).
 
 ## Xong gần đây
 
-- T-035 Cài VoiceStudio + OmniVoice trên máy anh, clone giọng Algenib (2026-11-23 10:59): voice-lab/README.md, voice-lab/clone-algenib/clone_voxcpm2.py, voice-lab/clone-algenib/S1.3_clone_voxcpm2.mp3, .gitmodules, channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log
+- T-035 Cài VoiceStudio + OmniVoice trên máy anh, clone giọng Algenib (2026-11-23 11:20): voice-lab/README.md, voice-lab/clone-algenib/clone_voxcpm2.py, voice-lab/clone-algenib/S1.3_clone_voxcpm2.mp3, .gitmodules, channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log
 - T-033 Sao chép repo OmniVoice + VoiceStudio vào phiên và ghi vào bản đồ repo (2026-11-23 00:04): .claude/skills/hoang-dung-clay-lapis-studio/references/toolbox-repos.md, /home/user/hoangdung68789/voicestudio/README.md, /home/user/hoangdung68789/omnivoice/README.md
 - T-030 Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa (2026-11-23 00:00): channel-studio/research/2026-11-22-api-upload-test/result.json, channel-studio/guides/TU_DONG_DANG_VIDEO.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py
 - T-028 Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip (2026-11-22 23:53): channel-studio/research/2026-11-22-api-upload-test/result.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py, channel-studio/guides/TU_DONG_DANG_VIDEO.md

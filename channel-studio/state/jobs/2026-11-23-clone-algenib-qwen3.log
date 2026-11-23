@@ -1,0 +1,46 @@
+'sox' is not recognized as an internal or external command,
+operable program or batch file.
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights:  21%|██▏       | 103/480 [00:00<00:00, 1019.31it/s]Loading weights:  43%|████▎     | 205/480 [00:00<00:00, 680.35it/s] Loading weights:  58%|█████▊    | 280/480 [00:00<00:00, 490.64it/s]Loading weights:  70%|███████   | 336/480 [00:00<00:00, 431.74it/s]Loading weights:  80%|███████▉  | 383/480 [00:00<00:00, 405.44it/s]Loading weights:  89%|████████▉ | 426/480 [00:00<00:00, 391.44it/s]Loading weights:  97%|█████████▋| 467/480 [00:01<00:00, 372.15it/s]Loading weights: 100%|██████████| 480/480 [00:01<00:00, 385.08it/s]
+Loading weights:   0%|          | 0/496 [00:00<?, ?it/s]Loading weights:  58%|█████▊    | 289/496 [00:00<00:00, 2879.68it/s]Loading weights: 100%|██████████| 496/496 [00:00<00:00, 3141.76it/s]
+Could not infer sample rate from base model; defaulting to 24000 Hz.
+Warming up predictor (3 runs)...
+Capturing CUDA graph for predictor...
+CUDA graph captured!
+Warming up talker graph (3 runs)...
+Capturing CUDA graph for talker decode...
+Talker CUDA graph captured!
+{"out": "C:\\Users\\Admin\\HDRE AI\\OpenMontage\\voice-lab\\clone-algenib\\S1.3_q1_qwen3_ref18s.wav", "chunks": 4, "seconds": 20.53, "render_s": 44.2, "sr": 24000}
+EXIT q1 0
+'sox' is not recognized as an internal or external command,
+operable program or batch file.
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights:  21%|██        | 100/480 [00:00<00:00, 990.84it/s]Loading weights:  42%|████▏     | 200/480 [00:00<00:00, 705.33it/s]Loading weights:  57%|█████▊    | 276/480 [00:00<00:00, 523.14it/s]Loading weights:  70%|██████▉   | 334/480 [00:00<00:00, 449.10it/s]Loading weights:  80%|███████▉  | 383/480 [00:00<00:00, 416.80it/s]Loading weights:  89%|████████▉ | 427/480 [00:00<00:00, 388.31it/s]Loading weights:  97%|█████████▋| 467/480 [00:01<00:00, 362.81it/s]Loading weights: 100%|██████████| 480/480 [00:01<00:00, 384.55it/s]
+Loading weights:   0%|          | 0/496 [00:00<?, ?it/s]Loading weights:  60%|██████    | 298/496 [00:00<00:00, 2979.24it/s]Loading weights: 100%|██████████| 496/496 [00:00<00:00, 3251.52it/s]
+Could not infer sample rate from base model; defaulting to 24000 Hz.
+Warming up predictor (3 runs)...
+Capturing CUDA graph for predictor...
+CUDA graph captured!
+Warming up talker graph (3 runs)...
+Capturing CUDA graph for talker decode...
+Talker CUDA graph captured!
+{"out": "C:\\Users\\Admin\\HDRE AI\\OpenMontage\\voice-lab\\clone-algenib\\S1.3_q2_qwen3_ref24s.wav", "chunks": 4, "seconds": 19.01, "render_s": 25.6, "sr": 24000}
+EXIT q2 0

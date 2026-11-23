@@ -10,3 +10,17 @@ gemini : I -24.3 LUFS, LRA 9.0 LU, Peak -3.7 dBFS
 S1.3_voxcpm2.wav 0.881 | narration_g31/S1.3.wav 0.765 | S5.5_Algenib.wav 0.679 | S5.5_Charon.wav 0.292 | S5.5_Gacrux.wav 0.140
 ## thời lượng
 clone 20.16 s (48 kHz, tạo 43.1 s trên RTX 4060) | gemini 28.16 s
+
+# Vòng 2 (anh nghe v1: "Vẫn chưa giống lắm")
+## nét giọng (voice_profile.py) — chỗ khác nhau
+gemini S1.3 : 28.16 s, lặng 9.36 s (11 chỗ), có tiếng 18.8 s, F0 101.5 Hz, sáng 2170 Hz
+v1 voxcpm2  : 20.16 s, lặng 2.19 s (6), có tiếng 17.97 s, F0 87.3 Hz, sáng 1767 Hz
+10 đoạn gemini: F0 68–103 Hz (trung bình ~83), lặng 25–35% thời lượng, sáng 1356–2170 Hz
+## độ giống giọng: so Gemini S1.3 | so Gemini S2.1  (mốc Gemini S2.1 vs S1.3 = 0.841)
+v1 voxcpm2 mẫu S0.1 18s           0.792 | 0.767
+v2 voxcpm2 mẫu S3.1 24s + ngắt     0.741 | 0.654  whisper 58.5% (đọc ra tiếng vô nghĩa) LOẠI
+v3 voxcpm2 + chỉ dẫn giọng         0.766 | 0.722  whisper 98.1%
+q1 qwen3-1.7B mẫu S0.1 + ngắt      0.802 | 0.800  whisper 94.4%
+q2 qwen3-1.7B mẫu S3.1 24s         0.737 | 0.743  whisper 96.2%
+q3 qwen3 mẫu S0.1, nghỉ x1.6       0.813 | 0.806  whisper 94.4% (chỉ lệch cách viết)  CAO NHẤT
+q3 + giãn nhịp 0.86 + sáng         0.796 | 0.790  whisper 94.4%; 25.83 s, lặng 7.7 s, có tiếng 18.14 s (gần Gemini nhất về nhịp)
