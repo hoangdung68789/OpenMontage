@@ -1,0 +1,15 @@
+{
+ "genre": "war", "seed": 23,
+ "assets_dir": "../videos/002-lady-be-good/render/assets/img",
+ "scenes": [
+  {"type": "title", "dur": 6, "src": "Lady_Be_Good.jpg", "text": "The *Bomber* the Desert Swallowed", "sub": "Documented · ICYFOX", "letterbox": true},
+  {"type": "photo", "dur": 12, "src": "Lady_Be_Good.jpg", "credit": "U.S. Air Force · public domain (demo)", "caption": "Found in 1958, *440 miles* inland.", "lower": {"title": "Lady Be Good", "sub": "B-24D · 41-24301", "at": 1.0}},
+  {"type": "map", "dur": 9, "route": [[420, 300], [760, 420], [1180, 640], [1500, 860]], "places": [[420, 300, "SOLUCH"], [1180, 640, "LIBYAN DESERT"], [1500, 860, "WRECK"]], "caption": "They flew past the coast in the dark."},
+  {"type": "split", "dur": 8, "srcs": ["LADY_BE_GOOD_Crew.jpg", "Lady_Be_Good_Nose_Section.jpg"], "labels": ["1943", "1958"], "credit": "U.S. Air Force · public domain (demo)"},
+  {"type": "document", "dur": 9, "src": "B-24D_Lady_Be_Good_Missing_Air_Crew_Report_MACR_937_page_1.png", "credit": "NARA · public domain (demo)", "highlights": [[8, 52, 84, 3, 1.5], [8, 60, 84, 3, 3.0]]},
+  {"type": "triptych", "dur": 8, "srcs": ["Hatton_s_headset.jpg", "Lady_Be_Good_Window.jpg", "Co-pilot_place.jpg"], "credit": "U.S. Air Force · public domain (demo)"},
+  {"type": "timeline", "dur": 9, "items": [{"date": "1943", "label": "Last radio call"}, {"date": "1958", "label": "Wreck *spotted*"}, {"date": "1960", "label": "Five crew found"}]},
+  {"type": "stat", "dur": 6, "value": 440, "label": "miles into the Sahara", "big": true, "payoff": true},
+  {"type": "quote", "dur": 9, "text": "We never saw the coast. We only saw *sand*.", "by": "Diary, 1943 (demo text)", "text_fx": "typewriter"}
+ ]
+}

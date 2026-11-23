@@ -1,0 +1,8 @@
+{
+  "genre": "{{GENRE}}",
+  "seed": 1,
+  "assets_dir": "../03_assets/img",
+  "scenes": [
+    {"type": "title", "dur": 6, "text": "{{TITLE_TEXT}}", "sub": "CHAPTER 1", "letterbox": true}
+  ]
+}

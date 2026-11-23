@@ -33,9 +33,14 @@ channel-studio/
 ├── channel/
 │   ├── channel_setup.md       # tên kênh, About, từ khóa, danh sách phát, cài đặt tải lên, checklist YPP, lịch đăng
 │   └── automation_plan.md     # kế hoạch tự động hóa
-├── motion-kit/                # BỘ CHUYỂN ĐỘNG: icyfox_motion.py (validate/build), vendor/gsap, demo/ (lưới khung + số đo)
+├── motion-kit/                # BỘ CHUYỂN ĐỘNG v2: icyfox_motion.py (validate/build/finish/presets), sfx/ (Pixabay License), vendor/gsap, demo/
 ├── videos/
-│   └── NNN-slug/              # mỗi video dài một thư mục, ví dụ 002-lady-be-good
+│   ├── NNN-slug/  (TỪ VIDEO 003: cấu trúc v2, tạo bằng `SK/scripts/new_video.py create`; chi tiết edit-workflow.md §1)
+│   │   ├── README.md · 00_brief/ (script_outline.md, sources.md) · 01_script/ (script_partN.md, script_full_ready.txt)
+│   │   ├── 02_storyboard/ (STORYBOARD.md, motion_plan.json) · 03_assets/ (img, video, maps, audio/{vo,music,sfx}, CREDITS.md)
+│   │   ├── render/ (dự án HyperFrames + RENDERED.txt) · 05_sound/ (CUE_SHEET.md, LOUDNESS.txt)
+│   │   └── 06_review/ (REVIEW.md P0/P1/P2, metrics.txt, contact_sheet.jpg) · package/
+│   └── NNN-slug/  (VIDEO 001, 002: cấu trúc v1 bên dưới, giữ nguyên)
 │       ├── README.md          # trạng thái, trụ cột (P1–P5), series/tập nếu có, link Notion
 │       ├── script_outline.md  # dàn ý + hook (dòng đầu ghi ĐÃ DUYỆT <ngày> khi anh duyệt lô tuần)
 │       ├── script_partN.md    # kịch bản theo phần; dòng đầu có "QA ĐẠT <ngày>" khi qa_check.py đạt

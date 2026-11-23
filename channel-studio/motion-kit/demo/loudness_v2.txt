@@ -1,0 +1,1 @@
+Tiếng: trước -11.25 LUFS / đỉnh -1.43 dBTP -> sau -14.0 LUFS / đỉnh -3.5 dBTP. File: renders/v2_final.mp4

@@ -59,6 +59,7 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 
 ## 5. Phân cảnh (scene_plan, cần duyệt)
 - Mỗi cảnh có: mốc giây (theo độ dài thật của file giọng), loại cảnh, mô tả, nguồn hình kèm giấy phép, chữ trên màn hình.
+- **Dựng v2 (từ 23/11/2026): làm theo `references/edit-workflow.md`** (cấu trúc thư mục `00_brief/ … 06_review/`, 8 giai đoạn, cổng kiểm), chọn hiệu ứng ở `edit-library.md`, chọn thể loại dựng ở `genre-recipes.md`.
 - **Motion graphics: đọc `references/motion-graphics.md` trước khi phân cảnh.** Dùng bộ `channel-studio/motion-kit/icyfox_motion.py` (validate → build), mỗi cảnh đủ 3 lớp: máy quay, không khí, nhịp ≤ 8 giây. `tasks.py done` loại render tự từ chối video chưa đạt mốc chuyển động.
 - **Mọi cảnh phải chuyển động liên tục (anh chốt 23/11/2026: "tạo chuyển động cho các phân cảnh để tránh video bị nhàm chán").** Không cảnh nào đứng yên quá 3 giây. Cách làm theo loại cảnh:
   - Ảnh: Ken Burns đẩy vào / kéo ra / lia ngang, đổi chiều giữa các ảnh liền nhau, đổi tỉ lệ ≥ 8% trong cả cú máy; ảnh dài > 8 s thì cắt sang cận chi tiết.

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 45,
+ "next": 46,
  "tasks": [
   {
    "id": "T-001",
@@ -1765,6 +1765,81 @@
     ],
     "remaining": "sec_per_change 8,2 s hơi trên mốc 5–8 s (nhịp đổi hình nhẹ nhàng chưa vượt ngưỡng đo); chưa có cảnh 3D hay video thật; video 003 trở đi phải dựng bằng bộ này",
     "check": "python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
+   }
+  },
+  {
+   "id": "T-045",
+   "title": "Hệ thống dựng video v2: chuẩn edit, thư viện hiệu ứng, công thức theo thể loại, cấu trúc thư mục mới, motion kit v2 + demo đo được",
+   "type": "code",
+   "dod": "edit-standard/edit-workflow/edit-library/genre-recipes viết xong; new_video.py dựng thư mục; kit v2 validate+lint+check đạt; demo v2 render, static_pct<=2, loudness -14 LUFS; test chạy đạt",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 22:36",
+   "evidence": [
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/edit-standard.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/edit-workflow.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/edit-library.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/genre-recipes.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/new_video.py",
+    ".claude/skills/hoang-dung-clay-lapis-studio/templates/video-project",
+    "channel-studio/motion-kit/icyfox_motion.py",
+    "channel-studio/motion-kit/demo/metrics_v2.txt",
+    "channel-studio/motion-kit/demo/loudness_v2.txt",
+    "channel-studio/motion-kit/demo/grid_v2.jpg",
+    "channel-studio/motion-kit/demo/REVIEW_v2.md"
+   ],
+   "log": [
+    "2026-11-23 22:36 start",
+    "2026-11-23 22:51 done"
+   ],
+   "updated": "2026-11-23 22:51",
+   "session": "manual",
+   "report": {
+    "summary": "Nghiên cứu chuẩn hậu kỳ rồi dựng hệ thống dựng v2: quy trình 8 giai đoạn có cổng kiểm, cấu trúc thư mục 00_brief..06_review, thư viện hiệu ứng, công thức 5 trụ cột + 8 thể loại, motion kit v2; demo 74,4 s đạt static 0%, -14,0 LUFS",
+    "components": [
+     {
+      "name": "Nghiên cứu chuẩn edit",
+      "result": "edit-standard.md 161 dòng, 10 giai đoạn hậu kỳ, 7 nhóm thành phần, bảng đạt",
+      "verified_by": "đối chiếu hyperframes film/motion/look/sound/review + nguồn web có ngày",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/edit-standard.md"
+     },
+     {
+      "name": "Quy trình v2 + cấu trúc thư mục",
+      "result": "edit-workflow.md 8 giai đoạn, mỗi giai đoạn 1 cổng kiểm, danh sách kiểm 8 mục",
+      "verified_by": "new_video.py tạo 12 file + 6 thư mục, chạy lại không ghi đè (test)",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/edit-workflow.md"
+     },
+     {
+      "name": "Thư viện hiệu ứng",
+      "result": "9 loại cảnh, 8 máy quay, 8 chuyển cảnh, 4 kiểu chữ, màu chữ, bố cục, 7 lớp hình, 8 lớp âm thanh, 7 tổ hợp mẫu",
+      "verified_by": "khóa ghi trong bảng khớp mã (s.get trong icyfox_motion.py)",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/edit-library.md"
+     },
+     {
+      "name": "Công thức theo thể loại",
+      "result": "5 trụ cột P1-P5 + 8 thể loại khác, khóa style ghi đè preset",
+      "verified_by": "validate từ chối khóa style lạ (test)",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/genre-recipes.md"
+     },
+     {
+      "name": "Motion kit v2",
+      "result": "9 cảnh, 8 chuyển cảnh, 11 SFX Pixabay, ducking, finish -14 LUFS",
+      "verified_by": "15/15 test đạt; lint 0 lỗi; check 51/51 AA",
+      "evidence": "channel-studio/motion-kit/icyfox_motion.py"
+     },
+     {
+      "name": "Demo v2",
+      "result": "74,4 s, static 0%, pct_still 4,1%, -14,0 LUFS đỉnh -3,5 dBTP, 5 lỗi đã sửa",
+      "verified_by": "motion_metrics.py, ebur128, xem lưới khung",
+      "evidence": "channel-studio/motion-kit/demo/REVIEW_v2.md"
+     }
+    ],
+    "remaining": "Video dài 30 phút cần chia composition theo chương (30 lớp nặng/74 s); preset thể loại là giả thuyết, kiểm bằng đường giữ chân sau 3 video",
+    "check": "python3 -m pytest -q .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
    }
   }
  ]

@@ -47,8 +47,10 @@ def stage_of(vd):
     """Đoán bước hiện tại của một video từ file có trong thư mục."""
     if vd is None:
         return "chưa có thư mục", 0
-    outline = [p for p in (vd / "script_outline.md", vd / "proposal.md") if p.exists()]
-    parts = sorted(vd.glob("script_part*.md"))
+    # Cấu trúc v1 (file ở gốc) và v2 (00_brief/, 01_script/; edit-workflow.md §1)
+    outline = [p for d in (vd, vd / "00_brief") for p in (d / "script_outline.md", d / "proposal.md") if p.exists()]
+    parts = sorted(vd.glob("script_part*.md")) + sorted(vd.glob("01_script/script_part*.md"))
+    ready = (vd / "script_full_ready.txt").exists() or (vd / "01_script" / "script_full_ready.txt").exists()
     pkg = vd / "package"
     if (pkg / "UPLOADED.txt").exists():
         return "anh đã tải lên", 6
@@ -56,7 +58,7 @@ def stage_of(vd):
         return "gói đăng xong", 5
     if (vd / "render" / "RENDERED.txt").exists():
         return "đã render", 4
-    if parts and all(approved(p) for p in parts) and (vd / "script_full_ready.txt").exists():
+    if parts and all(approved(p) for p in parts) and ready:
         return "kịch bản đủ", 3
     if parts:
         return f"đang viết kịch bản ({sum(approved(p) for p in parts)}/{len(parts)} phần đạt)", 2

@@ -1,5 +1,7 @@
 # Motion graphics của ICYFOX: không cảnh nào đứng yên
 
+> **Bản v2 (23/11/2026):** quy trình dựng đầy đủ ở `edit-workflow.md`, thư viện hiệu ứng ở `edit-library.md`, công thức theo thể loại ở `genre-recipes.md`. File này giữ mốc đo chuyển động và 3 lớp chuyển động (vẫn bắt buộc).
+
 **Vì sao:** video 002 đạt khoảng 60 điểm. Phần mất điểm chủ yếu do phần lớn là ảnh tĩnh: phần giữa video đứng yên 71%, trong khi 5 kênh đối thủ chỉ 0–3,5% (`channel-studio/research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md`). Nguyên nhân kỹ thuật: các cảnh chỉ có hiệu ứng **xuất hiện**, sau đó **đứng im**.
 
 ## 1. Mốc bắt buộc (đo bằng `scripts/motion_metrics.py`)

@@ -75,6 +75,7 @@ Các tiêu chuẩn dưới đây là để không lặp lại những lỗi đó
 | **Phạm vi chủ đề: 5 trụ cột kể chuyện** | `references/content-pillars.md` |
 | **16 repo của anh: repo nào dùng ở bước nào** | `references/toolbox-repos.md` |
 | **Khóa API: file mẫu và hướng dẫn** | `channel-studio/config/api_keys.env.example`, `channel-studio/config/HUONG_DAN_KHOA_API.md` |
+| **Dựng video v2 (chuẩn edit, 8 giai đoạn + cổng kiểm, cấu trúc thư mục mới, thư viện hiệu ứng máy quay/chuyển cảnh/chữ/màu/bố cục/âm thanh, công thức theo thể loại)** | `references/edit-workflow.md` → `edit-library.md`, `genre-recipes.md`; cơ sở: `edit-standard.md`; tạo thư mục: `scripts/new_video.py create` |
 | **Motion graphics: không cảnh nào đứng yên** (mốc đo, 3 lớp chuyển động, bộ cảnh dựng sẵn, thành phần HyperFrames theo nhu cầu) | `references/motion-graphics.md` + `channel-studio/motion-kit/` + `scripts/motion_metrics.py` |
 | **Render nhanh trên máy anh** | `references/local-render.md` |
 | **Đổi máy tính, khôi phục toàn bộ dữ liệu** | `channel-studio/guides/KHOI_PHUC_MAY_MOI.md` + `scripts/restore_machine.sh` |

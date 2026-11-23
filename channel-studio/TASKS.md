@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 17:16 (giờ Việt Nam).
+Cập nhật: 2026-11-23 22:51 (giờ Việt Nam).
 
 ## Đang làm (1)
 
@@ -35,6 +35,7 @@ Cập nhật: 2026-11-23 17:16 (giờ Việt Nam).
 
 ## Xong gần đây
 
+- T-045 Hệ thống dựng video v2: chuẩn edit, thư viện hiệu ứng, công thức theo thể loại, cấu trúc thư mục mới, motion kit v2 + demo đo được (2026-11-23 22:51): .claude/skills/hoang-dung-clay-lapis-studio/references/edit-standard.md, .claude/skills/hoang-dung-clay-lapis-studio/references/edit-workflow.md, .claude/skills/hoang-dung-clay-lapis-studio/references/edit-library.md, .claude/skills/hoang-dung-clay-lapis-studio/references/genre-recipes.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/new_video.py, .claude/skills/hoang-dung-clay-lapis-studio/templates/video-project, channel-studio/motion-kit/icyfox_motion.py, channel-studio/motion-kit/demo/metrics_v2.txt, channel-studio/motion-kit/demo/loudness_v2.txt, channel-studio/motion-kit/demo/grid_v2.jpg, channel-studio/motion-kit/demo/REVIEW_v2.md
 - T-044 Đưa motion graphics vào skill: quy tắc, bộ chuyển động, cổng đo trong sổ việc, quy trình (2026-11-23 17:16): .claude/skills/hoang-dung-clay-lapis-studio/references/motion-graphics.md, channel-studio/motion-kit/icyfox_motion.py, channel-studio/motion-kit/README.md, channel-studio/motion-kit/demo/metrics.txt, channel-studio/motion-kit/demo/grid.jpg
 - T-043 Phân tích chuyển động 5 kênh đối thủ, đặt mốc chuyển động cho video sau (2026-11-23 15:51): channel-studio/research/2026-11-23-motion/BAO_CAO_CHUYEN_DONG.md, channel-studio/research/2026-11-23-motion/metrics.txt, channel-studio/research/2026-11-23-motion/videos.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/motion_metrics.py, .claude/skills/hoang-dung-clay-lapis-studio/references/production-workflow.md
 - T-041 002 Lady Be Good: tải lên qua API + công khai ngay 23/11 (anh yêu cầu không hẹn giờ) (2026-11-23 12:44): channel-studio/videos/002-lady-be-good/package/UPLOADED.txt, channel-studio/videos/002-lady-be-good/package/READBACK.txt
@@ -49,4 +50,3 @@ Cập nhật: 2026-11-23 17:16 (giờ Việt Nam).
 - T-030 Thử hẹn giờ công khai sau 3 phút qua API (anh yêu cầu), xem có tự chuyển Công khai không, rồi xóa (2026-11-23 00:00): channel-studio/research/2026-11-22-api-upload-test/result.json, channel-studio/guides/TU_DONG_DANG_VIDEO.md, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py
 - T-028 Thử tải 1 clip 5 giây qua API (Không công khai) để biết YouTube có còn ép Riêng tư không, rồi xóa clip (2026-11-22 23:53): channel-studio/research/2026-11-22-api-upload-test/result.json, .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_upload_probe.py, channel-studio/guides/TU_DONG_DANG_VIDEO.md
 - T-027 Trả lời: có cách nào để AI tự đăng video lên YouTube không (kiểm chính sách + phương án) (2026-11-22 23:49): channel-studio/guides/TU_DONG_DANG_VIDEO.md
-- T-026 Tự động tải video lên YouTube: lệnh upload trong yt_publish.py + hồ sơ đơn audit API (2026-11-22 23:22): channel-studio/PLAN.md

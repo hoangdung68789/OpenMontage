@@ -242,3 +242,62 @@ def test_motion_kit_validate_and_build(tmp_path):
     pf.write_text(json.dumps(bad))
     r = subprocess.run([sys.executable, str(kit), "validate", str(pf)], capture_output=True, text=True)
     assert r.returncode == 2 and "ghi công" in r.stdout
+
+
+def test_motion_kit_v2_rules_transitions_style_and_sfx(tmp_path):
+    kit = S.parents[3] / "channel-studio" / "motion-kit" / "icyfox_motion.py"
+    if not kit.exists():
+        pytest.skip("không có motion-kit")
+
+    def call(cmd, plan, *extra):
+        pf = tmp_path / "p.json"
+        pf.write_text(json.dumps(plan))
+        return subprocess.run([sys.executable, str(kit), cmd, str(pf), *map(str, extra)], capture_output=True, text=True, encoding="utf-8")
+
+    scenes = [{"type": "title", "dur": 5, "text": "The *Lost* Patrol"}, {"type": "stat", "dur": 5, "value": 9, "label": "days", "big": True},
+              {"type": "quote", "dur": 6, "text": "We walked on.", "by": "x"}, {"type": "stat", "dur": 5, "value": 3, "label": "men", "payoff": True},
+              {"type": "quote", "dur": 6, "text": "No water left.", "by": "y"}]
+    # chuyển cảnh liền nhau trùng kiểu và cắt thẳng quá 1/3 -> hỏng
+    bad = [dict(s, transition="cut") if i else s for i, s in enumerate(scenes)]
+    r = call("validate", {"genre": "war", "scenes": bad})
+    assert r.returncode == 2 and "1/3" in r.stdout
+    # chữ không kịp đọc -> hỏng
+    r = call("validate", {"scenes": [{"type": "quote", "dur": 3, "text": " ".join(["word"] * 20), "by": "x"}]})
+    assert r.returncode == 2
+    # style lạ -> hỏng; style hợp lệ -> đạt và đổi bộ chuyển cảnh
+    assert call("validate", {"genre": "war", "style": {"nope": 1}, "scenes": scenes}).returncode == 2
+    r = call("build", {"genre": "mystery", "style": {"trans": ["dissolve", "dip"]}, "scenes": scenes}, tmp_path / "out")
+    assert r.returncode == 0, r.stdout + r.stderr
+    cues = json.loads((tmp_path / "out" / "sfx_cues.json").read_text(encoding="utf-8"))
+    used = {t for t in cues["transitions"] if t != "none"}
+    assert used <= {"dissolve", "dip"} and len(used) == 2
+    assert all(a != b for a, b in zip(cues["transitions"][1:], cues["transitions"][2:]))
+    kinds = [c["kind"] for c in cues["cues"]]
+    assert kinds.count("riser") == 1 and "land" in kinds
+    for c in cues["cues"]:                                             # đỉnh âm rơi sau hình đúng 1 khung
+        if c["kind"] != "riser" and c["start"] > 0:
+            assert abs(c["start"] + c["peak_offset"] - (c["t_picture"] + 1 / 30)) < .01, c
+    body = (tmp_path / "out" / "compositions" / "body.html").read_text(encoding="utf-8")
+    assert 'class="w acc"' in body or "acc" in body                    # từ *nhấn* được tô màu
+    assert "Math.random" not in body and "Date.now" not in body
+
+
+def test_new_video_scaffold_and_autopilot_reads_v2(tmp_path):
+    r = run(tmp_path, S / "new_video.py", "create", "009-test", "--title", "A Test", "--genre", "war", "--root", tmp_path)
+    assert r.returncode == 0, r.stdout + r.stderr
+    v = tmp_path / "009-test"
+    for p in ("00_brief/script_outline.md", "02_storyboard/motion_plan.json", "03_assets/CREDITS.md", "06_review/REVIEW.md", "03_assets/audio/vo"):
+        assert (v / p).exists(), p
+    assert json.loads((v / "02_storyboard/motion_plan.json").read_text(encoding="utf-8"))["genre"] == "war"
+    (v / "README.md").write_text("đã sửa", encoding="utf-8")
+    run(tmp_path, S / "new_video.py", "create", "009-test", "--title", "B", "--genre", "war", "--root", tmp_path)
+    assert (v / "README.md").read_text(encoding="utf-8") == "đã sửa"          # không ghi đè
+    sys.path.insert(0, str(S))
+    import autopilot
+    assert autopilot.stage_of(v)[1] == 1
+    (v / "01_script" / "script_part1.md").write_text("x", encoding="utf-8")
+    assert autopilot.stage_of(v)[1] == 2
+    cues = tmp_path / "c.json"
+    cues.write_text(json.dumps({"genre": "war", "transitions": ["none", "dip"], "cues": [{"t_picture": 1.0, "start": .9, "kind": "land", "file": "a/b.mp3", "volume": .5, "scene": "s0"}]}))
+    assert run(tmp_path, S / "new_video.py", "cuesheet", cues, v / "05_sound/CUE_SHEET.md").returncode == 0
+    assert "tiêu đề đáp" in (v / "05_sound/CUE_SHEET.md").read_text(encoding="utf-8")
