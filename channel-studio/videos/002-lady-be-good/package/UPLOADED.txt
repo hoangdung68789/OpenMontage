@@ -1,4 +1,4 @@
 video_id=RHKCFi3l2V0
-applied_at_vn=2026-11-23 12:57
+applied_at_vn=2026-11-23 13:02
 publish_at_vn=đã công khai từ trước
 result=metadata + hẹn giờ; thumbnail

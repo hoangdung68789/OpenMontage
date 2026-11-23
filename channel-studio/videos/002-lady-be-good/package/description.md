@@ -10,6 +10,7 @@ CHAPTERS
 21:07 Found
 26:51 What the desert kept
 
+Sources: National Museum of the U.S. Air Force, U.S. National Archives, Air & Space Forces Magazine, Shaw Air Force Base.
 Music: "Lightless Dawn", "Hiding Your Reality", "Unseen Horrors", "Sad Trio", "Long Note Two", "Despair and Triumph" by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0 (http://creativecommons.org/licenses/by/4.0/)
 
 #history #ww2 #mystery

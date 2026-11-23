@@ -61,7 +61,9 @@ def tail():
     lic = {MAN[PHOTOS[k]["file"]]["license"] for k in used_photos()}
     assert lic == {"Public domain"}, lic  # ảnh public domain không bắt buộc ghi công; ảnh CC BY thì phải thêm lại dòng ghi công
     names = ", ".join(f"\"{t.removesuffix('.mp3').replace('_', ' ')}\"" for t in dict.fromkeys(m[0] for m in MUSIC))
-    out += ["", f"Music: {names} by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0 "
+    # anh chốt 23/11: chỉ 1 dòng nguồn tổng hợp (tên, không link); bỏ Wikipedia vì không phải nguồn gốc
+    out += ["", "Sources: " + ", ".join(dict.fromkeys(n.split(",")[0].split(" \"")[0] for n, _ in SOURCES if "Wikipedia" not in n)) + "."]
+    out += [f"Music: {names} by Kevin MacLeod (incompetech.com), licensed under CC BY 4.0 "
             "(http://creativecommons.org/licenses/by/4.0/)",  # giấy phép CC BY bắt buộc ghi công nhạc
             "", " ".join(HASH)]
     return "\n".join(out)

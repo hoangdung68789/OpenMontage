@@ -112,7 +112,7 @@ def apply(h, vdir, vid, when, dry, public=False):
     r = requests.put(f"{DATA}/videos", params={"part": parts}, headers={**h, "Content-Type": "application/json"}, json=body, timeout=60)
     if not r.ok:
         sys.exit(f"videos.update lỗi {r.status_code}: {r.text[:300]}")
-    done = ["metadata" + (" + hẹn giờ" if when else "")]
+    done = ["metadata" + (" + hẹn giờ" if when and when[0] else "")]
     if thumb:
         r = requests.post(f"{UPLOAD}/thumbnails/set", params={"videoId": vid}, headers={**h, "Content-Type": "image/png" if thumb.suffix == ".png" else "image/jpeg"},
                           data=thumb.read_bytes(), timeout=120)

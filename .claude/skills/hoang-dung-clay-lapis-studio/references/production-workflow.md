@@ -59,6 +59,13 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 
 ## 5. Phân cảnh (scene_plan, cần duyệt)
 - Mỗi cảnh có: mốc giây (theo độ dài thật của file giọng), loại cảnh, mô tả, nguồn hình kèm giấy phép, chữ trên màn hình.
+- **Mọi cảnh phải chuyển động liên tục (anh chốt 23/11/2026: "tạo chuyển động cho các phân cảnh để tránh video bị nhàm chán").** Không cảnh nào đứng yên quá 3 giây. Cách làm theo loại cảnh:
+  - Ảnh: Ken Burns đẩy vào / kéo ra / lia ngang, đổi chiều giữa các ảnh liền nhau, đổi tỉ lệ ≥ 8% trong cả cú máy; ảnh dài > 8 s thì cắt sang cận chi tiết.
+  - Thẻ chữ, lưới thẻ (tổ bay, chip số liệu): sau khi hiện vẫn trôi chậm (máy đẩy 1.00→1.05 hoặc lia), bật sáng lần lượt từng mục đúng lúc lời nhắc tới; thẻ dài > 8 s thì tách thành nhiều nhịp.
+  - Bản đồ: máy di chuyển + đường bay vẽ dần + điểm nhấp nháy (đã có ở 002).
+  - Minh họa: parallax nhiều lớp chạy tốc độ khác nhau, thêm bụi/sương trôi.
+  - Đổi cảnh mỗi 6–10 s; chuyển cảnh đa dạng (cắt, hòa, đẩy, khớp hình).
+  - Cấm: lắc/rung khung. Chuyển động chậm, mượt kiểu phim tài liệu.
 - Các loại cảnh:
   - Ảnh di vật thật, cho chuyển động chậm có chủ đích (parallax, đẩy máy).
   - Bản đồ Lưỡng Hà động.
@@ -76,11 +83,15 @@ Pipeline của OpenMontage: `animated-explainer` (`pipeline_defs/animated-explai
 ## 7. Dựng (edit/compose)
 - Dùng HyperFrames: đọc skill `/hyperframes` và `/hyperframes-cli` trước khi làm.
 - Sau mỗi lần sửa composition, chạy `npx hyperframes lint` và `npx hyperframes check`. Cả hai phải đạt.
+- **Kiểm chuyển động trước render:** snapshot 2 mốc cách 3 s trong mỗi cảnh dài phải khác nhau.
 - Render 1080p. Lần đầu (video thử) phải đo và ghi vào HANDOFF: thời gian render, dung lượng file, xem có vừa tài nguyên của một phiên không.
 
 ## 8. Kiểm tra chất lượng trước khi trình anh
+- **Không có đoạn hình đứng yên ≥ 4 s** (đo trên bản render):
+  `ffmpeg -nostats -i X.mp4 -an -vf "scale=480:-1,freezedetect=n=-60dB:d=4" -f null - 2>&1 | grep freeze_start` phải ra rỗng.
+  Mốc so sánh 002 (23/11): 110 đoạn đứng yên ≥ 3 s, tổng 62% thời lượng, dài nhất 34,6 s (thẻ "NINE MEN" lúc 2:42). Lỗi này là lý do có luật trên.
 - Tiếng khớp hình. Không có khung hình đen. Âm lượng ổn (khoảng −14 LUFS cho YouTube, nhận định).
-- Mọi ảnh đều có trong danh sách ghi công.
+- Mọi ảnh đều có trong danh sách ghi công trong repo. Trên màn hình KHÔNG ghi nguồn từng ảnh; mô tả chỉ 1 dòng nguồn tổng hợp nếu có (anh chốt 23/11/2026, xem `publish-package.md`). Ảnh CC BY/BY-SA vẫn phải có ghi công vì giấy phép bắt buộc.
 - Không có chữ sai chính tả trên màn hình. Tên riêng viết thống nhất.
 - Đã quyết định có khai báo AI hay không, kèm lý do.
 
