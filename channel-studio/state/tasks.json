@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 36,
+ "next": 39,
  "tasks": [
   {
    "id": "T-001",
@@ -120,9 +120,10 @@
    "created": "2026-11-22 21:31",
    "evidence": [],
    "log": [
-    "2026-11-22 21:50 note: KHÔNG chạy trước 23/11/2026 21:17 giờ VN (radar trước tra 22/11 21:17; cần cách 24–48 giờ). Lần tự lái hợp lệ đầu tiên: 24/11 09:00 (khoảng 36 giờ). Lệnh: niche_outliers.py --days 7, rồi so lượt xem 3 video BwyM7aGf8p0, R2gNUN0ljTc, 3NE-Cz96W7E với research/2026-11-22-radar/outliers.json."
+    "2026-11-22 21:50 note: KHÔNG chạy trước 23/11/2026 21:17 giờ VN (radar trước tra 22/11 21:17; cần cách 24–48 giờ). Lần tự lái hợp lệ đầu tiên: 24/11 09:00 (khoảng 36 giờ). Lệnh: niche_outliers.py --days 7, rồi so lượt xem 3 video BwyM7aGf8p0, R2gNUN0ljTc, 3NE-Cz96W7E với research/2026-11-22-radar/outliers.json.",
+    "2026-11-23 11:05 note: Cập nhật 23/11: lần đo 2 đã làm (trend_verify.py). Lần tiếp theo 25/11 khoảng 11:00: trend_verify.py channel-studio/research/2026-11-23-radar/outliers.json + topic_check.py cho Shackleton, Violette Szabo, Vaal Reefs"
    ],
-   "updated": "2026-11-22 21:50"
+   "updated": "2026-11-23 11:05"
   },
   {
    "id": "T-008",
@@ -1215,19 +1216,49 @@
    "type": "ops",
    "dod": "autopilot.py --backup-check chạy đúng (RUN/SKIP); tác vụ hẹn giờ cloud tạo xong; autopilot.md §8 + HANDOFF cập nhật; test đạt",
    "owner": "claude",
-   "status": "waiting",
+   "status": "done",
    "prio": 1,
    "due": null,
    "video": null,
    "series": null,
    "created": "2026-11-23 10:53",
-   "evidence": [],
+   "evidence": [
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/autopilot.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/decisions-log.md"
+   ],
    "log": [
-    "2026-11-23 10:54 wait"
+    "2026-11-23 10:54 wait",
+    "2026-11-23 11:05 start",
+    "2026-11-23 11:05 done"
    ],
    "session": "manual",
-   "updated": "2026-11-23 10:54",
-   "question": "Anh cho phép tạo tác vụ hẹn giờ trên cloud 'ICYFOX dự phòng' (13:17 và 20:17 mỗi ngày; tự bỏ qua nếu máy anh vừa làm trong 8 giờ qua)? Trả lời 'tạo lịch dự phòng'."
+   "updated": "2026-11-23 11:05",
+   "report": {
+    "summary": "Tạo phiên cloud dự phòng trig_01NapM4JK5wZnn2b5J1Ktfe7 (13:17 và 20:17 giờ VN, mỗi lần một phiên mới, có thông báo đẩy). Phiên tự SKIP nếu nhánh có commit trong 8 giờ qua; bật tự chạy tiếp khi hết hạn mức",
+    "components": [
+     {
+      "name": "Lịch cloud",
+      "result": "trig_01NapM4JK5wZnn2b5J1Ktfe7, cron CRON_TZ=Asia/Ho_Chi_Minh 17 13,20 * * *, lần đầu 2026-11-23T06:17Z (13:17 VN), push=true, không có công cụ Notion",
+      "verified_by": "create_trigger trả CREATE_TRIGGER_OUTCOME_CREATED (anh xác nhận 'tạo lịch dự phòng')",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/decisions-log.md"
+     },
+     {
+      "name": "Kiểm tra dự phòng",
+      "result": "autopilot.py --backup-check: RUN nếu commit cuối >= 8 giờ, SKIP (mã 3) nếu < 8 giờ",
+      "verified_by": "chạy thật lúc 10:53 (RUN, commit cuối cách 10,8 giờ); test_backup_check_skips_when_recent_commit đạt",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/scripts/autopilot.py"
+     },
+     {
+      "name": "Tự chạy tiếp khi hết hạn mức",
+      "result": "autoContinueAtUsageLimit=true trong .claude/settings.json",
+      "verified_by": "jq kiểm cùng 3 hook [Chưa xác minh app đọc từ cấu hình dự án]",
+      "evidence": ".claude/settings.json"
+     }
+    ],
+    "remaining": "Phiên cloud không có Notion (anh thêm trong Routines nếu cần). Cloud không sinh giọng VoiceStudio được (thiếu host huggingface.co); việc giọng do máy anh làm (T-036)",
+    "check": "python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests -k backup"
+   }
   },
   {
    "id": "T-035",
@@ -1243,7 +1274,7 @@
    "created": "2026-11-23 10:54",
    "evidence": [
     "voice-lab/README.md",
-    "voice-lab/clone-algenib/clone_voxcpm2.py",
+    "voice-lab/clone-algenib/clone_algenib.py",
     "voice-lab/clone-algenib/S1.3_clone_voxcpm2.mp3",
     ".gitmodules",
     "channel-studio/state/jobs/2026-11-23-clone-algenib-qa.log"
@@ -1291,6 +1322,122 @@
     "remaining": "Đẩy GitHub ngay sau thẻ này. Anh nghe so sánh 2 mp3. Chưa dùng giọng clone cho video đăng kênh (điều khoản Gemini 'replicate any component' chưa rõ). Clone nhanh hơn Gemini (20 s so với 28 s) vì bỏ [pause]",
     "check": ""
    }
+  },
+  {
+   "id": "T-036",
+   "title": "Tìm chủ đề đang lên liên quan kênh (radar lần 2 + kiểm chứng 2 thời điểm + cụm chủ đề), đưa vào kho ý tưởng",
+   "type": "research",
+   "dod": "TREND.md + RADAR.md mới + bảng chủ đề có nhãn theo định nghĩa của anh; IDEA_BANK cập nhật",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 11:01",
+   "evidence": [
+    "channel-studio/research/2026-11-23-trend/DE_XUAT_CHU_DE.md",
+    "channel-studio/research/2026-11-23-trend/trend_rows.json",
+    "channel-studio/research/2026-11-23-radar/RADAR.md",
+    "channel-studio/ideas/IDEA_BANK.md"
+   ],
+   "log": [
+    "2026-11-23 11:05 done",
+    "2026-11-23 đổi số T-035 → T-036 (trùng số với thẻ của máy anh)"
+   ],
+   "session": "manual",
+   "updated": "2026-11-23 11:05",
+   "report": {
+    "summary": "Đo lại 67 video radar sau 13,7 giờ + radar mới (59 video, 7 ứng viên) + kiểm bằng chứng (c) 3 chủ đề: chưa chủ đề nào ĐÃ KIỂM CHỨNG; 5 TÍN HIỆU SỚM hợp kênh; IDEA_BANK thêm I-011, I-012",
+    "components": [
+     {
+      "name": "Đo thời điểm 2",
+      "result": "67 video đo lại lúc 23/11 11:01 (lần 1 22/11 21:17); Shackleton +4.801 (đà 2,19), Violette Szabo +2.752 (đà 0,97), Vaal Reefs +6.556 (đà 1,27)",
+      "verified_by": "trend_verify.py gọi videos.list, so lượt xem 2 lần",
+      "evidence": "channel-studio/research/2026-11-23-trend/trend_rows.json"
+     },
+     {
+      "name": "Radar mới",
+      "result": "59 video tiếng Anh >= 8 phút trong 7 ngày, 7 ứng viên, khoảng 1.113 đơn vị hạn mức",
+      "verified_by": "niche_outliers.py --days 7",
+      "evidence": "channel-studio/research/2026-11-23-radar/RADAR.md"
+     },
+     {
+      "name": "Bằng chứng (c)",
+      "result": "Shackleton 1 kênh VIRAL, nữ điệp viên SOE 0, thành phố ngầm 1 (kênh lịch sử giả) → chưa đạt",
+      "verified_by": "topic_check.py (search 7 ngày + TB 10 video từng kênh)",
+      "evidence": "channel-studio/research/2026-11-23-trend/topic_shackleton-endurance-expedition.json"
+     },
+     {
+      "name": "Đề xuất",
+      "result": "bảng 9 chủ đề theo khung của anh (nhãn, hợp kênh, rủi ro, hạn chót, cách làm); loại kayak (true crime), để dành Lễ Tạ ơn; đề xuất kéo Dyatlov/Franklin lên mùa đông",
+      "verified_by": "đối chiếu content-pillars + PLAN releases",
+      "evidence": "channel-studio/research/2026-11-23-trend/DE_XUAT_CHU_DE.md"
+     }
+    ],
+    "remaining": "Đo lại 25/11 khoảng 11:00 (T-007) để nâng nhãn; chủ đề 12 Sứ đồ và vợ lãnh đạo Quốc xã mới đo 1 lần",
+    "check": ""
+   }
+  },
+  {
+   "id": "T-037",
+   "title": "Script giọng VoiceStudio (voicestudio_tts.py) + chặn engine không thương mại",
+   "type": "code",
+   "dod": "check/sample/narrate chạy với máy chủ giả lập; chặn omnivoice; test đạt",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 11:05",
+   "evidence": [
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/voice/voicestudio_tts.py",
+    ".claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py"
+   ],
+   "log": [
+    "2026-11-23 11:05 done"
+   ],
+   "session": "manual",
+   "updated": "2026-11-23 11:05",
+   "report": {
+    "summary": "Script gọi VoiceStudio qua API kiểu OpenAI (cổng 3900): check, sample, narrate theo đoạn của script_partN.md, chạy tiếp từ đoạn còn thiếu, có manifest; chặn OmniVoice và engine chưa có giấy phép thương mại",
+    "components": [
+     {
+      "name": "Chạy với máy chủ giả lập",
+      "result": "check thấy 4 engine, báo voxcpm2 + kittentts được phép; narrate Phần 1 của 002: 8/8 đoạn, 297,6 giây; chạy lần 2 chỉ làm 6 đoạn còn thiếu",
+      "verified_by": "máy chủ HTTP giả trả WAV theo độ dài văn bản",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/scripts/voice/voicestudio_tts.py"
+     },
+     {
+      "name": "Chặn giấy phép",
+      "result": "từ chối omnivoice, tts-1, audio-cpp, engine lạ; cho phép voxcpm2, kittentts, cosyvoice, moss-tts-nano, ming-tts",
+      "verified_by": "test_voicestudio_client_parses_segments_and_blocks_noncommercial đạt (11/11)",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/scripts/tests/test_icyfox_tools.py"
+     }
+    ],
+    "remaining": "Chưa sinh giọng thật: VoiceStudio phải chạy trên máy anh (T-036); cloud thiếu host huggingface.co để tải mô hình",
+    "check": "python3 -m pytest -q -p no:cacheprovider .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests -k voicestudio"
+   }
+  },
+  {
+   "id": "T-038",
+   "title": "VoiceStudio trên máy anh: cài app, bật VoxCPM2, thiết kế giọng 'icyfox-narrator' (không nhân bản người thật), kiểm thẻ mô hình openbmb/VoxCPM2 (Apache-2.0), chạy voicestudio_tts.py check + sample 60 giây, rồi đọc lại 002 bằng giọng này",
+   "type": "voice",
+   "dod": "File mẫu WAV + manifest.json (engine voxcpm2, giấy phép apache-2.0) + ghi chú giấy phép đã kiểm; HANDOFF ghi thời gian sinh 1 phút giọng",
+   "owner": "claude-local",
+   "status": "dropped",
+   "prio": 1,
+   "due": "2026-11-26",
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 11:05",
+   "evidence": [],
+   "log": [
+    "2026-11-23 đổi số T-036 → T-038 và bỏ vì trùng T-035"
+   ],
+   "updated": "2026-11-23 11:05",
+   "reason": "Trùng T-035 của máy anh (đã cài VoiceStudio, clone giọng Algenib bằng VoxCPM2 Apache-2.0)"
   }
  ]
 }

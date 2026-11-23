@@ -1,0 +1,55 @@
+{
+ "query": "Shackleton Endurance expedition",
+ "checked_at_vn": "2026-11-23 11:03",
+ "published_after_utc": "2026-11-16T04:03:08Z",
+ "videos": [
+  {
+   "id": "u4Sl2GZcMWg",
+   "title": "How Many Survived? – A True Survival Story - Shackleton’s Endurance Expedition",
+   "channel": "Hadi Jungle",
+   "channel_id": "UCF8MtuDq4iO7YzLliSJ0q2A",
+   "published": "2026-11-16T19:58:32Z",
+   "views": 24258,
+   "ratio": 17.96,
+   "viral": true,
+   "url": "https://www.youtube.com/watch?v=u4Sl2GZcMWg"
+  },
+  {
+   "id": "oa6LTnaChIE",
+   "title": "Shackleton's Endurance: 28 Men, No Ship, No Rescue",
+   "channel": "The Great Odysseys",
+   "channel_id": "UCzPxP86Xo-wJNFtcipqi3ZA",
+   "published": "2026-11-20T00:08:40Z",
+   "views": 7387,
+   "ratio": 1.15,
+   "viral": false,
+   "url": "https://www.youtube.com/watch?v=oa6LTnaChIE"
+  },
+  {
+   "id": "YxG-d7WYvc0",
+   "title": "500 Días en la Antártida: Nadie Vino a Salvarlos",
+   "channel": "Bajo Capó",
+   "channel_id": "UCVnOCJ3XnfjDGe6W-DpC-Aw",
+   "published": "2026-11-19T07:00:29Z",
+   "views": 4609,
+   "ratio": 0.12,
+   "viral": false,
+   "url": "https://www.youtube.com/watch?v=YxG-d7WYvc0"
+  },
+  {
+   "id": "xiC2OEcSCX8",
+   "title": "Shackleton’s Endurance: How All 28 Men Survived",
+   "channel": "Expeditions & Discoveries",
+   "channel_id": "UCc4hl91imLHZX5E-NkEIKvQ",
+   "published": "2026-11-21T07:57:26Z",
+   "views": 66,
+   "ratio": null,
+   "viral": false,
+   "url": "https://www.youtube.com/watch?v=xiC2OEcSCX8"
+  }
+ ],
+ "viral_channels": [
+  "Hadi Jungle"
+ ],
+ "evidence_c": false
+}
