@@ -1,11 +1,13 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-23 15:51 (giờ Việt Nam).
+Cập nhật: 2026-11-23 16:07 (giờ Việt Nam).
 
-## Đang làm (0)
+## Đang làm (1)
 
-(không có)
+| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
+|---|---|---|---|---|---|---|---|---|
+| T-005 | Đang làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
 
 ## Chờ anh quyết (0)
 
@@ -15,13 +17,12 @@ Cập nhật: 2026-11-23 15:51 (giờ Việt Nam).
 
 (không có)
 
-## Chưa làm (theo ưu tiên) (12)
+## Chưa làm (theo ưu tiên) (11)
 
 | ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
 |---|---|---|---|---|---|---|---|---|
 | T-002 | Chưa làm | codex | Sửa tools/audio/gemini_tts.py dùng API v1beta (model gemini-3.8-flash-tts báo 404) | code |  | 2026-11-25 | Tạo được 1 file giọng 10 giây bằng gemini_tts; test pytest đạt |  |
 | T-004 | Chưa làm | claude | Render thử 3 phút bằng HyperFrames để đo thời gian render trên cloud | render |  | 2026-11-30 | MP4 3 phút + render/RENDERED.txt ghi thời gian render, máy, dung lượng |  |
-| T-005 | Chưa làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
 | T-032 | Chưa làm | claude-local | Bật AI tự tải lên: đặt YT_AUDIT_APPROVED=1 trong OpenMontage/.env (thử thật T-028/T-030 đạt), tải thật Short đầu tiên bằng yt_publish.py upload với hẹn giờ 01/12, theo dõi 24 giờ; bị khóa thì anh kéo thả | publish |  | 2026-11-30 | UPLOADED.txt của Short đầu ghi video_id + publishAt; sau giờ hẹn đọc lại privacyStatus=public; ghi kết quả vào TU_DONG_DANG_VIDEO.md §5 |  |
 | T-006 | Chưa làm | claude | Thử yt_publish.py với Short đầu tiên anh tải lên (đặt publishAt qua API) | publish |  | 2026-12-01 | package/UPLOADED.txt ghi kết quả; ghi vào HANDOFF API có cho hẹn giờ hay không |  |
 | T-007 | Chưa làm | claude | Chạy lại radar sau 24–48 giờ để kiểm chứng đà tăng của ứng viên (I-001) | research |  | 2026-11-24 | RADAR.md mới + so lượt xem 2 thời điểm cho 3 ứng viên trong IDEA_BANK |  |
