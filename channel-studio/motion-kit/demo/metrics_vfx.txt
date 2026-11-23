@@ -1,0 +1,2 @@
+vfx_final.mp4 {'sec': 82.9, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 5.9, 'pct_still': 0.6}
+black segments (blackdetect d>=0.1s): 0

@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 46,
+ "next": 47,
  "tasks": [
   {
    "id": "T-001",
@@ -1839,6 +1839,75 @@
      }
     ],
     "remaining": "Video dài 30 phút cần chia composition theo chương (30 lớp nặng/74 s); preset thể loại là giả thuyết, kiểm bằng đường giữ chân sau 3 video",
+    "check": "python3 -m pytest -q .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
+   }
+  },
+  {
+   "id": "T-046",
+   "title": "Bộ VFX chuyên dụng cho motion kit: kết cấu tự sinh, âm thanh tự tổng hợp, 16 hiệu ứng, luật an toàn nhấp nháy, chia khối dựng theo chương",
+   "type": "code",
+   "dod": "vfx_assets.py sinh texture + SFX tổng hợp; kit có khóa vfx, validate luật; chia composition; demo VFX lint 0 lỗi, check đạt, render, static<=2%, không khung đen; tài liệu edit-library/genre-recipes cập nhật; test đạt",
+   "owner": "claude",
+   "status": "done",
+   "prio": 1,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-23 23:01",
+   "evidence": [
+    "channel-studio/motion-kit/vfx.py",
+    "channel-studio/motion-kit/vfx_assets.py",
+    "channel-studio/motion-kit/vfx/tex",
+    "channel-studio/motion-kit/sfx/synth",
+    "channel-studio/motion-kit/demo/plan_vfx.json",
+    "channel-studio/motion-kit/demo/grid_vfx.jpg",
+    "channel-studio/motion-kit/demo/metrics_vfx.txt",
+    "channel-studio/motion-kit/demo/loudness_vfx.txt",
+    "channel-studio/motion-kit/demo/REVIEW_vfx.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/edit-library.md",
+    ".claude/skills/hoang-dung-clay-lapis-studio/references/genre-recipes.md"
+   ],
+   "log": [
+    "2026-11-23 23:01 start",
+    "2026-11-23 23:32 done"
+   ],
+   "updated": "2026-11-23 23:32",
+   "session": "manual",
+   "report": {
+    "summary": "Bộ VFX chuyên dụng bật khi cần: 17 hiệu ứng, 14 kết cấu + 8 tiếng tự sinh, luật an toàn nhấp nháy, tự chia composition; demo 12 cảnh 82,9 s đạt static 0%, 0 khung đen, -14,2 LUFS",
+    "components": [
+     {
+      "name": "Tài nguyên tự sinh",
+      "result": "14 kết cấu PNG lặp liền mép (2,1 MB) + 8 tiếng MP3 tổng hợp (2,7 MB), seed cố định",
+      "verified_by": "xem lưới kết cấu, đo ebur128 từng tiếng",
+      "evidence": "channel-studio/motion-kit/vfx_assets.py"
+     },
+     {
+      "name": "Module VFX",
+      "result": "10 lớp không khí + 7 sự kiện, tiếng nền tự gắn, bảng VFX theo 5 thể loại",
+      "verified_by": "16/16 test đạt (luật lóe, số lớp, tên lạ, at ngoài cảnh)",
+      "evidence": "channel-studio/motion-kit/vfx.py"
+     },
+     {
+      "name": "Chia composition",
+      "result": "tối đa 6 cảnh/khối hoặc ngắt ở chapter, mốc thời gian tương đối",
+      "verified_by": "lint 0 lỗi 0 cảnh báo; blackdetect 0 đoạn ở chỗ nối 43,08 s",
+      "evidence": "channel-studio/motion-kit/demo/metrics_vfx.txt"
+     },
+     {
+      "name": "Demo VFX",
+      "result": "82,9 s, static 0%, pct_still 0,6%, -14,2 LUFS đỉnh -1,4 dBTP, 7 lỗi đã sửa",
+      "verified_by": "motion_metrics, ebur128, xem 20 khung",
+      "evidence": "channel-studio/motion-kit/demo/REVIEW_vfx.md"
+     },
+     {
+      "name": "Tài liệu",
+      "result": "edit-library §10 (17 VFX, luật, kỹ thuật), genre-recipes §4 (bảng theo thể loại + 8 công thức chủ đề khó)",
+      "verified_by": "đối chiếu tên khóa với vfx.py",
+      "evidence": ".claude/skills/hoang-dung-clay-lapis-studio/references/genre-recipes.md"
+     }
+    ],
+    "remaining": "VFX là lớp 2D (không tương tác vật trong ảnh); tiếng tổng hợp kém chân thực hơn bản thu; hiệu quả VFX lên giữ chân chưa đo",
     "check": "python3 -m pytest -q .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
    }
   }

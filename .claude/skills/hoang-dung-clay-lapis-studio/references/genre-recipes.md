@@ -73,3 +73,31 @@ Khi gặp thể loại mới: chọn preset gần nhất, đổi tối đa 4 kh�
 - Sau mỗi video: lấy đường giữ chân (Analytics) và đánh dấu các mốc chuyển cảnh/cao trào lấy từ `sfx_cues.json`. Chỗ tụt > 5 điểm % trong 10 giây → ghi vào `06_review/REVIEW.md` loại cảnh và hiệu ứng tại đó.
 - Mỗi 3 video cùng thể loại: so giữ chân 30 giây đầu và trung bình thời lượng xem. Thay đổi preset chỉ khi có số liệu, ghi vào `decisions-log.md`.
 - Các nhận định [N] ở trên là GIẢ THUYẾT CẦN THỬ cho tới khi có số liệu kênh.
+
+## 4. VFX theo thể loại và công thức cho chủ đề khó dựng
+Nguyên tắc (anh dặn 23/11/2026): video thường của kênh **chỉ cần cải thiện thêm** (mục 1–3 ở trên, không bắt buộc VFX). Khi chủ đề khó dựng thì bật VFX theo bảng dưới. Chi tiết từng VFX: `edit-library.md` §10.
+
+### 4.1 Bảng VFX hợp từng thể loại (kit cảnh báo nếu dùng ngoài bảng)
+| Thể loại | VFX hợp |
+|---|---|
+| war (P3) | smoke, embers, searchlight, rain, fog, sandstorm, shake, explosion, sparks, radio, filmburn |
+| mystery (P1) | fog, caustics, rays, rain, lightning, glitch, radio, filmburn |
+| disaster (P4) | smoke, embers, alarm, rain, fog, shake, explosion, sparks, glitch, radio |
+| ancient (P5) | rays, embers, sandstorm, fog, filmburn, shake |
+| survival (P2) | snow, sandstorm, rain, fog, lightning, shake, embers |
+
+### 4.2 Công thức chủ đề khó dựng (mỗi dòng: cảnh → VFX → âm thanh → nhịp)
+| Chủ đề | Công thức |
+|---|---|
+| Trận đánh, không kích | Mở `title` + embers + smoke → `photo` searchlight + radio (điện đàm) → `photo` explosion đúng chữ "hit"/"burst" → `map` tuyến bay → `stat` thương vong (không payoff ồn) → `quote` filmburn kết. Nổ ≤ 1 lần/8 s; cảnh mất mát bỏ VFX, để im |
+| Bão, thiên tai thời tiết | `photo` rain (0,5) → tăng rain (0,9) + lightning ở cao trào → sau bão: fog + rays (bình minh). Âm: mưa nền + sấm; nhạc hạ hẳn khi sấm |
+| Thám hiểm vùng cực, núi cao | `map` + snow nhẹ → `timeline` "ngày thứ N" → `photo` snow 0,9 + shake 0,4 (bão tuyết) → `quote` nhật ký (typewriter) không VFX |
+| Sa mạc, mất tích (như 002) | `map` sandstorm → `photo` sandstorm 0,5 → `stat` khoảng cách → `photo` rays (tìm thấy) |
+| Xác tàu, đáy biển (P1/P4) | `photo` caustics + fog nhẹ → `document` hồ sơ tàu + radio (tín hiệu cuối) → `timeline` phút chìm → `photo` caustics kéo ra (pull) |
+| Cháy, nổ công nghiệp (P4) | `timeline` đếm ngược + alarm → `photo` sparks (chập điện) → explosion + shake → smoke + embers suốt phần hậu quả → `stat` |
+| Bí ẩn, tín hiệu lạ (P1) | `photo` fog → `document` + glitch đúng lúc "the signal stopped" → radio → `quote` greyink |
+| Cổ đại, sử thi (P5) | `title` rays → `photo` hiện vật + embers (đuốc) → `document` bảng đất sét → filmburn chuyển chương. Không glitch, không explosion |
+
+### 4.3 Kiểm hiệu quả VFX
+- Đánh dấu thời điểm VFX sự kiện từ `sfx_cues.json` (boom, thunder, glitch…) lên đường giữ chân. Nếu tụt sau VFX → giảm `amount`/bỏ ở video sau; ghi vào `decisions-log.md`.
+- Mọi nhận định trong bảng 4.2 là GIẢ THUYẾT CẦN THỬ cho tới khi có số liệu kênh.

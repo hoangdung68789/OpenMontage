@@ -1,0 +1,30 @@
+{
+ "genre": "war", "seed": 41,
+ "assets_dir": "../../videos/002-lady-be-good/render/assets/img",
+ "scenes": [
+  {"type": "title", "dur": 6, "src": "Lady_Be_Good.jpg", "text": "Fire Over *Naples*", "sub": "VFX demo · ICYFOX", "letterbox": true,
+   "vfx": [{"fx": "embers", "amount": 0.8}, {"fx": "smoke", "amount": 0.6}]},
+  {"type": "photo", "dur": 8, "src": "Upper_turret.jpg", "credit": "U.S. Air Force · public domain (demo)", "caption": "Night raid. *Searchlights* sweep the sky.",
+   "vfx": [{"fx": "searchlight", "amount": 0.8}, {"fx": "radio", "at": 4.5, "dur": 1.0}]},
+  {"type": "photo", "dur": 8, "src": "Lady_Be_Good_crash_photos_1960_-2.jpg", "credit": "U.S. Air Force · public domain (demo)", "caption": "A flak burst *rocks* the bomber.",
+   "vfx": [{"fx": "smoke", "amount": 0.5}, {"fx": "explosion", "at": 2.0, "x": 64, "y": 42, "power": 1}], "transition": "whip"},
+  {"type": "photo", "dur": 7, "src": "Landing_gear.jpg", "credit": "U.S. Air Force · public domain (demo)", "caption": "Metal tears. *Sparks* fly.",
+   "vfx": [{"fx": "sparks", "at": 1.5, "x": 46, "y": 58}, {"fx": "shake", "at": 1.5, "dur": 0.5, "power": 0.6}]},
+  {"type": "map", "dur": 8, "route": [[420, 300], [1180, 640], [1500, 860]], "places": [[420, 300, "SOLUCH"], [1500, 860, "WRECK"]], "caption": "The wind turns to *sand*.",
+   "vfx": [{"fx": "sandstorm", "amount": 0.7}]},
+  {"type": "photo", "dur": 8, "src": "Lady_Be_Good_Wreckage_Discovery.jpg", "credit": "U.S. Air Force · public domain (demo)", "caption": "Storms over the dunes.",
+   "vfx": [{"fx": "rain", "amount": 0.7}, {"fx": "lightning", "at": 2.5}], "transition": "dissolve"},
+  {"type": "photo", "dur": 7, "src": "Hatton_s_headset.jpg", "credit": "U.S. Air Force · public domain (demo)", "caption": "Dawn. The fog *lifts*.",
+   "vfx": [{"fx": "fog", "amount": 0.7}, {"fx": "rays", "amount": 0.6}], "chapter": true},
+  {"type": "photo", "dur": 7, "src": "Co-pilot_place.jpg", "credit": "U.S. Air Force · public domain (demo)", "caption": "Snow on the mountains, *far* north.",
+   "vfx": [{"fx": "snow", "amount": 0.8}]},
+  {"type": "photo", "dur": 7, "src": "Thermos_with_coffee.png", "credit": "U.S. Air Force · public domain (demo)", "caption": "Recovered from the *sea floor*.",
+   "vfx": [{"fx": "caustics", "amount": 0.7}]},
+  {"type": "document", "dur": 7, "src": "B-24D_Lady_Be_Good_Missing_Air_Crew_Report_MACR_937_page_1.png", "credit": "NARA · public domain (demo)", "highlights": [[8, 47, 84, 3, 1.5]],
+   "vfx": [{"fx": "glitch", "at": 3.5, "dur": 0.5}]},
+  {"type": "stat", "dur": 6, "value": 8, "label": "alarms ignored", "big": true,
+   "vfx": [{"fx": "alarm", "amount": 0.8}]},
+  {"type": "quote", "dur": 7, "text": "The archive *burned*, but the story did not.", "by": "— DEMO TEXT",
+   "vfx": [{"fx": "filmburn", "at": 4.8, "dur": 1.4}]}
+ ]
+}

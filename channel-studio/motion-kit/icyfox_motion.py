@@ -2,7 +2,7 @@
 (.claude/skills/hoang-dung-clay-lapis-studio/references/edit-standard.md, edit-library.md, genre-recipes.md).
 
   python icyfox_motion.py validate <plan.json>               # kiểm kế hoạch (mã thoát 2 nếu hỏng)
-  python icyfox_motion.py build <plan.json> <thư_mục_ra>      # sinh index.html + compositions/body.html + assets + sfx_cues.json
+  python icyfox_motion.py build <plan.json> <thư_mục_ra>      # sinh index.html + compositions/partN.html (chia khối) + assets + sfx_cues.json
   python icyfox_motion.py finish <vào.mp4> <ra.mp4>           # chuẩn hóa tiếng -14 LUFS, đỉnh -1 dBTP (2 lượt loudnorm), in số đo
   python icyfox_motion.py presets                             # liệt kê preset thể loại, chuyển cảnh, hiệu ứng chữ
 
@@ -17,6 +17,7 @@ v2 so với v1:
 - Bố cục: title, photo, document, map, stat, quote, split, triptych, timeline.
 - Âm thanh: tự đặt hiệu ứng âm thanh có nguyên nhân (chuyển cảnh, số đáp, chữ gõ, cao trào), xoay vòng 2–3 bản,
   đỉnh âm sau hình 1 khung; nhạc nền tự hạ khi có lời (ducking); giọng đọc; rồi `finish` chuẩn hóa -14 LUFS.
+VFX chuyên dụng (khóa "vfx", bật khi cần): xem vfx.py.
 Render xác định: không Math.random/Date.now, không tải mạng lúc render, GSAP để sẵn trong vendor/.
 """
 import html
@@ -27,6 +28,9 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import vfx  # noqa: E402  bộ VFX chuyên dụng (vfx.py)
 
 HERE = Path(__file__).resolve().parent
 SFX_DIR = HERE / "sfx"
@@ -84,7 +88,7 @@ def genre_of(plan):
 
 
 def css(g):
-    return f"""
+    return vfx.CSS + f"""
 #root {{ position:relative; width:{W}px; height:{H}px; overflow:hidden; background:{g['bg']}; color:{g['ink']}; font-family:"{g['body']}",sans-serif; }}
 .sc {{ position:absolute; inset:0; overflow:hidden; background:{g['bg']}; }}
 .cam, .lay {{ position:absolute; inset:0; transform-origin:50% 50%; }}
@@ -148,6 +152,7 @@ class Scene:
         self.D = float(spec["dur"])
         self.id = f"s{idx}"
         self.html, self.js, self.events, self.sfx = [], [], [start], []
+        self.amb = []   # âm thanh nền của VFX: (bắt đầu, dài, file, âm lượng)
 
     def ev(self, t):
         self.events.append(round(t, 3))
@@ -543,6 +548,7 @@ def plan_scenes(plan):
         RENDER[s["type"]](sc, rnd)
         overlay_extras(sc, rnd)
         ambient(sc, rnd)
+        vfx.apply(sc, random.Random(plan.get("seed", 7) * 1000 + i))
         if i > 0:
             apply_transition(sc, out[-1], trans[i], rnd)
         if s.get("payoff"):           # cao trào: riser dồn vào impact, một lần
@@ -577,6 +583,8 @@ def validate(plan):
         txt = s.get("text") or ""
         if s.get("type") in ("title", "quote") and float(s.get("dur", 0)) < .5 + .3 * len(txt.split()) + 1.0:
             errs.append(f"cảnh {i}: chữ {len(txt.split())} từ cần >= {.5 + .3 * len(txt.split()) + 1.0:.1f} giây để đọc kịp")
+    verr, vwarn = vfx.check(plan, plan.get("genre", "default"))
+    errs += verr
     if errs:
         return errs, None
     scenes, total, g, trans = plan_scenes(plan)
@@ -600,7 +608,16 @@ def validate(plan):
     used = sorted(set(seams))
     return errs, {"genre": g["name"], "total": round(total, 2), "scenes": len(scenes), "changes": len(evs) - 1,
                   "sec_per_change": round(total / max(len(evs) - 1, 1), 1), "max_gap": round(worst[0], 1),
-                  "transitions": used, "sfx": len(cues), "sfx_per_min": round(per_min, 1)}
+                  "transitions": used, "sfx": len(cues), "sfx_per_min": round(per_min, 1), "warnings": vwarn,
+                  "vfx": sorted({vfx.norm(x)["fx"] for sc in scenes for x in (sc.s.get("vfx") or [])})}
+
+
+def file_len(f):
+    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(f)], capture_output=True, text=True)
+    try:
+        return float(r.stdout.strip())
+    except ValueError:
+        return 2.0
 
 
 def peak_offset(f):
@@ -621,7 +638,7 @@ def resolve_cues(scenes, g, out):
     for sc in scenes:
         for t, kind, vol in sc.sfx:
             names = {"whoosh": g["sfx"]["whoosh"], "impact": g["sfx"]["impact"], "land": [g["sfx"]["land"]],
-                     "type": [g["sfx"]["type"]], "pop": [g["sfx"]["pop"]], "riser": ["riser"]}[kind]
+                     "type": [g["sfx"]["type"]], "pop": [g["sfx"]["pop"]], "riser": ["riser"], **vfx.SOUND}[kind]
             name = names[rot.get(kind, 0) % len(names)]
             rot[kind] = rot.get(kind, 0) + 1
             src = SFX_DIR / f"{name}.mp3"
@@ -632,10 +649,33 @@ def resolve_cues(scenes, g, out):
             if not dst.exists():
                 shutil.copy(src, dst)
             pk = peak_offset(src)
+            ln = file_len(src)
             start = max(t + 1 / FPS - pk, 0) if kind != "riser" else t
             files.append({"t_picture": t, "start": round(start, 3), "kind": kind, "file": f"assets/sfx/{src.name}", "volume": vol,
-                          "scene": sc.id, "peak_offset": round(pk, 3)})
+                          "scene": sc.id, "peak_offset": round(pk, 3), "len": round(ln, 3)})
     return files
+
+
+CHUNK = 6   # số cảnh tối đa mỗi composition (HyperFrames: nhiều lớp nặng trong một composition có thể ra khung đen)
+
+
+def chunk(plan, scenes):
+    """Chia cảnh thành nhiều composition: tối đa plan["chunk"] cảnh, hoặc ngắt ở cảnh có "chapter": true."""
+    n = int(plan.get("chunk", CHUNK))
+    parts = []
+    for sc in scenes:
+        if not parts or len(parts[-1]) >= n or (sc.s.get("chapter") and parts[-1]):
+            parts.append([])
+        parts[-1].append(sc)
+    return parts
+
+
+def shift(line, t0):
+    """Đổi mốc thời gian tuyệt đối (tham số cuối của tl.*) sang mốc trong composition."""
+    m = re.search(r",(-?\d+(?:\.\d+)?)\);(\}\)\(\);)?$", line)
+    if not m:
+        raise ValueError(f"dòng timeline không có mốc thời gian: {line[:80]}")
+    return line[:m.start()] + f",{float(m.group(1)) - t0:.3f});" + (m.group(2) or "")
 
 
 def build(plan, out):
@@ -657,17 +697,48 @@ def build(plan, out):
         if s.get("srcs"):
             s["srcs"] = [take(x) for x in s["srcs"]]
     scenes, total, g, trans = plan_scenes(plan)
-    clips = "\n".join(f'<div id="{sc.id}" class="clip sc" data-start="{sc.T:.3f}" data-duration="{sc.D:.3f}" style="z-index:{sc.i + 1};opacity:{1 if sc.i == 0 else 0}">'
-                      + "".join(sc.html) + "</div>" for sc in scenes)
-    js = "\n".join(line for sc in scenes for line in sc.js)
-    (out / "compositions" / "body.html").write_text(
-        f'<template>\n<style>{css(g)}</style>\n<div id="root" data-composition-id="body" data-width="{W}" data-height="{H}" data-duration="{total:.3f}">\n'
-        f'{clips}\n</div>\n<script>\nconst tl = gsap.timeline({{ paused: true }});\n{js}\nwindow.__timelines["body"] = tl;\n</script>\n</template>\n',
-        encoding="utf-8")
+    parts = chunk(plan, scenes)
+    hosts = []
+    for k, part in enumerate(parts):
+        t0 = part[0].T
+        dur = max(sc.T + sc.D for sc in part) - t0
+        cid = f"part{k}"
+        clips = "\n".join(f'<div id="{sc.id}" class="clip sc" data-start="{sc.T - t0:.3f}" data-duration="{sc.D:.3f}" style="z-index:{sc.i + 1};opacity:{1 if sc.i == 0 else 0}">'
+                          f'<div class="shk" id="{sc.id}shk">' + "".join(sc.html) + "</div></div>" for sc in part)
+        js = "\n".join(shift(line, t0) for sc in part for line in sc.js)
+        (out / "compositions" / f"{cid}.html").write_text(
+            f'<template>\n<style>{css(g)}</style>\n<div id="root" data-composition-id="{cid}" data-width="{W}" data-height="{H}" data-duration="{dur:.3f}">\n'
+            f'{clips}\n</div>\n<script>\nconst tl = gsap.timeline({{ paused: true }});\n{js}\nwindow.__timelines["{cid}"] = tl;\n</script>\n</template>\n',
+            encoding="utf-8")
+        hosts.append(f'<div id="{cid}" data-composition-id="{cid}" data-composition-src="compositions/{cid}.html" data-start="{t0:.3f}" data-duration="{dur:.3f}" '
+                     f'data-track-index="{100 + k}" data-track-kind="graphics" data-width="{W}" data-height="{H}" style="z-index:{k + 1}"></div>')
+    used_tex = sorted({m for sc in scenes for h in sc.html for m in re.findall(r"assets/vfx/(\w+)\.png", h)})
+    if used_tex:
+        (out / "assets" / "vfx").mkdir(exist_ok=True)
+        for t in used_tex:
+            shutil.copy(HERE / "vfx" / "tex" / f"{t}.png", out / "assets" / "vfx" / f"{t}.png")
     cues = resolve_cues(scenes, g, out)
     audio = []
-    for k, c in enumerate(cues):
-        audio.append(f'<audio id="sfx{k}" class="clip" src="{c["file"]}" data-start="{c["start"]:.3f}" data-track-index="{3 + k % 4}" data-volume="{c["volume"]}"></audio>')
+    free = {}   # xếp track: tiếng chồng nhau thì sang track khác (track 3..)
+    for k, c in enumerate(sorted(cues, key=lambda c: c["start"])):
+        tr = next(t for t in range(3, 40) if free.get(t, -1) <= c["start"])
+        free[tr] = c["start"] + c["len"] + .01
+        audio.append(f'<audio id="sfx{k}" class="clip" src="{c["file"]}" data-start="{c["start"]:.3f}" data-duration="{c["len"]:.3f}" '
+                     f'data-track-index="{tr}" data-volume="{c["volume"]}"></audio>')
+    k = 0
+    for sc in scenes:   # âm thanh nền của VFX (mưa, gió, lửa, dưới nước): file 30 giây, nối tiếp nếu cảnh dài hơn
+        for t0, d, f, v in sc.amb:
+            src = SFX_DIR / f"{f}.mp3"
+            dst = out / "assets" / "sfx" / src.name
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy(src, dst)
+            pos = 0.0
+            while pos < d - .05:
+                seg = min(29.5, d - pos)
+                audio.append(f'<audio id="amb{k}" class="clip" src="assets/sfx/{src.name}" data-start="{t0 + pos:.3f}" data-duration="{seg:.3f}" '
+                             f'data-track-index="{40 + k % 2}" data-volume="{v}" data-fade-in="0.6" data-fade-out="0.8"></audio>')
+                pos += seg
+                k += 1
     voice = plan.get("voice")
     if voice:
         audio.append(f'<audio id="vo" class="clip" src="{take(voice)}" data-start="{plan.get("voice_start", .6)}" data-track-index="0" data-volume="1"></audio>')
@@ -685,8 +756,8 @@ def build(plan, out):
         f'<style>* {{ margin:0; padding:0; box-sizing:border-box; }} html, body {{ width:{W}px; height:{H}px; overflow:hidden; background:{g["bg"]}; }}'
         f' #root {{ position:relative; width:100%; height:100%; background:{g["bg"]}; }}</style>\n</head>\n<body>\n'
         f'<div id="root" data-composition-id="main" data-start="0" data-duration="{total:.3f}" data-width="{W}" data-height="{H}">\n'
-        f'<div id="body" data-composition-id="body" data-composition-src="compositions/body.html" data-start="0" data-duration="{total:.3f}" '
-        f'data-track-index="2" data-track-kind="graphics" data-width="{W}" data-height="{H}"></div>\n' + "\n".join(audio) + '\n</div>\n'
+        + "\n".join(hosts) + "\n"
+        + "\n".join(audio) + '\n</div>\n'
         f'<script>\nwindow.__timelines = window.__timelines || {{}};\nwindow.__timelines["main"] = gsap.timeline({{ paused: true }});\n</script>\n</body>\n</html>\n',
         encoding="utf-8")
     (out / "sfx_cues.json").write_text(json.dumps({"genre": plan.get("genre", "default"), "transitions": trans, "cues": cues},
@@ -696,10 +767,10 @@ def build(plan, out):
 
 def finish(src, dst):
     """Chuẩn hóa tiếng 2 lượt: -14 LUFS, đỉnh thật -1 dBTP; hình giữ nguyên."""
-    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", src, "-af", "loudnorm=I=-14:TP=-1:LRA=11:print_format=json",
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", src, "-af", "loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json",
                         "-f", "null", "-"], capture_output=True, text=True)
     m = json.loads(r.stderr[r.stderr.rfind("{"):r.stderr.rfind("}") + 1])
-    af = (f"loudnorm=I=-14:TP=-1:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:"
+    af = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:"
           f"measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-c:v", "copy", "-af", af, "-ar", "48000", "-c:a", "aac", "-b:a", "192k", dst], check=True)
     r2 = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", dst, "-af", "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True)
@@ -725,7 +796,11 @@ def main():
         return
     if cmd not in ("validate", "build") or len(sys.argv) < 3:
         sys.exit(__doc__)
-    plan = json.loads(Path(sys.argv[2]).read_text(encoding="utf-8"))
+    plan_path = Path(sys.argv[2]).resolve()
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    ad = plan.get("assets_dir", ".")   # tính theo thư mục của kế hoạch; nếu không có thì theo thư mục đang đứng
+    if not Path(ad).is_absolute():
+        plan["assets_dir"] = str(plan_path.parent / ad) if (plan_path.parent / ad).exists() else str(Path(ad).resolve())
     errs, rep = validate(json.loads(json.dumps(plan)))
     if errs:
         print("KẾ HOẠCH HỎNG:")
@@ -734,7 +809,9 @@ def main():
         sys.exit(2)
     print(f"Kế hoạch đạt ({rep['genre']}): {rep['scenes']} cảnh, {rep['total']} giây, {rep['changes']} thay đổi "
           f"(trung bình {rep['sec_per_change']} giây), khoảng trống lớn nhất {rep['max_gap']} giây; chuyển cảnh {rep['transitions']}; "
-          f"hiệu ứng âm thanh {rep['sfx']} ({rep['sfx_per_min']}/phút)")
+          f"hiệu ứng âm thanh {rep['sfx']} ({rep['sfx_per_min']}/phút); VFX {rep['vfx'] or 'không'}")
+    for w in rep["warnings"]:
+        print("  cảnh báo:", w)
     if cmd == "build":
         if len(sys.argv) < 4:
             sys.exit("Thiếu thư mục ra")

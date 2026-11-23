@@ -109,3 +109,48 @@ Lưu ý kỹ thuật: HyperFrames cảnh báo khi > ~40 lớp nặng (blur, radi
 | So sánh | wipe → `split` hai năm |
 | Cao trào | `stat` big + payoff (riser→impact) → dip → `quote` ngắn |
 | Kết chương | `photo` pull + dissolve + nhạc lên lại |
+
+## 10. VFX chuyên dụng (khóa `vfx` của cảnh; BẬT KHI CẦN, không mặc định)
+Video thường của kênh chỉ cần mục 1–9. VFX dành cho video có chủ đề dựng khó (chiến trận, thiên tai, thám hiểm khắc nghiệt, dưới biển, sự cố công nghiệp) hoặc đúng nhịp lời kể cần nó. Mã: `channel-studio/motion-kit/vfx.py`; tài nguyên tự sinh bằng `vfx_assets.py` (không dính giấy phép).
+
+Cách ghi: `"vfx": ["rain", {"fx": "lightning", "at": 2.5}, {"fx": "explosion", "at": 6, "x": 62, "y": 45, "power": 1}]`
+(`at` tính từ đầu cảnh; `amount` 0,1–1 cho lớp không khí; `x`, `y` theo % khung).
+
+### 10.1 Lớp không khí (chạy suốt cảnh hoặc trong `at`…`at+dur`; tối đa 2 lớp/cảnh)
+| VFX | Dùng khi (lời kể có) | Tiếng nền tự gắn | Kết hợp tốt | Tránh |
+|---|---|---|---|---|
+| `rain` | mưa, bão, đêm u ám | mưa (vòng lặp) | lightning, fog | ảnh nắng gắt |
+| `snow` | vùng cực, núi tuyết, mùa đông | gió nhẹ | fog, shake nhẹ (bão tuyết) | cảnh trong nhà |
+| `sandstorm` | sa mạc, bão cát, gió | gió | map (hành trình sa mạc) | > 10 s liền (mỏi mắt) |
+| `fog` | bình minh, biển, bí ẩn, chiến trường sau trận | — | rays, rain | chữ nhỏ phía sau |
+| `smoke` | cháy, chiến trận, nhà máy | — | embers, explosion | che mặt người đang kể |
+| `embers` | lửa, đám cháy, lò rèn, thành phố cháy | lửa | smoke, title | cảnh buồn tĩnh |
+| `rays` | bình minh, nhà thờ, khám phá, hy vọng | — | fog | cảnh đêm |
+| `caustics` | dưới nước, xác tàu, đáy biển | dưới nước | fog nhẹ | cảnh trên cạn |
+| `searchlight` | không kích đêm, nhà tù, tìm kiếm (tự kèm lớp đêm làm tối ảnh) | — | radio, smoke | ban ngày |
+| `alarm` | sự cố, báo động, tai nạn công nghiệp | — | stat, glitch | > 1 nhịp/giây (luật an toàn) |
+
+### 10.2 Sự kiện (tại thời điểm `at`, nên trùng đúng từ trong lời kể)
+| VFX | Gồm | Tiếng | Dùng khi | Tránh |
+|---|---|---|---|---|
+| `shake` | rung khung giảm dần (≤ 1,5 s) | — | va chạm, nổ xa, động đất | rung khi đang đọc chữ dài |
+| `explosion` | lóe + quả cầu lửa + khói + 12 mảnh vỡ + bụi ống kính + rung | boom tự tổng hợp | nổ, pháo, va chạm lớn | > 1 lần mỗi 8 s; ảnh có người bị thương |
+| `lightning` | 2 lần lóe cách 0,42 s + tia sét + bụi ống kính | sấm (trễ 0,3 s sau chớp) | bão, điềm báo | ảnh trong nhà |
+| `glitch` | dải nhiễu màu + giật ngang ≤ 1 s | glitch-1..3 | tín hiệu mất, ký ức vỡ, băng ghi hỏng | chiến tranh cổ, cổ đại |
+| `filmburn` | vết cháy phim lan rồi tan | — | kết chương, hồi tưởng, tư liệu cũ | giữa câu thoại |
+| `sparks` | 16 tia lửa bắn rơi theo trọng lực | lửa tóe | kim loại va, hàn, chập điện | lặp nhiều lần |
+| `radio` | nhiễu TV mờ (không lóe) + tiếng radio rè | radio rè | điện đàm, băng ghi âm, phát thanh | kéo dài > 2 s |
+
+### 10.3 Luật VFX (validate kiểm tự động)
+- Tên lạ, `at` ngoài cảnh, `amount` ngoài 0,1–1 → hỏng.
+- \> 2 lớp không khí một cảnh → hỏng (rối hình).
+- 2 sự kiện lớn (explosion, lightning) trong cảnh < 8 s → hỏng (mỗi cú cần chỗ thở).
+- Hơn 3 lần lóe trong 1 giây → hỏng (WCAG 2.3.1, nguy cơ động kinh). Báo động đỏ ≤ 1 nhịp/giây, đậm ≤ 0,35.
+- VFX ngoài bảng của thể loại (`genre-recipes.md` §4) → cảnh báo: ghi lý do trong STORYBOARD.md.
+- Mỗi VFX phải có nguyên nhân trong lời kể hoặc trên ảnh. Không có thì bỏ.
+
+### 10.4 Kỹ thuật (để không hỏng render)
+- Hiệu ứng sáng dùng hòa trộn "screen" (tia sáng, tàn lửa, sét) chỉ hiện trên nền tối; trên ảnh sáng thì kit tự làm tối nền (đèn pha) hoặc dùng hòa trộn thường (quả cầu lửa). Phát hiện khi xem lưới khung demo 23/11.
+- Kết cấu là ảnh PNG lặp liền mép, trượt bằng `backgroundPosition`; không dùng blur/radial-gradient/clip-path nên không cộng vào "lớp nặng".
+- Kit tự chia cảnh thành nhiều composition (mặc định 6 cảnh, hoặc ngắt ở cảnh có `"chapter": true`; đổi bằng `"chunk": N`). Demo VFX 12 cảnh: lint 0 lỗi, 0 cảnh báo.
+- Rung khung đặt trên lớp `#<cảnh>shk`, không đụng vào chuyển cảnh.

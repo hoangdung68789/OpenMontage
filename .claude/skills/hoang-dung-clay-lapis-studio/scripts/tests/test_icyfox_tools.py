@@ -236,8 +236,8 @@ def test_motion_kit_validate_and_build(tmp_path):
     pf.write_text(json.dumps(plan))
     r = subprocess.run([sys.executable, str(kit), "build", str(pf), str(tmp_path / "out")], capture_output=True, text=True)
     assert r.returncode == 0, r.stdout + r.stderr
-    body = (tmp_path / "out" / "compositions" / "body.html").read_text(encoding="utf-8")
-    assert 'window.__timelines["body"]' in body and "Math.random" not in body and (tmp_path / "out" / "assets" / "gsap.min.js").exists()
+    body = (tmp_path / "out" / "compositions" / "part0.html").read_text(encoding="utf-8")
+    assert 'window.__timelines["part0"]' in body and "Math.random" not in body and (tmp_path / "out" / "assets" / "gsap.min.js").exists()
     bad = {"scenes": [{"type": "photo", "dur": 30, "src": "x.jpg"}]}   # thiếu ghi công
     pf.write_text(json.dumps(bad))
     r = subprocess.run([sys.executable, str(kit), "validate", str(pf)], capture_output=True, text=True)
@@ -277,7 +277,7 @@ def test_motion_kit_v2_rules_transitions_style_and_sfx(tmp_path):
     for c in cues["cues"]:                                             # đỉnh âm rơi sau hình đúng 1 khung
         if c["kind"] != "riser" and c["start"] > 0:
             assert abs(c["start"] + c["peak_offset"] - (c["t_picture"] + 1 / 30)) < .01, c
-    body = (tmp_path / "out" / "compositions" / "body.html").read_text(encoding="utf-8")
+    body = (tmp_path / "out" / "compositions" / "part0.html").read_text(encoding="utf-8")
     assert 'class="w acc"' in body or "acc" in body                    # từ *nhấn* được tô màu
     assert "Math.random" not in body and "Date.now" not in body
 
@@ -301,3 +301,45 @@ def test_new_video_scaffold_and_autopilot_reads_v2(tmp_path):
     cues.write_text(json.dumps({"genre": "war", "transitions": ["none", "dip"], "cues": [{"t_picture": 1.0, "start": .9, "kind": "land", "file": "a/b.mp3", "volume": .5, "scene": "s0"}]}))
     assert run(tmp_path, S / "new_video.py", "cuesheet", cues, v / "05_sound/CUE_SHEET.md").returncode == 0
     assert "tiêu đề đáp" in (v / "05_sound/CUE_SHEET.md").read_text(encoding="utf-8")
+
+
+def test_vfx_rules_chunking_and_assets(tmp_path):
+    kit = S.parents[3] / "channel-studio" / "motion-kit" / "icyfox_motion.py"
+    if not kit.exists():
+        pytest.skip("không có motion-kit")
+
+    def call(cmd, plan, *extra):
+        pf = tmp_path / "p.json"
+        pf.write_text(json.dumps(plan))
+        return subprocess.run([sys.executable, str(kit), cmd, str(pf), *map(str, extra)], capture_output=True, text=True, encoding="utf-8")
+
+    q = lambda t, **k: dict({"type": "quote", "dur": 7, "text": t, "by": "x"}, **k)
+    # lóe > 3 lần / giây: tia chớp (2 lần) + nổ (1) + chuyển cảnh flash (1) trong 1 giây -> hỏng
+    bad = {"genre": "war", "scenes": [q("a b", dur=9, vfx=[{"fx": "lightning", "at": 8.6}]),
+                                      q("c d", transition="flash", vfx=[{"fx": "explosion", "at": 0.1}])]}
+    r = call("validate", bad)
+    assert r.returncode == 2 and "WCAG" in r.stdout
+    assert call("validate", {"scenes": [q("a", vfx=["rain", "fog", "snow"])]}).returncode == 2        # > 2 lớp không khí
+    assert call("validate", {"scenes": [q("a", vfx=["lava"])]}).returncode == 2                       # tên lạ
+    assert call("validate", {"scenes": [q("a", vfx=[{"fx": "shake", "at": 20}])]}).returncode == 2   # ngoài cảnh
+    r = call("validate", {"genre": "ancient", "scenes": [q("a", vfx=["caustics"])]})
+    assert r.returncode == 0 and "cảnh báo" in r.stdout                                             # ngoài bảng thể loại: chỉ cảnh báo
+    # dựng: 8 cảnh -> 2 composition (chunk 6, hoặc ngắt ở chapter), mốc thời gian tương đối, kết cấu + tiếng được chép
+    scenes = [q(f"line {i}", vfx=(["rain", {"fx": "lightning", "at": 3}] if i == 2 else ["embers"] if i == 7 else []), chapter=(i == 4))
+              for i in range(8)]
+    r = call("build", {"genre": "survival", "scenes": scenes}, tmp_path / "out")
+    assert r.returncode == 0, r.stdout + r.stderr
+    out = tmp_path / "out"
+    parts = sorted(p.name for p in (out / "compositions").glob("part*.html"))
+    assert parts == ["part0.html", "part1.html"]
+    p1 = (out / "compositions" / "part1.html").read_text(encoding="utf-8")
+    import re as _re
+    times = [float(x) for x in _re.findall(r",(-?\d+\.\d+)\);", p1)]
+    assert times and min(times) >= -0.01 and max(times) < 40                                       # tương đối theo composition
+    for f in ("assets/vfx/rain.png", "assets/vfx/embers.png", "assets/sfx/rain-loop.mp3", "assets/sfx/thunder.mp3"):
+        assert (out / f).exists(), f
+    idx = (out / "index.html").read_text(encoding="utf-8")
+    assert 'data-composition-src="compositions/part1.html"' in idx and "rain-loop.mp3" in idx
+    assert all('data-duration=' in a for a in _re.findall(r"<audio[^>]+>", idx))                   # mọi tiếng có độ dài
+    body = (out / "compositions" / "part0.html").read_text(encoding="utf-8")
+    assert "Math.random" not in body and "Date.now" not in body

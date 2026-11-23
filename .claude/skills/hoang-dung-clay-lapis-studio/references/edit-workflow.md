@@ -60,8 +60,9 @@ Mức lỗi ở GĐ 7: **P0** hỏng hình/tiếng/chữ sai sự thật (phải
 1. Đọc kịch bản, đánh dấu **nhịp**: mỗi câu hoặc cụm 1–3 câu mang một ý = một nhịp. Mỗi nhịp phải có ít nhất một thay đổi thị giác (cảnh mới, góc máy mới, chữ, điểm tô, số).
 2. Gắn **chức năng** cho từng nhịp: mở (hook), bối cảnh, bằng chứng, chuyển hướng, cao trào, kết. Chức năng quyết định loại cảnh (bảng ở `edit-library.md` §1).
 3. Chọn **thể loại dựng** (`genre`) theo trụ cột, đọc công thức trong `genre-recipes.md`, ghi đè bằng `style` nếu video cần khác.
-4. Đặt **điểm nhấn** đúng chỗ, mỗi thứ dùng ít: một `payoff` cho cả chương (riser + impact), một từ nhấn `*…*` mỗi dòng chữ, `big` cho con số quan trọng nhất.
-5. Viết STORYBOARD.md (mẫu: `SK/templates/video-project/02_storyboard/STORYBOARD.md`), rồi chuyển thành `motion_plan.json`. Chạy `validate` cho tới khi đạt.
+4. Chủ đề khó dựng (chiến trận, thiên tai, vùng cực, đáy biển, cháy nổ): chọn VFX theo `genre-recipes.md` §4 (bật khi cần; video thường không bắt buộc).
+5. Đặt **điểm nhấn** đúng chỗ, mỗi thứ dùng ít: một `payoff` cho cả chương (riser + impact), một từ nhấn `*…*` mỗi dòng chữ, `big` cho con số quan trọng nhất.
+6. Viết STORYBOARD.md (mẫu: `SK/templates/video-project/02_storyboard/STORYBOARD.md`), rồi chuyển thành `motion_plan.json`. Chạy `validate` cho tới khi đạt.
 
 ## 4. Lệnh dựng đầy đủ
 ```bash
