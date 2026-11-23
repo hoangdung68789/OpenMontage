@@ -5,6 +5,7 @@ Hook đọc 2 khối `phases` và `releases` dưới đây để báo giai đo�
 
 <!-- pulse:start -->
 - Nhịp đăng (anh chốt 22/11/2026): 1–2 video mỗi ngày, 30–60 video mỗi 30 ngày, tính cả Shorts. Ổn định: 8 video dài (thứ Ba và thứ Sáu, 21:00 giờ Việt Nam) + khoảng 38 Shorts.
+- Shorts có chủ đề riêng (anh 23/11/2026): chuỗi **Earth's Unsolved** (bí ẩn Trái Đất, đại dương, vùng cực; trụ cột P1); chỉ đôi khi mới cắt từ video dài. Không để YouTube gắn nhãn AI (policy-guardrails §Khai báo AI).
 - Shorts bắt đầu 01/12/2026, mỗi ngày 1 Short. Video dài đầu tiên: 002 Lady Be Good đăng công khai ngay 23/11/2026 (anh yêu cầu, không hẹn giờ). 001 Gilgamesh dời sang 25/12.
 - Mốc kiểm: 28/12/2026. Lên 2 video dài mỗi tuần nếu mỗi video làm xong trong tối đa 2 ngày và không bị gắn cờ. 14/02/2027: lập chặng mới từ số liệu.
 - Chế độ tự lái (anh giao toàn quyền 22/11/2026): AI tự chọn chủ đề, viết, dựng, đóng gói, tự duyệt, áp gói đăng và hẹn giờ. Không còn lô duyệt tuần. Chủ nhật gửi anh báo cáo số liệu và doanh thu.

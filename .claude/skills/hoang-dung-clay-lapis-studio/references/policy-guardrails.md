@@ -23,7 +23,13 @@ Hệ quả cho kênh: **video dài là trục chính** để gom 8.000 giờ xem
 ## Khai báo AI ([Disclosing AI content](https://support.google.com/youtube/answer/14328491?hl=en))
 - Phải khai báo nội dung AI **trông như thật** (cảnh thật không có thực, người thật nói điều họ không nói).
 - Nội dung không giống thật, hoặc chỉnh sửa nhỏ, thì không cần khai.
-- "Disclosing AI content alone won't limit a video's audience or impact its eligibility to earn money." → **Không chắc thì chọn Yes.**
+- YouTube ghi: "Disclosing AI content alone won't limit a video's audience or impact its eligibility to earn money."
+- **Anh chốt 23/11/2026: không để video ICYFOX bị gắn nhãn AI.** Quy tắc "Không chắc thì chọn Yes" trước đây đã bỏ. Cách làm hợp lệ là giữ video ngoài diện bắt buộc khai báo, không khai sai:
+  - Không dùng ảnh/video AI giống thật về người, sự kiện hay địa điểm có thật. Không dùng nhạc AI làm nhạc chính. Không giả giọng người thật.
+  - Hình lấy từ nguồn thật (PD, CC0, CC BY, CC BY-SA); đồ họa, bản đồ và chữ do mình dựng. Thumbnail làm từ ảnh thật, không tạo bằng ChatGPT, Imagen hay Firefly (các công cụ này gắn C2PA).
+  - Lời đọc dùng clone Qwen3 chạy tại máy. [Chưa xác minh] YouTube có đọc dấu SynthID trong giọng Gemini TTS hay không; trang trợ giúp chỉ nói "internal systems detect".
+  - YouTube tự gắn nhãn khi có C2PA, khi dùng công cụ AI của YouTube, hoặc khi hệ thống phát hiện. Vì vậy trước khi tải lên phải chạy `scripts/c2pa_check.py` (`yt_publish.py upload` đã tự chặn). Không bật `containsSyntheticMedia`. Đăng xong đọc lại; YouTube gắn nhầm thì chọn "No" trong khảo sát khai báo.
+  - Nếu một video buộc phải khai báo thì đổi cách sản xuất trước khi đăng. Không khai đúng khi bắt buộc có thể bị gỡ video hoặc đình chỉ YPP.
 
 ## Vị trí và tài khoản
 - Mục "Country of residence" của kênh quyết định điều kiện YPP. Khai **Việt Nam**, đúng nơi anh ở ([Manage channel settings](https://support.google.com/youtube/answer/2976814?hl=en)).

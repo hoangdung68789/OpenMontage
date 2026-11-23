@@ -166,6 +166,11 @@ def upload(h, vdir, mp4, dry):
         sys.exit(f"Không thấy file MP4 cho {rel(vdir)}. Dùng --file <đường dẫn>")
     if (vdir / "package" / "UPLOADED.txt").exists():
         sys.exit(f"{rel(vdir)} đã tải lên rồi (package/UPLOADED.txt). Không tải trùng.")
+    # Anh dặn 23/11/2026: không để YouTube tự gắn nhãn AI; file có C2PA bị gắn tự động (YouTube Help 14328491)
+    from c2pa_check import has_c2pa
+    pkg_thumbs = [p for p in (vdir / "package" / "thumbnail.png", vdir / "package" / "thumbnail.jpg") if p.exists()]
+    if bad := [p for p in [mp4, *pkg_thumbs] if has_c2pa(p)]:
+        sys.exit(f"Có siêu dữ liệu C2PA (YouTube sẽ tự gắn nhãn AI): {', '.join(map(str, bad))}. Làm lại file từ nguồn không phải ảnh AI.")
     size = mp4.stat().st_size
     print(f"Tải lên {mp4} ({size / 1e6:.1f} MB) → Riêng tư, tiêu đề \"{vdir.name}\", hạn mức 100 đơn vị")
     if dry:
