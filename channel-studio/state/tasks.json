@@ -1917,7 +1917,7 @@
    "type": "code",
    "dod": "sfx/real có 8 file CC0, vòng lặp liền, CREDITS ghi nguồn; render lại demo VFX; anh nghe so sánh trước/sau",
    "owner": "claude",
-   "status": "waiting",
+   "status": "dropped",
    "prio": 2,
    "due": null,
    "video": null,
@@ -1925,10 +1925,12 @@
    "created": "2026-11-24 16:50",
    "evidence": [],
    "log": [
-    "2026-11-24 16:50 wait"
+    "2026-11-24 16:50 wait",
+    "2026-11-24 22:43 drop"
    ],
-   "updated": "2026-11-24 16:50",
-   "question": "Cần khóa Freesound: anh lưu ở Network secrets của môi trường cloud cho host freesound.org (tiền tố Token). Máy cloud hiện chặn freesound.org (proxy 403)."
+   "updated": "2026-11-24 22:43",
+   "question": "Cần khóa Freesound: anh lưu ở Network secrets của môi trường cloud cho host freesound.org (tiền tố Token). Máy cloud hiện chặn freesound.org (proxy 403).",
+   "reason": "Anh: bỏ qua khóa Freesound (24/11/2026). Công cụ freesound_fetch.py giữ sẵn; kit vẫn dùng tiếng tổng hợp sfx/synth cho tới khi có khóa"
   }
  ]
 }

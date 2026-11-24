@@ -1,7 +1,7 @@
 # Sổ việc ICYFOX
 
 Tự sinh từ `state/tasks.json`. **Đừng sửa tay**: dùng `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/tasks.py`.
-Cập nhật: 2026-11-24 16:50 (giờ Việt Nam).
+Cập nhật: 2026-11-24 22:43 (giờ Việt Nam).
 
 ## Đang làm (1)
 
@@ -9,11 +9,9 @@ Cập nhật: 2026-11-24 16:50 (giờ Việt Nam).
 |---|---|---|---|---|---|---|---|---|
 | T-005 | Đang làm | claude | Viết và dựng 10 Shorts đầu (đăng 01–10/12) theo KE_HOACH_90_NGAY §3 | shorts |  | 2026-11-30 | 10 thư mục shorts/SNN-slug có kịch bản QA đạt, MP4, package/ có publish_at.txt |  |
 
-## Chờ anh quyết (1)
+## Chờ anh quyết (0)
 
-| ID | Trạng thái | Ai | Việc | Loại | Video / series | Hạn | Xong khi | Câu hỏi / lý do |
-|---|---|---|---|---|---|---|---|---|
-| T-047 | Chờ anh | claude | Thay 8 tiếng VFX tự tổng hợp bằng bản thu thật CC0 (Freesound) | code |  |  | sfx/real có 8 file CC0, vòng lặp liền, CREDITS ghi nguồn; render lại demo VFX; anh nghe so sánh trước/sau | Cần khóa Freesound: anh lưu ở Network secrets của môi trường cloud cho host freesound.org (tiền tố Token). Máy cloud hiện chặn freesound.org (proxy 403). |
+(không có)
 
 ## Bị chặn (0)
 
