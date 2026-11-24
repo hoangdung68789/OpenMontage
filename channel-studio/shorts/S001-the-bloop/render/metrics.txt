@@ -1,0 +1,1 @@
+final.mp4 {'sec': 59.9, 'static_pct': 0.0, 'longest_static': 0, 'sec_per_change': 5.4, 'pct_still': 1.7}

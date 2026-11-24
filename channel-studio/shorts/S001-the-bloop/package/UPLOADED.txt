@@ -1,0 +1,4 @@
+video_id=S3lpecq0QUg
+applied_at_vn=2026-11-24 22:45
+publish_at_vn=2026-11-24 22:45
+result=metadata; phụ đề en; phụ đề vi; công khai

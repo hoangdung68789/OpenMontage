@@ -1,0 +1,8 @@
+# Phim và bản render lớn: tải lại theo CREDITS.md / assets_candidates.json; bản cuối đã ở YouTube (S3lpecq0QUg)
+assets/raw/*.webm
+assets/clips/
+render/assets/video/
+render/assets/audio/narration.wav
+render/*.mp4
+render/renders/
+render/.hyperframes/

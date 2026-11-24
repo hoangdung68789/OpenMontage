@@ -1,14 +1,15 @@
-# S001 · Earth's Unsolved #1 · The Bloop (đang làm, tạm dừng 23/11/2026 theo lời anh)
+# S001 · Earth's Unsolved #1 · The Bloop (ĐÃ ĐĂNG CÔNG KHAI 24/11/2026 22:45, https://youtu.be/S3lpecq0QUg, thẻ T-048)
 
 Chuỗi Shorts có chủ đề riêng "Earth's Unsolved" (anh chốt 23/11, xem decisions-log). Tập 1: âm thanh "Bloop" mà NOAA thu được năm 1997.
 
 ## Trạng thái
-- [x] Kiểm dữ kiện từ trang NOAA (bên dưới).
-- [x] Tìm tài nguyên: danh sách ở `assets_candidates.json` (giấy phép, tác giả, link Commons).
-- [ ] Tải đủ phim. Đã tải: bloop.wav, phổ tần bloop.jpg (PMEL), ảnh Nam Cực (NASA Landsat, trang NOAA Ocean Facts), v0 Bathynomus. Còn 6 phim chưa tải. Bản tải nằm ở thư mục tạm, sẽ mất khi máy dọn; tải lại theo link trong `assets_candidates.json`.
-- [ ] Lời đọc: clone Qwen3 "chậm + sáng" (`OpenMontage/voice-lab/clone-algenib/clone_algenib.py --engine qwen3 --gap-scale 1.6 --slow-bright --chunk`).
-- [ ] Dựng 1080×1920 bằng HyperFrames. Đạt `motion_metrics.py` (đứng yên ≤ 2%, đổi hình 5–8 s). Chạy `c2pa_check.py`.
-- [ ] Gói đăng, đăng theo lịch Shorts (từ 01/12).
+- [x] Kiểm dữ kiện từ trang NOAA (bên dưới). Kịch bản `script.md`, QA đạt (`script.qa.md`).
+- [x] Tài nguyên: bảng giấy phép ở `CREDITS.md`. Loại phim bạch tuộc (khung cuối ghi "Footage: Ocean Exploration Trust", PD không chắc).
+- [x] Lời đọc: clone Qwen3 "chậm + sáng" (`voice/B1–B6.wav`), ghép kèm tiếng Bloop thật ở `build/narration.wav` (59,88 s).
+- [x] Dựng 1080×1920 HyperFrames: `build_index.py` → `render/index.html` (lint 0 lỗi, check đạt).
+- [x] Render + đo: `render/final.mp4` 1080×1920, 59,9 s, −14,1 LUFS; `render/metrics.txt` static 0%, pct_still 1,7%, đổi hình 5,4 s; C2PA sạch; lưới `render/grid.jpg`. Lần 2 làm tối nền cảnh Nam Cực (chữ chìm trên băng trắng).
+- [x] Gói đăng: `package/` (tiêu đề, mô tả có nguồn + ghi công, thẻ, phụ đề en/vi).
+- [x] Đăng YouTube công khai ngay (`yt_publish.py upload --now`): video S3lpecq0QUg, `package/UPLOADED.txt`, đọc lại `package/READBACK.txt` (public, processed, phụ đề en+vi).
 
 ## Dữ kiện đã kiểm (đọc 23/11/2026)
 | Dữ kiện | Nguồn |

@@ -1,0 +1,27 @@
+'sox' is not recognized as an internal or external command,
+operable program or batch file.
+SoX could not be found!
+
+    If you do not have SoX, proceed here:
+     - - - http://sox.sourceforge.net/ - - -
+
+    If you do (or think that you should) have SoX, double-check your
+    path variables.
+    
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+
+Loading weights:   0%|          | 0/480 [00:00<?, ?it/s]Loading weights:  17%|¨€¨ƒ        | 82/480 [00:00<00:00, 767.84it/s]Loading weights:  33%|¨€¨€¨€¨†      | 159/480 [00:00<00:01, 189.42it/s]Loading weights:  41%|¨€¨€¨€¨€¨‡     | 198/480 [00:01<00:02, 127.81it/s]Loading weights:  46%|¨€¨€¨€¨€¨ƒ     | 223/480 [00:01<00:02, 108.18it/s]Loading weights:  50%|¨€¨€¨€¨€¨€     | 241/480 [00:01<00:02, 96.01it/s] Loading weights:  53%|¨€¨€¨€¨€¨€¨†    | 255/480 [00:02<00:02, 95.50it/s]Loading weights:  56%|¨€¨€¨€¨€¨€¨„    | 268/480 [00:02<00:02, 85.84it/s]Loading weights:  58%|¨€¨€¨€¨€¨€¨‚    | 279/480 [00:02<00:02, 83.63it/s]Loading weights:  60%|¨€¨€¨€¨€¨€¨€    | 289/480 [00:02<00:02, 81.19it/s]Loading weights:  62%|¨€¨€¨€¨€¨€¨€¨‡   | 298/480 [00:02<00:02, 74.96it/s]Loading weights:  64%|¨€¨€¨€¨€¨€¨€¨…   | 306/480 [00:02<00:02, 68.12it/s]Loading weights:  65%|¨€¨€¨€¨€¨€¨€¨„   | 313/480 [00:03<00:02, 64.10it/s]Loading weights:  67%|¨€¨€¨€¨€¨€¨€¨ƒ   | 323/480 [00:03<00:02, 71.49it/s]Loading weights:  70%|¨€¨€¨€¨€¨€¨€¨   | 334/480 [00:03<00:01, 76.37it/s]Loading weights:  72%|¨€¨€¨€¨€¨€¨€¨€¨‡  | 344/480 [00:03<00:01, 81.34it/s]Loading weights:  74%|¨€¨€¨€¨€¨€¨€¨€¨…  | 355/480 [00:03<00:01, 82.83it/s]Loading weights:  76%|¨€¨€¨€¨€¨€¨€¨€¨„  | 364/480 [00:03<00:01, 83.85it/s]Loading weights:  78%|¨€¨€¨€¨€¨€¨€¨€¨‚  | 373/480 [00:03<00:01, 83.40it/s]Loading weights:  80%|¨€¨€¨€¨€¨€¨€¨€¨  | 382/480 [00:03<00:01, 77.42it/s]Loading weights:  81%|¨€¨€¨€¨€¨€¨€¨€¨€¨‡ | 390/480 [00:03<00:01, 71.85it/s]Loading weights:  84%|¨€¨€¨€¨€¨€¨€¨€¨€¨† | 401/480 [00:04<00:01, 76.49it/s]Loading weights:  86%|¨€¨€¨€¨€¨€¨€¨€¨€¨„ | 412/480 [00:04<00:00, 80.37it/s]Loading weights:  88%|¨€¨€¨€¨€¨€¨€¨€¨€¨‚ | 423/480 [00:04<00:00, 82.80it/s]Loading weights:  90%|¨€¨€¨€¨€¨€¨€¨€¨€¨€ | 434/480 [00:04<00:00, 84.60it/s]Loading weights:  93%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨†| 445/480 [00:04<00:00, 87.36it/s]Loading weights:  95%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨…| 455/480 [00:04<00:00, 89.67it/s]Loading weights:  97%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨ƒ| 465/480 [00:04<00:00, 90.75it/s]Loading weights:  99%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨| 475/480 [00:04<00:00, 88.19it/s]Loading weights: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 480/480 [00:05<00:00, 84.80it/s]
+Loading weights:   0%|          | 0/496 [00:00<?, ?it/s]Loading weights:   1%|          | 6/496 [00:00<00:09, 49.86it/s]Loading weights:  40%|¨€¨€¨€¨      | 197/496 [00:00<00:00, 1057.20it/s]Loading weights:  63%|¨€¨€¨€¨€¨€¨€¨†   | 311/496 [00:00<00:00, 801.95it/s] Loading weights:  98%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨‚| 484/496 [00:00<00:00, 1088.92it/s]Loading weights: 100%|¨€¨€¨€¨€¨€¨€¨€¨€¨€¨€| 496/496 [00:00<00:00, 972.05it/s] 
+Could not infer sample rate from base model; defaulting to 24000 Hz.
+Warming up predictor (3 runs)...
+Capturing CUDA graph for predictor...
+CUDA graph captured!
+Warming up talker graph (3 runs)...
+Capturing CUDA graph for talker decode...
+Talker CUDA graph captured!
+{"sid": "B1", "out": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\.claude\\worktrees\\tao-video-shorts-youtube-1d277f\\channel-studio\\shorts\\S001-the-bloop\\voice\\B1.wav", "chunks": 1, "seconds": 6.37, "render_s": 72.4, "sr": 24000}
+{"sid": "B2", "out": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\.claude\\worktrees\\tao-video-shorts-youtube-1d277f\\channel-studio\\shorts\\S001-the-bloop\\voice\\B2.wav", "chunks": 3, "seconds": 13.97, "render_s": 11.6, "sr": 24000}
+{"sid": "B3", "out": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\.claude\\worktrees\\tao-video-shorts-youtube-1d277f\\channel-studio\\shorts\\S001-the-bloop\\voice\\B3.wav", "chunks": 1, "seconds": 3.67, "render_s": 3.9, "sr": 24000}
+{"sid": "B4", "out": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\.claude\\worktrees\\tao-video-shorts-youtube-1d277f\\channel-studio\\shorts\\S001-the-bloop\\voice\\B4.wav", "chunks": 5, "seconds": 11.25, "render_s": 10.8, "sr": 24000}
+{"sid": "B5", "out": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\.claude\\worktrees\\tao-video-shorts-youtube-1d277f\\channel-studio\\shorts\\S001-the-bloop\\voice\\B5.wav", "chunks": 2, "seconds": 10.27, "render_s": 6.0, "sr": 24000}
+{"sid": "B6", "out": "C:\\Users\\Admin\\HDRE AI\\ClayLapis\\OpenMontage\\.claude\\worktrees\\tao-video-shorts-youtube-1d277f\\channel-studio\\shorts\\S001-the-bloop\\voice\\B6.wav", "chunks": 2, "seconds": 9.95, "render_s": 9.1, "sr": 24000}

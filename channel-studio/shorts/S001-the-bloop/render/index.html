@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1080, height=1920" />
+<script src="assets/gsap.min.js"></script>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1920px; overflow:hidden; background:#02070d; }
+#root { position:relative; width:1080px; height:1920px; overflow:hidden; background:#02070d; font-family:Montserrat,sans-serif; color:#EEF4F7; }
+.shot { position:absolute; inset:0; opacity:0; }
+.shot video { position:absolute; left:0; top:0; width:1080px; height:1920px; object-fit:cover; }
+.shade { position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,7,13,.55) 0%, rgba(2,7,13,0) 22%, rgba(2,7,13,0) 52%, rgba(2,7,13,.78) 100%); }
+#v5w .shade { background:linear-gradient(180deg, rgba(2,7,13,.8) 0%, rgba(2,7,13,.62) 40%, rgba(2,7,13,.55) 60%, rgba(2,7,13,.85) 100%); }
+#v6w .shade { background:linear-gradient(180deg, rgba(2,7,13,.85) 0%, rgba(2,7,13,.6) 34%, rgba(2,7,13,.15) 56%, rgba(2,7,13,.82) 100%); }
+.vig { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 45%, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%); pointer-events:none; }
+.snow i { position:absolute; border-radius:50%; background:#cfe6f2; display:block; }
+.gfx { position:absolute; inset:0; opacity:0; background:radial-gradient(ellipse at 50% 40%, #0b2740 0%, #04111d 60%, #02070d 100%); }
+.hook { position:absolute; left:70px; right:70px; top:760px; font-family:"Archivo Black",sans-serif; font-size:92px; line-height:1.02; letter-spacing:.005em; text-transform:uppercase; text-shadow:0 6px 30px rgba(0,0,0,.8); }
+.hook b { color:#7FD3F2; font-weight:400; }
+.badge { position:absolute; left:70px; top:640px; font:800 40px Montserrat,sans-serif; letter-spacing:.3em; color:#7FD3F2; }
+.cap { position:absolute; left:80px; right:80px; top:1170px; text-align:center; font:800 62px/1.15 Montserrat,sans-serif; color:#fff; text-shadow:0 0 18px rgba(0,0,0,.9), 0 4px 6px rgba(0,0,0,.9); }
+.title { position:absolute; left:60px; right:60px; text-align:center; font-family:"Archivo Black",sans-serif; text-transform:uppercase; text-shadow:0 6px 30px rgba(0,0,0,.85); }
+.kicker { position:absolute; left:0; right:0; text-align:center; font:700 34px Montserrat,sans-serif; letter-spacing:.32em; color:#7FD3F2; text-transform:uppercase; text-shadow:0 0 14px rgba(0,0,0,.95), 0 2px 4px rgba(0,0,0,.9); }
+.theory { position:absolute; left:70px; right:70px; font-family:"Archivo Black",sans-serif; font-size:76px; line-height:1.05; text-transform:uppercase; text-shadow:0 6px 26px rgba(0,0,0,.9); }
+.spec { position:absolute; left:90px; top:560px; width:900px; height:700px; overflow:hidden; border:3px solid rgba(127,211,242,.55); border-radius:10px; box-shadow:0 30px 80px rgba(0,0,0,.6); }
+.spec img { width:900px; height:700px; display:block; }
+.playhead { position:absolute; top:0; bottom:0; left:0; width:5px; background:#fff; box-shadow:0 0 22px #7FD3F2; }
+.tag { position:absolute; left:0; right:0; top:250px; text-align:center; font:800 36px Montserrat,sans-serif; letter-spacing:.38em; color:#7FD3F2; }
+.src { position:absolute; left:0; right:0; top:1290px; text-align:center; font:600 28px Montserrat,sans-serif; color:rgba(238,244,247,.75); letter-spacing:.08em; }
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="59.881" data-width="1080" data-height="1920">
+<div class="shot" id="v1w" style="z-index:2;opacity:1"><video id="v1" class="clip" src="assets/video/jelly.mp4" data-start="0.000" data-duration="6.369" data-media-start="7.0" data-playback-rate="1" data-track-index="1" muted playsinline></video><div class="shade"></div></div>
+<div class="shot" id="v4aw" style="z-index:3"><video id="v4a" class="clip" src="assets/video/isopod.mp4" data-start="28.213" data-duration="11.253" data-media-start="0.0" data-playback-rate="1" data-track-index="2" muted playsinline></video><div class="shade"></div></div>
+<div class="shot" id="v5w" style="z-index:4"><video id="v5" class="clip" src="assets/video/antarctica_sat.mp4" data-start="39.466" data-duration="10.265" data-media-start="0.0" data-playback-rate="0.85" data-track-index="3" muted playsinline></video><div class="shade"></div></div>
+<div class="shot" id="v6w" style="z-index:5"><video id="v6" class="clip" src="assets/video/calving.mp4" data-start="49.731" data-duration="10.150" data-media-start="0.0" data-playback-rate="1" data-track-index="4" muted playsinline></video><div class="shade"></div></div>
+<div class="gfx" id="g2" style="z-index:8"><svg width="1080" height="1920" viewBox="0 0 1080 1920" style="position:absolute;inset:0"><line x1="0" y1="140" x2="1080" y2="140" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="260" x2="1080" y2="260" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="380" x2="1080" y2="380" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="500" x2="1080" y2="500" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="620" x2="1080" y2="620" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="740" x2="1080" y2="740" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="860" x2="1080" y2="860" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="980" x2="1080" y2="980" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="1100" x2="1080" y2="1100" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="1220" x2="1080" y2="1220" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="1340" x2="1080" y2="1340" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="1460" x2="1080" y2="1460" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="1580" x2="1080" y2="1580" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="1700" x2="1080" y2="1700" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="0" y1="1820" x2="1080" y2="1820" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="60" y1="0" x2="60" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="180" y1="0" x2="180" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="300" y1="0" x2="300" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="420" y1="0" x2="420" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="540" y1="0" x2="540" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="660" y1="0" x2="660" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="780" y1="0" x2="780" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="900" y1="0" x2="900" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><line x1="1020" y1="0" x2="1020" y2="1920" stroke="#1d4766" stroke-width="1" opacity=".5"/><circle id="r0" cx="540" cy="620" r="40" fill="none" stroke="#7FD3F2" stroke-width="4" opacity="0"/><circle id="r1" cx="540" cy="620" r="40" fill="none" stroke="#7FD3F2" stroke-width="4" opacity="0"/><circle id="r2" cx="540" cy="620" r="40" fill="none" stroke="#7FD3F2" stroke-width="4" opacity="0"/><circle id="r3" cx="540" cy="620" r="40" fill="none" stroke="#7FD3F2" stroke-width="4" opacity="0"/><circle id="r4" cx="540" cy="620" r="40" fill="none" stroke="#7FD3F2" stroke-width="4" opacity="0"/><line id="link" x1="150" y1="900" x2="930" y2="900" stroke="#FFD27A" stroke-width="5" stroke-dasharray="18 14" pathLength="1000" stroke-dashoffset="1000"/><circle id="h1" cx="150" cy="900" r="18" fill="#FFD27A" opacity="0"/><circle id="h2" cx="930" cy="900" r="18" fill="#FFD27A" opacity="0"/><circle cx="540" cy="620" r="16" fill="#fff"/></svg><div class="kicker" id="k2" style="top:300px;opacity:0">South Pacific · NOAA hydrophones</div><div class="title" id="dist" style="top:960px;font-size:64px;color:#FFD27A;opacity:0">2,000+ miles apart</div><div class="title" id="bname" style="top:380px;font-size:150px;opacity:0">"The Bloop"</div></div>
+<div class="gfx" id="g3" style="z-index:9"><div class="kicker" style="top:330px">NOAA recording · 1997</div><div class="title" style="top:400px;font-size:84px">The real sound</div><div class="spec" id="spec"><img src="assets/img/spectrum.png" alt="Spectrogram of the Bloop recording"><div class="playhead" id="ph"></div></div><div class="src" style="top:1290px" id="g3s">Sped up 16× · Source: NOAA PMEL</div></div>
+<div class="snow" id="snow" style="position:absolute;inset:0;z-index:12;pointer-events:none"><i id="s0" style="left:828px;top:452px;width:4.3px;height:4.3px;opacity:0.42"></i><i id="s1" style="left:356px;top:1236px;width:4.4px;height:4.4px;opacity:0.17"></i><i id="s2" style="left:798px;top:329px;width:3.2px;height:3.2px;opacity:0.31"></i><i id="s3" style="left:942px;top:446px;width:5.0px;height:5.0px;opacity:0.25"></i><i id="s4" style="left:657px;top:88px;width:7.2px;height:7.2px;opacity:0.23"></i><i id="s5" style="left:226px;top:448px;width:7.0px;height:7.0px;opacity:0.20"></i><i id="s6" style="left:116px;top:1134px;width:6.8px;height:6.8px;opacity:0.50"></i><i id="s7" style="left:214px;top:1522px;width:3.0px;height:3.0px;opacity:0.49"></i><i id="s8" style="left:8px;top:1306px;width:7.5px;height:7.5px;opacity:0.25"></i><i id="s9" style="left:16px;top:727px;width:8.4px;height:8.4px;opacity:0.24"></i><i id="s10" style="left:274px;top:37px;width:5.9px;height:5.9px;opacity:0.54"></i><i id="s11" style="left:396px;top:736px;width:8.2px;height:8.2px;opacity:0.53"></i><i id="s12" style="left:125px;top:889px;width:7.9px;height:7.9px;opacity:0.51"></i><i id="s13" style="left:308px;top:1002px;width:6.7px;height:6.7px;opacity:0.52"></i><i id="s14" style="left:581px;top:1633px;width:3.8px;height:3.8px;opacity:0.40"></i><i id="s15" style="left:957px;top:208px;width:6.4px;height:6.4px;opacity:0.55"></i><i id="s16" style="left:244px;top:717px;width:3.4px;height:3.4px;opacity:0.41"></i><i id="s17" style="left:161px;top:37px;width:8.8px;height:8.8px;opacity:0.41"></i><i id="s18" style="left:420px;top:1773px;width:7.2px;height:7.2px;opacity:0.53"></i><i id="s19" style="left:866px;top:1732px;width:8.3px;height:8.3px;opacity:0.21"></i><i id="s20" style="left:682px;top:1417px;width:3.1px;height:3.1px;opacity:0.21"></i><i id="s21" style="left:715px;top:587px;width:3.1px;height:3.1px;opacity:0.40"></i><i id="s22" style="left:233px;top:664px;width:6.3px;height:6.3px;opacity:0.28"></i><i id="s23" style="left:484px;top:489px;width:4.4px;height:4.4px;opacity:0.38"></i><i id="s24" style="left:936px;top:36px;width:6.7px;height:6.7px;opacity:0.54"></i><i id="s25" style="left:954px;top:1755px;width:6.9px;height:6.9px;opacity:0.38"></i><i id="s26" style="left:58px;top:43px;width:4.1px;height:4.1px;opacity:0.23"></i><i id="s27" style="left:154px;top:1204px;width:8.6px;height:8.6px;opacity:0.28"></i><i id="s28" style="left:640px;top:1918px;width:4.0px;height:4.0px;opacity:0.28"></i><i id="s29" style="left:133px;top:1436px;width:3.7px;height:3.7px;opacity:0.23"></i><i id="s30" style="left:549px;top:1718px;width:6.2px;height:6.2px;opacity:0.34"></i><i id="s31" style="left:314px;top:667px;width:6.8px;height:6.8px;opacity:0.50"></i><i id="s32" style="left:189px;top:549px;width:7.9px;height:7.9px;opacity:0.47"></i><i id="s33" style="left:797px;top:1440px;width:5.7px;height:5.7px;opacity:0.39"></i><i id="s34" style="left:212px;top:1786px;width:8.6px;height:8.6px;opacity:0.30"></i><i id="s35" style="left:1056px;top:1884px;width:6.2px;height:6.2px;opacity:0.53"></i><i id="s36" style="left:381px;top:192px;width:7.3px;height:7.3px;opacity:0.41"></i><i id="s37" style="left:1036px;top:63px;width:6.5px;height:6.5px;opacity:0.23"></i><i id="s38" style="left:534px;top:1069px;width:7.7px;height:7.7px;opacity:0.24"></i><i id="s39" style="left:886px;top:249px;width:4.7px;height:4.7px;opacity:0.47"></i><i id="s40" style="left:295px;top:461px;width:4.6px;height:4.6px;opacity:0.52"></i><i id="s41" style="left:401px;top:148px;width:7.8px;height:7.8px;opacity:0.39"></i><i id="s42" style="left:603px;top:1191px;width:5.2px;height:5.2px;opacity:0.33"></i><i id="s43" style="left:829px;top:1586px;width:6.9px;height:6.9px;opacity:0.31"></i><i id="s44" style="left:532px;top:976px;width:5.6px;height:5.6px;opacity:0.50"></i><i id="s45" style="left:29px;top:1152px;width:4.2px;height:4.2px;opacity:0.53"></i></div><div class="vig" style="z-index:13"></div>
+<div id="hookw" style="position:absolute;inset:0;z-index:20"><div class="badge" id="badge">PACIFIC OCEAN · 1997</div><div class="hook" id="hook">The ocean made <b>a sound</b> no one could explain</div></div>
+<div class="theory" id="t0" style="z-index:21;top:300px;opacity:0">A SECRET MILITARY TEST?</div>
+<div class="theory" id="t1" style="z-index:21;top:490px;opacity:0">A SHIP'S ENGINE?</div>
+<div class="theory" id="t2" style="z-index:21;top:680px;opacity:0">A GIANT SQUID?</div>
+<div class="theory" id="t3" style="z-index:21;top:870px;opacity:0">SOMETHING UNKNOWN?</div>
+<div class="title" id="y2005" style="z-index:21;top:330px;font-size:220px;color:#FFD27A;opacity:0">2005</div>
+<div class="kicker" id="kant" style="z-index:21;top:590px;font-size:38px;letter-spacing:.2em;opacity:0">Closer to Antarctica</div>
+<div class="title" id="iq" style="z-index:21;top:330px;font-size:150px;color:#BFE9FF;opacity:0">Icequake</div>
+<div class="title" id="mon" style="z-index:22;top:620px;font-size:104px;line-height:1.02;opacity:0">The monster<br>was <span style="color:#7FD3F2">ice.</span></div>
+<div class="tag" id="tag" style="z-index:22;opacity:0">EARTH'S UNSOLVED #1</div>
+<div class="src" id="credit" style="z-index:22;top:1090px;opacity:0">Sources: NOAA Ocean Service · NOAA PMEL</div>
+<div id="caps" style="position:absolute;inset:0;z-index:30" data-track-kind="captions">
+<div class="cap clip" id="c0" data-start="6.5" data-duration="1.24" data-track-index="20">NOAA scientists were</div>
+<div class="cap clip" id="c1" data-start="7.74" data-duration="1.26" data-track-index="20">listening for underwater</div>
+<div class="cap clip" id="c2" data-start="9.0" data-duration="1.54" data-track-index="20">volcanoes.</div>
+<div class="cap clip" id="c3" data-start="11.06" data-duration="1.7" data-track-index="20">Microphones spread more</div>
+<div class="cap clip" id="c4" data-start="12.76" data-duration="1.42" data-track-index="20">than 2,000 miles</div>
+<div class="cap clip" id="c5" data-start="14.18" data-duration="1.0" data-track-index="20">apart</div>
+<div class="cap clip" id="c6" data-start="15.18" data-duration="0.6" data-track-index="20">picked up the</div>
+<div class="cap clip" id="c7" data-start="15.78" data-duration="2.06" data-track-index="20">same powerful rumble</div>
+<div class="cap clip" id="c8" data-start="18.12" data-duration="1.06" data-track-index="20">became known as</div>
+<div class="cap clip" id="c9" data-start="19.18" data-duration="1.14" data-track-index="20">the Bloop.</div>
+<div class="cap clip" id="c10" data-start="20.42" data-duration="0.88" data-track-index="20">Here it is</div>
+<div class="cap clip" id="c11" data-start="21.3" data-duration="1.34" data-track-index="20">sped up 16</div>
+<div class="cap clip" id="c12" data-start="22.64" data-duration="1.24" data-track-index="20">times.</div>
+<div class="cap clip" id="c13" data-start="27.36" data-duration="1.92" data-track-index="20">The theories piled</div>
+<div class="cap clip" id="c14" data-start="29.28" data-duration="1.18" data-track-index="20">up.</div>
+<div class="cap clip" id="c15" data-start="30.52" data-duration="2.18" data-track-index="20">Secret military test.</div>
+<div class="cap clip" id="c16" data-start="33.36" data-duration="1.2" data-track-index="20">Ship's engine.</div>
+<div class="cap clip" id="c17" data-start="35.2" data-duration="1.12" data-track-index="20">Giant squid.</div>
+<div class="cap clip" id="c18" data-start="36.86" data-duration="1.36" data-track-index="20">Something unknown to</div>
+<div class="cap clip" id="c19" data-start="38.22" data-duration="1.06" data-track-index="20">science.</div>
+<div class="cap clip" id="c20" data-start="39.5" data-duration="1.12" data-track-index="20">For years</div>
+<div class="cap clip" id="c21" data-start="40.62" data-duration="1.18" data-track-index="20">nobody knew.</div>
+<div class="cap clip" id="c22" data-start="42.12" data-duration="1.34" data-track-index="20">Then researchers moved</div>
+<div class="cap clip" id="c23" data-start="43.46" data-duration="1.26" data-track-index="20">their microphones closer</div>
+<div class="cap clip" id="c24" data-start="44.72" data-duration="1.5" data-track-index="20">to Antarctica</div>
+<div class="cap clip" id="c25" data-start="46.22" data-duration="1.6" data-track-index="20">and in 2005</div>
+<div class="cap clip" id="c26" data-start="47.82" data-duration="1.1" data-track-index="20">they found the</div>
+<div class="cap clip" id="c27" data-start="48.92" data-duration="0.9" data-track-index="20">source.</div>
+<div class="cap clip" id="c28" data-start="50.0" data-duration="1.02" data-track-index="20">The Bloop was</div>
+<div class="cap clip" id="c29" data-start="51.02" data-duration="1.36" data-track-index="20">an icequake</div>
+<div class="cap clip" id="c30" data-start="52.38" data-duration="1.46" data-track-index="20">an iceberg cracking</div>
+<div class="cap clip" id="c31" data-start="53.84" data-duration="1.24" data-track-index="20">and breaking away</div>
+<div class="cap clip" id="c32" data-start="55.08" data-duration="1.02" data-track-index="20">from an Antarctic</div>
+<div class="cap clip" id="c33" data-start="56.1" data-duration="1.06" data-track-index="20">glacier.</div>
+<div class="cap clip" id="c34" data-start="57.46" data-duration="1.28" data-track-index="20">The monster was</div>
+<div class="cap clip" id="c35" data-start="58.74" data-duration="0.68" data-track-index="20">ice.</div>
+</div>
+<audio id="vo" class="clip" src="assets/audio/narration.wav" data-start="0" data-duration="59.881" data-track-index="30" data-volume="1"></audio>
+<audio id="bed" class="clip" src="assets/audio/bed.mp3" data-start="0" data-duration="59.881" data-track-index="31" data-volume="0.16"></audio>
+<audio id="wh0" class="clip" src="assets/audio/whoosh-cinematic.mp3" data-start="6.019" data-duration="1.6" data-track-index="32" data-volume="0.35"></audio>
+<audio id="wh1" class="clip" src="assets/audio/whoosh-cinematic.mp3" data-start="27.863" data-duration="1.6" data-track-index="33" data-volume="0.35"></audio>
+<audio id="wh2" class="clip" src="assets/audio/whoosh-cinematic.mp3" data-start="39.116" data-duration="1.6" data-track-index="34" data-volume="0.35"></audio>
+<audio id="wh3" class="clip" src="assets/audio/whoosh-cinematic.mp3" data-start="49.381" data-duration="1.6" data-track-index="35" data-volume="0.35"></audio>
+<audio id="hit" class="clip" src="assets/audio/impact-bass-1.mp3" data-start="57.980" data-duration="1.901" data-track-index="36" data-volume="0.55"></audio>
+</div>
+<script>
+const tl = gsap.timeline({ paused: true });
+tl.set("#v1w",{transformOrigin:"50% 30%"},0);
+tl.set("#v1w",{opacity:1},0);
+tl.fromTo("#v1w",{scale:1.06},{scale:1.18,duration:6.369,ease:"none"},0.000);
+tl.to("#v1w",{opacity:0,duration:0.45,ease:"none"},6.349);
+tl.set("#v4aw",{transformOrigin:"50% 55%"},0);
+tl.fromTo("#v4aw",{opacity:0},{opacity:1,duration:0.45,ease:"none"},28.213);
+tl.fromTo("#v4aw",{scale:1.04},{scale:1.22,duration:11.253,ease:"none"},28.213);
+tl.to("#v4aw",{opacity:0,duration:0.45,ease:"none"},39.446);
+tl.set("#v5w",{transformOrigin:"50% 70%"},0);
+tl.fromTo("#v5w",{opacity:0},{opacity:1,duration:0.45,ease:"none"},39.466);
+tl.fromTo("#v5w",{scale:1.12},{scale:1.22,duration:10.265,ease:"none"},39.466);
+tl.to("#v5w",{opacity:0,duration:0.45,ease:"none"},49.711);
+tl.set("#v6w",{transformOrigin:"50% 60%"},0);
+tl.fromTo("#v6w",{opacity:0},{opacity:1,duration:0.45,ease:"none"},49.731);
+tl.fromTo("#v6w",{scale:1.04},{scale:1.14,duration:10.150,ease:"none"},49.731);
+tl.to("#v6w",{opacity:0,duration:0.45,ease:"none"},59.861);
+tl.fromTo("#g2",{opacity:0},{opacity:1,duration:0.45},6.169); tl.to("#g2",{opacity:0,duration:0.45},20.341);
+tl.to("#k2",{opacity:1,duration:.5},6.669);
+tl.fromTo("#r0",{attr:{r:30},opacity:.9},{attr:{r:560},opacity:0,duration:3.2,ease:"sine.out",repeat:3,repeatDelay:.0},6.769);
+tl.fromTo("#r1",{attr:{r:30},opacity:.9},{attr:{r:560},opacity:0,duration:3.2,ease:"sine.out",repeat:3,repeatDelay:.0},7.419);
+tl.fromTo("#r2",{attr:{r:30},opacity:.9},{attr:{r:560},opacity:0,duration:3.2,ease:"sine.out",repeat:3,repeatDelay:.0},8.069);
+tl.fromTo("#r3",{attr:{r:30},opacity:.9},{attr:{r:560},opacity:0,duration:3.2,ease:"sine.out",repeat:3,repeatDelay:.0},8.719);
+tl.fromTo("#r4",{attr:{r:30},opacity:.9},{attr:{r:560},opacity:0,duration:3.2,ease:"sine.out",repeat:3,repeatDelay:.0},9.369);
+tl.to(["#h1","#h2"],{opacity:1,duration:.4,stagger:.25},11.060); tl.to("#link",{attr:{"stroke-dashoffset":0},duration:1.4,ease:"power2.inOut"},11.360);
+tl.fromTo("#dist",{opacity:0,y:30},{opacity:1,y:0,duration:.6,ease:"power3.out"},12.260);
+tl.to("#k2",{opacity:0,duration:.3},19.100);
+tl.fromTo("#bname",{opacity:0,scale:.8},{opacity:1,scale:1,duration:.5,ease:"back.out(2)"},19.400); tl.to("#bname",{scale:1.08,duration:0.941,ease:"none"},19.900);
+tl.fromTo("#g3",{opacity:0},{opacity:1,duration:0.45},20.241); tl.to("#g3",{opacity:0,duration:0.45},28.213);
+tl.fromTo("#spec",{scale:.92},{scale:1.06,duration:7.872,ease:"none"},20.341);
+tl.fromTo("#ph",{x:0},{x:895,duration:4.200,ease:"none"},24.013);
+tl.fromTo("#hook",{scale:1},{scale:1.06,duration:5.4,ease:"none",transformOrigin:"0% 50%"},0);
+tl.to("#hookw",{opacity:0,duration:.4},5.919);
+tl.fromTo("#t0",{opacity:0,x:-60},{opacity:1,x:0,duration:.35,ease:"power3.out"},30.730);
+tl.fromTo("#t1",{opacity:0,x:-60},{opacity:1,x:0,duration:.35,ease:"power3.out"},33.010);
+tl.to("#t0",{opacity:.38,duration:.3},33.010);
+tl.fromTo("#t2",{opacity:0,x:-60},{opacity:1,x:0,duration:.35,ease:"power3.out"},34.850);
+tl.to("#t1",{opacity:.38,duration:.3},34.850);
+tl.fromTo("#t3",{opacity:0,x:-60},{opacity:1,x:0,duration:.35,ease:"power3.out"},36.850);
+tl.to("#t2",{opacity:.38,duration:.3},36.850);
+tl.to(["#t0","#t1","#t2","#t3"],{opacity:0,duration:.4},40.520);
+tl.fromTo("#kant",{opacity:0,y:20},{opacity:1,y:0,duration:.5},44.840);
+tl.fromTo("#y2005",{opacity:0,scale:1.25},{opacity:1,scale:1,duration:.5,ease:"power3.out"},46.660); tl.to(["#y2005","#kant"],{opacity:0,duration:.4},49.331);
+tl.fromTo("#iq",{opacity:0,y:40},{opacity:1,y:0,duration:.5,ease:"power3.out"},51.100); tl.to("#iq",{opacity:0,duration:.4},57.580);
+tl.fromTo("#mon",{opacity:0,scale:.9},{opacity:1,scale:1,duration:.6,ease:"power3.out"},58.030); tl.to("#mon",{scale:1.05,duration:1.201,ease:"none"},58.630);
+tl.to("#tag",{opacity:1,duration:.5},52.400); tl.to("#credit",{opacity:1,duration:.4},58.780);
+tl.fromTo("#s0",{y:0},{y:-121,x:-18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s1",{y:0},{y:-73,x:-12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s2",{y:0},{y:-150,x:-6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s3",{y:0},{y:-154,x:0,duration:59.881,ease:"none"},0);
+tl.fromTo("#s4",{y:0},{y:-80,x:6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s5",{y:0},{y:-131,x:12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s6",{y:0},{y:-69,x:18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s7",{y:0},{y:-134,x:-18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s8",{y:0},{y:-122,x:-12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s9",{y:0},{y:-126,x:-6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s10",{y:0},{y:-145,x:0,duration:59.881,ease:"none"},0);
+tl.fromTo("#s11",{y:0},{y:-128,x:6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s12",{y:0},{y:-62,x:12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s13",{y:0},{y:-85,x:18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s14",{y:0},{y:-88,x:-18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s15",{y:0},{y:-86,x:-12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s16",{y:0},{y:-120,x:-6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s17",{y:0},{y:-120,x:0,duration:59.881,ease:"none"},0);
+tl.fromTo("#s18",{y:0},{y:-72,x:6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s19",{y:0},{y:-142,x:12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s20",{y:0},{y:-157,x:18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s21",{y:0},{y:-103,x:-18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s22",{y:0},{y:-100,x:-12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s23",{y:0},{y:-61,x:-6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s24",{y:0},{y:-154,x:0,duration:59.881,ease:"none"},0);
+tl.fromTo("#s25",{y:0},{y:-102,x:6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s26",{y:0},{y:-88,x:12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s27",{y:0},{y:-99,x:18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s28",{y:0},{y:-74,x:-18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s29",{y:0},{y:-97,x:-12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s30",{y:0},{y:-149,x:-6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s31",{y:0},{y:-145,x:0,duration:59.881,ease:"none"},0);
+tl.fromTo("#s32",{y:0},{y:-120,x:6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s33",{y:0},{y:-110,x:12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s34",{y:0},{y:-64,x:18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s35",{y:0},{y:-96,x:-18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s36",{y:0},{y:-70,x:-12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s37",{y:0},{y:-142,x:-6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s38",{y:0},{y:-150,x:0,duration:59.881,ease:"none"},0);
+tl.fromTo("#s39",{y:0},{y:-146,x:6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s40",{y:0},{y:-130,x:12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s41",{y:0},{y:-126,x:18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s42",{y:0},{y:-99,x:-18,duration:59.881,ease:"none"},0);
+tl.fromTo("#s43",{y:0},{y:-81,x:-12,duration:59.881,ease:"none"},0);
+tl.fromTo("#s44",{y:0},{y:-118,x:-6,duration:59.881,ease:"none"},0);
+tl.fromTo("#s45",{y:0},{y:-111,x:0,duration:59.881,ease:"none"},0);
+window.__timelines = window.__timelines || {}; window.__timelines["main"] = tl;
+</script>
+</body>
+</html>
