@@ -134,14 +134,14 @@ Cách ghi: `"vfx": ["rain", {"fx": "lightning", "at": 2.5}, {"fx": "explosion", 
 | VFX | Gồm | Tiếng | Dùng khi | Tránh |
 |---|---|---|---|---|
 | `shake` | rung khung giảm dần (≤ 1,5 s) | — | va chạm, nổ xa, động đất | rung khi đang đọc chữ dài |
-| `explosion` | lóe + quả cầu lửa + khói + 12 mảnh vỡ + bụi ống kính + rung | boom tự tổng hợp | nổ, pháo, va chạm lớn | > 1 lần mỗi 8 s; ảnh có người bị thương |
+| `explosion` | lóe + quả cầu lửa + khói + 12 mảnh vỡ + bụi ống kính + rung | boom (tổng hợp, nhỏ) | nổ, pháo, va chạm lớn | > 1 lần mỗi 8 s; ảnh có người bị thương |
 | `lightning` | 2 lần lóe cách 0,42 s + tia sét + bụi ống kính | sấm (trễ 0,3 s sau chớp) | bão, điềm báo | ảnh trong nhà |
 | `glitch` | dải nhiễu màu + giật ngang ≤ 1 s | glitch-1..3 | tín hiệu mất, ký ức vỡ, băng ghi hỏng | chiến tranh cổ, cổ đại |
 | `filmburn` | vết cháy phim lan rồi tan | — | kết chương, hồi tưởng, tư liệu cũ | giữa câu thoại |
 | `sparks` | 16 tia lửa bắn rơi theo trọng lực | lửa tóe | kim loại va, hàn, chập điện | lặp nhiều lần |
 | `radio` | nhiễu TV mờ (không lóe) + tiếng radio rè | radio rè | điện đàm, băng ghi âm, phát thanh | kéo dài > 2 s |
 
-Âm thanh của VFX: 8 tiếng tự tổng hợp (`sfx/synth/`) nghe thiếu chân thật (anh nhận xét 24/11/2026); thay bằng bản thu thật CC0 qua `motion-kit/freesound_fetch.py fetch`. Kit tự dùng `sfx/real/` khi có. Video chủ đề khó KHÔNG đăng khi còn dùng tiếng tổng hợp cho sấm, nổ, mưa.
+Âm thanh của VFX (quyết định 24/11/2026, đã bỏ qua khóa Freesound): 4 tiếng nền tổng hợp (mưa, gió, lửa, dưới nước) **tắt**, hình VFX vẫn chạy; sấm và nổ tổng hợp **giữ nhưng nhỏ** (×0,45); tia lửa, radio rè giữ nguyên. Có bản thu thật CC0 trong `sfx/real/` (qua `motion-kit/freesound_fetch.py fetch` khi có khóa) thì kit tự bật lại đầy đủ.
 
 ### 10.3 Luật VFX (validate kiểm tự động)
 - Tên lạ, `at` ngoài cảnh, `amount` ngoài 0,1–1 → hỏng.

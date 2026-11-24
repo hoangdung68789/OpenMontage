@@ -40,6 +40,7 @@ Khóa `vfx` của cảnh, 17 hiệu ứng: không khí (rain, snow, sandstorm, f
 ```json
 {"type": "photo", "dur": 8, "src": "storm.jpg", "credit": "…", "vfx": ["rain", {"fx": "lightning", "at": 2.5}]}
 ```
+- **Hiện tại (24/11/2026):** tiếng nền tổng hợp (mưa, gió, lửa, dưới nước) tắt; sấm, nổ tổng hợp phát nhỏ (×0,45).
 - **Tiếng thật thay tiếng tổng hợp:** `python freesound_fetch.py search` (xem ứng viên) rồi `fetch` → `sfx/real/*.mp3` (CC0 từ Freesound, tự nối vòng liền, chuẩn âm lượng, ghi `sfx/CREDITS.md`). Kit tự ưu tiên `sfx/real/` khi có. Cần khóa Freesound (Network secret cho `freesound.org`).
 - Mã: `vfx.py`. Tài nguyên tự sinh: `python vfx_assets.py` → `vfx/tex/*.png` (14 kết cấu lặp liền mép) và `sfx/synth/*.mp3` (8 tiếng). Không dùng file của ai.
 - Chia khối dựng: mỗi composition tối đa 6 cảnh (`"chunk": N` để đổi), hoặc ngắt ở cảnh `"chapter": true`. File ra: `compositions/part0.html`, `part1.html`…

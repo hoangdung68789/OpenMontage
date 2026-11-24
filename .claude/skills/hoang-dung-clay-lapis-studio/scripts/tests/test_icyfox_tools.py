@@ -336,10 +336,15 @@ def test_vfx_rules_chunking_and_assets(tmp_path):
     import re as _re
     times = [float(x) for x in _re.findall(r",(-?\d+\.\d+)\);", p1)]
     assert times and min(times) >= -0.01 and max(times) < 40                                       # tương đối theo composition
-    for f in ("assets/vfx/rain.png", "assets/vfx/embers.png", "assets/sfx/rain-loop.mp3", "assets/sfx/thunder.mp3"):
+    for f in ("assets/vfx/rain.png", "assets/vfx/embers.png", "assets/sfx/thunder.mp3"):
         assert (out / f).exists(), f
     idx = (out / "index.html").read_text(encoding="utf-8")
-    assert 'data-composition-src="compositions/part1.html"' in idx and "rain-loop.mp3" in idx
+    assert 'data-composition-src="compositions/part1.html"' in idx
+    real = (S.parents[3] / "channel-studio" / "motion-kit" / "sfx" / "real" / "rain-loop.mp3").exists()
+    assert ("rain-loop.mp3" in idx) == real                                                        # tiếng nền tổng hợp tắt (24/11)
+    cues = json.loads((out / "sfx_cues.json").read_text(encoding="utf-8"))["cues"]
+    th = [c for c in cues if c["kind"] == "thunder"][0]
+    assert real or th["volume"] <= .6 * .45 + 1e-6                                                 # sấm tổng hợp nhỏ
     assert all('data-duration=' in a for a in _re.findall(r"<audio[^>]+>", idx))                   # mọi tiếng có độ dài
     body = (out / "compositions" / "part0.html").read_text(encoding="utf-8")
     assert "Math.random" not in body and "Date.now" not in body

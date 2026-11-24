@@ -612,6 +612,9 @@ def validate(plan):
                   "vfx": sorted({vfx.norm(x)["fx"] for sc in scenes for x in (sc.s.get("vfx") or [])})}
 
 
+SYNTH_QUIET = {"thunder": .45, "boom": .45}   # hệ số âm lượng khi sấm/nổ còn là bản tổng hợp
+
+
 def sfx_path(name):
     """Tiếng tổng hợp "synth/x" được thay bằng bản thu thật sfx/real/x.mp3 nếu đã tải (freesound_fetch.py)."""
     if name.startswith("synth/"):
@@ -653,6 +656,8 @@ def resolve_cues(scenes, g, out):
             src = sfx_path(name)
             if not src.exists():
                 continue
+            if "synth" in src.parts and kind in SYNTH_QUIET:   # sấm, nổ tổng hợp: giữ nhưng nhỏ (24/11/2026)
+                vol = round(vol * SYNTH_QUIET[kind], 3)
             dst = out / "assets" / "sfx" / src.name
             dst.parent.mkdir(parents=True, exist_ok=True)
             if not dst.exists():
@@ -738,6 +743,8 @@ def build(plan, out):
     for sc in scenes:   # âm thanh nền của VFX (mưa, gió, lửa, dưới nước): file 30 giây, nối tiếp nếu cảnh dài hơn
         for t0, d, f, v in sc.amb:
             src = sfx_path(f)
+            if "synth" in src.parts:   # tiếng nền tổng hợp nghe giả (anh, 24/11/2026): tắt, chỉ bật khi có bản thật sfx/real/
+                continue
             dst = out / "assets" / "sfx" / src.name
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(src, dst)
