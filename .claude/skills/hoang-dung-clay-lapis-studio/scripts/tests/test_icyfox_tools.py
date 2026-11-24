@@ -343,3 +343,30 @@ def test_vfx_rules_chunking_and_assets(tmp_path):
     assert all('data-duration=' in a for a in _re.findall(r"<audio[^>]+>", idx))                   # mọi tiếng có độ dài
     body = (out / "compositions" / "part0.html").read_text(encoding="utf-8")
     assert "Math.random" not in body and "Date.now" not in body
+
+
+def test_real_sound_override_and_seamless_loop(tmp_path, monkeypatch):
+    mk = S.parents[3] / "channel-studio" / "motion-kit"
+    if not (mk / "freesound_fetch.py").exists():
+        pytest.skip("không có motion-kit")
+    sys.path.insert(0, str(mk))
+    import numpy as np
+    import freesound_fetch as ff_
+    import icyfox_motion as im
+    sr = 48000
+    t = np.arange(int(40 * sr)) / sr
+    x = np.stack([np.sin(2 * np.pi * 3.3 * t) * .5] * 2, 1).astype(np.float32)   # tín hiệu không tuần hoàn theo 30 s
+    y = ff_.loop_seamless(x, sr)
+    assert len(y) == 30 * sr
+    assert abs(float(y[0, 0] - y[-1, 0])) < 5 * float(np.abs(np.diff(y[:, 0])).mean()) + 1e-3   # chỗ nối liền
+    with pytest.raises(ValueError):
+        ff_.loop_seamless(x[: 20 * sr], sr)                                                  # quá ngắn: từ chối
+    # có sfx/real/<tên>.mp3 thì kit dùng bản thật thay bản tổng hợp
+    monkeypatch.setattr(im, "SFX_DIR", tmp_path)
+    (tmp_path / "synth").mkdir()
+    (tmp_path / "synth" / "boom.mp3").write_bytes(b"x")
+    assert im.sfx_path("synth/boom") == tmp_path / "synth" / "boom.mp3"
+    (tmp_path / "real").mkdir()
+    (tmp_path / "real" / "boom.mp3").write_bytes(b"x")
+    assert im.sfx_path("synth/boom") == tmp_path / "real" / "boom.mp3"
+    assert im.sfx_path("whoosh") == tmp_path / "whoosh.mp3"

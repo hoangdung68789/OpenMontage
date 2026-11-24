@@ -1,6 +1,6 @@
 {
  "version": 1,
- "next": 47,
+ "next": 48,
  "tasks": [
   {
    "id": "T-001",
@@ -1910,6 +1910,25 @@
     "remaining": "VFX là lớp 2D (không tương tác vật trong ảnh); tiếng tổng hợp kém chân thực hơn bản thu; hiệu quả VFX lên giữ chân chưa đo",
     "check": "python3 -m pytest -q .claude/skills/hoang-dung-clay-lapis-studio/scripts/tests"
    }
+  },
+  {
+   "id": "T-047",
+   "title": "Thay 8 tiếng VFX tự tổng hợp bằng bản thu thật CC0 (Freesound)",
+   "type": "code",
+   "dod": "sfx/real có 8 file CC0, vòng lặp liền, CREDITS ghi nguồn; render lại demo VFX; anh nghe so sánh trước/sau",
+   "owner": "claude",
+   "status": "waiting",
+   "prio": 2,
+   "due": null,
+   "video": null,
+   "series": null,
+   "created": "2026-11-24 16:50",
+   "evidence": [],
+   "log": [
+    "2026-11-24 16:50 wait"
+   ],
+   "updated": "2026-11-24 16:50",
+   "question": "Cần khóa Freesound: anh lưu ở Network secrets của môi trường cloud cho host freesound.org (tiền tố Token). Máy cloud hiện chặn freesound.org (proxy 403)."
   }
  ]
 }

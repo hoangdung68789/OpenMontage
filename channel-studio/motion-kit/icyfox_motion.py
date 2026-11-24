@@ -612,6 +612,15 @@ def validate(plan):
                   "vfx": sorted({vfx.norm(x)["fx"] for sc in scenes for x in (sc.s.get("vfx") or [])})}
 
 
+def sfx_path(name):
+    """Tiếng tổng hợp "synth/x" được thay bằng bản thu thật sfx/real/x.mp3 nếu đã tải (freesound_fetch.py)."""
+    if name.startswith("synth/"):
+        real = SFX_DIR / "real" / f"{name.split('/', 1)[1]}.mp3"
+        if real.exists():
+            return real
+    return SFX_DIR / f"{name}.mp3"
+
+
 def file_len(f):
     r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(f)], capture_output=True, text=True)
     try:
@@ -641,7 +650,7 @@ def resolve_cues(scenes, g, out):
                      "type": [g["sfx"]["type"]], "pop": [g["sfx"]["pop"]], "riser": ["riser"], **vfx.SOUND}[kind]
             name = names[rot.get(kind, 0) % len(names)]
             rot[kind] = rot.get(kind, 0) + 1
-            src = SFX_DIR / f"{name}.mp3"
+            src = sfx_path(name)
             if not src.exists():
                 continue
             dst = out / "assets" / "sfx" / src.name
@@ -728,7 +737,7 @@ def build(plan, out):
     k = 0
     for sc in scenes:   # âm thanh nền của VFX (mưa, gió, lửa, dưới nước): file 30 giây, nối tiếp nếu cảnh dài hơn
         for t0, d, f, v in sc.amb:
-            src = SFX_DIR / f"{f}.mp3"
+            src = sfx_path(f)
             dst = out / "assets" / "sfx" / src.name
             dst.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy(src, dst)

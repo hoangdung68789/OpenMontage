@@ -141,6 +141,8 @@ Cách ghi: `"vfx": ["rain", {"fx": "lightning", "at": 2.5}, {"fx": "explosion", 
 | `sparks` | 16 tia lửa bắn rơi theo trọng lực | lửa tóe | kim loại va, hàn, chập điện | lặp nhiều lần |
 | `radio` | nhiễu TV mờ (không lóe) + tiếng radio rè | radio rè | điện đàm, băng ghi âm, phát thanh | kéo dài > 2 s |
 
+Âm thanh của VFX: 8 tiếng tự tổng hợp (`sfx/synth/`) nghe thiếu chân thật (anh nhận xét 24/11/2026); thay bằng bản thu thật CC0 qua `motion-kit/freesound_fetch.py fetch`. Kit tự dùng `sfx/real/` khi có. Video chủ đề khó KHÔNG đăng khi còn dùng tiếng tổng hợp cho sấm, nổ, mưa.
+
 ### 10.3 Luật VFX (validate kiểm tự động)
 - Tên lạ, `at` ngoài cảnh, `amount` ngoài 0,1–1 → hỏng.
 - \> 2 lớp không khí một cảnh → hỏng (rối hình).
