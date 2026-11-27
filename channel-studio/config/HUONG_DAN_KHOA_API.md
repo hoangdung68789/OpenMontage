@@ -50,6 +50,32 @@ Vào cài đặt môi trường **video-channel-studio** (bấm tên môi trư�
 
 Với Network secrets, proxy tự gắn khóa vào request, Claude không thấy được giá trị.
 
+## 3b. Kênh thứ hai (tài khoản YouTube ở Mỹ, thêm 27/11/2026)
+
+Dùng để xem số liệu, đăng video và quản lý video của kênh Mỹ, tách hẳn khỏi ICYFOX.
+
+1. Đăng nhập **tài khoản Mỹ** (trên đúng trình duyệt hoặc môi trường Mỹ), vào https://console.cloud.google.com, tạo dự án mới.
+2. Mở APIs & Services → Library, bật **YouTube Data API v3** và **YouTube Analytics API**.
+3. Vào Google Auth Platform:
+   - Branding: chọn External.
+   - Audience: bấm **Publish app** (In production). Nếu để Testing, refresh token tự hết hạn sau 7 ngày.
+4. Vào Clients → Create client, chọn loại **Desktop app**. Tải file JSON, đổi tên thành `client_secret.json`, đặt trong thư mục `OpenMontage`.
+5. Chạy `python .claude/skills/hoang-dung-clay-lapis-studio/scripts/yt_authorize_desktop.py client_secret.json`.
+   - Đăng nhập tài khoản Mỹ, chọn đúng kênh, rồi cho phép mọi quyền.
+   - Thấy "Google hasn't verified this app" thì bấm Advanced → Go to….
+6. Chép 3 giá trị trong `yt_token.json` vào `.env` dưới tên **`YT_US_CLIENT_ID`, `YT_US_CLIENT_SECRET`, `YT_US_REFRESH_TOKEN`**. Xong thì xóa `yt_token.json` và `client_secret.json`.
+7. Kiểm tra (PowerShell):
+   ```
+   $env:YT_CHANNEL='US'; python .claude/skills/hoang-dung-clay-lapis-studio/scripts/check_apis.py; Remove-Item Env:YT_CHANNEL
+   ```
+
+**Cách chọn kênh:** đặt `YT_CHANNEL=US` cho từng lệnh, không ghi vào `.env`.
+- Có `YT_CHANNEL=US`: script dùng khóa `YT_US_*` và đọc/ghi dữ liệu trong `channel-studio-us/` (số liệu, gói đăng, video_map, sổ việc), không lẫn với ICYFOX.
+- Không đặt: mọi thứ chạy như cũ, trên kênh ICYFOX.
+- Riêng `research/yt_api_channel.py` (phân tích đối thủ) luôn dùng khóa ICYFOX. Script này chỉ đọc dữ liệu công khai nên kênh nào cũng như nhau.
+
+**Đăng video qua API:** dự án Google mới chưa qua audit, nên video tải lên bị khóa ở chế độ Riêng tư. Muốn đăng công khai thì phải nộp đơn audit riêng cho dự án này (mẫu: `channel/api-audit/DON_AUDIT.md`).
+
 ## 4. Đổi khóa, thu hồi khóa
 - **Khóa bị lộ:** xóa ngay ở trang của dịch vụ (AI Studio, OpenAI, ElevenLabs), tạo khóa mới, rồi cập nhật lại `.env` hoặc cài đặt cloud.
 - **Thu hồi quyền YouTube và Drive:** tài khoản Google → Bảo mật → Kết nối với bên thứ ba → xóa ứng dụng. Sau đó lấy lại refresh token trên OAuth Playground.

@@ -375,3 +375,12 @@ def test_real_sound_override_and_seamless_loop(tmp_path, monkeypatch):
     (tmp_path / "real" / "boom.mp3").write_bytes(b"x")
     assert im.sfx_path("synth/boom") == tmp_path / "real" / "boom.mp3"
     assert im.sfx_path("whoosh") == tmp_path / "whoosh.mp3"
+
+
+def test_yt_channel_selects_second_channel_keys_and_data_dir(ws):
+    import os
+    code = f"import sys; sys.path.insert(0, {str(S)!r}); import icyfox_common as c; print(c.CS.name, *c.yt_vars())"
+    base = {k: v for k, v in os.environ.items() if k != "YT_CHANNEL"}
+    out = lambda env: subprocess.run([PY, "-c", code], cwd=ws, env=env, capture_output=True, text=True).stdout.split()
+    assert out(base) == ["channel-studio", "YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN"]
+    assert out({**base, "YT_CHANNEL": "us"}) == ["channel-studio-us", "YT_US_CLIENT_ID", "YT_US_CLIENT_SECRET", "YT_US_REFRESH_TOKEN"]

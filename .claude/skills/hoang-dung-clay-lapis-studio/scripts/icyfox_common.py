@@ -29,7 +29,9 @@ def repo_root():
 
 
 ROOT = repo_root()
-CS = ROOT / "channel-studio"
+# Kênh thứ hai: đặt YT_CHANNEL=US cho từng lệnh (không ghi vào .env) → khóa YT_US_*, dữ liệu channel-studio-us/
+CHANNEL = os.environ.get("YT_CHANNEL", "").strip().upper()
+CS = ROOT / (f"channel-studio-{CHANNEL.lower()}" if CHANNEL else "channel-studio")
 SKILL = ROOT / ".claude" / "skills" / "hoang-dung-clay-lapis-studio"
 
 
@@ -76,17 +78,22 @@ def load_env():
     return None
 
 
+def yt_vars():
+    """Tên 3 biến OAuth của kênh đang chọn: mặc định YT_*, YT_CHANNEL=US → YT_US_*."""
+    p = f"YT_{CHANNEL}_" if CHANNEL else "YT_"
+    return [p + "CLIENT_ID", p + "CLIENT_SECRET", p + "REFRESH_TOKEN"]
+
+
 def yt_headers():
-    """Đổi refresh token của kênh ICYFOX lấy access token. Trả về (headers, scopes)."""
+    """Đổi refresh token của kênh đang chọn lấy access token. Trả về (headers, scopes)."""
     import requests
     load_env()
-    need = ["YT_CLIENT_ID", "YT_CLIENT_SECRET", "YT_REFRESH_TOKEN"]
+    need = yt_vars()
     if any(not os.environ.get(k) for k in need):
-        sys.exit("Thiếu YT_CLIENT_ID / YT_CLIENT_SECRET / YT_REFRESH_TOKEN "
-                 "(xem channel-studio/config/HUONG_DAN_KHOA_API.md)")
+        sys.exit(f"Thiếu {' / '.join(need)} (xem channel-studio/config/HUONG_DAN_KHOA_API.md)")
     r = requests.post("https://oauth2.googleapis.com/token", data={
-        "client_id": os.environ["YT_CLIENT_ID"], "client_secret": os.environ["YT_CLIENT_SECRET"],
-        "refresh_token": os.environ["YT_REFRESH_TOKEN"], "grant_type": "refresh_token"}, timeout=30)
+        "client_id": os.environ[need[0]], "client_secret": os.environ[need[1]],
+        "refresh_token": os.environ[need[2]], "grant_type": "refresh_token"}, timeout=30)
     if not r.ok:
         sys.exit(f"Lỗi đổi token YouTube: {r.status_code} {r.text[:200]}")
     j = r.json()

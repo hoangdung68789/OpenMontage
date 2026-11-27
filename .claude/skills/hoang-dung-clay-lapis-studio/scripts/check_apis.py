@@ -7,6 +7,8 @@ import os
 import requests
 from pathlib import Path
 
+from icyfox_common import CHANNEL, yt_vars
+
 
 def load_dotenv_local():
     """Máy local: đọc OpenMontage/.env (nếu có). Không ghi đè biến môi trường đã đặt sẵn. Không in giá trị."""
@@ -62,14 +64,14 @@ def openai_check():
     return f"LỖI {r.status_code}: {r.text[:140]}"
 
 
-def google_token(refresh_var="YT_REFRESH_TOKEN"):
-    need = ["YT_CLIENT_ID", "YT_CLIENT_SECRET", refresh_var]
+def google_token(refresh_var="YT_REFRESH_TOKEN", client=("YT_CLIENT_ID", "YT_CLIENT_SECRET")):
+    need = [*client, refresh_var]
     missing = [k for k in need if not os.environ.get(k)]
     if missing:
         return None, f"Chưa có biến môi trường: {', '.join(missing)}"
     r = requests.post("https://oauth2.googleapis.com/token", data={
-        "client_id": os.environ["YT_CLIENT_ID"],
-        "client_secret": os.environ["YT_CLIENT_SECRET"],
+        "client_id": os.environ[client[0]],
+        "client_secret": os.environ[client[1]],
         "refresh_token": os.environ[refresh_var],
         "grant_type": "refresh_token"}, timeout=30)
     if not r.ok:
@@ -82,8 +84,9 @@ def main():
     print("1. Gemini API:", gemini())
     print("1b. ElevenLabs:", elevenlabs())
     print("1c. OpenAI:", openai_check())
-    tok, msg = google_token()
-    print("2. YouTube OAuth:", msg)
+    cid, sec, ref = yt_vars()
+    tok, msg = google_token(ref, (cid, sec))
+    print(f"2. YouTube OAuth ({CHANNEL or 'ICYFOX'}):", msg)
     if not tok:
         return
     h = {"Authorization": f"Bearer {tok}"}

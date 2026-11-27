@@ -1,0 +1,7 @@
+# check_apis.py 27/11/2026, chế độ mặc định (ICYFOX)
+2. YouTube OAuth (ICYFOX): OK
+3. Kênh: OK – ICYFOX | sub: 2 | video: 6
+# YT_CHANNEL=US
+2. YouTube OAuth (US): Chưa có biến môi trường: YT_US_CLIENT_ID, YT_US_CLIENT_SECRET, YT_US_REFRESH_TOKEN
+# pytest -k yt_channel
+1 passed, 17 deselected in 0.37s
