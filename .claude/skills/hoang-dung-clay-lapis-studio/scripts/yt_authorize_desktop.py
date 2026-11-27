@@ -5,7 +5,7 @@ Chuẩn bị:
     Tải file client OAuth (loại Desktop app) từ Google Cloud Console, đặt tên client_secret.json
 
 Chạy:
-    python yt_authorize.py client_secret.json
+    python yt_authorize_desktop.py client_secret.json
 
 Trình duyệt sẽ mở ra. Đăng nhập đúng tài khoản sở hữu kênh, chọn đúng kênh, rồi bấm cho phép.
 Kết quả lưu vào yt_token.json ngay trên máy anh. KHÔNG gửi file đó qua chat.
@@ -20,6 +20,8 @@ SCOPES = [
     "https://www.googleapis.com/auth/youtube.force-ssl",
     # Chỉ đọc số liệu Analytics để làm báo cáo tuần
     "https://www.googleapis.com/auth/yt-analytics.readonly",
+    # Doanh thu ước tính (estimatedRevenue, RPM): chỉ trả số khi kênh đã vào YPP
+    "https://www.googleapis.com/auth/yt-analytics-monetary.readonly",
     # Chỉ các file do ứng dụng này tạo trên Google Drive: nơi giao video thành phẩm
     "https://www.googleapis.com/auth/drive.file",
 ]
