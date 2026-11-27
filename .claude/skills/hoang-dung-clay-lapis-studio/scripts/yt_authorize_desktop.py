@@ -22,8 +22,8 @@ SCOPES = [
     "https://www.googleapis.com/auth/yt-analytics.readonly",
     # Doanh thu ước tính (estimatedRevenue, RPM): chỉ trả số khi kênh đã vào YPP
     "https://www.googleapis.com/auth/yt-analytics-monetary.readonly",
-    # Chỉ các file do ứng dụng này tạo trên Google Drive: nơi giao video thành phẩm
-    "https://www.googleapis.com/auth/drive.file",
+    # Không thêm drive.file: Google báo 400 "scopes that cannot be requested together" (thử thật 28/11/2026).
+    # Drive dùng refresh token riêng (GDRIVE_REFRESH_TOKEN).
 ]
 
 client_file = sys.argv[1] if len(sys.argv) > 1 else "client_secret.json"
